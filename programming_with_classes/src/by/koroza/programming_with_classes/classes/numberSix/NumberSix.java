@@ -5,7 +5,7 @@
  * Создать методы изменения времени на заданное количество часов, минут и секунд. 
  */
 
-package by.koroza.programming_with_classes.classes;
+package by.koroza.programming_with_classes.classes.numberSix;
 
 public class NumberSix {
 

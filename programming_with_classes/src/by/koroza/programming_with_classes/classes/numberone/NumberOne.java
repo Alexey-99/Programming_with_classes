@@ -4,7 +4,7 @@
  *который находит наибольшее значение из этих двух переменных. 
  */
 
-package by.koroza.programming_with_classes.classes;
+package by.koroza.programming_with_classes.classes.numberone;
 
 public class NumberOne {
 

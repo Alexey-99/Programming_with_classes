@@ -9,7 +9,7 @@
  * причем поезда с одинаковыми пунктами назначения должны быть упорядочены по времени отправления. 
  */
 
-package by.koroza.programming_with_classes.classes;
+package by.koroza.programming_with_classes.classes.numberfour;
 
 public class NumberFour {
 

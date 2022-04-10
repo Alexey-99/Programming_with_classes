@@ -10,7 +10,7 @@
  * c) список рейсов для заданного дня недели, время вылета для которых больше заданного. 
  */
 
-package by.koroza.programming_with_classes.classes;
+package by.koroza.programming_with_classes.classes.numberten;
 
 public class NumberTen {
 

@@ -6,7 +6,7 @@
  * Написать код, демонстрирующий все возможности класса. 
  */
 
-package by.koroza.programming_with_classes.classes;
+package by.koroza.programming_with_classes.classes.numberfive;
 
 public class NumberFive {
 

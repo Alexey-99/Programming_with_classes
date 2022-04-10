@@ -4,9 +4,9 @@
  * Добавьте set- и get- методы для полей экземпляра класса. 
  */
 
-package by.koroza.programming_with_classes.classes;
+package by.koroza.programming_with_classes.classes.numbertwo;
 
-public class NumberThree {
+public class NumberTwo {
 
 	public static void main(String[] args) {
 		

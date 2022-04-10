@@ -3,7 +3,7 @@
  * вычисления площади, периметра и точки пересечения медиан. 
  */
 
-package by.koroza.programming_with_classes.classes;
+package by.koroza.programming_with_classes.classes.numberseven;
 
 public class NumberSeven {
 

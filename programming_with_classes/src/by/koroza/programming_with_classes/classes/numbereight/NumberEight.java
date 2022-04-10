@@ -9,7 +9,7 @@
  *  b) список покупателей, у которых номер кредитной карточки находится в заданном интервале 
 */
 
-package by.koroza.programming_with_classes.classes;
+package by.koroza.programming_with_classes.classes.numbereight;
 
 public class NumberEight {
 

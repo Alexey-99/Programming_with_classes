@@ -10,7 +10,7 @@
  * c) список книг, выпущенных после заданного года. 
  */
 
-package by.koroza.programming_with_classes.classes;
+package by.koroza.programming_with_classes.classes.numbernine;
 
 public class NumberNine {
 
