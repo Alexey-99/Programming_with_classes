@@ -2,7 +2,7 @@
  * Слово. Методы: дополнить текст, вывести на консоль текст, заголовок текста. 
  */  
 
-package by.koroza.programming_with_classes.composition;
+package by.koroza.programming_with_classes.composition.numberone;
 
 public class NumberOne {
 

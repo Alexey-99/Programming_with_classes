@@ -2,7 +2,7 @@
  * Методы: ехать, заправляться, менять колесо, вывести на консоль марку автомобиля. 
  */  
 
-package by.koroza.programming_with_classes.composition;
+package by.koroza.programming_with_classes.composition.numbertwo;
 
 public class NumberTwo {
 

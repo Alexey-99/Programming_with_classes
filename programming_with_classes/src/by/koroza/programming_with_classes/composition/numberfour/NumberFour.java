@@ -5,7 +5,7 @@
  * Вычисление суммы по всем счетам, имеющим положительный и отрицательный балансы отдельно. 
  */
 
-package by.koroza.programming_with_classes.composition;
+package by.koroza.programming_with_classes.composition.numberfour;
 
 public class NumberFour {
 
