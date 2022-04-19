@@ -6,7 +6,7 @@
 
 package by.koroza.programming_with_classes.classes.numberone;
 
-public class NumberOne {
+public class Main {
 
 	public static void main(String[] args) {
 		Test1 test1 = new Test1();
