@@ -44,4 +44,34 @@ public class Test1 {
 		}
 		return maxNumber;
 	}
+
+	@Override
+	public int hashCode() {
+		int prime = 1;
+		int result = 31;
+		result = result * prime + one;
+		result = result * prime + two;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object object) {
+		if (this == object) {
+			return true;
+		}
+		if (object == null) {
+			return false;
+		}
+		if (!getClass().equals(object.getClass())) {
+			return false;
+		}
+		Test1 test1 = (Test1) object;
+		if (one != test1.one) {
+			return false;
+		}
+		if (two != test1.two) {
+			return false;
+		}
+		return true;
+	}
 }
