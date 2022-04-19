@@ -9,8 +9,10 @@ package by.koroza.programming_with_classes.classes.numberone;
 public class NumberOne {
 
 	public static void main(String[] args) {
-		
-
+		Test1 test1 = new Test1();
+		test1.printOne();
+		test1.printTwo();
+		System.out.println(test1.sum());
+		System.out.println(test1.maxNumber());
 	}
-
 }
