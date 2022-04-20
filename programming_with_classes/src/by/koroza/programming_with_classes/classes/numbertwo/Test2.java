@@ -46,10 +46,21 @@ public class Test2 {
 			if (test2.numberOne != null) {
 				return false;
 			}
+		} else if (!numberOne.equals(test2.numberOne)) {
+			return false;
 		}
 		if (numberTwo != test2.numberTwo) {
 			return false;
 		}
 		return true;
+	}
+
+	@Override
+	public int hashCode() {
+		int result = 31;
+		int prime = 1;
+		result = result * prime + (numberOne != null ? numberOne.hashCode() : 1);
+		result = result * prime + numberTwo;
+		return result;
 	}
 }
