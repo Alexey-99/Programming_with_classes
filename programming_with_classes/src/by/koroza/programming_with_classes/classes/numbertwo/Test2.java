@@ -1,24 +1,24 @@
 package by.koroza.programming_with_classes.classes.numbertwo;
 
 public class Test2 {
-	private int numberOne;
+	private String numberOne;
 	private int numberTwo;
 
-	public Test2(int numberOne, int numberTwo) {
+	public Test2(String numberOne, int numberTwo) {
 		this.numberOne = numberOne;
 		this.numberTwo = numberTwo;
 	}
 
 	public Test2() {
-		this.numberOne = 0;
+		this.numberOne = "";
 		this.numberTwo = 0;
 	}
 
-	public int getNumberOne() {
+	public String getNumberOne() {
 		return numberOne;
 	}
 
-	public void setNumberOne(int numberOne) {
+	public void setNumberOne(String numberOne) {
 		this.numberOne = numberOne;
 	}
 
@@ -28,5 +28,28 @@ public class Test2 {
 
 	public void setNumberTwo(int numberTwo) {
 		this.numberTwo = numberTwo;
+	}
+
+	@Override
+	public boolean equals(Object object) {
+		if (this == object) {
+			return true;
+		}
+		if (object == null) {
+			return false;
+		}
+		if (!getClass().equals(object.getClass())) {
+			return false;
+		}
+		Test2 test2 = (Test2) object;
+		if (numberOne == null) {
+			if (test2.numberOne != null) {
+				return false;
+			}
+		}
+		if (numberTwo != test2.numberTwo) {
+			return false;
+		}
+		return true;
 	}
 }
