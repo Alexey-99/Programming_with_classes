@@ -45,16 +45,69 @@ public class Student {
 	public int getNumberGroup() {
 		return numberGroup;
 	}
-	
+
 	public void setNumberGroup(int numberGroup) {
 		this.numberGroup = numberGroup;
 	}
-	
+
 	public int[] getAcademicPerformance() {
 		return academicPerformance;
 	}
-	
+
 	public void setAcademicPerformance(int[] academicPerformance) {
 		this.academicPerformance = academicPerformance;
+	}
+
+	@Override
+	public int hashCode() {
+		int result = 31;
+		int prime = 1;
+		result = result * prime + (lastName != null ? lastName.hashCode() : 1);
+		result = result * prime + (initials != null ? initials.hashCode() : 1);
+		result = result * prime + numberGroup;
+		result = result * prime + academicPerformance.hashCode();
+		return result;
+	}
+	
+	@Override
+	public boolean equals(Object object) {
+		if (this == object) {
+			return true;
+		}
+		if (object == null) {
+			return false;
+		}
+		if (!getClass().equals(object.getClass())) {
+			return false;
+		}
+		Student student = (Student) object;
+		if (lastName == null) {
+			if (student.lastName != null) {
+				return false;
+			}
+		} else if (!lastName.equals(student.lastName)) {
+			return false;
+		}
+		if (initials == null) {
+			if (student.initials != null) {
+				return false;
+			}
+		} else if (!initials.equals(student.initials)) {
+			return false;
+		}
+		if (numberGroup != student.numberGroup) {
+			return false;
+		}
+		if (academicPerformance != student.academicPerformance) {
+			return false;
+		}
+		return true;
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder build = new StringBuilder();
+		build.append("Last name - ").append(lastName);
+		return build.toString();
 	}
 }
