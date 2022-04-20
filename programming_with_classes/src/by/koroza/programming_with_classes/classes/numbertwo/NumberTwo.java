@@ -8,7 +8,6 @@ package by.koroza.programming_with_classes.classes.numbertwo;
 
 public class NumberTwo {
 
-	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		Test2 test1 = new Test2("sfbdfcfv", 6561);
 		test1.setNumberOne("java");
@@ -17,10 +16,9 @@ public class NumberTwo {
 		System.out.println(test1.getNumberTwo());
 
 		Test2 test2 = new Test2();
-		test1.setNumberOne("java2");
-		System.out.println(test1.getNumberOne());
-		test1.setNumberTwo(6166161);
-		System.out.println(test1.getNumberTwo());
-
+		test2.setNumberOne("java2");
+		System.out.println(test2.getNumberOne());
+		test2.setNumberTwo(6166161);
+		System.out.println(test2.getNumberTwo());
 	}
 }
