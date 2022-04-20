@@ -8,5 +8,8 @@
 package by.koroza.programming_with_classes.classes.numberthree;
 
 public class Student {
-
+	private String lastName;
+	private String initials;
+	private int numberGroup;
+	
 }
