@@ -15,9 +15,5 @@ public class NumberThree {
 				new Student("Keat", "KT", 2, 9, 9, 10, 9, 1), new Student("Laird", "LD", 1, 9, 9, 10, 9, 10),
 				new Student("Macadam", "MM", 2, 9, 9, 10, 3, 10), new Student("MacDonald", "MD", 1, 9, 9, 10, 9, 10),
 				new Student("Miller", "MR", 2, 9, 9, 5, 9, 10) };
-		
-		
-
 	}
-
 }
