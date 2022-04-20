@@ -16,5 +16,23 @@ public class NumberThree {
 				new Student("Keat", "KT", 2, 9, 9, 10, 9, 1), new Student("Laird", "LD", 1, 9, 9, 10, 9, 10),
 				new Student("Macadam", "MM", 2, 9, 9, 10, 3, 10), new Student("MacDonald", "MD", 1, 9, 9, 10, 9, 10),
 				new Student("Miller", "MR", 2, 9, 9, 5, 9, 10) };
+		print(students);
+	}
+
+	private static void print(Student[] students) {
+		for (int i = 0; i < students.length; i++) {
+			boolean flagAcademicPerformance = true;
+			for (int j = 0; j < students[i].getAcademicPerformance().length; j++) {
+				if (students[i].getAcademicPerformance()[j] < 9) {
+					flagAcademicPerformance = false;
+				}
+			}
+			if (flagAcademicPerformance == true) {
+				StringBuilder build = new StringBuilder();
+				build.append("LastName - ").append(students[i].getLastName());
+				build.append(", Number group - ").append(students[i].getNumberGroup());
+				System.out.println(build);
+			}
+		}
 	}
 }

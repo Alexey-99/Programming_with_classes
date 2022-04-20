@@ -25,4 +25,36 @@ public class Student {
 		this.academicPerformance[3] = academicPerformanceFour;
 		this.academicPerformance[4] = academicPerformanceFive;
 	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getInitials() {
+		return initials;
+	}
+
+	public void setInitials(String initials) {
+		this.initials = initials;
+	}
+
+	public int getNumberGroup() {
+		return numberGroup;
+	}
+	
+	public void setNumberGroup(int numberGroup) {
+		this.numberGroup = numberGroup;
+	}
+	
+	public int[] getAcademicPerformance() {
+		return academicPerformance;
+	}
+	
+	public void setAcademicPerformance(int[] academicPerformance) {
+		this.academicPerformance = academicPerformance;
+	}
 }
