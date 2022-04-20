@@ -8,9 +8,9 @@ package by.koroza.programming_with_classes.classes.numbertwo;
 
 public class NumberTwo {
 
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
-		
-
+		Test2 test1 = new Test2("sfbdfcfv", 6561);
+		Test2 test2 = new Test2();
 	}
-
 }
