@@ -11,12 +11,12 @@ public class Student {
 	private String lastName;
 	private String initials;
 	private int numberGroup;
-	private int[] academicPerformance;
+	private int[] academicPerformance = new int[5];
 	
-	public Student(String lastName, String initials, int numberGrou) {
+	public Student(String lastName, String initials, int numberGrou, int[] academicPerformance) {
 		this.lastName = lastName;
 		this.initials = initials;
 		this.numberGroup = numberGrou;
-		this.academicPerformance = new int[5];
+		this.academicPerformance = academicPerformance;
 	}
 }
