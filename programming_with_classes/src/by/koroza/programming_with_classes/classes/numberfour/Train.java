@@ -24,5 +24,6 @@ public class Train {
 		this.numberTrain = numberTrain;
 		this.timeDeparture = LocalTime.parse(timeDeparture, DateTimeFormatter.ofPattern("HH:mm"));
 	}
+	
 
 }

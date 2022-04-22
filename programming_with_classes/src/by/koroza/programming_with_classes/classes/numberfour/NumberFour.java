@@ -14,8 +14,7 @@ package by.koroza.programming_with_classes.classes.numberfour;
 public class NumberFour {
 
 	public static void main(String[] args) {
-		Train train = new Train("Minsk", 5, "05:20");
-		
+		Train[] trains = { new Train("Kiev", 1, "05:20"), new Train("Oslo", 2, "20:30"), new Train("Brest", 3, "15:35"),
+				new Train("Kharkov", 4, "10:30"), new Train("Kharkov", 5, "00:30") };
 	}
-
 }
