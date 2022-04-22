@@ -11,7 +11,18 @@
 
 package by.koroza.programming_with_classes.classes.numberfour;
 
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+
 public class Train {
-	
+	private String destination;
+	private int numberTrain;
+	private LocalTime timeDeparture;
+
+	public Train(String destination, int numberTrain, String timeDeparture) {
+		this.destination = destination;
+		this.numberTrain = numberTrain;
+		this.timeDeparture = LocalTime.parse(timeDeparture, DateTimeFormatter.ofPattern("HH:mm"));
+	}
 
 }
