@@ -15,7 +15,7 @@ public class NumberFour {
 
 	public static void main(String[] args) {
 		Train train = new Train("Minsk", 5, "05:20");
-
+		
 	}
 
 }
