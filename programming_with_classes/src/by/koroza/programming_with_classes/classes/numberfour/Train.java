@@ -46,6 +46,10 @@ public class Train {
 		sortTrainsByNumber(trains);
 		printTimetable(trains);
 	}
+	
+	public static void printSortingTimetableByDestination(Train[] trains) {
+		
+	}
 
 	private static Train[] sortTrainsByNumber(Train[] trains) {
 		for (int i = 0; i < trains.length; i++) {

@@ -17,7 +17,7 @@ public class NumberFour {
 	final static String SELECT_OPERATION = "Select one of the following items:";
 	final static String OPERATION_ONE = "1 - Show original timetable.";
 	final static String OPERATION_TWO = "2 - Sorting timetable by number train.";
-	final static String OPERATION_THREE = "3 - Sorting timetableby по destination";
+	final static String OPERATION_THREE = "3 - Sorting timetable by destination";
 	final static String OPERATION_FOUR = "4 - Display information about the train.";
 	final static String OPERATION_ZERO = "0 - Exit";
 
@@ -39,7 +39,7 @@ public class NumberFour {
 				Train.printSortingTimetableByNumberTrain(trains);
 				break;
 			case "3":
-				
+				Train.printSortingTimetableByDestination(trains);
 				break;
 			case "4":
 				break;
@@ -52,6 +52,7 @@ public class NumberFour {
 	}
 
 	private static String inputNumberOperation(Train[] trains) {
+		@SuppressWarnings("resource")
 		Scanner scan = new Scanner(System.in);
 		String numberOperation = "";
 		boolean flagCorrect = true;
@@ -65,10 +66,10 @@ public class NumberFour {
 			numberOperation = scan.nextLine();
 			flagCorrect = Validation.validationOnCorrectInputNumberOperaion(numberOperation);
 		} while (flagCorrect == false);
-		// scan.close();
 		return numberOperation;
 	}
 
+	@SuppressWarnings("unused")
 	private static String inputTrainNumber(Train[] trains) {
 		Scanner scan = new Scanner(System.in);
 		boolean flagCorrect;
