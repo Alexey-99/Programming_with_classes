@@ -23,20 +23,23 @@ public class NumberFour {
 
 	public static void main(String[] args) {
 		Train[] trains = { new Train("Kiev", 1, "05:20"), new Train("Oslo", 3, "20:30"), new Train("Brest", 2, "15:35"),
-				new Train("Kharkov", 4, "10:30"), new Train("Kharkov", 5, "00:30") };
+				new Train("Kharkov", 4, "10:30"), new Train("Mariupol", 5, "00:30") };
 		conclusionInformationAboutTrains(trains);
 
 	}
 
 	public static void conclusionInformationAboutTrains(Train[] trains) {
 		String numberOperation = inputNumberOperation(trains);
-		while (numberOperation != "0") {
+		while (!numberOperation.equals("0")) {
 			switch (numberOperation) {
 			case "1":
+				Train.printOriginalTimetable(trains);
 				break;
 			case "2":
+				Train.printSortingTimetableByNumberTrain(trains);
 				break;
 			case "3":
+				
 				break;
 			case "4":
 				break;
@@ -62,7 +65,7 @@ public class NumberFour {
 			numberOperation = scan.nextLine();
 			flagCorrect = Validation.validationOnCorrectInputNumberOperaion(numberOperation);
 		} while (flagCorrect == false);
-		scan.close();
+		// scan.close();
 		return numberOperation;
 	}
 

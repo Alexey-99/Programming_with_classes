@@ -1,14 +1,3 @@
-/* Создайте класс Train, содержащий поля: 
- * - название пункта назначения, +
- * - номер поезда, +
- * - время отправления. +
- * Создайте данные в массив из пяти элементов типа Train, + 
- * добавьте возможность сортировки элементов массива по номерам поездов. 
- * Добавьте возможность вывода информации о поезде, номер которого введен пользователем. 
- * Добавьте возможность сортировки массив по пункту назначения, 
- * причем поезда с одинаковыми пунктами назначения должны быть упорядочены по времени отправления. 
- */
-
 package by.koroza.programming_with_classes.classes.numberfour;
 
 import java.time.LocalTime;
@@ -49,7 +38,16 @@ public class Train {
 		this.timeDeparture = timeDeparture;
 	}
 
-	public static Train[] sortTrainsByNumber(Train[] trains) {
+	public static void printOriginalTimetable(Train[] trains) {
+		printTimetable(trains);
+	}
+
+	public static void printSortingTimetableByNumberTrain(Train[] trains) {
+		sortTrainsByNumber(trains);
+		printTimetable(trains);
+	}
+
+	private static Train[] sortTrainsByNumber(Train[] trains) {
 		for (int i = 0; i < trains.length; i++) {
 			for (int j = i; j < trains.length; j++) {
 				if (trains[i].getNumberTrain() > trains[j].getNumberTrain()) {
@@ -60,6 +58,12 @@ public class Train {
 			}
 		}
 		return trains;
+	}
+
+	private static void printTimetable(Train[] trains) {
+		for (int i = 0; i < trains.length; i++) {
+			System.out.println(trains[i].toString());
+		}
 	}
 
 	@Override
@@ -104,6 +108,9 @@ public class Train {
 	@Override
 	public String toString() {
 		StringBuilder build = new StringBuilder();
+		build.append("Destination - ").append(destination).append("\n");
+		build.append("Number train - ").append(numberTrain).append("\n");
+		build.append("Time departure - ").append(timeDeparture).append("\n");
 		return build.toString();
 	}
 }
