@@ -24,27 +24,46 @@ public class NumberFour {
 	public static void main(String[] args) {
 		Train[] trains = { new Train("Kiev", 1, "05:20"), new Train("Oslo", 3, "20:30"), new Train("Brest", 2, "15:35"),
 				new Train("Kharkov", 4, "10:30"), new Train("Kharkov", 5, "00:30") };
-
-		conclusionInformationAboutTrain(trains);
-
-	}
-
-	public static void conclusionInformationAboutTrain(Train[] trains) {
-		inputNumberOperation(trains);
-		String numberTrain = inputTrainNumber(trains);
+		conclusionInformationAboutTrains(trains);
 
 	}
 
-	private static void inputNumberOperation(Train[] trains) {
+	public static void conclusionInformationAboutTrains(Train[] trains) {
+		String numberOperation = inputNumberOperation(trains);
+		while (numberOperation != "0") {
+			switch (numberOperation) {
+			case "1":
+				break;
+			case "2":
+				break;
+			case "3":
+				break;
+			case "4":
+				break;
+			}
+			numberOperation = inputNumberOperation(trains);
+		}
+
+		// String numberTrain = inputTrainNumber(trains);
+
+	}
+
+	private static String inputNumberOperation(Train[] trains) {
 		Scanner scan = new Scanner(System.in);
-		System.out.println(SELECT_OPERATION);
-		System.out.println(OPERATION_ONE);
-		System.out.println(OPERATION_TWO);
-		System.out.println(OPERATION_THREE);
-		System.out.println(OPERATION_FOUR);
-		System.out.println(OPERATION_ZERO);
-		
-
+		String numberOperation = "";
+		boolean flagCorrect = true;
+		do {
+			System.out.println(SELECT_OPERATION);
+			System.out.println(OPERATION_ONE);
+			System.out.println(OPERATION_TWO);
+			System.out.println(OPERATION_THREE);
+			System.out.println(OPERATION_FOUR);
+			System.out.println(OPERATION_ZERO);
+			numberOperation = scan.nextLine();
+			flagCorrect = Validation.validationOnCorrectInputNumberOperaion(numberOperation);
+		} while (flagCorrect == false);
+		scan.close();
+		return numberOperation;
 	}
 
 	private static String inputTrainNumber(Train[] trains) {
