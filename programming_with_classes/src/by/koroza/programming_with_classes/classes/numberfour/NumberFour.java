@@ -14,38 +14,50 @@ package by.koroza.programming_with_classes.classes.numberfour;
 import java.util.Scanner;
 
 public class NumberFour {
+	final static String SELECT_OPERATION = "Select one of the following items:";
+	final static String OPERATION_ONE = "1 - Show original timetable.";
+	final static String OPERATION_TWO = "2 - Sorting timetable by number train.";
+	final static String OPERATION_THREE = "3 - Sorting timetableby по destination";
+	final static String OPERATION_FOUR = "4 - Display information about the train.";
+	final static String OPERATION_ZERO = "0 - Exit";
 
 	public static void main(String[] args) {
 		Train[] trains = { new Train("Kiev", 1, "05:20"), new Train("Oslo", 3, "20:30"), new Train("Brest", 2, "15:35"),
 				new Train("Kharkov", 4, "10:30"), new Train("Kharkov", 5, "00:30") };
-		sortTrainsOnNumber(trains);
 
-	}
+		conclusionInformationAboutTrain(trains);
 
-	public static Train[] sortTrainsOnNumber(Train[] trains) {
-		for (int i = 0; i < trains.length; i++) {
-			for (int j = i; j < trains.length; j++) {
-				if (trains[i].getNumberTrain() > trains[j].getNumberTrain()) {
-					Train tmp = trains[i];
-					trains[i] = trains[j];
-					trains[j] = tmp;
-				}
-			}
-		}
-		return trains;
 	}
 
 	public static void conclusionInformationAboutTrain(Train[] trains) {
-		int numberTrain = inputTrainNumber();
+		inputNumberOperation(trains);
+		String numberTrain = inputTrainNumber(trains);
+
 	}
 
-	private static void inputTrainNumber() {
+	private static void inputNumberOperation(Train[] trains) {
+		Scanner scan = new Scanner(System.in);
+		System.out.println(SELECT_OPERATION);
+		System.out.println(OPERATION_ONE);
+		System.out.println(OPERATION_TWO);
+		System.out.println(OPERATION_THREE);
+		System.out.println(OPERATION_FOUR);
+		System.out.println(OPERATION_ZERO);
+		
+
+	}
+
+	private static String inputTrainNumber(Train[] trains) {
 		Scanner scan = new Scanner(System.in);
 		boolean flagCorrect;
+		String numberTrain = "";
 		do {
 			flagCorrect = false;
-			System.out.println("");
-			int numberTrain = 
-		}while(flagCorrect == false);
+			System.out.println("Please, input interesting number train");
+			numberTrain = scan.nextLine();
+			flagCorrect = Validation.validationOnCorrectInputNumberTrain(numberTrain, trains);
+		} while (flagCorrect == false);
+		scan.close();
+		return numberTrain;
 	}
 }

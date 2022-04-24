@@ -1,0 +1,7 @@
+1) input number operation
+2) if (Show original timetable (1)){
+      console timetable without sorting
+      }
+   if (sorting ){
+   
+   }

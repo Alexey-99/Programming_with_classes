@@ -49,6 +49,19 @@ public class Train {
 		this.timeDeparture = timeDeparture;
 	}
 
+	public static Train[] sortTrainsByNumber(Train[] trains) {
+		for (int i = 0; i < trains.length; i++) {
+			for (int j = i; j < trains.length; j++) {
+				if (trains[i].getNumberTrain() > trains[j].getNumberTrain()) {
+					Train tmp = trains[i];
+					trains[i] = trains[j];
+					trains[j] = tmp;
+				}
+			}
+		}
+		return trains;
+	}
+
 	@Override
 	public int hashCode() {
 		int result = 31;
