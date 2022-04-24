@@ -11,6 +11,8 @@
 
 package by.koroza.programming_with_classes.classes.numberfour;
 
+import java.util.Scanner;
+
 public class NumberFour {
 
 	public static void main(String[] args) {
@@ -32,6 +34,18 @@ public class NumberFour {
 		}
 		return trains;
 	}
-	
-	
+
+	public static void conclusionInformationAboutTrain(Train[] trains) {
+		int numberTrain = inputTrainNumber();
+	}
+
+	private static void inputTrainNumber() {
+		Scanner scan = new Scanner(System.in);
+		boolean flagCorrect;
+		do {
+			flagCorrect = false;
+			System.out.println("");
+			int numberTrain = 
+		}while(flagCorrect == false);
+	}
 }
