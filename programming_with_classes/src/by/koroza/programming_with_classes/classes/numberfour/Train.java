@@ -43,26 +43,36 @@ public class Train {
 	}
 
 	public static void printSortingTimetableByNumberTrain(Train[] trains) {
-		sortTrainsByNumber(trains);
-		printTimetable(trains);
+		Train[] trainsClone = sortTrainsByNumber(trains);
+		printTimetable(trainsClone);
 	}
 
 	public static void printSortingTimetableByDestination(Train[] trains) {
-		trains = sortTimetableByDestination(trains);
-		printTimetable(trains);
+		Train[] trainsClone = sortTimetableByDestination(trains);
+		printTimetable(trainsClone);
+	}
+
+	public static void printInformationAboutSelectedTrain(Train[] trains, String numberTrain) {
+		int number = Integer.parseInt(numberTrain);
+		for (int i = 0; i < trains.length; i++) {
+			if (trains[i].numberTrain == number) {
+				System.out.println(trains[i].toString());
+			}
+		}
 	}
 
 	private static Train[] sortTrainsByNumber(Train[] trains) {
-		for (int i = 0; i < trains.length; i++) {
-			for (int j = i; j < trains.length; j++) {
-				if (trains[i].getNumberTrain() > trains[j].getNumberTrain()) {
-					Train tmp = trains[i];
-					trains[i] = trains[j];
-					trains[j] = tmp;
+		Train[] trainsClone = trains.clone();
+		for (int i = 0; i < trainsClone.length; i++) {
+			for (int j = i; j < trainsClone.length; j++) {
+				if (trainsClone[i].getNumberTrain() > trainsClone[j].getNumberTrain()) {
+					Train tmp = trainsClone[i];
+					trainsClone[i] = trainsClone[j];
+					trainsClone[j] = tmp;
 				}
 			}
 		}
-		return trains;
+		return trainsClone;
 	}
 
 	private static void printTimetable(Train[] trains) {
@@ -72,26 +82,26 @@ public class Train {
 	}
 
 	private static Train[] sortTimetableByDestination(Train[] trains) {
-		Train[] sortedTrainArray = trains.clone();
+		Train[] trainsClone = trains.clone();
 		int compare = 0;
 		Train trainByffer;
-		for (int i = 0; i < sortedTrainArray.length; i++) {
+		for (int i = 0; i < trainsClone.length; i++) {
 			for (int j = 0; j <= i; j++) {
-				compare = sortedTrainArray[i].getDestination().compareTo(sortedTrainArray[j].getDestination());
+				compare = trainsClone[i].destination.compareTo(trainsClone[j].destination);
 				if (compare < 0) {
-					trainByffer = sortedTrainArray[i];
-					sortedTrainArray[i] = sortedTrainArray[j];
-					sortedTrainArray[j] = trainByffer;
+					trainByffer = trainsClone[i];
+					trainsClone[i] = trainsClone[j];
+					trainsClone[j] = trainByffer;
 				} else if (compare == 0) {
-					if (sortedTrainArray[i].getTimeDeparture().isBefore(sortedTrainArray[j].getTimeDeparture())) {
-						trainByffer = sortedTrainArray[i];
-						sortedTrainArray[i] = sortedTrainArray[j];
-						sortedTrainArray[j] = trainByffer;
+					if (trainsClone[i].timeDeparture.isBefore(trainsClone[j].timeDeparture)) {
+						trainByffer = trainsClone[i];
+						trainsClone[i] = trainsClone[j];
+						trainsClone[j] = trainByffer;
 					}
 				}
 			}
 		}
-		return sortedTrainArray;
+		return trainsClone;
 	}
 
 	@Override
