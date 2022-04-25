@@ -1,7 +1,26 @@
-1) input number operation
-2) if (Show original timetable (1)){
-      console timetable without sorting
-      }
-   if (sorting ){
-   
+1) input number operation <----------------------------------------
+2) if (Show original timetable (1)){ +                            |
+      print timetable without sorting                             |
+      }                                                           |
+   if (sorting timetable by number train (2)){ +                  |
+      - sorting timetable by number train                         |
+      - print timetable with sorting                              |
+   }                                                              |
+   if (sorting timetable by destination){                         |
+      - sorting timetable by destination                          |
+      - print timetable with sorting                              |
+   }                                                              |
+   if (output information about selected train (4)){              |
+       - input Train number interest                              |
+       - print information about selected train                   |
+   }                                                              |
+                                                                  |
+3) Do you want to continue?                                       |
+   1 - Yes                                                        |
+   2 - No                                                         |
+   if (1){                                                        |
+   ----------------------------------------------------------------
+   }
+   if (0){
+   exit
    }
