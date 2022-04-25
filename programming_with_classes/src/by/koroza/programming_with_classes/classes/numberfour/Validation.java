@@ -31,7 +31,7 @@ public class Validation {
 	}
 
 	public static boolean validationAnswerOneOrZero(String answer) {
-		Pattern p = Pattern.compile("[0|1]");
+		Pattern p = Pattern.compile(REG_EXR_ENTERED_ANSWER_NUMBER_INCORRACTLY);
 		Matcher m = p.matcher(answer);
 		boolean isCorrectAnswer = m.matches();
 		if (isCorrectAnswer == false) {
