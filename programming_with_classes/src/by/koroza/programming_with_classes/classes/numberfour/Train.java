@@ -46,9 +46,10 @@ public class Train {
 		sortTrainsByNumber(trains);
 		printTimetable(trains);
 	}
-	
+
 	public static void printSortingTimetableByDestination(Train[] trains) {
-		
+		trains = sortTimetableByDestination(trains);
+		printTimetable(trains);
 	}
 
 	private static Train[] sortTrainsByNumber(Train[] trains) {
@@ -68,6 +69,29 @@ public class Train {
 		for (int i = 0; i < trains.length; i++) {
 			System.out.println(trains[i].toString());
 		}
+	}
+
+	private static Train[] sortTimetableByDestination(Train[] trains) {
+		Train[] sortedTrainArray = trains.clone();
+		int compare = 0;
+		Train trainByffer;
+		for (int i = 0; i < sortedTrainArray.length; i++) {
+			for (int j = 0; j <= i; j++) {
+				compare = sortedTrainArray[i].getDestination().compareTo(sortedTrainArray[j].getDestination());
+				if (compare < 0) {
+					trainByffer = sortedTrainArray[i];
+					sortedTrainArray[i] = sortedTrainArray[j];
+					sortedTrainArray[j] = trainByffer;
+				} else if (compare == 0) {
+					if (sortedTrainArray[i].getTimeDeparture().isBefore(sortedTrainArray[j].getTimeDeparture())) {
+						trainByffer = sortedTrainArray[i];
+						sortedTrainArray[i] = sortedTrainArray[j];
+						sortedTrainArray[j] = trainByffer;
+					}
+				}
+			}
+		}
+		return sortedTrainArray;
 	}
 
 	@Override

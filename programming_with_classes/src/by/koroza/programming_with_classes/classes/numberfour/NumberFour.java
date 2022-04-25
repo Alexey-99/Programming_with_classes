@@ -69,7 +69,6 @@ public class NumberFour {
 		return numberOperation;
 	}
 
-	@SuppressWarnings("unused")
 	private static String inputTrainNumber(Train[] trains) {
 		Scanner scan = new Scanner(System.in);
 		boolean flagCorrect;
