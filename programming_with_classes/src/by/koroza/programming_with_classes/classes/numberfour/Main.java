@@ -23,6 +23,8 @@ public class Main {
 	final static String INPUT_NUMBER_TRAIN = "Please, input interesting number train";
 	final static String INFOMATION_ONE_MORE_TRAIN = "Do you want to know information about one nore train? Input, please, Yes - 1 or No - 0";
 	final static String SELECT_NEW_OPERATION = "Do you want to select new operation? Input, please, Yes - 1 or No - 0.";
+	final static String ANSWER_YES = "1";
+	final static String OPERATION_EXIT = "0";
 
 	public static void main(String[] args) {
 		Train[] trains = { new Train("Kiev", 1, "05:20"), new Train("Oslo", 3, "20:30"), new Train("Brest", 2, "15:35"),
@@ -32,7 +34,7 @@ public class Main {
 
 	public static void conclusionInformationAboutTrains(Train[] trains) {
 		String numberOperation = inputNumberOperation(trains);
-		while (!numberOperation.equals("0")) {
+		while (!numberOperation.equals(OPERATION_EXIT)) {
 			switch (numberOperation) {
 			case "1":
 				Train.printOriginalTimetable(trains);
@@ -50,11 +52,11 @@ public class Main {
 					String numberTrain = inputTrainNumber(trains);
 					Train.printInformationAboutSelectedTrain(trains, numberTrain);
 					answerContinueOperation = inputWantKnowInformationAboutOneMoreTrain(trains);
-				} while (answerContinueOperation.equals("1"));
+				} while (answerContinueOperation.equals(ANSWER_YES));
 				break;
 			}
 			String answerNewOperation = inputWantContinue();
-			if (answerNewOperation.equals("1")) {
+			if (answerNewOperation.equals(ANSWER_YES)) {
 				numberOperation = inputNumberOperation(trains);
 			} else {
 				numberOperation = answerNewOperation;
