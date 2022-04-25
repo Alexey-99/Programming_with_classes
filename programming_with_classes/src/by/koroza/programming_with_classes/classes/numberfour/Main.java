@@ -13,7 +13,7 @@ package by.koroza.programming_with_classes.classes.numberfour;
 
 import java.util.Scanner;
 
-public class NumberFour {
+public class Main {
 	final static String SELECT_OPERATION = "Select one of the following items:";
 	final static String OPERATION_ONE = "1 - Show original timetable.";
 	final static String OPERATION_TWO = "2 - Sorting timetable by number train.";
