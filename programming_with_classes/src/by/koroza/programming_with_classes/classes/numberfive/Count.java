@@ -30,7 +30,7 @@ public class Count {
 	}
 
 	public int getMaxValue() {
-		return maxValue;
+		return maxValue; 
 	}
 
 	public void setMaxValue(int maxValue) {
