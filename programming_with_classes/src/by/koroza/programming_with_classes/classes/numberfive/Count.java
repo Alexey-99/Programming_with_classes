@@ -11,6 +11,12 @@ public class Count {
 		this.maxValue = 10;
 	}
 
+	public Count(int value, int minValue, int maxValue) {
+		this.value = value;
+		this.minValue = minValue;
+		this.maxValue = maxValue;
+	}
+
 	public Count(int value) {
 		this.value = value;
 	}
@@ -76,6 +82,10 @@ public class Count {
 	@Override
 	public String toString() {
 		StringBuilder build = new StringBuilder();
+		build.append("Start value - ").append(value);
+		build.append("Minimum value - ").append(minValue);
+		build.append("Maximum value - ").append(maxValue);
+
 		return build.toString();
 	}
 }
