@@ -6,7 +6,7 @@ public class Count {
 	private int maxValue;
 
 	public Count() {
-		this.value = 0;
+		this.value = 0; 
 	}
 
 	public Count(int value) {
