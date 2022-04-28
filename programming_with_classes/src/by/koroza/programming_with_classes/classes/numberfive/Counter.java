@@ -99,14 +99,14 @@ public class Counter {
 		if (!getClass().equals(object.getClass())) {
 			return false;
 		}
-		Counter count = (Counter) object;
-		if (value != count.value) {
+		Counter counter = (Counter) object;
+		if (value != counter.value) {
 			return false;
 		}
-		if (minValue != count.minValue) {
+		if (minValue != counter.minValue) {
 			return false;
 		}
-		if (maxValue != count.maxValue) {
+		if (maxValue != counter.maxValue) {
 			return false;
 		}
 		return true;
