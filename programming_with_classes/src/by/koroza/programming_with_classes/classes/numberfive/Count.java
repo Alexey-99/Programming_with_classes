@@ -7,7 +7,8 @@ public class Count {
 
 	public Count() {
 		this.value = 0;
-
+		this.minValue = -10;
+		this.maxValue = 10;
 	}
 
 	public Count(int value) {
@@ -48,6 +49,7 @@ public class Count {
 		return result;
 	}
 
+	@Override
 	public boolean equals(Object object) {
 		if (this == object) {
 			return true;
@@ -58,6 +60,22 @@ public class Count {
 		if (!getClass().equals(object.getClass())) {
 			return false;
 		}
+		Count count = (Count) object;
+		if (value != count.value) {
+			return false;
+		}
+		if (minValue != count.minValue) {
+			return false;
+		}
+		if (maxValue != count.maxValue) {
+			return false;
+		}
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder build = new StringBuilder();
+		return build.toString();
 	}
 }
