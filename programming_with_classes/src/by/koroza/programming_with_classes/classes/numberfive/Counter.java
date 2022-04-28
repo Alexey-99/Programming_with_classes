@@ -1,24 +1,20 @@
 package by.koroza.programming_with_classes.classes.numberfive;
 
-public class Count {
+public class Counter {
 	private int value;
 	private int minValue;
 	private int maxValue;
 
-	public Count() {
+	public Counter() {
 		this.value = 0;
 		this.minValue = -10;
 		this.maxValue = 10;
 	}
 
-	public Count(int value, int minValue, int maxValue) {
+	public Counter(int value, int minValue, int maxValue) {
 		this.value = value;
 		this.minValue = minValue;
 		this.maxValue = maxValue;
-	}
-
-	public Count(int value) {
-		this.value = value;
 	}
 
 	public int getValue() {
@@ -66,7 +62,7 @@ public class Count {
 		if (!getClass().equals(object.getClass())) {
 			return false;
 		}
-		Count count = (Count) object;
+		Counter count = (Counter) object;
 		if (value != count.value) {
 			return false;
 		}
