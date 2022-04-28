@@ -40,6 +40,8 @@ public class Counter {
 	public void setMaxValue(int maxValue) {
 		this.maxValue = maxValue;
 	}
+	
+	
 
 	@Override
 	public int hashCode() {
