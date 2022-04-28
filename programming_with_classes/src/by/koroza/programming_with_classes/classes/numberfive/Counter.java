@@ -46,7 +46,7 @@ public class Counter {
 		this.minValue = minValue;
 	}
 
-	public int getMaxValue() {
+	public int getMaxValue() { 
 		return maxValue;
 	}
 
