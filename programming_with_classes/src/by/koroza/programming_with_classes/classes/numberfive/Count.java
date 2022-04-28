@@ -6,7 +6,8 @@ public class Count {
 	private int maxValue;
 
 	public Count() {
-		this.value = 0; 
+		this.value = 0;
+
 	}
 
 	public Count(int value) {
@@ -30,7 +31,7 @@ public class Count {
 	}
 
 	public int getMaxValue() {
-		return maxValue; 
+		return maxValue;
 	}
 
 	public void setMaxValue(int maxValue) {
@@ -48,7 +49,15 @@ public class Count {
 	}
 
 	public boolean equals(Object object) {
-		
+		if (this == object) {
+			return true;
+		}
+		if (object == null) {
+			return false;
+		}
+		if (!getClass().equals(object.getClass())) {
+			return false;
+		}
 		return true;
 	}
 }

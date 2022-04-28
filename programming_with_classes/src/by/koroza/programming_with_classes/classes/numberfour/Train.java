@@ -125,7 +125,6 @@ public class Train {
 		if (!getClass().equals(object.getClass())) {
 			return false;
 		}
-
 		Train train = (Train) object;
 		if (destination == null) {
 			if (train.destination != null) {
