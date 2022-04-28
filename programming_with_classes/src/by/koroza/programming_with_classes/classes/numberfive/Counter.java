@@ -4,6 +4,9 @@ public class Counter {
 	private int value;
 	private int minValue;
 	private int maxValue;
+	final static String EXCEPTION_MAXVALUE_LESS_MINVALUE = "The range is incorrect! The maximum limit is less than the minimum!";
+	final static String EXCEPTION_VALUE_LESS_MINVALUE = "The range is incorrect! The minimum limit is greater than the initial number!";
+	final static String EXCEPTION_VALUE_MORE_MAXVALUE = "The range is incorrect! The maximum limit is less than the initial number!";
 
 	public Counter() {
 		this.value = 0;
@@ -11,10 +14,18 @@ public class Counter {
 		this.maxValue = 10;
 	}
 
-	public Counter(int value, int minValue, int maxValue) {
+	public Counter(int value, int minValue, int maxValue) throws Exception {
 		this.value = value;
 		this.minValue = minValue;
 		this.maxValue = maxValue;
+
+		if (maxValue < minValue) {
+			throw new Exception(EXCEPTION_MAXVALUE_LESS_MINVALUE);
+		} else if (value < minValue) {
+			throw new Exception(EXCEPTION_VALUE_LESS_MINVALUE);
+		} else if (value > maxValue) {
+			throw new Exception(EXCEPTION_VALUE_MORE_MAXVALUE);
+		}
 	}
 
 	public int getValue() {
@@ -40,8 +51,6 @@ public class Counter {
 	public void setMaxValue(int maxValue) {
 		this.maxValue = maxValue;
 	}
-	
-	
 
 	@Override
 	public int hashCode() {
@@ -50,6 +59,12 @@ public class Counter {
 		result = result * prime + value;
 		result = result * prime + minValue;
 		result = result * prime + maxValue;
+		result = result * prime
+				+ (EXCEPTION_MAXVALUE_LESS_MINVALUE != null ? EXCEPTION_MAXVALUE_LESS_MINVALUE.hashCode() : 1);
+		result = result * prime
+				+ (EXCEPTION_VALUE_LESS_MINVALUE != null ? EXCEPTION_VALUE_LESS_MINVALUE.hashCode() : 1);
+		result = result * prime
+				+ (EXCEPTION_VALUE_MORE_MAXVALUE != null ? EXCEPTION_VALUE_MORE_MAXVALUE.hashCode() : 1);
 		return result;
 	}
 
@@ -83,7 +98,6 @@ public class Counter {
 		build.append("Start value - ").append(value);
 		build.append("Minimum value - ").append(minValue);
 		build.append("Maximum value - ").append(maxValue);
-
 		return build.toString();
 	}
 }

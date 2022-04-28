@@ -14,7 +14,6 @@ public class Counter {
 	private int max;
 
 	public Counter() {
-
 		this.number = 0;
 		this.min = -10;
 		this.max = 10;

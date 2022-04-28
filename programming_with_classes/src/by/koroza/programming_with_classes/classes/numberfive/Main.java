@@ -10,10 +10,9 @@ package by.koroza.programming_with_classes.classes.numberfive;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		Counter counter1 = new Counter();
-		
-		
-		Counter counter2 = new Counter(50, 40, 60);
+
+		Counter counter2 = new Counter(50, 60, 40);
 	}
 }
