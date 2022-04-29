@@ -55,7 +55,7 @@ public class Counter {
 	}
 
 	public void increaseNumber() {
-		if (value < maxValue) {
+		if (value <= maxValue) {
 			value++;
 		} else {
 			System.out.println(IF_VALUE_MORE_UPPER_LIMIT);
@@ -63,7 +63,7 @@ public class Counter {
 	}
 
 	public void reduceNumber() {
-		if (value > minValue) {
+		if (value >= minValue) {
 			value--;
 		} else {
 			System.out.println(IF_VALUE_LESS_LOWER_LIMIT);
