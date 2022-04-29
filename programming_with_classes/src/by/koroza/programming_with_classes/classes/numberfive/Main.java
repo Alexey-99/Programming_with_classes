@@ -27,6 +27,8 @@ public class Main {
 	}
 
 	public static void playCount(Counter counter) {
+		System.out.printf("Значения счётчика по умолчанию: number = %d, min = %d, max = %d\n", counter.getValue(),
+				counter.getMinValue(), counter.getMaxValue());
 		counterIncreases(counter);
 		counterDecreases(counter);
 	}
@@ -35,12 +37,19 @@ public class Main {
 		System.out.println(COUNTERER_INCREASES);
 		for (int i = counter.getValue(); i <= counter.getMaxValue(); i++) {
 			System.out.println(counter.getValue());
-			counter.increaseNumber();
+			if (i < counter.getMaxValue()) {
+				counter.increaseNumber();
+			}
 		}
 	}
 
 	private static void counterDecreases(Counter counter) {
 		System.out.println(COUNTERER_DECREASES);
-		
+		for (int i = counter.getValue(); i >= counter.getMinValue(); i--) {
+			System.out.println(counter.getValue());
+			if (i > counter.getMinValue()) {
+				counter.reduceNumber();
+			}
+		}
 	}
 }

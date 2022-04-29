@@ -64,7 +64,7 @@ public class Counter {
 
 	public void reduceNumber() {
 		if (value >= minValue) {
-			value--;
+		value--;
 		} else {
 			System.out.println(IF_VALUE_LESS_LOWER_LIMIT);
 		}
