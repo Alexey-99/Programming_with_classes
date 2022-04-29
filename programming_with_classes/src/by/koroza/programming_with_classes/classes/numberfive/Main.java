@@ -11,8 +11,9 @@ package by.koroza.programming_with_classes.classes.numberfive;
 public class Main {
 	final static String COUNTER_WITHOUT_CONSTRUCTER = "Counter without constructer";
 	final static String COUNTER_WITH_CONSTRUCTER = "Counter with constructer";
-	final static String COUNTERER_INCREASES = "The counter increases";
-	final static String COUNTERER_DECREASES = "The counter decreases";
+	final static String COUNTER_INCREASES = "The counter increases";
+	final static String COUNTER_DECREASES = "The counter decreases";
+	final static String COUNTER_DEFAULT_VALUES = "Counter default values: ";
 
 	public static void main(String[] args) throws Exception {
 		System.out.println(COUNTER_WITHOUT_CONSTRUCTER);
@@ -27,14 +28,14 @@ public class Main {
 	}
 
 	public static void playCount(Counter counter) {
-		System.out.printf("Значения счётчика по умолчанию: number = %d, min = %d, max = %d\n", counter.getValue(),
-				counter.getMinValue(), counter.getMaxValue());
+		System.out.printf(COUNTER_DEFAULT_VALUES + "value = %d, minimum value = %d, maximum value = %d\n",
+				counter.getValue(), counter.getMinValue(), counter.getMaxValue());
 		counterIncreases(counter);
 		counterDecreases(counter);
 	}
 
 	private static void counterIncreases(Counter counter) {
-		System.out.println(COUNTERER_INCREASES);
+		System.out.println(COUNTER_INCREASES);
 		for (int i = counter.getValue(); i <= counter.getMaxValue(); i++) {
 			System.out.println(counter.getValue());
 			if (i < counter.getMaxValue()) {
@@ -44,7 +45,7 @@ public class Main {
 	}
 
 	private static void counterDecreases(Counter counter) {
-		System.out.println(COUNTERER_DECREASES);
+		System.out.println(COUNTER_DECREASES);
 		for (int i = counter.getValue(); i >= counter.getMinValue(); i--) {
 			System.out.println(counter.getValue());
 			if (i > counter.getMinValue()) {
