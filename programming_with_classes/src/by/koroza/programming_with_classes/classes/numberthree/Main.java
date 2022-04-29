@@ -7,7 +7,7 @@
 
 package by.koroza.programming_with_classes.classes.numberthree;
 
-public class NumberThree {
+public class Main {
 
 	public static void main(String[] args) {
 		Student[] students = { new Student("Koroza", "AM", 1, 9, 9, 10, 9, 10),

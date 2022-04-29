@@ -7,7 +7,7 @@
 
 package by.koroza.programming_with_classes.classes.numbersix;
 
-public class NumberSix {
+public class Main {
 
 	public static void main(String[] args) {
 		
