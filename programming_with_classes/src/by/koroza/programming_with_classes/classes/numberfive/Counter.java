@@ -7,8 +7,8 @@ public class Counter {
 	final static String EXCEPTION_MAXVALUE_LESS_MINVALUE = "The range is incorrect! The maximum limit is less than the minimum!";
 	final static String EXCEPTION_VALUE_LESS_MINVALUE = "The range is incorrect! The minimum limit is greater than the initial number!";
 	final static String EXCEPTION_VALUE_MORE_MAXVALUE = "The range is incorrect! The maximum limit is less than the initial number!";
-	final static String VALUE_MORE_UPPER_LIMIT = "The given number is greater than the upper limit";
-	final static String VALUE_LESS_LOWER_LIMIT = "The specified number is less than the lower limit";
+	final static String IF_VALUE_MORE_UPPER_LIMIT = "The given number is greater than the upper limit";
+	final static String IF_VALUE_LESS_LOWER_LIMIT = "The specified number is less than the lower limit";
 
 	public Counter() {
 		this.value = 0;
@@ -58,7 +58,7 @@ public class Counter {
 		if (value < maxValue) {
 			value++;
 		} else {
-			System.out.println(VALUE_MORE_UPPER_LIMIT);
+			System.out.println(IF_VALUE_MORE_UPPER_LIMIT);
 		}
 	}
 
@@ -66,7 +66,7 @@ public class Counter {
 		if (value > minValue) {
 			value--;
 		} else {
-			System.out.println(VALUE_LESS_LOWER_LIMIT);
+			System.out.println(IF_VALUE_LESS_LOWER_LIMIT);
 		}
 	}
 
@@ -83,8 +83,8 @@ public class Counter {
 				+ (EXCEPTION_VALUE_LESS_MINVALUE != null ? EXCEPTION_VALUE_LESS_MINVALUE.hashCode() : 1);
 		result = result * prime
 				+ (EXCEPTION_VALUE_MORE_MAXVALUE != null ? EXCEPTION_VALUE_MORE_MAXVALUE.hashCode() : 1);
-		result = result * prime + (VALUE_MORE_UPPER_LIMIT != null ? VALUE_MORE_UPPER_LIMIT.hashCode() : 1);
-		result = result * prime + (VALUE_LESS_LOWER_LIMIT != null ? VALUE_LESS_LOWER_LIMIT.hashCode() : 1);
+		result = result * prime + (IF_VALUE_MORE_UPPER_LIMIT != null ? IF_VALUE_MORE_UPPER_LIMIT.hashCode() : 1);
+		result = result * prime + (IF_VALUE_LESS_LOWER_LIMIT != null ? IF_VALUE_LESS_LOWER_LIMIT.hashCode() : 1);
 		return result;
 	}
 

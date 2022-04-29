@@ -12,7 +12,13 @@ public class Main {
 
 	public static void main(String[] args) throws Exception {
 		Counter counter1 = new Counter();
+		playCount(counter1);
 
 		Counter counter2 = new Counter(50, 60, 40);
+		playCount(counter2);
+	}
+
+	public static void playCount(Counter counter) {
+
 	}
 }
