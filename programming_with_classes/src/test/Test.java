@@ -1,11 +1,14 @@
 package test;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 
 public class Test {
 
-	public static void main(String[] args) {
-
+	public static void main(String[] args) throws UnsupportedEncodingException {
+		// arrayCopy();
+		// creadString();
+		codingString();
 	}
 
 	@SuppressWarnings("unused")
@@ -24,5 +27,10 @@ public class Test {
 		String str1 = new String(new char[] { 'h', 'e', 'l', 'l', 'o' });
 		String str2 = new String();
 		String str3 = new String(new char[] { 'w', 'e', 'l', 'c', 'o', 'm', 'e' }, 3, 4);
+	}
+
+	private static void codingString() throws UnsupportedEncodingException {
+		String str1 = new String(new char[] { 'h', 'e', 'l', 'l', 'o' });
+		String s = new String(str1.getBytes(), "coding_name");
 	}
 }
