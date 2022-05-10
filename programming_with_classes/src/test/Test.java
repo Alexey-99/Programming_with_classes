@@ -29,6 +29,7 @@ public class Test {
 		String str3 = new String(new char[] { 'w', 'e', 'l', 'c', 'o', 'm', 'e' }, 3, 4);
 	}
 
+	@SuppressWarnings("unused")
 	private static void codingString() throws UnsupportedEncodingException {
 		String str1 = new String(new char[] { 'h', 'e', 'l', 'l', 'o' });
 		String s = new String(str1.getBytes(), "coding_name");
