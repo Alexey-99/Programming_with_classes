@@ -10,7 +10,7 @@ package by.koroza.programming_with_classes.classes.numbersix;
 public class Main {
 
 	public static void main(String[] args) {
-		Time time = new Time("22:22:22");
+		Time time = new Time("12:34:56");
 	}
 
 }
