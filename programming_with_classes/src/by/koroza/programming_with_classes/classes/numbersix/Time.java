@@ -17,11 +17,19 @@ public class Time {
 		this.time = LocalTime.parse(time, DateTimeFormatter.ofPattern("HH:mm"));
 	}
 
+	public LocalTime getTime() {
+		return time;
+	}
+
+	public void setTime(String time) {
+		this.time = LocalTime.parse(time, DateTimeFormatter.ofPattern("HH:mm"));
+	}
+
 	@Override
 	public int hashCode() {
 		int result = 31;
 		int prime = 1;
-		result = result * prime;
+		result = result * prime + (time != null ? time.hashCode() : 1);
 		return result;
 	}
 

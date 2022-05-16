@@ -34,8 +34,8 @@ public class Train {
 		return timeDeparture;
 	}
 
-	public void setTimeDeparture(LocalTime timeDeparture) {
-		this.timeDeparture = timeDeparture;
+	public void setTimeDeparture(String timeDeparture) {
+		this.timeDeparture = LocalTime.parse(timeDeparture, DateTimeFormatter.ofPattern("HH:mm"));
 	}
 
 	public static void printOriginalTimetable(Train[] trains) {
