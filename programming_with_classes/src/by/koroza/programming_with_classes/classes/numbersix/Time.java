@@ -14,7 +14,7 @@ public class Time {
 	private LocalTime time;
 
 	public Time(String time) {
-		this.time = LocalTime.parse(time, DateTimeFormatter.ofPattern("HH:mm"));
+		this.time = LocalTime.parse(time, DateTimeFormatter.ofPattern("HH:mm:ss"));
 	}
 
 	public LocalTime getTime() {
@@ -22,7 +22,7 @@ public class Time {
 	}
 
 	public void setTime(String time) {
-		this.time = LocalTime.parse(time, DateTimeFormatter.ofPattern("HH:mm"));
+		this.time = LocalTime.parse(time, DateTimeFormatter.ofPattern("HH:mm:ss"));
 	}
 
 	@Override
