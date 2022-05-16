@@ -45,7 +45,11 @@ public class Time {
 			return false;
 		}
 		Time time = (Time) object;
-		if (this.time != time.time) {
+		if (this.time == null) {
+			if (time.time != null) {
+				return false;
+			}
+		} else if (!this.time.equals(time.time)) {
 			return false;
 		}
 		return true;
