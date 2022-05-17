@@ -6,7 +6,7 @@ public class Triangle {
 	private double sideCA;
 
 	public Triangle(double sideAB, double sideBC, double sideCA) throws Exception {
-		if (Validation.validationSide(sideAB, sideBC, sideCA) == true) {
+		if (Validation.validationCorrectSides(sideAB, sideBC, sideCA) == true) {
 			this.sideAB = sideAB;
 			this.sideBC = sideBC;
 			this.sideCA = sideCA;
