@@ -10,7 +10,7 @@ public class Validation {
 		return flagCorrect;
 	}
 
-	public static boolean validationExistenceTriangleWithSides(double sideAB, double sideBC, double sideCA) {
+	private static boolean validationExistenceTriangleWithSides(double sideAB, double sideBC, double sideCA) {
 		boolean flag = false;
 		if (((sideAB + sideBC > sideCA) && (sideBC + sideCA > sideAB)) && (sideCA + sideAB > sideBC)) {
 			flag = true;
@@ -18,7 +18,7 @@ public class Validation {
 		return flag;
 	}
 
-	public static boolean validationSidesOnZero(double sideAB, double sideBC, double sideCA) {
+	private static boolean validationSidesOnZero(double sideAB, double sideBC, double sideCA) {
 		boolean flag = true;
 		if ((sideAB == 0 || sideBC == 0) || sideCA == 0) {
 			flag = false;
