@@ -1,0 +1,10 @@
+площади
+p = (a+b+c)/2
+S = корень(p*(p-a)*(p-b)*(p-c))
+
+периметра
+P = a+b+c
+
+точки пересечения медиан
+http://www.treugolniki.ru/tochka-peresecheniya-median/
+http://ru.solverbook.com/spravochnik/formuly-po-geometrii/treugolnik/tochka-peresecheniya-median-treugolnika/
