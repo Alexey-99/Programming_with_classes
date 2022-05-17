@@ -19,24 +19,36 @@ public class Triangle {
 		return sideAB;
 	}
 
-	public void setSideAB(double sideAB) {
-		this.sideAB = sideAB;
+	public void setSideAB(double sideAB) throws Exception {
+		if (Validation.validationCorrectSides(sideAB, sideBC, sideCA) == true) {
+			this.sideAB = sideAB;
+		} else {
+			throw new Exception("You entered the length of the side of the triangle incorrectly");
+		}
 	}
 
 	public double getSideBC() {
 		return sideBC;
 	}
 
-	public void setSideBC(double sideBC) {
-		this.sideBC = sideBC;
+	public void setSideBC(double sideBC) throws Exception {
+		if (Validation.validationCorrectSides(sideAB, sideBC, sideCA) == true) {
+			this.sideBC = sideBC;
+		} else {
+			throw new Exception("You entered the length of the side of the triangle incorrectly");
+		}
 	}
 
 	public double getSideCA() {
 		return sideCA;
 	}
 
-	public void setSideCA(double sideCA) {
-		this.sideCA = sideCA;
+	public void setSideCA(double sideCA) throws Exception {
+		if (Validation.validationCorrectSides(sideAB, sideBC, sideCA) == true) {
+			this.sideCA = sideCA;
+		} else {
+			throw new Exception("You entered the length of the side of the triangle incorrectly");
+		}
 	}
 
 	public double calculationArea() {
