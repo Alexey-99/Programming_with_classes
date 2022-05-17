@@ -1,51 +1,69 @@
 package by.koroza.programming_with_classes.classes.numberseven;
 
 public class Triangle {
-	private double sideA;
-	private double sideB;
-	private double sideC;
+	private double sideAB;
+	private double sideBC;
+	private double sideCA;
 
-	public Triangle(double sideA, double sideB, double sideC) throws Exception {
-		if (Validation.validationSide(sideA, sideB, sideC) == true) {
-			this.sideA = sideA;
-			this.sideB = sideB;
-			this.sideC = sideC;
+	public Triangle(double sideAB, double sideBC, double sideCA) throws Exception {
+		if (Validation.validationSide(sideAB, sideBC, sideCA) == true) {
+			this.sideAB = sideAB;
+			this.sideBC = sideBC;
+			this.sideCA = sideCA;
 		} else {
 			throw new Exception("You entered the length of the sides of the triangle incorrectly");
 		}
 	}
 
-	public double getSideA() {
-		return sideA;
+	public double getSideAB() {
+		return sideAB;
 	}
 
-	public void setSideA(double sideA) {
-		this.sideA = sideA;
+	public void setSideAB(double sideAB) {
+		this.sideAB = sideAB;
 	}
 
-	public double getSideB() {
-		return sideB;
+	public double getSideBC() {
+		return sideBC;
 	}
 
-	public void setSideB(double sideB) {
-		this.sideB = sideB;
+	public void setSideBC(double sideBC) {
+		this.sideBC = sideBC;
 	}
 
-	public double getSideC() {
-		return sideC;
+	public double getSideCA() {
+		return sideCA;
 	}
 
-	public void setSideC(double sideC) {
-		this.sideC = sideC;
+	public void setSideCA(double sideCA) {
+		this.sideCA = sideCA;
+	}
+
+	public double calculationArea() {
+		double semiPerimeter = calculationSemiPerimeter();
+		double area = Math
+				.sqrt(semiPerimeter * (semiPerimeter - sideAB) * (semiPerimeter - sideBC) * (semiPerimeter - sideCA));
+		return area;
+	}
+
+	public double calculationPerimeter() {
+		double perimeter = sideAB + sideBC + sideCA;
+		return perimeter;
+	}
+
+	private double calculationSemiPerimeter() {
+		double perimeter = calculationPerimeter();
+		double semiPerimeter = perimeter / 2;
+		return semiPerimeter;
 	}
 
 	@Override
 	public int hashCode() {
 		int result = 31;
 		int prime = 1;
-		result = result * prime + Double.hashCode(sideA);
-		result = result * prime + Double.hashCode(sideB);
-		result = result * prime + Double.hashCode(sideC);
+		result = result * prime + Double.hashCode(sideAB);
+		result = result * prime + Double.hashCode(sideBC);
+		result = result * prime + Double.hashCode(sideCA);
 		return result;
 	}
 
@@ -61,13 +79,13 @@ public class Triangle {
 			return false;
 		}
 		Triangle triangle = (Triangle) object;
-		if (sideA != triangle.sideA) {
+		if (sideAB != triangle.sideAB) {
 			return false;
 		}
-		if (sideB != triangle.sideB) {
+		if (sideBC != triangle.sideBC) {
 			return false;
 		}
-		if (sideC != triangle.sideC) {
+		if (sideCA != triangle.sideCA) {
 			return false;
 		}
 		return true;
