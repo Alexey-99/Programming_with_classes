@@ -8,45 +8,62 @@
 package by.koroza.programming_with_classes.classes.numbersix;
 
 import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 
 public class Time {
 	private LocalTime time;
 
-	public Time(String time) {
-		this.time = LocalTime.parse(time, DateTimeFormatter.ofPattern("HH:mm:ss"));
+	public Time() {
+		this.time = LocalTime.of(00, 00, 00);
+	}
+
+	public Time(int hours, int minutes, int seconds) {
+		this.time = LocalTime.of(Validation.validationHours(hours), Validation.validationMinutes(minutes),
+				Validation.validationSeconds(seconds));
 	}
 
 	public LocalTime getTime() {
 		return time;
 	}
 
-	public void setTime(String time) {
-		this.time = LocalTime.parse(time, DateTimeFormatter.ofPattern("HH:mm:ss"));
+	public void setTime(int hours, int minutes, int seconds) {
+		this.time = LocalTime.of(Validation.validationHours(hours), Validation.validationMinutes(minutes),
+				Validation.validationSeconds(seconds));
+	}
+
+	public void setHours(int hours) {
+		time = LocalTime.of(Validation.validationHours(hours), time.getMinute(), time.getSecond());
+	}
+
+	public void setMinutes(int minutes) {
+		time = LocalTime.of(time.getHour(), Validation.validationMinutes(minutes), time.getSecond());
+	}
+
+	public void setSeconds(int seconds) {
+		time = LocalTime.of(time.getHour(), time.getMinute(), Validation.validationSeconds(seconds));
 	}
 
 	public void plusHours(int hours) {
-		time.plusHours(hours);
+		time = time.plusHours(hours);
 	}
 
 	public void minusHours(int hours) {
-		time.minusHours(hours);
+		time = time.minusHours(hours);
 	}
 
 	public void plusMinutes(int minutes) {
-		time.minusMinutes(minutes);
+		time = time.plusMinutes(minutes);
 	}
 
 	public void minusMinutes(int minutes) {
-		time.minusMinutes(minutes);
+		time = time.minusMinutes(minutes);
 	}
 
 	public void plusSeconds(int seconds) {
-		time.plusSeconds(seconds);
+		time = time.plusSeconds(seconds);
 	}
 
 	public void minusSeconds(int seconds) {
-		time.minusSeconds(seconds);
+		time = time.minusSeconds(seconds);
 	}
 
 	@Override
