@@ -58,6 +58,7 @@ public class Time {
 	@Override
 	public String toString() {
 		StringBuilder build = new StringBuilder();
+		build.append("time: ").append(time);
 		return build.toString();
 	}
 }
