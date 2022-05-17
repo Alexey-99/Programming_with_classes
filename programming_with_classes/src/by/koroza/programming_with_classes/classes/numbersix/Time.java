@@ -25,6 +25,30 @@ public class Time {
 		this.time = LocalTime.parse(time, DateTimeFormatter.ofPattern("HH:mm:ss"));
 	}
 
+	public void plusHours(int hours) {
+		time.plusHours(hours);
+	}
+
+	public void minusHours(int hours) {
+		time.minusHours(hours);
+	}
+
+	public void plusMinutes(int minutes) {
+		time.minusMinutes(minutes);
+	}
+
+	public void minusMinutes(int minutes) {
+		time.minusMinutes(minutes);
+	}
+
+	public void plusSeconds(int seconds) {
+		time.plusSeconds(seconds);
+	}
+
+	public void minusSeconds(int seconds) {
+		time.minusSeconds(seconds);
+	}
+
 	@Override
 	public int hashCode() {
 		int result = 31;
