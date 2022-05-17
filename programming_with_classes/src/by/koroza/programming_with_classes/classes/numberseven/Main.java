@@ -5,10 +5,10 @@
 
 package by.koroza.programming_with_classes.classes.numberseven;
 
-public class NumberSeven {
+public class Main {
 
-	public static void main(String[] args) {
-		
+	public static void main(String[] args) throws Exception {
+		Triangle triangle = new Triangle(1, 2, 2);
 
 	}
 
