@@ -10,6 +10,14 @@ public class Validation {
 		return flagCorrect;
 	}
 
+	public static boolean validationCorrectPoints(Point a, Point b, Point c) {
+		boolean flagCorrect = false;
+		if (colculationArea(a, b, c) > 0) {
+			flagCorrect = true;
+		}
+		return flagCorrect;
+	}
+
 	private static boolean validationExistenceTriangleWithSides(double sideAB, double sideBC, double sideCA) {
 		boolean flag = false;
 		if (((sideAB + sideBC > sideCA) && (sideBC + sideCA > sideAB)) && (sideCA + sideAB > sideBC)) {
@@ -24,5 +32,11 @@ public class Validation {
 			flag = false;
 		}
 		return flag;
+	}
+
+	private static double colculationArea(Point a, Point b, Point c) {
+		double area = 0.5 * (Math
+				.abs((b.getX() - a.getX()) * (c.getY() - a.getY()) - (c.getX() - a.getX()) * (b.getY() - a.getY())));
+		return area;
 	}
 }

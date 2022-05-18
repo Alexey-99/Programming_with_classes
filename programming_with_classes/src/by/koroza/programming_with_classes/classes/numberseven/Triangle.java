@@ -4,6 +4,9 @@ public class Triangle {
 	private double sideAB;
 	private double sideBC;
 	private double sideCA;
+	private Point a;
+	private Point b;
+	private Point c;
 
 	public Triangle(double sideAB, double sideBC, double sideCA) throws Exception {
 		if (Validation.validationCorrectSides(sideAB, sideBC, sideCA) == true) {
@@ -13,6 +16,10 @@ public class Triangle {
 		} else {
 			throw new Exception("You entered the length of the sides of the triangle incorrectly");
 		}
+	}
+	
+	public Triangle(Point a, Point b, Point c) {
+		
 	}
 
 	public double getSideAB() {
