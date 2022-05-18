@@ -2,6 +2,15 @@ package by.koroza.programming_with_classes.classes.numberseven;
 
 public class Validation {
 
+	public static boolean validationCorrectSidesAndPoints(double sideAB, double sideBC, double sideCA, Point a, Point b,
+			Point c) {
+		boolean flagCorrect = validationCorrectSides(sideAB, sideBC, sideCA);
+		if (flagCorrect == true) {
+			flagCorrect = validationCorrectPoints(a, b, c);
+		}
+		return flagCorrect;
+	}
+
 	public static boolean validationCorrectSides(double sideAB, double sideBC, double sideCA) {
 		boolean flagCorrect = validationExistenceTriangleWithSides(sideAB, sideBC, sideCA);
 		if (flagCorrect == true) {

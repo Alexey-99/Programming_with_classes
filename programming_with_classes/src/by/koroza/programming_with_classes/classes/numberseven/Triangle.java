@@ -8,18 +8,38 @@ public class Triangle {
 	private Point b;
 	private Point c;
 
-	public Triangle(double sideAB, double sideBC, double sideCA) throws Exception {
+	public Triangle(double sideAB, double sideBC, double sideCAы, Point a, Point b, Point c) throws Exception {
+		if (Validation.validationCorrectSidesAndPoints(sideAB, sideBC, sideCA, a, b, c) == true) {
+			this.sideAB = sideAB;
+			this.sideBC = sideBC;
+			this.sideCA = sideCA;
+			this.a = a;
+			this.b = b;
+			this.c = c;
+		} else {
+			throw new Exception("");
+		}
+	}
+
+	public Triangle(double sideAB, double sideBC, double sideCA) throws Exception { // TODO CALCULATION POINTS
 		if (Validation.validationCorrectSides(sideAB, sideBC, sideCA) == true) {
 			this.sideAB = sideAB;
 			this.sideBC = sideBC;
 			this.sideCA = sideCA;
+			
 		} else {
 			throw new Exception("You entered the length of the sides of the triangle incorrectly");
 		}
 	}
-	
-	public Triangle(Point a, Point b, Point c) {
-		
+
+	public Triangle(Point a, Point b, Point c) throws Exception { // TODO CALCULATION SIDES http://mathhelpplanet.com/viewtopic.php?f=33&t=10392
+		if (Validation.validationCorrectPoints(a, b, c) == true) {
+			this.a = a;
+			this.b = b;
+			this.c = c;
+		} else {
+			throw new Exception("");
+		}
 	}
 
 	public double getSideAB() {
@@ -83,6 +103,9 @@ public class Triangle {
 		result = result * prime + Double.hashCode(sideAB);
 		result = result * prime + Double.hashCode(sideBC);
 		result = result * prime + Double.hashCode(sideCA);
+		result = result * prime + a.hashCode();
+		result = result * prime + b.hashCode();
+		result = result * prime + c.hashCode();
 		return result;
 	}
 
@@ -105,6 +128,27 @@ public class Triangle {
 			return false;
 		}
 		if (sideCA != triangle.sideCA) {
+			return false;
+		}
+		if (a == null) {
+			if (triangle.a != null) {
+				return false;
+			}
+		} else if (!a.equals(triangle.a)) {
+			return false;
+		}
+		if (b == null) {
+			if (triangle.b != null) {
+				return false;
+			}
+		} else if (!b.equals(triangle.b)) {
+			return false;
+		}
+		if (c == null) {
+			if (triangle.c != null) {
+				return false;
+			}
+		} else if (!c.equals(triangle.c)) {
 			return false;
 		}
 		return true;
