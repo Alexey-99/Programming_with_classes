@@ -27,6 +27,15 @@ public class Validation {
 		return flagCorrect;
 	}
 
+	public static boolean validationCorrectPoints(double pointAX, double pointAY, double pointBX, double pointBY,
+			double pointCX, double pointCY) {
+		boolean flagCorrect = false;
+		if (colculationArea(pointAX, pointAY, pointBX, pointBY, pointCX, pointCY) > 0) {
+			flagCorrect = true;
+		}
+		return flagCorrect;
+	}
+
 	private static boolean validationExistenceTriangleWithSides(double sideAB, double sideBC, double sideCA) {
 		boolean flag = false;
 		if (((sideAB + sideBC > sideCA) && (sideBC + sideCA > sideAB)) && (sideCA + sideAB > sideBC)) {
@@ -46,6 +55,13 @@ public class Validation {
 	private static double colculationArea(Point a, Point b, Point c) {
 		double area = 0.5 * (Math
 				.abs((b.getX() - a.getX()) * (c.getY() - a.getY()) - (c.getX() - a.getX()) * (b.getY() - a.getY())));
+		return area;
+	}
+
+	private static double colculationArea(double pointAX, double pointAY, double pointBX, double pointBY,
+			double pointCX, double pointCY) {
+		double area = 0.5
+				* (Math.abs((pointBX - pointAX) * (pointCY - pointAY) - (pointCX - pointAX) * (pointBY - pointAY)));
 		return area;
 	}
 }

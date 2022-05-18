@@ -9,7 +9,7 @@ public class Main {
 
 	public static void main(String[] args) throws Exception {
 		Triangle triangle = new Triangle(1, 2, 2);
-
+		triangle.setPointA(new Point(1,2));
 	}
 
 }
