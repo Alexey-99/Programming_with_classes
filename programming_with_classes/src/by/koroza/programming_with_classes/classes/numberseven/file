@@ -1,10 +1,15 @@
-площади +
+площади(area) +
 p = (a+b+c)/2
-S = корень(p*(p-a)*(p-b)*(p-c))
+S = корень'sqrt'(p*(p-a)*(p-b)*(p-c))
 
-периметра +
+периметра(perimeter) +
 P = a+b+c
 
-точки пересечения медиан
+точки пересечения медиан (median intersection points)
+ - середина отрезка(стороны треугольника)(midpoint (sides of a triangle)) - coordinates
+ x = (x1 + x2) / 2
+ y = (y1 + y2) / 2
+
+
 http://www.treugolniki.ru/tochka-peresecheniya-median/
 http://ru.solverbook.com/spravochnik/formuly-po-geometrii/treugolnik/tochka-peresecheniya-median-treugolnika/
