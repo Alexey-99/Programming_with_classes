@@ -8,7 +8,7 @@ public class Triangle {
 	private Point b;
 	private Point c;
 
-	public Triangle(double sideAB, double sideBC, double sideCAы, Point a, Point b, Point c) throws Exception {
+	public Triangle(double sideAB, double sideBC, double sideCA, Point a, Point b, Point c) throws Exception {
 		if (Validation.validationCorrectSidesAndPoints(sideAB, sideBC, sideCA, a, b, c) == true) {
 			this.sideAB = sideAB;
 			this.sideBC = sideBC;
