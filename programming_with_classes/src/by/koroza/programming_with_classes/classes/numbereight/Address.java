@@ -112,11 +112,12 @@ public class Address {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Country: ").append(country).append("\n");
-		builder.append("City: ").append(city).append("\n");
-		builder.append("Street: ").append(street).append("\n");
-		builder.append("Number house: ").append(house).append("\n");
-		builder.append("Number apartment: ").append(apartment).append("\n");
+		builder.append("");
+		builder.append("Country: ").append(country).append(", ");
+		builder.append("City: ").append(city).append(", ");
+		builder.append("Street: ").append(street).append(", ");
+		builder.append("Number house: ").append(house).append(", ");
+		builder.append("Number apartment: ").append(apartment);
 		return builder.toString();
 	}
 }

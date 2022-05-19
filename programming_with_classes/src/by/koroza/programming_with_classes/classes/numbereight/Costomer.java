@@ -157,6 +157,13 @@ public class Costomer {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
+		builder.append("ID: ").append(id).append("\n");
+		builder.append("FirstName: ").append(firstName).append("\n");
+		builder.append("LastName: ").append(lastName).append("\n");
+		builder.append("Patronymic: ").append(patronymic).append("\n");
+		builder.append("Address: ").append(address.toString()).append("\n");
+		builder.append("Credit card number: ").append(creditCardNumber).append("\n");
+		builder.append("Bank account number: ").append(bankAccountNumber).append("\n");
 		return builder.toString();
 	}
 }
