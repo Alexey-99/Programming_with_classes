@@ -15,6 +15,8 @@ public class Triangle {
 	private static final String INCORRECT_LENGTH_SIDES = "You entered the length of the sides of the triangle incorrectly";
 	private static final String INCORRECT_LENGTH_SIDE = "You entered the length of the side of the triangle incorrectly";
 	private static final String INCORRECT_COORDINATE_POINT = "You entered coordinate point of the triangle incorrectly";
+	private static final int THREE_FROM_FORMULA_CALCULATION_POINT_INTERSCTION__MEDIANS = 3;
+	private static final int TWO_FROM_FORMULA_CALCULATION_SEMI_PERIMETER = 2;
 
 	public Triangle() throws Exception {
 		double aB = 1;
@@ -232,15 +234,17 @@ public class Triangle {
 	}
 
 	public Point calculationPointIntersectionMedians() {
-		double x = (pointA.getX() + pointB.getX() + pointC.getX()) / 3;
-		double y = (pointA.getY() + pointB.getY() + pointC.getY()) / 3;
+		double x = (pointA.getX() + pointB.getX() + pointC.getX())
+				/ THREE_FROM_FORMULA_CALCULATION_POINT_INTERSCTION__MEDIANS;
+		double y = (pointA.getY() + pointB.getY() + pointC.getY())
+				/ THREE_FROM_FORMULA_CALCULATION_POINT_INTERSCTION__MEDIANS;
 		Point pointIntersectionMedians = new Point(x, y);
 		return pointIntersectionMedians;
 	}
 
 	private double calculationSemiPerimeter() {
 		double perimeter = calculationPerimeter();
-		double semiPerimeter = perimeter / 2;
+		double semiPerimeter = perimeter / TWO_FROM_FORMULA_CALCULATION_SEMI_PERIMETER;
 		return semiPerimeter;
 	}
 
@@ -278,6 +282,8 @@ public class Triangle {
 		result = result * prime + (INCORRECT_LENGTH_SIDES != null ? INCORRECT_LENGTH_SIDES.hashCode() : 1);
 		result = result * prime + (INCORRECT_LENGTH_SIDE != null ? INCORRECT_LENGTH_SIDE.hashCode() : 1);
 		result = result * prime + (INCORRECT_COORDINATE_POINT != null ? INCORRECT_COORDINATE_POINT.hashCode() : 1);
+		result = result * prime + THREE_FROM_FORMULA_CALCULATION_POINT_INTERSCTION__MEDIANS;
+		result = result * prime + TWO_FROM_FORMULA_CALCULATION_SEMI_PERIMETER;
 		return result;
 	}
 
