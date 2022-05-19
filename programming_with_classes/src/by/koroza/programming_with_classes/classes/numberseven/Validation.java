@@ -11,6 +11,15 @@ public class Validation {
 		return flagCorrect;
 	}
 
+	public static boolean validationCorrectSidesAndPoints(double sideAB, double sideBC, double sideCA, double pointAX,
+			double pointAY, double pointBX, double pointBY, double pointCX, double pointCY) {
+		boolean flagCorrect = validationCorrectSides(sideAB, sideBC, sideCA);
+		if (flagCorrect == true) {
+			flagCorrect = validationCorrectPoints(pointAX, pointAY, pointBX, pointBY, pointCX, pointCY);
+		}
+		return flagCorrect;
+	}
+
 	public static boolean validationCorrectSides(double sideAB, double sideBC, double sideCA) {
 		boolean flagCorrect = validationExistenceTriangleWithSides(sideAB, sideBC, sideCA);
 		if (flagCorrect == true) {
