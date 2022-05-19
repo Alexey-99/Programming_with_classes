@@ -112,7 +112,6 @@ public class Address {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("");
 		builder.append("Country: ").append(country).append(", ");
 		builder.append("City: ").append(city).append(", ");
 		builder.append("Street: ").append(street).append(", ");
