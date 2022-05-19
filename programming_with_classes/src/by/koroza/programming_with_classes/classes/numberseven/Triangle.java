@@ -86,7 +86,7 @@ public class Triangle {
 		}
 	}
 
-	public Triangle(Point pointA, Point pointB, Point pointC) throws Exception { // TODO
+	public Triangle(Point pointA, Point pointB, Point pointC) throws Exception {
 		double sideAB = abs(sqrt(pow((pointB.getX() - pointA.getX()), 2) + pow((pointB.getY() - pointA.getY()), 2)));
 		double sideBC = abs(sqrt(pow((pointC.getX() - pointB.getX()), 2) + pow((pointC.getY() - pointB.getY()), 2)));
 		double sideCA = abs(sqrt(pow((pointA.getX() - pointC.getX()), 2) + pow((pointA.getY() - pointC.getY()), 2)));
@@ -229,6 +229,13 @@ public class Triangle {
 	public double calculationPerimeter() {
 		double perimeter = sideAB + sideBC + sideCA;
 		return perimeter;
+	}
+
+	public Point calculationPointIntersectionMedians() {
+		double x = (pointA.getX() + pointB.getX() + pointC.getX()) / 3;
+		double y = (pointA.getY() + pointB.getY() + pointC.getY()) / 3;
+		Point pointIntersectionMedians = new Point(x, y);
+		return pointIntersectionMedians;
 	}
 
 	private double calculationSemiPerimeter() {
