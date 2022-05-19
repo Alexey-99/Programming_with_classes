@@ -2,6 +2,10 @@ package by.koroza.programming_with_classes.classes.numberseven;
 
 import static java.lang.Math.pow;
 import static java.lang.Math.sqrt;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 import static java.lang.Math.abs;
 
 public class Triangle {
@@ -15,15 +19,19 @@ public class Triangle {
 	private static final String INCORRECT_LENGTH_SIDES = "You entered the length of the sides of the triangle incorrectly";
 	private static final String INCORRECT_LENGTH_SIDE = "You entered the length of the side of the triangle incorrectly";
 	private static final String INCORRECT_COORDINATE_POINT = "You entered coordinate point of the triangle incorrectly";
-	private static final int THREE_FROM_FORMULA_CALCULATION_POINT_INTERSCTION__MEDIANS = 3;
-	private static final int TWO_FROM_FORMULA_CALCULATION_SEMI_PERIMETER = 2;
+	private static final double THREE_FROM_FORMULA_CALCULATION_POINT_INTERSCTION__MEDIANS = 3;
+	private static final double TWO_FROM_FORMULA_CALCULATION_SEMI_PERIMETER = 2;
+	private static final double TWO_FROM_FORMULA_CALCULATION_COSINE_ANGLE_FOR_THRIRD_POINT = 2;
+	private static final double ONE_FROM_FORMULA_CALCULATION_SINE_ANGLE_FOR_THRIRD_POINT = 1;
+	private static final double DEFAULT_SIDE_LENGTH_OF_TRIANGLE = 1;
+	private static final double DEFAULT_COORDINATE_POINT_OF_TRIANGLE = 0;
 
 	public Triangle() throws Exception {
-		double aB = 1;
-		double bC = 1;
-		double cA = 1;
-		Point a = new Point(0, 0);
-		Point b = new Point(0, bC);
+		double aB = DEFAULT_SIDE_LENGTH_OF_TRIANGLE;
+		double bC = DEFAULT_SIDE_LENGTH_OF_TRIANGLE;
+		double cA = DEFAULT_SIDE_LENGTH_OF_TRIANGLE;
+		Point a = new Point(DEFAULT_COORDINATE_POINT_OF_TRIANGLE, DEFAULT_COORDINATE_POINT_OF_TRIANGLE);
+		Point b = new Point(DEFAULT_COORDINATE_POINT_OF_TRIANGLE, bC);
 		Point c = findThirdPoint(aB, bC, cA, b);
 		if (Validation.validationCorrectSidesAndPoints(aB, bC, cA, a, b, c) == true) {
 			this.sideAB = aB;
@@ -225,7 +233,8 @@ public class Triangle {
 		double semiPerimeter = calculationSemiPerimeter();
 		double area = Math
 				.sqrt(semiPerimeter * (semiPerimeter - sideAB) * (semiPerimeter - sideBC) * (semiPerimeter - sideCA));
-		return area;
+		double areaRounding = roundingNumber(area);
+		return areaRounding;
 	}
 
 	public double calculationPerimeter() {
@@ -238,32 +247,47 @@ public class Triangle {
 				/ THREE_FROM_FORMULA_CALCULATION_POINT_INTERSCTION__MEDIANS;
 		double y = (pointA.getY() + pointB.getY() + pointC.getY())
 				/ THREE_FROM_FORMULA_CALCULATION_POINT_INTERSCTION__MEDIANS;
-		Point pointIntersectionMedians = new Point(x, y);
+		double xRounding = roundingNumber(x);
+		double yRounding = roundingNumber(y);
+		Point pointIntersectionMedians = new Point(xRounding, yRounding);
 		return pointIntersectionMedians;
 	}
 
 	private double calculationSemiPerimeter() {
 		double perimeter = calculationPerimeter();
 		double semiPerimeter = perimeter / TWO_FROM_FORMULA_CALCULATION_SEMI_PERIMETER;
-		return semiPerimeter;
+		double semiPerimeterRounding = roundingNumber(semiPerimeter);
+		return semiPerimeterRounding;
 	}
 
 	private Point findThirdPoint() {
-		double cosACB = (pow(sideCA, 2) + pow(sideBC, 2) - pow(sideAB, 2)) / (2 * sideCA * sideBC);
-		double sinACB = sqrt(1 - pow(cosACB, 2));
+		double cosACB = (pow(sideCA, 2) + pow(sideBC, 2) - pow(sideAB, 2))
+				/ (TWO_FROM_FORMULA_CALCULATION_COSINE_ANGLE_FOR_THRIRD_POINT * sideCA * sideBC);
+		double sinACB = sqrt(ONE_FROM_FORMULA_CALCULATION_SINE_ANGLE_FOR_THRIRD_POINT - pow(cosACB, 2));
 		double xThird = pointB.getX() + sideCA * cosACB;
 		double yThird = pointB.getY() + sideCA * sinACB;
-		Point pointC = new Point(xThird, yThird);
+		double xThirdRounding = roundingNumber(xThird);
+		double yThirdRounding = roundingNumber(yThird);
+		Point pointC = new Point(xThirdRounding, yThirdRounding);
 		return pointC;
 	}
 
 	private Point findThirdPoint(double sideAB, double sideBC, double sideCA, Point pointB) {
-		double cosACB = (pow(sideCA, 2) + pow(sideBC, 2) - pow(sideAB, 2)) / (2 * sideCA * sideBC);
-		double sinACB = sqrt(1 - pow(cosACB, 2));
+		double cosACB = (pow(sideCA, 2) + pow(sideBC, 2) - pow(sideAB, 2))
+				/ (TWO_FROM_FORMULA_CALCULATION_COSINE_ANGLE_FOR_THRIRD_POINT * sideCA * sideBC);
+		double sinACB = sqrt(ONE_FROM_FORMULA_CALCULATION_SINE_ANGLE_FOR_THRIRD_POINT - pow(cosACB, 2));
 		double xThird = pointB.getX() + sideCA * cosACB;
 		double yThird = pointB.getY() + sideCA * sinACB;
-		Point pointC = new Point(xThird, yThird);
+		double xThirdRounding = roundingNumber(xThird);
+		double yThirdRounding = roundingNumber(yThird);
+		Point pointC = new Point(xThirdRounding, yThirdRounding);
 		return pointC;
+	}
+
+	private double roundingNumber(double number) {
+		BigDecimal bigDecigmal = new BigDecimal(number);
+		double roundingNumber = bigDecigmal.setScale(3, RoundingMode.DOWN).doubleValue();
+		return roundingNumber;
 	}
 
 	@Override
@@ -282,8 +306,12 @@ public class Triangle {
 		result = result * prime + (INCORRECT_LENGTH_SIDES != null ? INCORRECT_LENGTH_SIDES.hashCode() : 1);
 		result = result * prime + (INCORRECT_LENGTH_SIDE != null ? INCORRECT_LENGTH_SIDE.hashCode() : 1);
 		result = result * prime + (INCORRECT_COORDINATE_POINT != null ? INCORRECT_COORDINATE_POINT.hashCode() : 1);
-		result = result * prime + THREE_FROM_FORMULA_CALCULATION_POINT_INTERSCTION__MEDIANS;
-		result = result * prime + TWO_FROM_FORMULA_CALCULATION_SEMI_PERIMETER;
+		result = result * prime + Double.hashCode(THREE_FROM_FORMULA_CALCULATION_POINT_INTERSCTION__MEDIANS);
+		result = result * prime + Double.hashCode(TWO_FROM_FORMULA_CALCULATION_SEMI_PERIMETER);
+		result = result * prime + Double.hashCode(TWO_FROM_FORMULA_CALCULATION_COSINE_ANGLE_FOR_THRIRD_POINT);
+		result = result * prime + Double.hashCode(ONE_FROM_FORMULA_CALCULATION_SINE_ANGLE_FOR_THRIRD_POINT);
+		result = result * prime + Double.hashCode(DEFAULT_SIDE_LENGTH_OF_TRIANGLE);
+		result = result * prime + Double.hashCode(DEFAULT_COORDINATE_POINT_OF_TRIANGLE);
 		return result;
 	}
 
@@ -335,6 +363,18 @@ public class Triangle {
 	@Override
 	public String toString() {
 		StringBuilder build = new StringBuilder();
+		build.append("SideAB - ").append(sideAB).append("\n");
+		build.append("SideBC - ").append(sideBC).append("\n");
+		build.append("SideCA - ").append(sideCA).append("\n");
+
+		build.append("Point A: ").append(pointA.toString()).append("\n");
+		build.append("Point B: ").append(pointB.toString()).append("\n");
+		build.append("Point C: ").append(pointC.toString()).append("\n");
+
+		build.append("Area triangle - ").append(calculationArea()).append("\n");
+		build.append("Perimeter triangle - ").append(calculationPerimeter()).append("\n");
+		build.append("Point intersection medians: ").append(calculationPointIntersectionMedians().toString())
+				.append("\n");
 		return build.toString();
 	}
 }

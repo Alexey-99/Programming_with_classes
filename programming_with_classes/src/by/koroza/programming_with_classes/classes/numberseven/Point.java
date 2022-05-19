@@ -58,7 +58,7 @@ public class Point {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("x - ").append(x).append(" y - ").append(y);
+		builder.append("x - ").append(x).append(", y - ").append(y);
 		return builder.toString();
 	}
 }
