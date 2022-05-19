@@ -12,7 +12,7 @@ public class Main {
 		Triangle triangle2 = new Triangle(1, 2, 2, 1, 1, 2, 2, 1, 3); // sides and coordinates(double)
 		Triangle triangle3 = new Triangle(1, 2, 2); // sides
 		Triangle triangle4 = new Triangle(new Point(1, 1), new Point(2, 2), new Point(1, 3)); // coordinates (objects)
-		Triangle triangle5 = new Triangle(new Point(1, 1), new Point(2, 2), new Point(1, 3)); // coordinates (objects)
+		Triangle triangle5 = new Triangle(1, 1, 2, 2, 1, 3); // coordinates (double)
 		triangle1.setPointA(new Point(1, 2));
 
 	}

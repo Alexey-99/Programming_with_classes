@@ -11,10 +11,29 @@ public class Triangle {
 	private Point pointA;
 	private Point pointB;
 	private Point pointC;
-	private static final String INCORRECT_LENGTH_SIDES_AND_COORDINATES_POINTS = "You entered the length of the sides or coordinates points of the triangle incorrectly";
+	private static final String INCORRECT_LENGTH_SIDES_OR_COORDINATES_POINTS = "You entered the length of the sides or coordinates points of the triangle incorrectly";
 	private static final String INCORRECT_LENGTH_SIDES = "You entered the length of the sides of the triangle incorrectly";
 	private static final String INCORRECT_LENGTH_SIDE = "You entered the length of the side of the triangle incorrectly";
 	private static final String INCORRECT_COORDINATE_POINT = "You entered coordinate point of the triangle incorrectly";
+
+	public Triangle() throws Exception {
+		double aB = 1;
+		double bC = 1;
+		double cA = 1;
+		Point a = new Point(0, 0);
+		Point b = new Point(0, bC);
+		Point c = findThirdPoint();
+		if (Validation.validationCorrectSidesAndPoints(aB, bC, cA, a, b, c) == true) {
+			this.sideAB = aB;
+			this.sideBC = bC;
+			this.sideCA = cA;
+			this.pointA = a;
+			this.pointB = b;
+			this.pointC = c;
+		} else {
+			throw new Exception(INCORRECT_LENGTH_SIDES_OR_COORDINATES_POINTS);
+		}
+	}
 
 	public Triangle(double sideAB, double sideBC, double sideCA, Point pointA, Point pointB, Point pointC)
 			throws Exception {
@@ -29,7 +48,7 @@ public class Triangle {
 			this.pointB = pointB;
 			this.pointC = pointC;
 		} else {
-			throw new Exception(INCORRECT_LENGTH_SIDES_AND_COORDINATES_POINTS);
+			throw new Exception(INCORRECT_LENGTH_SIDES_OR_COORDINATES_POINTS);
 		}
 	}
 
@@ -47,7 +66,7 @@ public class Triangle {
 			this.pointB = new Point(pointBX, pointBY);
 			this.pointC = new Point(pointCX, pointCY);
 		} else {
-			throw new Exception(INCORRECT_LENGTH_SIDES_AND_COORDINATES_POINTS);
+			throw new Exception(INCORRECT_LENGTH_SIDES_OR_COORDINATES_POINTS);
 		}
 	}
 
@@ -79,7 +98,25 @@ public class Triangle {
 			this.sideBC = sideBC;
 			this.sideCA = sideCA;
 		} else {
-			throw new Exception(INCORRECT_LENGTH_SIDES_AND_COORDINATES_POINTS);
+			throw new Exception(INCORRECT_LENGTH_SIDES_OR_COORDINATES_POINTS);
+		}
+	}
+
+	public Triangle(double pointAX, double pointAY, double pointBX, double pointBY, double pointCX, double pointCY)
+			throws Exception { // TODO
+		double sideAB = abs(sqrt(pow((pointB.getX() - pointA.getX()), 2) + pow((pointB.getY() - pointA.getY()), 2)));
+		double sideBC = abs(sqrt(pow((pointC.getX() - pointB.getX()), 2) + pow((pointC.getY() - pointB.getY()), 2)));
+		double sideCA = abs(sqrt(pow((pointA.getX() - pointC.getX()), 2) + pow((pointA.getY() - pointC.getY()), 2)));
+		if (Validation.validationCorrectSidesAndPoints(sideAB, sideBC, sideCA, pointAX, pointAY, pointBX, pointBY,
+				pointCX, pointCY) == true) {
+			this.pointA = new Point(pointAX, pointAY);
+			this.pointB = new Point(pointBX, pointBY);
+			this.pointC = new Point(pointCX, pointCY);
+			this.sideAB = sideAB;
+			this.sideBC = sideBC;
+			this.sideCA = sideCA;
+		} else {
+			throw new Exception(INCORRECT_LENGTH_SIDES_OR_COORDINATES_POINTS);
 		}
 	}
 
@@ -192,8 +229,8 @@ public class Triangle {
 		result = result * prime + pointA.hashCode();
 		result = result * prime + pointB.hashCode();
 		result = result * prime + pointC.hashCode();
-		result = result * prime + (INCORRECT_LENGTH_SIDES_AND_COORDINATES_POINTS != null
-				? INCORRECT_LENGTH_SIDES_AND_COORDINATES_POINTS.hashCode()
+		result = result * prime + (INCORRECT_LENGTH_SIDES_OR_COORDINATES_POINTS != null
+				? INCORRECT_LENGTH_SIDES_OR_COORDINATES_POINTS.hashCode()
 				: 1);
 		result = result * prime + (INCORRECT_LENGTH_SIDES != null ? INCORRECT_LENGTH_SIDES.hashCode() : 1);
 		result = result * prime + (INCORRECT_LENGTH_SIDE != null ? INCORRECT_LENGTH_SIDE.hashCode() : 1);
