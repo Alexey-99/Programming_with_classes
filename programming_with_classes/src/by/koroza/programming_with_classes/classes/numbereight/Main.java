@@ -11,7 +11,7 @@
 
 package by.koroza.programming_with_classes.classes.numbereight;
 
-public class NumberEight {
+public class Main {
 
 	public static void main(String[] args) {
 		
