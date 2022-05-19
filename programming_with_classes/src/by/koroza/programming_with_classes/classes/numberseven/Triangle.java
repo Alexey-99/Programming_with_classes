@@ -22,7 +22,7 @@ public class Triangle {
 		double cA = 1;
 		Point a = new Point(0, 0);
 		Point b = new Point(0, bC);
-		Point c = findThirdPoint();
+		Point c = findThirdPoint(aB, bC, cA, b);
 		if (Validation.validationCorrectSidesAndPoints(aB, bC, cA, a, b, c) == true) {
 			this.sideAB = aB;
 			this.sideBC = bC;
@@ -103,10 +103,10 @@ public class Triangle {
 	}
 
 	public Triangle(double pointAX, double pointAY, double pointBX, double pointBY, double pointCX, double pointCY)
-			throws Exception { // TODO
-		double sideAB = abs(sqrt(pow((pointB.getX() - pointA.getX()), 2) + pow((pointB.getY() - pointA.getY()), 2)));
-		double sideBC = abs(sqrt(pow((pointC.getX() - pointB.getX()), 2) + pow((pointC.getY() - pointB.getY()), 2)));
-		double sideCA = abs(sqrt(pow((pointA.getX() - pointC.getX()), 2) + pow((pointA.getY() - pointC.getY()), 2)));
+			throws Exception {
+		double sideAB = abs(sqrt(pow((pointBX - pointAX), 2) + pow((pointBY - pointAY), 2)));
+		double sideBC = abs(sqrt(pow((pointCX - pointBX), 2) + pow((pointCY - pointBY), 2)));
+		double sideCA = abs(sqrt(pow((pointAX - pointCX), 2) + pow((pointAY - pointCY), 2)));
 		if (Validation.validationCorrectSidesAndPoints(sideAB, sideBC, sideCA, pointAX, pointAY, pointBX, pointBY,
 				pointCX, pointCY) == true) {
 			this.pointA = new Point(pointAX, pointAY);
@@ -168,6 +168,15 @@ public class Triangle {
 		}
 	}
 
+	public void setPointA(double pointAX, double pointAY) throws Exception {
+		if (Validation.validationCorrectPoints(pointAX, pointAY, pointB.getX(), pointB.getY(), pointC.getX(),
+				pointC.getY()) == true) {
+			this.pointA = new Point(pointAX, pointAY);
+		} else {
+			throw new Exception(INCORRECT_COORDINATE_POINT);
+		}
+	}
+
 	public Point getPointB() {
 		return pointB;
 	}
@@ -180,6 +189,15 @@ public class Triangle {
 		}
 	}
 
+	public void setPointB(double pointBX, double pointBY) throws Exception {
+		if (Validation.validationCorrectPoints(pointA.getX(), pointA.getY(), pointBX, pointBY, pointC.getX(),
+				pointC.getY()) == true) {
+			this.pointB = new Point(pointBX, pointBY);
+		} else {
+			throw new Exception(INCORRECT_COORDINATE_POINT);
+		}
+	}
+
 	public Point getPointC() {
 		return pointC;
 	}
@@ -187,6 +205,15 @@ public class Triangle {
 	public void setPointC(Point pointC) throws Exception {
 		if (Validation.validationCorrectPoints(pointA, pointB, pointC) == true) {
 			this.pointC = pointC;
+		} else {
+			throw new Exception(INCORRECT_COORDINATE_POINT);
+		}
+	}
+
+	public void setPointC(double pointCX, double pointCY) throws Exception {
+		if (Validation.validationCorrectPoints(pointA.getX(), pointA.getY(), pointB.getX(), pointB.getY(), pointCX,
+				pointCY) == true) {
+			this.pointC = new Point(pointCX, pointCY);
 		} else {
 			throw new Exception(INCORRECT_COORDINATE_POINT);
 		}
@@ -211,6 +238,15 @@ public class Triangle {
 	}
 
 	private Point findThirdPoint() {
+		double cosACB = (pow(sideCA, 2) + pow(sideBC, 2) - pow(sideAB, 2)) / (2 * sideCA * sideBC);
+		double sinACB = sqrt(1 - pow(cosACB, 2));
+		double xThird = pointB.getX() + sideCA * cosACB;
+		double yThird = pointB.getY() + sideCA * sinACB;
+		Point pointC = new Point(xThird, yThird);
+		return pointC;
+	}
+
+	private Point findThirdPoint(double sideAB, double sideBC, double sideCA, Point pointB) {
 		double cosACB = (pow(sideCA, 2) + pow(sideBC, 2) - pow(sideAB, 2)) / (2 * sideCA * sideBC);
 		double sinACB = sqrt(1 - pow(cosACB, 2));
 		double xThird = pointB.getX() + sideCA * cosACB;
