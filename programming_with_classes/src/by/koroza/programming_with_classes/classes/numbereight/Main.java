@@ -15,11 +15,11 @@ public class Main {
 
 	public static void main(String[] args) {
 		Costomer costomer1 = new Costomer("Alexey", "Koroza", "Mihaylovich",
-				new Address("Belurus", "Minsk", "asanalieva", 5, 138), 500, 1000);
+				new Address("Belurus", "Minsk", "asanalieva", 5, 39), 500, 1000);
 		System.out.println(costomer1.toString());
-		
-		Costomer costomer2 = new Costomer("Alexey", "Koroza", "Mihaylovich",
-				new Address("Belurus", "Minsk", "asanalieva", 5, 138), 500, 1000);
+
+		Costomer costomer2 = new Costomer("Alexey", "Koroza", new Address("Belurus", "Minsk", "asanalieva", 10, 38),
+				500, 1000);
 		System.out.println(costomer2.toString());
 	}
 
