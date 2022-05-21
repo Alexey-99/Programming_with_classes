@@ -8,7 +8,7 @@ public class CostomerAggregating {
 	}
 
 	public CostomerAggregating(Costomer[] costomers) {
-		this.costomers = costomers;
+		this.costomers = costomers; 
 	}
 
 	public Costomer[] getCostomers() {
