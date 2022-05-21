@@ -16,21 +16,21 @@ public class Main {
 	public static void main(String[] args) {
 		Costomer[] costomers = {
 				new Costomer("Djumayev", "Alexander", "Aleksandrovich",
-						new Address("Belurus", "Minsk", "Asanalieva", 5, 39), 500, 641611),
-				new Costomer("Kuznetsova", "Alexandra", new Address("Belurus", "Minsk", "Asanalieva", 5, 39), 450,
+						new Address("Austria", "Vienna", "Asanalieva", 5, 39), 500, 641611),
+				new Costomer("Kuznetsova", "Alexandra", new Address("Azerbaijan", "Baku", "Asanalieva", 5, 39), 450,
 						616687),
 				new Costomer("Chistovich", "Daniel", "Valeryevich",
-						new Address("Belurus", "Minsk", "Asanalieva", 5, 39), 600, 115156),
+						new Address("Bahrain", "Manama", "Asanalieva", 5, 39), 600, 115156),
 				new Costomer("Tatishev", "Svyatoslav", "Victorovich",
-						new Address("Belurus", "Minsk", "asanalieva", 10, 38), 300, 361631) };
+						new Address("The Bahamas", "Nassau", "Asanalieva", 10, 38), 300, 361631) };
 
 		CostomerAggregating costomerAggregating1 = new CostomerAggregating(costomers);
 		CostomerAggregating costomerAggregating2 = new CostomerAggregating();
 
 		costomerAggregating1.addCostomer(
-				new Costomer("Hasymov", "Elias", new Address("Belurus", "Minsk", "asanalieva", 5, 39), 550, 646468));
+				new Costomer("Hasymov", "Elias", new Address("Canada", "Ottawa", "Asanalieva", 5, 39), 550, 646468));
 		costomerAggregating1.addCostomer(new Costomer("Podyomny", "German", "Anatolyevich",
-				new Address("Belurus", "Minsk", "asanalieva", 5, 39), 100, 651616));
+				new Address("China", "Beijing", "Asanalieva", 5, 39), 100, 651616));
 		costomerAggregating2.addCostomers(costomers);
 
 		System.out.println("Print costomers sorting by alphabetical order: ");
