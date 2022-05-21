@@ -114,7 +114,11 @@ public class Airline {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-
+		builder.append("Destination: ").append(destination).append("\n");
+		builder.append("Flight number: ").append(flightNumber).append("\n");
+		builder.append("Aircraft type: ").append(aircraftType).append("\n");
+		builder.append("Departure time: ").append(departureTime).append("\n");
+		builder.append("Day week: ").append(dayWeek).append("\n");
 		return builder.toString();
 	}
 }
