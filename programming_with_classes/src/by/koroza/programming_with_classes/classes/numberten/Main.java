@@ -12,7 +12,7 @@
 
 package by.koroza.programming_with_classes.classes.numberten;
 
-public class NumberTen {
+public class Main {
 
 	public static void main(String[] args) {
 		
