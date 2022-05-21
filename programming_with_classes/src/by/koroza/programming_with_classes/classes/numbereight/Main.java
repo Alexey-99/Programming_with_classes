@@ -15,25 +15,28 @@ public class Main {
 
 	public static void main(String[] args) {
 		Costomer[] costomers = {
-				new Costomer("Ivanov", "Maxim", "Mihaylovich", new Address("Belurus", "Minsk", "Asanalieva", 5, 39),
-						500, 1000),
-				new Costomer("Koroza", "Alexey", "Mihaylovich", new Address("Belurus", "Minsk", "Asanalieva", 5, 39),
-						501, 2000) };
+				new Costomer("Djumayev", "Alexander", "Aleksandrovich",
+						new Address("Belurus", "Minsk", "Asanalieva", 5, 39), 500, 641611),
+				new Costomer("Kuznetsova", "Alexandra", new Address("Belurus", "Minsk", "Asanalieva", 5, 39), 450,
+						616687),
+				new Costomer("Chistovich", "Daniel", "Valeryevich",
+						new Address("Belurus", "Minsk", "Asanalieva", 5, 39), 600, 115156),
+				new Costomer("Tatishev", "Svyatoslav", "Victorovich",
+						new Address("Belurus", "Minsk", "asanalieva", 10, 38), 300, 361631) };
 
 		CostomerAggregating costomerAggregating1 = new CostomerAggregating(costomers);
 		CostomerAggregating costomerAggregating2 = new CostomerAggregating();
 
-		costomerAggregating1.addCostomer(new Costomer("Koroza", "Alexey", "Mihaylovich",
-				new Address("Belurus", "Minsk", "asanalieva", 5, 39), 500, 1000));
-		costomerAggregating1.addCostomers(costomers);
+		costomerAggregating1.addCostomer(
+				new Costomer("Hasymov", "Elias", new Address("Belurus", "Minsk", "asanalieva", 5, 39), 550, 646468));
+		costomerAggregating1.addCostomer(new Costomer("Podyomny", "German", "Anatolyevich",
+				new Address("Belurus", "Minsk", "asanalieva", 5, 39), 100, 651616));
+		costomerAggregating2.addCostomers(costomers);
 
-		Costomer costomer1 = new Costomer("Koroza", "Alexey", "Mihaylovich",
-				new Address("Belurus", "Minsk", "asanalieva", 5, 39), 500, 1000);
-		System.out.println(costomer1.toString());
-
-		Costomer costomer2 = new Costomer("Koroza", "Alexey", new Address("Belurus", "Minsk", "asanalieva", 10, 38),
-				500, 1000);
-		System.out.println(costomer2.toString());
+		System.out.println("Print costomers sorting by alphabetical order: ");
+		costomerAggregating1.printCostomersByAlphabeticalOrder();
+		System.out.println();
+		System.out.println("Print credit card number in diapason: ");
+		costomerAggregating1.printCreditCardNumberInDiapason(500, 600);
 	}
-
 }

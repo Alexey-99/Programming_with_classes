@@ -32,30 +32,76 @@ public class CostomerAggregating {
 	}
 
 	public void addCostomers(Costomer[] costomers) {
-		Costomer[] costomersNew = new Costomer[this.costomers.length + costomers.length];
-		for (int i = 0; i < costomersNew.length; i++) {
-			if (i < this.costomers.length) {
-				costomersNew[i] = this.costomers[i];
-			} else if (i >= costomers.length) {
-				costomersNew[i] = costomers[i - this.costomers.length];
+		Costomer[] costomersNew = null;
+		if (this.costomers == null) {
+			this.costomers = costomers;
+		} else {
+			costomersNew = new Costomer[this.costomers.length + costomers.length];
+			for (int i = 0; i < costomersNew.length; i++) {
+				if (i < this.costomers.length) {
+					costomersNew[i] = this.costomers[i];
+				} else if (i >= costomers.length) {
+					costomersNew[i] = costomers[i - this.costomers.length];
+				}
 			}
+			this.costomers = costomersNew;
 		}
-		this.costomers = costomersNew;
 	}
 
-	public void sortByAlphabeticalOrder() {
-		int compare;
-		Costomer buffer;
+	public void printCostomersByAlphabeticalOrder() {
+		Costomer[] costomersSort = sortByAlphabeticalOrderByName();
+		printCostomers(costomersSort);
+	}
+
+	public void printCreditCardNumberInDiapason(int min, int max) {
 		for (int i = 0; i < costomers.length; i++) {
-			for (int j = i; j < costomers.length; j++) {
-				compare = costomers[i].getLastName().compareTo(costomers[i].getLastName());
+			if (costomers[i].getCreditCardNumber() >= min && costomers[i].getCreditCardNumber() <= max) {
+				System.out.print(costomers[i].toString());
+			}
+		}
+	}
+
+	private Costomer[] sortByAlphabeticalOrderByName() {
+		int compare;
+		Costomer[] costomersCopy = costomers.clone();
+		for (int i = 0; i < costomersCopy.length; i++) {
+			for (int j = i; j < costomersCopy.length; j++) {
+				compare = costomersCopy[i].getLastName().compareTo(costomersCopy[j].getLastName());
 				if (compare > 0) {
-					buffer = costomers[i];
-					costomers[i] = costomers[j];
-					costomers[j] = buffer;
+					transferBetweenEachOther(costomersCopy, i, j);
+				} else if (compare == 0) {
+					compare = costomersCopy[i].getFirstName().compareTo(costomersCopy[j].getFirstName());
+					if (compare > 0) {
+						transferBetweenEachOther(costomersCopy, i, j);
+					} else if (compare == 0) {
+						if (costomersCopy[i].getPatronymic() != null && costomersCopy[j].getPatronymic() != null) {
+							compare = costomersCopy[i].getPatronymic().compareTo(costomersCopy[j].getPatronymic());
+							if (compare > 0) {
+								transferBetweenEachOther(costomersCopy, i, j);
+							}
+						} else if (costomersCopy[i].getPatronymic() == null
+								&& costomersCopy[j].getPatronymic() != null) {
+							transferBetweenEachOther(costomersCopy, i, j);
+						}
+					}
 				}
 			}
 		}
+		return costomersCopy;
+	}
+
+	public void printCostomers(Costomer[] costomers) {
+		StringBuilder builder = new StringBuilder();
+		for (int i = 0; i < costomers.length; i++) {
+			builder.append(costomers[i].toString());
+		}
+		System.out.println(builder);
+	}
+
+	private void transferBetweenEachOther(Costomer[] costomersCopy, int i, int j) {
+		Costomer buffer = costomersCopy[i];
+		costomersCopy[i] = costomersCopy[j];
+		costomersCopy[j] = buffer;
 	}
 
 	@Override
@@ -91,6 +137,9 @@ public class CostomerAggregating {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
+		for (int i = 0; i < costomers.length; i++) {
+			builder.append(costomers[i].toString());
+		}
 		return builder.toString();
 	}
 }
