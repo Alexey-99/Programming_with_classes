@@ -52,6 +52,14 @@ public class Airline {
 		this.departureTime = LocalTime.parse(departureTime, DateTimeFormatter.ofPattern("HH:mm"));
 	}
 
+	public String getDayWeek() {
+		return dayWeek;
+	}
+
+	public void setDayWeek(String dayWeek) {
+		this.dayWeek = dayWeek;
+	}
+
 	@Override
 	public int hashCode() {
 		int result = 31;

@@ -16,10 +16,12 @@ public class Main {
 
 	public static void main(String[] args) {
 		Airline[] airlines = { new Airline("Kiev", "cargo", "12:30", "Manday"),
-				new Airline("Minsk", "t", "13:30", "M") };
+				new Airline("Minsk", "t", "13:30", "Manday") };
 
 		AirlineAggregating aggregating = new AirlineAggregating(airlines);
 		System.out.println(aggregating.toString());
+		aggregating.printAirlinesByDestination("Minsk");
+		aggregating.printAirlinesByDayWeek("M");
+		aggregating.printAirlinesByDayWeekAndDepartureTime("Manday", "13:29");
 	}
-
 }

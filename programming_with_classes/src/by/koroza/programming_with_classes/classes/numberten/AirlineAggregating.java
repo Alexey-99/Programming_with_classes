@@ -1,5 +1,8 @@
 package by.koroza.programming_with_classes.classes.numberten;
 
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+
 public class AirlineAggregating {
 	private Airline[] airlines;
 
@@ -54,6 +57,35 @@ public class AirlineAggregating {
 		}
 	}
 
+	public void printAirlinesByDestination(String destination) {
+		for (Airline airline : airlines) {
+			if (airline.getDestination().equals(destination)) {
+				System.out.println(airline.toString());
+			}
+		}
+	}
+
+	public void printAirlinesByDayWeek(String dayWeek) {
+		for (Airline airline : airlines) {
+			if (airline.getDayWeek().equals(dayWeek)) {
+				System.out.println(airline.toString());
+			}
+		}
+	}
+
+	public void printAirlinesByDayWeekAndDepartureTime(String dayWeek, String departureTime) {
+		LocalTime time = LocalTime.parse(departureTime, DateTimeFormatter.ofPattern("HH:mm"));
+		int compare;
+		for (Airline airline : airlines) {
+			if (airline.getDayWeek().equals(dayWeek)) {
+				compare = airline.getDepartureTime().compareTo(time);
+				if (compare > 0) {
+					System.out.println(airline.toString());
+				}
+			}
+		}
+	}
+
 	@Override
 	public int hashCode() {
 		int result = 31;
@@ -87,7 +119,7 @@ public class AirlineAggregating {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		for(Airline airline: airlines) {
+		for (Airline airline : airlines) {
 			builder.append(airline.toString());
 		}
 		return builder.toString();
