@@ -20,8 +20,12 @@ public class Main {
 
 		AirlineAggregating aggregating = new AirlineAggregating(airlines);
 		System.out.println(aggregating.toString());
+		System.out.println("Print list of flights for a given destination: ");
 		aggregating.printAirlinesByDestination("Minsk");
+		System.out.println("Print list of flights for a given day of the week: ");
 		aggregating.printAirlinesByDayWeek("M");
+		System.out.println(
+				"printing a list of flights for a given day of the week, the departure time for which is greater than the specified one. ");
 		aggregating.printAirlinesByDayWeekAndDepartureTime("Manday", "13:29");
 	}
 }
