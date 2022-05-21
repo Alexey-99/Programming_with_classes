@@ -87,7 +87,9 @@ public class AirlineAggregating {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
+		for(Airline airline: airlines) {
+			builder.append(airline.toString());
+		}
 		return builder.toString();
 	}
-
 }

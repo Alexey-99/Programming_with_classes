@@ -15,9 +15,11 @@ package by.koroza.programming_with_classes.classes.numberten;
 public class Main {
 
 	public static void main(String[] args) {
-		
-		
+		Airline[] airlines = { new Airline("Kiev", "cargo", "12:30", "Manday"),
+				new Airline("Minsk", "t", "13:30", "M") };
 
+		AirlineAggregating aggregating = new AirlineAggregating(airlines);
+		System.out.println(aggregating.toString());
 	}
 
 }
