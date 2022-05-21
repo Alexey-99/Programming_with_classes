@@ -13,6 +13,9 @@
 package by.koroza.programming_with_classes.classes.numberten;
 
 public class Main {
+	static final String PRINT_AIRLINES_BY_DESTINATION = "Print list of flights for a given destination: ";
+	static final String PRINT_AIRLINES_BY_DAY_WEEK = "Print list of flights for a given day of the week: ";
+	static final String PRINT_AIRLINES_BY_DAY_WEEK_AND_DEPARTURE_TIME = "Printing a list of flights for a given day of the week, the departure time for which is greater than the specified one. ";
 
 	public static void main(String[] args) {
 		Airline[] airlines = { new Airline("Kiev", "cargo", "12:30", "Manday"),
@@ -20,12 +23,14 @@ public class Main {
 
 		AirlineAggregating aggregating = new AirlineAggregating(airlines);
 		System.out.println(aggregating.toString());
-		System.out.println("Print list of flights for a given destination: ");
+
+		System.out.println(PRINT_AIRLINES_BY_DESTINATION);
 		aggregating.printAirlinesByDestination("Minsk");
-		System.out.println("Print list of flights for a given day of the week: ");
+
+		System.out.println(PRINT_AIRLINES_BY_DAY_WEEK);
 		aggregating.printAirlinesByDayWeek("M");
-		System.out.println(
-				"printing a list of flights for a given day of the week, the departure time for which is greater than the specified one. ");
+
+		System.out.println(PRINT_AIRLINES_BY_DAY_WEEK_AND_DEPARTURE_TIME);
 		aggregating.printAirlinesByDayWeekAndDepartureTime("Manday", "13:29");
 	}
 }

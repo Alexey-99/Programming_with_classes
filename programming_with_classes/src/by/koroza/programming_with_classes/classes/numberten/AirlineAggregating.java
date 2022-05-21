@@ -5,6 +5,7 @@ import java.time.format.DateTimeFormatter;
 
 public class AirlineAggregating {
 	private Airline[] airlines;
+	private static final String NO_MATCHES_FOUND_THIS_QUERY = "No matches were found for this query.";
 
 	public AirlineAggregating() {
 
@@ -58,22 +59,33 @@ public class AirlineAggregating {
 	}
 
 	public void printAirlinesByDestination(String destination) {
+		int countReapitions = 0;
 		for (Airline airline : airlines) {
 			if (airline.getDestination().equals(destination)) {
 				System.out.println(airline.toString());
+				countReapitions++;
 			}
+		}
+		if (countReapitions == 0) {
+			System.out.println(NO_MATCHES_FOUND_THIS_QUERY);
 		}
 	}
 
 	public void printAirlinesByDayWeek(String dayWeek) {
+		int countReapitions = 0;
 		for (Airline airline : airlines) {
 			if (airline.getDayWeek().equals(dayWeek)) {
 				System.out.println(airline.toString());
+				countReapitions++;
 			}
+		}
+		if (countReapitions == 0) {
+			System.out.println(NO_MATCHES_FOUND_THIS_QUERY);
 		}
 	}
 
 	public void printAirlinesByDayWeekAndDepartureTime(String dayWeek, String departureTime) {
+		int countReapitions = 0;
 		LocalTime time = LocalTime.parse(departureTime, DateTimeFormatter.ofPattern("HH:mm"));
 		int compare;
 		for (Airline airline : airlines) {
@@ -81,8 +93,12 @@ public class AirlineAggregating {
 				compare = airline.getDepartureTime().compareTo(time);
 				if (compare > 0) {
 					System.out.println(airline.toString());
+					countReapitions++;
 				}
 			}
+		}
+		if (countReapitions == 0) {
+			System.out.println(NO_MATCHES_FOUND_THIS_QUERY);
 		}
 	}
 
@@ -91,6 +107,7 @@ public class AirlineAggregating {
 		int result = 31;
 		int prime = 1;
 		result = result * prime + (airlines != null ? airlines.hashCode() : 1);
+		result = result * prime + (NO_MATCHES_FOUND_THIS_QUERY != null ? NO_MATCHES_FOUND_THIS_QUERY.hashCode() : 1);
 		return result;
 	}
 
