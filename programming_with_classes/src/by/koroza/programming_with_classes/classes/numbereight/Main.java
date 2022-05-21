@@ -15,9 +15,12 @@ public class Main {
 
 	@SuppressWarnings("unused")
 	public static void main(String[] args) {
-		Costomer[] costomers = { new Costomer("", "", "", new Address("", "", "", 1, 1), 5, 138),
-				new Costomer("", "", "", new Address("", "", "", 1, 1), 5, 138) };
-		
+		Costomer[] costomers = {
+				new Costomer("Maxim", "Ivanov", "Mihaylovich", new Address("Belurus", "Minsk", "Asanalieva", 5, 39),
+						500, 1000),
+				new Costomer("Alexey", "Koroza", "Mihaylovich", new Address("Belurus", "Minsk", "Asanalieva", 5, 39),
+						501, 2000) };
+
 		CostomerAggregating costomerAggregating1 = new CostomerAggregating(costomers);
 		CostomerAggregating costomerAggregating2 = new CostomerAggregating();
 
@@ -25,10 +28,6 @@ public class Main {
 				new Address("Belurus", "Minsk", "asanalieva", 5, 39), 500, 1000));
 		costomerAggregating1.addCostomers(costomers);
 
-		
-		
-		
-		
 		Costomer costomer1 = new Costomer("Alexey", "Koroza", "Mihaylovich",
 				new Address("Belurus", "Minsk", "asanalieva", 5, 39), 500, 1000);
 		System.out.println(costomer1.toString());

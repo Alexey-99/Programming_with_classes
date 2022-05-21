@@ -12,7 +12,7 @@
 
 package by.koroza.programming_with_classes.classes.numbernine;
 
-public class NumberNine {
+public class Main {
 
 	public static void main(String[] args) {
 		
