@@ -20,12 +20,18 @@ public class CostomerAggregating {
 	}
 
 	public void addCostomer(Costomer costomer) {
-		Costomer[] costomersNew = new Costomer[costomers.length + 1];
-		for (int i = 0; i < costomersNew.length; i++) {
-			if (i < costomers.length) {
-				costomersNew[i] = costomers[i];
-			} else if (i == costomers.length) {
-				costomersNew[i] = costomer;
+		Costomer[] costomersNew = null;
+		if (this.costomers == null) {
+			costomersNew = new Costomer[1];
+			costomersNew[0] = costomer;
+		} else {
+			costomersNew = new Costomer[costomers.length + 1];
+			for (int i = 0; i < costomersNew.length; i++) {
+				if (i < costomers.length) {
+					costomersNew[i] = costomers[i];
+				} else if (i == costomers.length) {
+					costomersNew[i] = costomer;
+				}
 			}
 		}
 		this.costomers = costomersNew;

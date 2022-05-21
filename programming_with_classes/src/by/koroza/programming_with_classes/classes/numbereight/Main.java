@@ -31,6 +31,8 @@ public class Main {
 				new Costomer("Hasymov", "Elias", new Address("Canada", "Ottawa", "Asanalieva", 5, 39), 550, 646468));
 		costomerAggregating1.addCostomer(new Costomer("Podyomny", "German", "Anatolyevich",
 				new Address("China", "Beijing", "Asanalieva", 5, 39), 100, 651616));
+		costomerAggregating2.addCostomer(
+				new Costomer("Hasymov", "Elias", new Address("Canada", "Ottawa", "Asanalieva", 5, 39), 550, 646468));
 		costomerAggregating2.addCostomers(costomers);
 
 		System.out.println("Print costomers sorting by alphabetical order: ");
