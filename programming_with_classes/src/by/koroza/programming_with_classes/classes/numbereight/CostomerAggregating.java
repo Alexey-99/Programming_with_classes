@@ -2,6 +2,7 @@ package by.koroza.programming_with_classes.classes.numbereight;
 
 public class CostomerAggregating {
 	private Costomer[] costomers;
+	private static final String NO_MATCHES_FOUND_THIS_QUERY = "No matches were found for this query.";
 
 	public CostomerAggregating() {
 
@@ -60,10 +61,15 @@ public class CostomerAggregating {
 	}
 
 	public void printCreditCardNumberInDiapason(int min, int max) {
+		int countReapitions = 0;
 		for (int i = 0; i < costomers.length; i++) {
 			if (costomers[i].getCreditCardNumber() >= min && costomers[i].getCreditCardNumber() <= max) {
 				System.out.print(costomers[i].toString());
+				countReapitions++;
 			}
+		}
+		if (countReapitions == 0) {
+			System.out.println(NO_MATCHES_FOUND_THIS_QUERY);
 		}
 	}
 
@@ -115,6 +121,7 @@ public class CostomerAggregating {
 		int result = 31;
 		int prime = 1;
 		result = result * prime + (costomers != null ? costomers.hashCode() : 1);
+		result = result * prime + (NO_MATCHES_FOUND_THIS_QUERY != null ? NO_MATCHES_FOUND_THIS_QUERY.hashCode() : 1);
 		return result;
 	}
 

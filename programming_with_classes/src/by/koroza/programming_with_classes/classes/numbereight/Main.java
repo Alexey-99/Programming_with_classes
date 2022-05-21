@@ -12,6 +12,8 @@
 package by.koroza.programming_with_classes.classes.numbereight;
 
 public class Main {
+	private static final String PRINT_COSTOMERS_BY_ALPAHABETICAL_ORDER = "Print costomers sorting by alphabetical order: ";
+	private static final String PRINT_CREDIT_CARD_NUMBER_IN_DIAPASON = "Print credit card number in diapason: ";
 
 	public static void main(String[] args) {
 		Costomer[] costomers = {
@@ -35,10 +37,10 @@ public class Main {
 				new Costomer("Hasymov", "Elias", new Address("Canada", "Ottawa", "Asanalieva", 5, 39), 550, 646468));
 		costomerAggregating2.addCostomers(costomers);
 
-		System.out.println("Print costomers sorting by alphabetical order: ");
+		System.out.println(PRINT_COSTOMERS_BY_ALPAHABETICAL_ORDER);
 		costomerAggregating1.printCostomersByAlphabeticalOrder();
 		System.out.println();
-		System.out.println("Print credit card number in diapason: ");
+		System.out.println(PRINT_CREDIT_CARD_NUMBER_IN_DIAPASON);
 		costomerAggregating1.printCreditCardNumberInDiapason(500, 600);
 	}
 }
