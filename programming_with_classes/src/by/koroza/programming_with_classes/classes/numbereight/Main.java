@@ -13,26 +13,25 @@ package by.koroza.programming_with_classes.classes.numbereight;
 
 public class Main {
 
-	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		Costomer[] costomers = {
-				new Costomer("Maxim", "Ivanov", "Mihaylovich", new Address("Belurus", "Minsk", "Asanalieva", 5, 39),
+				new Costomer("Ivanov", "Maxim", "Mihaylovich", new Address("Belurus", "Minsk", "Asanalieva", 5, 39),
 						500, 1000),
-				new Costomer("Alexey", "Koroza", "Mihaylovich", new Address("Belurus", "Minsk", "Asanalieva", 5, 39),
+				new Costomer("Koroza", "Alexey", "Mihaylovich", new Address("Belurus", "Minsk", "Asanalieva", 5, 39),
 						501, 2000) };
 
 		CostomerAggregating costomerAggregating1 = new CostomerAggregating(costomers);
 		CostomerAggregating costomerAggregating2 = new CostomerAggregating();
 
-		costomerAggregating1.addCostomer(new Costomer("Alexey", "Koroza", "Mihaylovich",
+		costomerAggregating1.addCostomer(new Costomer("Koroza", "Alexey", "Mihaylovich",
 				new Address("Belurus", "Minsk", "asanalieva", 5, 39), 500, 1000));
 		costomerAggregating1.addCostomers(costomers);
 
-		Costomer costomer1 = new Costomer("Alexey", "Koroza", "Mihaylovich",
+		Costomer costomer1 = new Costomer("Koroza", "Alexey", "Mihaylovich",
 				new Address("Belurus", "Minsk", "asanalieva", 5, 39), 500, 1000);
 		System.out.println(costomer1.toString());
 
-		Costomer costomer2 = new Costomer("Alexey", "Koroza", new Address("Belurus", "Minsk", "asanalieva", 10, 38),
+		Costomer costomer2 = new Costomer("Koroza", "Alexey", new Address("Belurus", "Minsk", "asanalieva", 10, 38),
 				500, 1000);
 		System.out.println(costomer2.toString());
 	}

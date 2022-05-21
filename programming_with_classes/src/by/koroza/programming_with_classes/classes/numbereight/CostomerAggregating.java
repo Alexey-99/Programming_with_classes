@@ -8,7 +8,7 @@ public class CostomerAggregating {
 	}
 
 	public CostomerAggregating(Costomer[] costomers) {
-		this.costomers = costomers; 
+		this.costomers = costomers;
 	}
 
 	public Costomer[] getCostomers() {
@@ -41,6 +41,21 @@ public class CostomerAggregating {
 			}
 		}
 		this.costomers = costomersNew;
+	}
+
+	public void sortByAlphabeticalOrder() {
+		int compare;
+		Costomer buffer;
+		for (int i = 0; i < costomers.length; i++) {
+			for (int j = i; j < costomers.length; j++) {
+				compare = costomers[i].getLastName().compareTo(costomers[i].getLastName());
+				if (compare > 0) {
+					buffer = costomers[i];
+					costomers[i] = costomers[j];
+					costomers[j] = buffer;
+				}
+			}
+		}
 	}
 
 	@Override

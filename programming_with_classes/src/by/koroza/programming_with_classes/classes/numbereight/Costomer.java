@@ -4,28 +4,28 @@ public class Costomer {
 	private static int count = 1;
 
 	private int id;
-	private String firstName;
 	private String lastName;
+	private String firstName;
 	private String patronymic;
 	private Address address;
 	private int creditCardNumber;
 	private int bankAccountNumber;
 
-	public Costomer(String firstName, String lastName, String patronymic, Address address, int creditCardNumber,
+	public Costomer(String lastName, String firstName, String patronymic, Address address, int creditCardNumber,
 			int bankAccountNumber) {
 		this.id = count++;
-		this.firstName = firstName;
 		this.lastName = lastName;
+		this.firstName = firstName;
 		this.patronymic = patronymic;
 		this.address = address;
 		this.creditCardNumber = creditCardNumber;
 		this.bankAccountNumber = bankAccountNumber;
 	}
 
-	public Costomer(String firstName, String lastName, Address address, int creditCardNumber, int bankAccountNumber) {
+	public Costomer(String lastName, String firstName, Address address, int creditCardNumber, int bankAccountNumber) {
 		this.id = count++;
-		this.firstName = firstName;
 		this.lastName = lastName;
+		this.firstName = firstName;
 		this.address = address;
 		this.creditCardNumber = creditCardNumber;
 		this.bankAccountNumber = bankAccountNumber;
@@ -39,20 +39,20 @@ public class Costomer {
 		this.id = id;
 	}
 
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
 	public String getLastName() {
 		return lastName;
 	}
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
 	public String getPatronymic() {
@@ -93,8 +93,8 @@ public class Costomer {
 		int prime = 1;
 		result = result * prime + count;
 		result = result * prime + id;
-		result = result * prime + (firstName != null ? firstName.hashCode() : 1);
 		result = result * prime + (lastName != null ? lastName.hashCode() : 1);
+		result = result * prime + (firstName != null ? firstName.hashCode() : 1);
 		result = result * prime + (patronymic != null ? patronymic.hashCode() : 1);
 		result = result * prime + (address != null ? address.hashCode() : 1);
 		result = result * prime + creditCardNumber;
@@ -117,18 +117,18 @@ public class Costomer {
 		if (id != costomer.id) {
 			return false;
 		}
-		if (firstName == null) {
-			if (costomer.firstName != null) {
-				return false;
-			}
-		} else if (!firstName.equals(costomer.firstName)) {
-			return false;
-		}
 		if (lastName == null) {
 			if (costomer.lastName != null) {
 				return false;
 			}
 		} else if (!lastName.equals(costomer.lastName)) {
+			return false;
+		}
+		if (firstName == null) {
+			if (costomer.firstName != null) {
+				return false;
+			}
+		} else if (!firstName.equals(costomer.firstName)) {
 			return false;
 		}
 		if (patronymic == null) {
@@ -158,8 +158,8 @@ public class Costomer {
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("ID: ").append(id).append("\n");
-		builder.append("FirstName: ").append(firstName).append("\n");
 		builder.append("LastName: ").append(lastName).append("\n");
+		builder.append("FirstName: ").append(firstName).append("\n");
 		if (patronymic != null) {
 			builder.append("Patronymic: ").append(patronymic).append("\n");
 		}
