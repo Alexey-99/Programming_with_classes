@@ -53,4 +53,40 @@ public class BookAggregating {
 			this.books = booksNew;
 		}
 	}
+
+	@Override
+	public int hashCode() {
+		int result = 31;
+		int prime = 1;
+		result = result * prime + (books != null ? books.hashCode() : 1);
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object object) {
+		if (this == object) {
+			return true;
+		}
+		if (object == null) {
+			return false;
+		}
+		if (!getClass().equals(object.getClass())) {
+			return false;
+		}
+		BookAggregating aggregating = (BookAggregating) object;
+		if (books == null) {
+			if (aggregating.books != null) {
+				return false;
+			}
+		} else if (!books.equals(aggregating.books)) {
+			return false;
+		}
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		return builder.toString();
+	}
 }
