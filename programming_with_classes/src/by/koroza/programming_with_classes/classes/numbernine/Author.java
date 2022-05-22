@@ -8,7 +8,7 @@ public class Author {
 	public Author(String lastName, String firstName, String patronymic) {
 		this.lastName = lastName;
 		this.firstName = firstName;
-		this.setPatronymic(patronymic);
+		this.patronymic = patronymic;
 	}
 
 	public Author(String lastName, String firstName) {

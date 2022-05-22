@@ -5,10 +5,24 @@ public class Book {
 
 	private int id;
 	private String name;
-	private String author;
+	private Author[] authors;
+	private String publishingHouse;
 
-	public Book() {
+	public Book(String name, Author author) {
 		this.id = count++;
+		this.name = name;
+		this.authors[0] = author;
+	}
+
+	public Book(String name, Author[] authors) {
+		this.id = count++;
+		this.name = name;
+		this.authors = authors;
+	}
+
+	public Book(String name) {
+		this.id = count++;
+		this.name = name;
 	}
 
 	public int getID() {
@@ -27,12 +41,55 @@ public class Book {
 		this.name = name;
 	}
 
-	public String getAuthor() {
-		return author;
+	public Author[] getAuthors() {
+		return authors;
 	}
 
-	public void setAuthor(String author) {
-		this.author = author;
+	public void setAuthors(Author[] authors) {
+		this.authors = authors;
+	}
+
+	public String getPublishingHouse() {
+		return publishingHouse;
+	}
+
+	public void setPublishingHouse(String publishingHouse) {
+		this.publishingHouse = publishingHouse;
+	}
+
+	public void addAuthor(Author author) {
+		Author[] authorsNew = null;
+		if (this.authors == null) {
+			authorsNew = new Author[1];
+			authorsNew[0] = author;
+		} else {
+			authorsNew = new Author[this.authors.length + 1];
+			for (int i = 0; i < authorsNew.length; i++) {
+				if (i < this.authors.length) {
+					authorsNew[i] = this.authors[i];
+				} else if (i == this.authors.length) {
+					authorsNew[i] = author;
+				}
+			}
+		}
+		this.authors = authorsNew;
+	}
+
+	public void addAuthors(Author[] authors) { // TODO CHECK
+		Author[] authorsNew = null;
+		if (this.authors == null) {
+			this.authors = authors;
+		} else {
+			authorsNew = new Author[this.authors.length + authors.length];
+			for (int i = 0; i < authorsNew.length; i++) {
+				if (i < this.authors.length) {
+					authorsNew[i] = this.authors[i];
+				} else if (i >= this.authors.length) {
+					authorsNew[i] = authors[i - this.authors.length];
+				}
+			}
+			this.authors = authorsNew;
+		}
 	}
 
 	@Override
@@ -42,7 +99,8 @@ public class Book {
 		result = result * prime + count;
 		result = result * prime + id;
 		result = result * prime + (name != null ? name.hashCode() : 1);
-		result = result * prime + (author != null ? author.hashCode() : 1);
+		result = result * prime + (authors != null ? authors.hashCode() : 1);
+		result = result * prime + (publishingHouse != null ? publishingHouse.hashCode() : 1);
 		return result;
 	}
 
@@ -68,11 +126,11 @@ public class Book {
 		} else if (!name.equals(book.name)) {
 			return false;
 		}
-		if (author == null) {
-			if (book.author != null) {
+		if (authors == null) {
+			if (book.authors != null) {
 				return false;
 			}
-		} else if (!author.equals(book.author)) {
+		} else if (!authors.equals(book.authors)) {
 			return false;
 		}
 		return true;

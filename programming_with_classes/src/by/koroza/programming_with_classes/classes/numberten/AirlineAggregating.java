@@ -41,7 +41,7 @@ public class AirlineAggregating {
 		this.airlines = airlineNew;
 	}
 
-	public void addAirlines(Airline[] airlines) {
+	public void addAirlines(Airline[] airlines) { // TODO CHECK
 		Airline[] airlinesNew = null;
 		if (this.airlines == null) {
 			this.airlines = airlines;
@@ -50,7 +50,7 @@ public class AirlineAggregating {
 			for (int i = 0; i < airlinesNew.length; i++) {
 				if (i < this.airlines.length) {
 					airlinesNew[i] = this.airlines[i];
-				} else if (i >= airlines.length) {
+				} else if (i >= this.airlines.length) {
 					airlinesNew[i] = airlines[i - this.airlines.length];
 				}
 			}

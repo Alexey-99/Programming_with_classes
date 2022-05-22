@@ -38,7 +38,7 @@ public class CostomerAggregating {
 		this.costomers = costomersNew;
 	}
 
-	public void addCostomers(Costomer[] costomers) {
+	public void addCostomers(Costomer[] costomers) {// TODO CHECK
 		Costomer[] costomersNew = null;
 		if (this.costomers == null) {
 			this.costomers = costomers;
@@ -47,7 +47,7 @@ public class CostomerAggregating {
 			for (int i = 0; i < costomersNew.length; i++) {
 				if (i < this.costomers.length) {
 					costomersNew[i] = this.costomers[i];
-				} else if (i >= costomers.length) {
+				} else if (i >= this.costomers.length) {
 					costomersNew[i] = costomers[i - this.costomers.length];
 				}
 			}
