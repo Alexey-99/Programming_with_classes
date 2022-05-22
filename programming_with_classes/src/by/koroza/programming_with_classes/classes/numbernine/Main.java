@@ -13,22 +13,27 @@
 package by.koroza.programming_with_classes.classes.numbernine;
 
 public class Main {
+	private final static String LIST_BOOKS_BY_GIVEN_AUTHOR = "List of books by a given author: ";
+	private final static String LIST_BOOKS_RELEASED_AFTER_GIVEN_YEAR = "List of books released after a given year: ";
+	private final static String LIST_BOOKS_PUBLISHED_BY_GIVEN_PUBLISHER = "List of books published by a given publisher: ";
 
 	public static void main(String[] args) {
 		Author[] authors1 = { new Author("A", "B", "C"), new Author("Niskov", "Max", "N") };
 		Author[] authors2 = { new Author("Z", "X", "C"), new Author("Niskov", "Max", "N") };
-		Book book = new Book("War", authors1, "Vena", 2021, 500, 5.20, "V");
-		System.out.println(book.toString());
 
 		Book[] books = { new Book("War", authors1, "H", 2020, 500, 5.20, "V"),
 				new Book("A", authors2, "Vena", 2022, 500, 5.20, "V") };
 
 		BookAggregating aggregating = new BookAggregating(books);
+
+		System.out.println(LIST_BOOKS_RELEASED_AFTER_GIVEN_YEAR);
 		aggregating.printBooksAfterSelectedYearPublishing(2021);
+		System.out.println(LIST_BOOKS_BY_GIVEN_AUTHOR);
 		aggregating.printBooksBySelectedAuthor(new Author("A", "B", "C"));
 		aggregating.printBooksBySelectedFirstNameAuthor("X");
 		aggregating.printBooksBySelectedLastNameAuthor("Z");
 		aggregating.printBooksBySelectedPatronymicAuthor("C");
+		System.out.println(LIST_BOOKS_PUBLISHED_BY_GIVEN_PUBLISHER);
 		aggregating.printBooksBySelectedPublishingHouse("Vena");
 	}
 }
