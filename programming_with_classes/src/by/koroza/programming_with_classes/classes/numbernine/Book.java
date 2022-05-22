@@ -10,22 +10,41 @@ public class Book {
 	private int yearPublishing;
 	private int pageCount;
 	private double cost;
+	private String bindingType;
 
-	public Book(String name, Author author) {
+	public Book(String name, Author author, String publishingHouse, int yearPublishing, int pageCount, double cost,
+			String bindingType) {
 		this.id = count++;
 		this.name = name;
 		this.authors[0] = author;
+		this.publishingHouse = publishingHouse;
+		this.yearPublishing = yearPublishing;
+		this.pageCount = pageCount;
+		this.cost = cost;
+		this.bindingType = bindingType;
 	}
 
-	public Book(String name, Author[] authors) {
+	public Book(String name, Author[] authors, String publishingHouse, int yearPublishing, int pageCount, double cost,
+			String bindingType) {
 		this.id = count++;
 		this.name = name;
 		this.authors = authors;
+		this.publishingHouse = publishingHouse;
+		this.yearPublishing = yearPublishing;
+		this.pageCount = pageCount;
+		this.cost = cost;
+		this.bindingType = bindingType;
 	}
 
-	public Book(String name) {
+	public Book(String name, String publishingHouse, int yearPublishing, int pageCount, double cost,
+			String bindingType) {
 		this.id = count++;
 		this.name = name;
+		this.publishingHouse = publishingHouse;
+		this.yearPublishing = yearPublishing;
+		this.pageCount = pageCount;
+		this.cost = cost;
+		this.bindingType = bindingType;
 	}
 
 	public int getID() {
@@ -84,6 +103,14 @@ public class Book {
 		this.cost = cost;
 	}
 
+	public String getBindingType() {
+		return bindingType;
+	}
+
+	public void setBindingType(String bindingType) {
+		this.bindingType = bindingType;
+	}
+
 	public void addAuthor(Author author) {
 		Author[] authorsNew = null;
 		if (this.authors == null) {
@@ -130,6 +157,8 @@ public class Book {
 		result = result * prime + (publishingHouse != null ? publishingHouse.hashCode() : 1);
 		result = result * prime + yearPublishing;
 		result = result * prime + pageCount;
+		result = result * prime + Double.hashCode(cost);
+		result = result * prime + (bindingType != null ? bindingType.hashCode() : 1);
 		return result;
 	}
 
@@ -173,6 +202,16 @@ public class Book {
 			return false;
 		}
 		if (pageCount != book.pageCount) {
+			return false;
+		}
+		if (cost != book.cost) {
+			return false;
+		}
+		if (bindingType == null) {
+			if (book.bindingType != null) {
+				return false;
+			}
+		} else if (!bindingType.equals(book.bindingType)) {
 			return false;
 		}
 		return true;
