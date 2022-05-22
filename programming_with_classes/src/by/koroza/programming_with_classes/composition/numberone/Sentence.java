@@ -55,5 +55,4 @@ public class Sentence {
 		builder.append(words);
 		return builder.toString();
 	}
-
 }
