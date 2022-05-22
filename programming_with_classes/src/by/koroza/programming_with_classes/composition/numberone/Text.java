@@ -52,6 +52,12 @@ public class Text {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
+		for (int i = 0; i < sentences.length; i++) {
+			builder.append(sentences[i].toString());
+			if (i < sentences.length - 1) {
+				builder.append(" ");
+			}
+		}
 		return builder.toString();
 	}
 }

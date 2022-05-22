@@ -52,7 +52,12 @@ public class Sentence {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append(words);
+		for (int i = 0; i < words.length; i++) {
+			builder.append(words[i].toString());
+			if (i < words.length - 1) {
+				builder.append(" ");
+			}
+		}
 		return builder.toString();
 	}
 }
