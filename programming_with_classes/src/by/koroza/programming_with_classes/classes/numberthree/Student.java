@@ -98,9 +98,19 @@ public class Student {
 	}
 
 	@Override
-	public String toString() { //TODO
+	public String toString() {
 		StringBuilder build = new StringBuilder();
-		build.append("Last name - ").append(lastName);
+		build.append("Last name - ").append(lastName).append("\n");
+		build.append("Initials - ").append(initials).append("\n");
+		build.append("Number group - ").append(numberGroup).append("\n");
+		build.append("Academic performance - ");
+		for (int i = 0; i < academicPerformance.length; i++) {
+			build.append(academicPerformance[i]);
+			if (i < academicPerformance.length - 1) {
+				build.append(", ");
+			}
+		}
+		build.append("\n");
 		return build.toString();
 	}
 }
