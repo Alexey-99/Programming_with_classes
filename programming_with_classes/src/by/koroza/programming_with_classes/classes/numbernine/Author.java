@@ -93,9 +93,7 @@ public class Author {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Lastname: ").append(lastName).append("\n");
-		builder.append("Firstname: ").append(firstName).append("\n");
-		builder.append("Patronymic: ").append(patronymic).append("\n");
+		builder.append(lastName).append(" ").append(firstName).append(" ").append(patronymic);
 		return builder.toString();
 	}
 }

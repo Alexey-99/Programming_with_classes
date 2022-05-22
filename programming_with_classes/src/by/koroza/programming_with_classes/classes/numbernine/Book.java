@@ -146,6 +146,17 @@ public class Book {
 		}
 	}
 
+	private void printAuthors(StringBuilder builder) {
+		int count = 0;
+		for (Author author : authors) {
+			builder.append(author.toString());
+			count++;
+			if (count < authors.length) {
+				builder.append(", ");
+			}
+		}
+	}
+
 	@Override
 	public int hashCode() {
 		int result = 31;
@@ -220,6 +231,20 @@ public class Book {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
+		builder.append("ID: ").append(id).append("\n");
+		builder.append("Name: ").append(name).append("\n");
+		builder.append("Authors: ");
+		if (authors != null) {
+			printAuthors(builder);
+			builder.append("\n");
+		} else {
+			builder.append("Don't have authors");
+		}
+		builder.append("Publishing house: ").append(publishingHouse).append("\n");
+		builder.append("Year publishing: ").append(yearPublishing).append("\n");
+		builder.append("Page count: ").append(pageCount).append("\n");
+		builder.append("Cost: ").append(cost).append("\n");
+		builder.append("Binding type: ").append(bindingType).append("\n");
 		return builder.toString();
 	}
 }

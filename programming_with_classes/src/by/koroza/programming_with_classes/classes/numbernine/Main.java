@@ -15,8 +15,8 @@ package by.koroza.programming_with_classes.classes.numbernine;
 public class Main {
 
 	public static void main(String[] args) {
-		
-
+		Author[] authors = { new Author("Koroza", "Alexey", "M"), new Author("Niskov", "Max", "N") };
+		Book book = new Book("War", authors, "Vena", 2021, 500, 5.20, "V");
+		System.out.println(book.toString());
 	}
-
 }

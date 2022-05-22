@@ -54,6 +54,66 @@ public class BookAggregating {
 		}
 	}
 
+	public void printBooksBySelectedLastNameAuthor(String lastNameAuthor) {
+		for (Book book : books) {
+			Author[] authors = book.getAuthors();
+			for (Author author : authors) {
+				if (author.getLastName().equals(lastNameAuthor)) {
+					System.out.println(book.toString());
+				}
+			}
+		}
+	}
+
+	public void printBooksBySelectedFirstNameAuthor(String firstNameAuthor) {
+		for (Book book : books) {
+			Author[] authors = book.getAuthors();
+			for (Author author : authors) {
+				if (author.getFirstName().equals(firstNameAuthor)) {
+					System.out.println(book.toString());
+				}
+			}
+		}
+	}
+
+	public void printBooksBySelectedPatronymicAuthor(String patronymic) {
+		for (Book book : books) {
+			Author[] authors = book.getAuthors();
+			for (Author author : authors) {
+				if (author.getPatronymic().equals(patronymic)) {
+					System.out.println(book.toString());
+				}
+			}
+		}
+	}
+
+	public void printBooksBySelectedAuthor(Author selectedAuthor) {
+		for (Book book : books) {
+			Author[] authors = book.getAuthors();
+			for (Author author : authors) {
+				if (author.equals(selectedAuthor)) {
+					System.out.println(book.toString());
+				}
+			}
+		}
+	}
+
+	public void printBooksBySelectedPublishingHouse(String publishingHouse) {
+		for (Book book : books) {
+			if (book.getPublishingHouse().equals(publishingHouse)) {
+				System.out.println(book.toString());
+			}
+		}
+	}
+
+	public void printBooksAfterSelectedYearPublishing(int yearPublishing) {
+		for (Book book : books) {
+			if (book.getYearPublishing() > yearPublishing) {
+				System.out.println(book.toString());
+			}
+		}
+	}
+
 	@Override
 	public int hashCode() {
 		int result = 31;
@@ -87,6 +147,9 @@ public class BookAggregating {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
+		for (Book book : books) {
+			builder.append(book.toString()).append("\n");
+		}
 		return builder.toString();
 	}
 }
