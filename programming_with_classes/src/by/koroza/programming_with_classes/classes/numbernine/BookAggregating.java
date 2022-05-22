@@ -11,6 +11,14 @@ public class BookAggregating {
 		this.books = books;
 	}
 
+	public Book[] getBooks() {
+		return books;
+	}
+
+	public void setBooks(Book[] books) {
+		this.books = books;
+	}
+
 	public void addBook(Book book) {
 		Book[] booksNew = null;
 		if (this.books == null) {
