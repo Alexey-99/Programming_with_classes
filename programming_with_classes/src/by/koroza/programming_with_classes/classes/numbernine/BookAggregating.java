@@ -37,7 +37,7 @@ public class BookAggregating {
 		this.books = booksNew;
 	}
 
-	public void addBooks(Book[] books) { // TODO CHECK
+	public void addBooks(Book[] books) {
 		Book[] booksNew = null;
 		if (this.books == null) {
 			this.books = books;

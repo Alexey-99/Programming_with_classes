@@ -129,7 +129,7 @@ public class Book {
 		this.authors = authorsNew;
 	}
 
-	public void addAuthors(Author[] authors) { // TODO CHECK
+	public void addAuthors(Author[] authors) {
 		Author[] authorsNew = null;
 		if (this.authors == null) {
 			this.authors = authors;
