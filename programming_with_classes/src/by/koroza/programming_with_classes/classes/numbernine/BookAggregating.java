@@ -7,6 +7,10 @@ public class BookAggregating {
 
 	}
 
+	public BookAggregating(Book[] books) {
+		this.books = books;
+	}
+
 	public void addBook(Book book) {
 		Book[] booksNew = null;
 		if (this.books == null) {
