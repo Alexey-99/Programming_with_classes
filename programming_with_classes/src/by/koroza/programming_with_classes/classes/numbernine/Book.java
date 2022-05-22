@@ -7,6 +7,9 @@ public class Book {
 	private String name;
 	private Author[] authors;
 	private String publishingHouse;
+	private int yearPublishing;
+	private int pageCount;
+	private double cost;
 
 	public Book(String name, Author author) {
 		this.id = count++;
@@ -57,6 +60,30 @@ public class Book {
 		this.publishingHouse = publishingHouse;
 	}
 
+	public int getYearPublishing() {
+		return yearPublishing;
+	}
+
+	public void setYearPublishing(int yearPublishing) {
+		this.yearPublishing = yearPublishing;
+	}
+
+	public int getPageCount() {
+		return pageCount;
+	}
+
+	public void setPageCount(int pageCount) {
+		this.pageCount = pageCount;
+	}
+
+	public double getCost() {
+		return cost;
+	}
+
+	public void setCost(double cost) {
+		this.cost = cost;
+	}
+
 	public void addAuthor(Author author) {
 		Author[] authorsNew = null;
 		if (this.authors == null) {
@@ -101,6 +128,8 @@ public class Book {
 		result = result * prime + (name != null ? name.hashCode() : 1);
 		result = result * prime + (authors != null ? authors.hashCode() : 1);
 		result = result * prime + (publishingHouse != null ? publishingHouse.hashCode() : 1);
+		result = result * prime + yearPublishing;
+		result = result * prime + pageCount;
 		return result;
 	}
 
@@ -131,6 +160,19 @@ public class Book {
 				return false;
 			}
 		} else if (!authors.equals(book.authors)) {
+			return false;
+		}
+		if (publishingHouse == null) {
+			if (book.publishingHouse != null) {
+				return false;
+			}
+		} else if (!publishingHouse.equals(book.publishingHouse)) {
+			return false;
+		}
+		if (yearPublishing != book.yearPublishing) {
+			return false;
+		}
+		if (pageCount != book.pageCount) {
 			return false;
 		}
 		return true;
