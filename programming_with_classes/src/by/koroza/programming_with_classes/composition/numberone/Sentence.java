@@ -19,6 +19,40 @@ public class Sentence {
 		this.words = words;
 	}
 
+	public void addWord(Word word) {
+		Word[] wordsNew = null;
+		if (words == null) {
+			words[0] = word;
+		} else {
+			wordsNew = new Word[words.length + 1];
+			for (int i = 0; i < wordsNew.length; i++) {
+				if (i < words.length) {
+					wordsNew[i] = words[i];
+				} else if (i == words.length) {
+					wordsNew[i] = word;
+				}
+			}
+			words = wordsNew;
+		}
+	}
+
+	public void addWords(Word[] words) {
+		Word[] wordsNew = null;
+		if (this.words == null) {
+			this.words = words;
+		} else {
+			wordsNew = new Word[this.words.length + words.length];
+			for (int i = 0; i < wordsNew.length; i++) {
+				if (i < this.words.length) {
+					wordsNew[i] = this.words[i];
+				} else if (i >= this.words.length) {
+					wordsNew[i] = words[i - this.words.length];
+				}
+			}
+			this.words = wordsNew;
+		}
+	}
+
 	@Override
 	public int hashCode() {
 		int result = 31;

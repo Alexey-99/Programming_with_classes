@@ -28,7 +28,7 @@ public class Main {
 
 		Sentence[] sentences = { sentence1, sentence2, sentence3, sentence4, sentence5 };
 
-		Text text = new Text(sentences);
-
+		Text text = new Text("Title", sentences);
+		System.out.println(text.toString());
 	}
 }
