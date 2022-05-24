@@ -12,6 +12,15 @@ public class Car {
 		this.engine = engine;
 		this.id = count++;
 	}
+	
+	public Car(Wheel wheelsOne, Wheel wheelsTwo, Wheel wheelsThree, Wheel wheelsFour, Engine engine) {
+		this.wheels[0] = wheelsOne;
+		this.wheels[1] = wheelsTwo;
+		this.wheels[2] = wheelsThree;
+		this.wheels[3] = wheelsFour;
+		this.engine = engine;
+		this.id = count++;
+	}
 
 	@Override
 	public int hashCode() {
