@@ -8,6 +8,5 @@ public class Main {
 
 	public static void main(String[] args) {
 		Car car = new Car(new Wheel(), new Wheel(), new Wheel(), new Wheel(), new Engine());
-
 	}
 }
