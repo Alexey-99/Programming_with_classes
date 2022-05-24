@@ -1,18 +1,24 @@
 package by.koroza.programming_with_classes.composition.numbertwo;
 
 public class Car {
+	private static int count = 1;
+
+	private int id;
 	private Wheel[] wheels = new Wheel[4];
 	private Engine engine;
 
 	public Car(Wheel[] wheels, Engine engine) {
 		this.wheels = wheels;
 		this.engine = engine;
+		this.id = count++;
 	}
 
 	@Override
 	public int hashCode() {
 		int result = 31;
 		int prime = 1;
+		result = result * prime + count;
+		result = result * prime + id;
 		result = result * prime + (wheels != null ? wheels.hashCode() : 1);
 		result = result * prime + (engine != null ? engine.hashCode() : 1);
 		return result;
@@ -30,6 +36,9 @@ public class Car {
 			return false;
 		}
 		Car car = (Car) object;
+		if (id != car.id) {
+			return false;
+		}
 		if (wheels == null) {
 			if (car.wheels != null) {
 				return false;
