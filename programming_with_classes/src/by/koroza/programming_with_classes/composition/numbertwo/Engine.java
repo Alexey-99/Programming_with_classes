@@ -1,6 +1,7 @@
 package by.koroza.programming_with_classes.composition.numbertwo;
 
 public class Engine {
+	private double fuelVolume;
 
 	@Override
 	public int hashCode() {
