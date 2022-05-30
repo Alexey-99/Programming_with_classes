@@ -1,7 +1,6 @@
 package by.koroza.programming_with_classes.composition.numbertwo;
 
-public class Engine {
-	private double fuelVolume; 
+public class FuelTank {
 
 	@Override
 	public int hashCode() {
@@ -22,7 +21,7 @@ public class Engine {
 		if (!getClass().equals(object.getClass())) {
 			return false;
 		}
-		Engine engine = (Engine) object;
+		FuelTank fuelTank = (FuelTank) object;
 		return true;
 	}
 
@@ -31,5 +30,4 @@ public class Engine {
 		StringBuilder builder = new StringBuilder();
 		return builder.toString();
 	}
-
 }
