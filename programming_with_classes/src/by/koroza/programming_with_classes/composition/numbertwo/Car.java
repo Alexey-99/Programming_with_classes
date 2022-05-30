@@ -17,12 +17,51 @@ public class Car {
 
 	public Car(Wheel wheelsOne, Wheel wheelsTwo, Wheel wheelsThree, Wheel wheelsFour, Engine engine,
 			FuelTank fuelTank) {
+		this.id = count++;
 		this.wheels[0] = wheelsOne;
 		this.wheels[1] = wheelsTwo;
 		this.wheels[2] = wheelsThree;
 		this.wheels[3] = wheelsFour;
 		this.engine = engine;
-		this.id = count++;
+		this.fuelTank = fuelTank;
+	}
+
+	public int getID() {
+		return id;
+	}
+
+	public void setID(int id) {
+		this.id = id;
+	}
+
+	public Wheel[] getWheels() {
+		return wheels;
+	}
+
+	public void setWheels(Wheel[] wheels) {
+		this.wheels = wheels;
+	}
+
+	public void setWheels(Wheel wheelsOne, Wheel wheelsTwo, Wheel wheelsThree, Wheel wheelsFour) {
+		this.wheels[0] = wheelsOne;
+		this.wheels[1] = wheelsTwo;
+		this.wheels[2] = wheelsThree;
+		this.wheels[3] = wheelsFour;
+	}
+
+	public Engine getEngine() {
+		return engine;
+	}
+
+	public void setEngine(Engine engine) {
+		this.engine = engine;
+	}
+
+	public FuelTank getFuelTank() {
+		return fuelTank;
+	}
+
+	public void setFuelTank(FuelTank fuelTank) {
 		this.fuelTank = fuelTank;
 	}
 
@@ -65,6 +104,13 @@ public class Car {
 				return false;
 			}
 		} else if (!engine.equals(car.engine)) {
+			return false;
+		}
+		if (fuelTank == null) {
+			if (car.fuelTank != null) {
+				return false;
+			}
+		} else if (!fuelTank.equals(car.fuelTank)) {
 			return false;
 		}
 		return true;
