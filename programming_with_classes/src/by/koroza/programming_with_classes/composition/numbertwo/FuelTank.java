@@ -2,9 +2,11 @@ package by.koroza.programming_with_classes.composition.numbertwo;
 
 public class FuelTank {
 	private double fuelBalance;
+	private static double fuelBalanceMin = 0;
+	private static double fuelBalanceMax = 100;
 
 	public FuelTank() {
-		this.fuelBalance = 100;
+		this.fuelBalance = fuelBalanceMax;
 	}
 
 	public FuelTank(double fuelBalance) {
@@ -18,12 +20,30 @@ public class FuelTank {
 	public void setFuelBalance(double fuelBalance) {
 		this.fuelBalance = fuelBalance;
 	}
+	
+	public static double getFuelBalanceMin() {
+		return fuelBalanceMin;
+	}
+
+	public static void setFuelBalanceMin(double fuelBalanceMin) {
+		FuelTank.fuelBalanceMin = fuelBalanceMin;
+	}
+	
+	public static double getFuelBalanceMax() {
+		return fuelBalanceMax;
+	}
+
+	public static void setFuelBalanceMax(double fuelBalanceMax) {
+		FuelTank.fuelBalanceMax = fuelBalanceMax;
+	}
 
 	@Override
 	public int hashCode() {
 		int result = 31;
 		int prime = 1;
 		result = result * prime + Double.hashCode(fuelBalance);
+		result = result * prime + Double.hashCode(fuelBalanceMin);
+		result = result * prime + Double.hashCode(fuelBalanceMax);
 		return result;
 	}
 

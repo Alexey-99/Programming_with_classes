@@ -3,6 +3,7 @@ package by.koroza.programming_with_classes.composition.numbertwo;
 public class Wheel {
 	private double wear;
 	private static double wearMax = 100;
+	private static double wearMin = 0;
 
 	public Wheel() {
 		this.wear = 0;
@@ -27,6 +28,14 @@ public class Wheel {
 	public static void setWearMax(double wearMax) {
 		Wheel.wearMax = wearMax;
 	}
+	
+	public static double getWearMin() {
+		return wearMin;
+	}
+
+	public static void setWearMin(double wearMin) {
+		Wheel.wearMin = wearMin;
+	}
 
 	@Override
 	public int hashCode() {
@@ -34,6 +43,7 @@ public class Wheel {
 		int prime = 1;
 		result = result * prime + Double.hashCode(wear);
 		result = result * prime + Double.hashCode(wearMax);
+		result = result * prime + Double.hashCode(wearMin);
 		return result;
 	}
 
@@ -61,8 +71,4 @@ public class Wheel {
 		builder.append("Wheel wear: ").append(wear).append("%");
 		return builder.toString();
 	}
-
-	
-
-	
 }
