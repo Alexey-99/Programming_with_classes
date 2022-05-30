@@ -2,6 +2,7 @@ package by.koroza.programming_with_classes.composition.numbertwo;
 
 public class Engine {
 	private double wear;
+	private static double wearMax = 100;
 
 	public Engine() {
 		this.wear = 0;
@@ -19,11 +20,20 @@ public class Engine {
 		this.wear = wear;
 	}
 
+	public static double getWearMax() {
+		return wearMax;
+	}
+
+	public static void setWearMax(double wearMax) {
+		Engine.wearMax = wearMax;
+	}
+
 	@Override
 	public int hashCode() {
 		int result = 31;
 		int prime = 1;
 		result = result * prime + Double.hashCode(wear);
+		result = result * prime + Double.hashCode(wearMax);
 		return result;
 	}
 
@@ -51,4 +61,5 @@ public class Engine {
 		builder.append("Engine wear: ").append(false).append("%");
 		return builder.toString();
 	}
+
 }

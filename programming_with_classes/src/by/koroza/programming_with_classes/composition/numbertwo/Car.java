@@ -7,15 +7,17 @@ public class Car {
 	private Wheel[] wheels = new Wheel[4];
 	private Engine engine;
 	private FuelTank fuelTank;
+	private String model;
 
-	public Car(Wheel[] wheels, Engine engine, FuelTank fuelTank) {
+	public Car(String model, Wheel[] wheels, Engine engine, FuelTank fuelTank) {
 		this.id = count++;
 		this.wheels = wheels;
 		this.engine = engine;
 		this.fuelTank = fuelTank;
+		this.setModel(model);
 	}
 
-	public Car(Wheel wheelsOne, Wheel wheelsTwo, Wheel wheelsThree, Wheel wheelsFour, Engine engine,
+	public Car(String model, Wheel wheelsOne, Wheel wheelsTwo, Wheel wheelsThree, Wheel wheelsFour, Engine engine,
 			FuelTank fuelTank) {
 		this.id = count++;
 		this.wheels[0] = wheelsOne;
@@ -24,6 +26,7 @@ public class Car {
 		this.wheels[3] = wheelsFour;
 		this.engine = engine;
 		this.fuelTank = fuelTank;
+		this.setModel(model);
 	}
 
 	public int getID() {
@@ -65,6 +68,20 @@ public class Car {
 		this.fuelTank = fuelTank;
 	}
 
+	public String getModel() {
+		return model;
+	}
+
+	public void setModel(String model) {
+		this.model = model;
+	}
+
+	public void goByCar() {
+		while (true) {
+			
+		}
+	}
+
 	@Override
 	public int hashCode() {
 		int result = 31;
@@ -74,6 +91,7 @@ public class Car {
 		result = result * prime + (wheels != null ? wheels.hashCode() : 1);
 		result = result * prime + (engine != null ? engine.hashCode() : 1);
 		result = result * prime + (fuelTank != null ? fuelTank.hashCode() : 1);
+		result = result * prime + (model != null ? model.hashCode() : 1);
 		return result;
 	}
 
@@ -111,6 +129,13 @@ public class Car {
 				return false;
 			}
 		} else if (!fuelTank.equals(car.fuelTank)) {
+			return false;
+		}
+		if (model == null) {
+			if (car.model != null) {
+				return false;
+			}
+		} else if (!model.equals(car.model)) {
 			return false;
 		}
 		return true;
