@@ -8,19 +8,22 @@ public class Car {
 	private Engine engine;
 	private FuelTank fuelTank;
 
-	public Car(Wheel[] wheels, Engine engine) {
+	public Car(Wheel[] wheels, Engine engine, FuelTank fuelTank) {
+		this.id = count++;
 		this.wheels = wheels;
 		this.engine = engine;
-		this.id = count++;
+		this.fuelTank = fuelTank;
 	}
 
-	public Car(Wheel wheelsOne, Wheel wheelsTwo, Wheel wheelsThree, Wheel wheelsFour, Engine engine) {
+	public Car(Wheel wheelsOne, Wheel wheelsTwo, Wheel wheelsThree, Wheel wheelsFour, Engine engine,
+			FuelTank fuelTank) {
 		this.wheels[0] = wheelsOne;
 		this.wheels[1] = wheelsTwo;
 		this.wheels[2] = wheelsThree;
 		this.wheels[3] = wheelsFour;
 		this.engine = engine;
 		this.id = count++;
+		this.fuelTank = fuelTank;
 	}
 
 	@Override
