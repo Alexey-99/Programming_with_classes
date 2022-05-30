@@ -4,7 +4,11 @@ public class FuelTank {
 	private double fuelBalance;
 
 	public FuelTank() {
+		this.fuelBalance = 100;
+	}
 
+	public FuelTank(double fuelBalance) {
+		this.fuelBalance = fuelBalance;
 	}
 
 	public double getFuelBalance() {
