@@ -8,5 +8,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		Car car = new Car("M", new Wheel(), new Wheel(), new Wheel(), new Wheel(), new Engine(), new FuelTank());
+		car.goByCar(50);
+		System.out.println(car.toString());
 	}
 }

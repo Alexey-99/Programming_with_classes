@@ -1,5 +1,7 @@
 package by.koroza.programming_with_classes.composition.numbertwo;
 
+import static by.koroza.programming_with_classes.composition.numbertwo.Wheel.getWearMax;
+
 public class Car {
 	private static int count = 1;
 
@@ -78,7 +80,27 @@ public class Car {
 
 	public void goByCar() {
 		while (true) {
-			
+			fuelTank.fuelConsumption();
+
+		}
+	}
+
+	public void goByCar(double numberKM) {
+		boolean flag = true;
+		int countKM = 0;
+		while (flag == true && countKM <= numberKM) {
+			if ((fuelTank.getFuelBalance() > FuelTank.getFuelBalanceMin()) && (wheels[0].getWear() < getWearMax())
+					&& (wheels[1].getWear() < getWearMax()) && (wheels[2].getWear() < getWearMax())
+					&& (wheels[3].getWear() < getWearMax()) && (engine.getWear() < Engine.getWearMax())) {
+				fuelTank.fuelConsumption();
+				for (Wheel wheel : wheels) {
+					wheel.wearIncrease();
+				}
+				engine.wearIncrease();
+				countKM++;
+			} else {
+				flag = false;
+			}
 		}
 	}
 
@@ -144,6 +166,13 @@ public class Car {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
+		builder.append("ID: ").append(id).append("\n");
+		builder.append("Model: ").append(model).append("\n");
+		for (Wheel wheel : wheels) {
+			builder.append(wheel.toString()).append("\n");
+		}
+		builder.append(engine.toString()).append("\n");
+		builder.append(fuelTank.toString()).append("\n");
 		return builder.toString();
 	}
 }

@@ -1,5 +1,7 @@
 package by.koroza.programming_with_classes.composition.numbertwo;
 
+import java.text.DecimalFormat;
+
 public class Engine {
 	private double wear;
 	private static double wearMax = 100;
@@ -36,6 +38,10 @@ public class Engine {
 	public static void setWearMin(double wearMin) {
 		Engine.wearMin = wearMin;
 	}
+	
+	public void wearIncrease() {
+		wear = wear + 0.001;
+	}
 
 	@Override
 	public int hashCode() {
@@ -67,8 +73,10 @@ public class Engine {
 
 	@Override
 	public String toString() {
+		DecimalFormat format = new DecimalFormat("#.###");
 		StringBuilder builder = new StringBuilder();
-		builder.append("Engine wear: ").append(false).append("%");
+		builder.append("Engine wear: ").append(format.format(wear)).append("%");
+		//builder.append("Engine wear: ").append(wear).append("%");
 		return builder.toString();
 	}
 }
