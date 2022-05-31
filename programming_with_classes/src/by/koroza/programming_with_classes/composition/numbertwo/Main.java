@@ -10,5 +10,6 @@ public class Main {
 		Car car = new Car("M", new Wheel(), new Wheel(), new Wheel(), new Wheel(), new Engine(), new FuelTank());
 		car.goByCar(50);
 		System.out.println(car.toString());
+		car.goByCar();
 	}
 }

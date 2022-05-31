@@ -10,6 +10,12 @@ public class Car {
 	private Engine engine;
 	private FuelTank fuelTank;
 	private String model;
+	private final static String CAR_MODEL = "Car model: ";
+	private final static String RAN_OUT_OF_FUEL = "Ran out of fuel.";
+	private final static String WORN_OUT_WHEEL = "Worn out wheel with id ";
+	private final static String WORN_OUT_ENGINE = "Worn out engine.";
+	private final static String LEFT_TO_DRIVE = " kilometers left to drive";
+	private final static String CAR_FILLED = "The car is filled.";
 
 	public Car(String model, Wheel[] wheels, Engine engine, FuelTank fuelTank) {
 		this.id = count++;
@@ -91,6 +97,24 @@ public class Car {
 				engine.wearIncrease();
 			} else {
 				flag = false;
+				if (fuelTank.getFuelBalance() > FuelTank.getFuelBalanceMin()) {
+					System.out.println(RAN_OUT_OF_FUEL);
+				}
+				if (wheels[0].getWear() < getWearMax()) {
+					System.out.println(WORN_OUT_WHEEL + wheels[0].getID());
+				}
+				if (wheels[1].getWear() < getWearMax()) {
+					System.out.println(WORN_OUT_WHEEL + wheels[1].getID());
+				}
+				if (wheels[2].getWear() < getWearMax()) {
+					System.out.println(WORN_OUT_WHEEL + wheels[2].getID());
+				}
+				if (wheels[3].getWear() < getWearMax()) {
+					System.out.println(WORN_OUT_WHEEL + wheels[3].getID());
+				}
+				if (engine.getWear() < Engine.getWearMax()) {
+					System.out.println(WORN_OUT_ENGINE);
+				}
 			}
 		}
 	}
@@ -110,12 +134,35 @@ public class Car {
 				countKM++;
 			} else {
 				flag = false;
+				if (fuelTank.getFuelBalance() > FuelTank.getFuelBalanceMin()) {
+					System.out.println(RAN_OUT_OF_FUEL);
+				}
+				if (wheels[0].getWear() < getWearMax()) {
+					System.out.println(WORN_OUT_WHEEL + wheels[0].getID());
+				}
+				if (wheels[1].getWear() < getWearMax()) {
+					System.out.println(WORN_OUT_WHEEL + wheels[1].getID());
+				}
+				if (wheels[2].getWear() < getWearMax()) {
+					System.out.println(WORN_OUT_WHEEL + wheels[2].getID());
+				}
+				if (wheels[3].getWear() < getWearMax()) {
+					System.out.println(WORN_OUT_WHEEL + wheels[3].getID());
+				}
+				if (engine.getWear() < Engine.getWearMax()) {
+					System.out.println(WORN_OUT_ENGINE);
+				}
+				double remainder = numberKM - countKM;
+				if (remainder != 0) {
+					System.out.println(remainder + LEFT_TO_DRIVE);
+				}
 			}
 		}
 	}
 
 	public void refuel() {
 		fuelTank.refuel();
+		System.out.println(CAR_FILLED);
 	}
 
 	public void changeWheel(int id, Wheel wheel) {
@@ -124,6 +171,10 @@ public class Car {
 				wheels[i] = wheel;
 			}
 		}
+	}
+
+	public void printModel() {
+		System.out.println(CAR_MODEL + model);
 	}
 
 	@Override
@@ -136,6 +187,12 @@ public class Car {
 		result = result * prime + (engine != null ? engine.hashCode() : 1);
 		result = result * prime + (fuelTank != null ? fuelTank.hashCode() : 1);
 		result = result * prime + (model != null ? model.hashCode() : 1);
+		result = result * prime + (CAR_MODEL != null ? CAR_MODEL.hashCode() : 1);
+		result = result * prime + (RAN_OUT_OF_FUEL != null ? RAN_OUT_OF_FUEL.hashCode() : 1);
+		result = result * prime + (WORN_OUT_WHEEL != null ? WORN_OUT_WHEEL.hashCode() : 1);
+		result = result * prime + (WORN_OUT_ENGINE != null ? WORN_OUT_ENGINE.hashCode() : 1);
+		result = result * prime + (LEFT_TO_DRIVE != null ? LEFT_TO_DRIVE.hashCode() : 1);
+		result = result * prime + (CAR_FILLED != null ? CAR_FILLED.hashCode() : 1);
 		return result;
 	}
 
