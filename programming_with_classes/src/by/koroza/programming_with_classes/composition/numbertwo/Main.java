@@ -11,5 +11,7 @@ public class Main {
 		car.goByCar(50);
 		System.out.println(car.toString());
 		car.goByCar();
+		car.refuel();
+		car.changeWheel(1, new Wheel());
 	}
 }

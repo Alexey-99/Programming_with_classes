@@ -4,8 +4,8 @@ import java.text.DecimalFormat;
 
 public class FuelTank {
 	private double fuelBalance;
-	private final static double fuelBalanceMin = 0;
-	private final static double fuelBalanceMax = 100;
+	private static double fuelBalanceMin = 0;
+	private static double fuelBalanceMax = 100;
 	private final static double FUEL_CONSUMPTION_IN_PERCENT = 0.2;
 
 	public FuelTank() {
@@ -72,10 +72,7 @@ public class FuelTank {
 	@Override
 	public String toString() {
 		DecimalFormat format = new DecimalFormat("#.#");
-
 		StringBuilder builder = new StringBuilder();
-		// builder.append("Remaining fuel in the car:
-		// ").append(fuelBalance).append("%");
 		builder.append("Remaining fuel in the car: ").append(format.format(fuelBalance)).append("%");
 		return builder.toString();
 	}

@@ -30,7 +30,7 @@ public class Engine {
 	public static void setWearMax(double wearMax) {
 		Engine.wearMax = wearMax;
 	}
-	
+
 	public static double getWearMin() {
 		return wearMin;
 	}
@@ -38,7 +38,7 @@ public class Engine {
 	public static void setWearMin(double wearMin) {
 		Engine.wearMin = wearMin;
 	}
-	
+
 	public void wearIncrease() {
 		wear = wear + 0.001;
 	}
@@ -76,7 +76,6 @@ public class Engine {
 		DecimalFormat format = new DecimalFormat("#.###");
 		StringBuilder builder = new StringBuilder();
 		builder.append("Engine wear: ").append(format.format(wear)).append("%");
-		//builder.append("Engine wear: ").append(wear).append("%");
 		return builder.toString();
 	}
 }

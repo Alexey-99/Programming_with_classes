@@ -22,7 +22,7 @@ public class Car {
 		this.wheels = wheels;
 		this.engine = engine;
 		this.fuelTank = fuelTank;
-		this.setModel(model);
+		this.model = model;
 	}
 
 	public Car(String model, Wheel wheelsOne, Wheel wheelsTwo, Wheel wheelsThree, Wheel wheelsFour, Engine engine,
@@ -34,7 +34,7 @@ public class Car {
 		this.wheels[3] = wheelsFour;
 		this.engine = engine;
 		this.fuelTank = fuelTank;
-		this.setModel(model);
+		this.model = model;
 	}
 
 	public int getID() {
