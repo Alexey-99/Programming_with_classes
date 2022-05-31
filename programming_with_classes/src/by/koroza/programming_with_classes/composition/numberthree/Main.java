@@ -7,8 +7,6 @@ package by.koroza.programming_with_classes.composition.numberthree;
 public class Main {
 
 	public static void main(String[] args) {
-		
-
+		State state = new State("USA");
 	}
-
 }
