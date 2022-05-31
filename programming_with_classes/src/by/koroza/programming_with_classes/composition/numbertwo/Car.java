@@ -79,9 +79,19 @@ public class Car {
 	}
 
 	public void goByCar() {
-		while (true) {
-			fuelTank.fuelConsumption();
-
+		boolean flag = true;
+		while (flag == true) {
+			if ((fuelTank.getFuelBalance() > FuelTank.getFuelBalanceMin()) && (wheels[0].getWear() < getWearMax())
+					&& (wheels[1].getWear() < getWearMax()) && (wheels[2].getWear() < getWearMax())
+					&& (wheels[3].getWear() < getWearMax()) && (engine.getWear() < Engine.getWearMax())) {
+				fuelTank.fuelConsumption();
+				for (Wheel wheel : wheels) {
+					wheel.wearIncrease();
+				}
+				engine.wearIncrease();
+			} else {
+				flag = false;
+			}
 		}
 	}
 
@@ -102,6 +112,10 @@ public class Car {
 				flag = false;
 			}
 		}
+	}
+	
+	public void refuel() {
+		fuelTank.refuel();
 	}
 
 	@Override

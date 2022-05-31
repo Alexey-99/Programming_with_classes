@@ -4,8 +4,8 @@ import java.text.DecimalFormat;
 
 public class FuelTank {
 	private double fuelBalance;
-	private static double fuelBalanceMin = 0;
-	private static double fuelBalanceMax = 100;
+	private final static double fuelBalanceMin = 0;
+	private final static double fuelBalanceMax = 100;
 	private final static double FUEL_CONSUMPTION_IN_PERCENT = 0.2;
 
 	public FuelTank() {
@@ -28,20 +28,16 @@ public class FuelTank {
 		return fuelBalanceMin;
 	}
 
-	public static void setFuelBalanceMin(double fuelBalanceMin) {
-		FuelTank.fuelBalanceMin = fuelBalanceMin;
-	}
-
 	public static double getFuelBalanceMax() {
 		return fuelBalanceMax;
 	}
 
-	public static void setFuelBalanceMax(double fuelBalanceMax) {
-		FuelTank.fuelBalanceMax = fuelBalanceMax;
-	}
-
 	public void fuelConsumption() {
 		fuelBalance = fuelBalance - FUEL_CONSUMPTION_IN_PERCENT;
+	}
+
+	public void refuel() {
+		this.fuelBalance = fuelBalanceMax;
 	}
 
 	@Override
@@ -78,7 +74,8 @@ public class FuelTank {
 		DecimalFormat format = new DecimalFormat("#.#");
 
 		StringBuilder builder = new StringBuilder();
-		//builder.append("Remaining fuel in the car: ").append(fuelBalance).append("%");
+		// builder.append("Remaining fuel in the car:
+		// ").append(fuelBalance).append("%");
 		builder.append("Remaining fuel in the car: ").append(format.format(fuelBalance)).append("%");
 		return builder.toString();
 	}
