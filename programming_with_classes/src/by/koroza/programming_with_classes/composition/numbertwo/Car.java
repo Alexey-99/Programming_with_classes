@@ -113,9 +113,17 @@ public class Car {
 			}
 		}
 	}
-	
+
 	public void refuel() {
 		fuelTank.refuel();
+	}
+
+	public void changeWheel(int id, Wheel wheel) {
+		for (int i = 0; i < wheels.length; i++) {
+			if (wheels[i].getID() == id) {
+				wheels[i] = wheel;
+			}
+		}
 	}
 
 	@Override
