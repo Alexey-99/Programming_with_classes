@@ -1,21 +1,10 @@
 package by.koroza.programming_with_classes.composition.numberthree;
 
-public class District {
+public class City {
 	private String name;
-	private City[] cities;
 
-	public District(String name) {
+	public City(String name) {
 		this.name = name;
-	}
-
-	public District(String name, City[] cities) {
-		this.name = name;
-		this.cities = cities;
-	}
-
-	public District(String name, City city) {
-		this.name = name;
-		this.cities[0] = city;
 	}
 
 	public String getName() {
@@ -26,20 +15,11 @@ public class District {
 		this.name = name;
 	}
 
-	public City[] getCities() {
-		return cities;
-	}
-
-	public void setCities(City[] cities) {
-		this.cities = cities;
-	}
-
 	@Override
 	public int hashCode() {
 		int result = 31;
 		int prime = 1;
 		result = result * prime + (name != null ? name.hashCode() : 1);
-		result = result * prime + (cities != null ? cities.hashCode() : 1);
 		return result;
 	}
 
@@ -54,19 +34,12 @@ public class District {
 		if (!getClass().equals(object.getClass())) {
 			return false;
 		}
-		District district = (District) object;
+		City city = (City) object;
 		if (name == null) {
-			if (district.name != null) {
+			if (city.name != null) {
 				return false;
 			}
-		} else if (!name.equals(district.name)) {
-			return false;
-		}
-		if (cities == null) {
-			if (district.cities != null) {
-				return false;
-			}
-		} else if (!cities.equals(district.cities)) {
+		} else if (!name.equals(city.name)) {
 			return false;
 		}
 		return true;
