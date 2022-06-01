@@ -2,14 +2,20 @@ package by.koroza.programming_with_classes.composition.numberthree;
 
 public class Region {
 	private String name;
-	private District[] district;
-
-	public Region() {
-
-	}
+	private District[] districts;
 
 	public Region(String name) {
+		this.name = name;
+	}
 
+	public Region(String name, District[] districts) {
+		this.name = name;
+		this.districts = districts;
+	}
+
+	public Region(String name, District district) {
+		this.name = name;
+		this.districts[0] = district;
 	}
 
 	public String getName() {
@@ -20,19 +26,54 @@ public class Region {
 		this.name = name;
 	}
 
-	public District[] getDistrict() {
-		return district;
+	public District[] getDistricts() {
+		return districts;
 	}
 
-	public void setDistrict(District[] district) {
-		this.district = district;
+	public void setDistricts(District[] districts) {
+		this.districts = districts;
+	}
+
+	public void addDistrict(District district) {
+		District[] districtsNew = null;
+		if (districts == null) {
+			this.districts[0] = district;
+		} else {
+			districtsNew = new District[districts.length + 1];
+			for (int i = 0; i < districtsNew.length; i++) {
+				if (i < districts.length) {
+					districtsNew[i] = districts[i];
+				} else if (i == districts.length) {
+					districtsNew[i] = district;
+				}
+			}
+		}
+		this.districts = districtsNew;
+	}
+
+	public void addDistricts(District[] districts) {
+		District[] districtsNew = null;
+		if (districts == null) {
+			this.districts = districts;
+		} else {
+			districtsNew = new District[this.districts.length + districts.length];
+			for (int i = 0; i < districtsNew.length; i++) {
+				if (i < this.districts.length) {
+					districtsNew[i] = this.districts[i];
+				} else if (i >= this.districts.length) {
+					districtsNew[i] = districts[i];
+				}
+			}
+		}
+		this.districts = districtsNew;
 	}
 
 	@Override
 	public int hashCode() {
 		int result = 31;
 		int prime = 1;
-		result = result * prime;
+		result = result * prime + (name != null ? name.hashCode() : 1);
+		result = result * prime + (districts != null ? districts.hashCode() : 1);
 		return result;
 	}
 
@@ -48,6 +89,20 @@ public class Region {
 			return false;
 		}
 		Region region = (Region) object;
+		if (name == null) {
+			if (region.name != null) {
+				return false;
+			}
+		} else if (!name.equals(region.name)) {
+			return false;
+		}
+		if (districts == null) {
+			if (region.districts != null) {
+				return false;
+			}
+		} else if (!districts.equals(region.districts)) {
+			return false;
+		}
 		return true;
 	}
 
