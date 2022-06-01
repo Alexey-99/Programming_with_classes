@@ -5,6 +5,7 @@ public class City {
 	private String cityStatus;
 	private boolean stateCapital;
 	private District[] districts;
+	private double area;
 
 	public City(String name) {
 		this.name = name;
@@ -112,6 +113,14 @@ public class City {
 		this.stateCapital = stateCapital;
 	}
 
+	public double getArea() {
+		return area;
+	}
+
+	public void setArea(double area) {
+		this.area = area;
+	}
+
 	public void addDistrict(District district) {
 		District[] districtsNew = null;
 		if (this.districts == null) {
@@ -154,6 +163,7 @@ public class City {
 		result = result * prime + (name != null ? name.hashCode() : 1);
 		result = result * prime + (districts != null ? districts.hashCode() : 1);
 		result = result * prime + Boolean.hashCode(stateCapital);
+		result = result * prime + Double.hashCode(area);
 		return result;
 	}
 
@@ -191,6 +201,9 @@ public class City {
 			return false;
 		}
 		if (stateCapital != city.stateCapital) {
+			return false;
+		}
+		if (area != city.area) {
 			return false;
 		}
 		return true;
