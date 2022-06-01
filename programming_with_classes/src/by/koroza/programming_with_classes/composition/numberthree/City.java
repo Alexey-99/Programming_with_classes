@@ -3,6 +3,7 @@ package by.koroza.programming_with_classes.composition.numberthree;
 public class City {
 	private String name;
 	private String cityStatus;
+	private boolean stateCapital;
 	private District[] districts;
 
 	public City(String name) {
