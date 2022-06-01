@@ -26,6 +26,14 @@ public class Region {
 		this.name = name;
 	}
 
+	public City[] getCities() {
+		return cities;
+	}
+
+	public void setCities(City[] cities) {
+		this.cities = cities;
+	}
+
 	public void addCity(City city) {
 		City[] citiesNew = null;
 		if (this.cities == null) {
