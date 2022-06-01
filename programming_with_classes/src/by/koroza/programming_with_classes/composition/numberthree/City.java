@@ -60,6 +60,40 @@ public class City {
 		this.cityStatus = cityStatus;
 	}
 
+	public void addDistrict(District district) {
+		District[] districtsNew = null;
+		if (this.districts == null) {
+			this.districts[0] = district;
+		} else {
+			districtsNew = new District[this.districts.length + 1];
+			for (int i = 0; i < districtsNew.length; i++) {
+				if (i < this.districts.length) {
+					districtsNew[i] = this.districts[i];
+				} else if (i == this.districts.length) {
+					districtsNew[i] = district;
+				}
+			}
+		}
+		this.districts = districtsNew;
+	}
+
+	public void addDistricts(District[] districts) {
+		District[] districtsNew = null;
+		if (this.districts == null) {
+			this.districts = districts;
+		} else {
+			districtsNew = new District[this.districts.length + districts.length];
+			for (int i = 0; i < districtsNew.length; i++) {
+				if (i < this.districts.length) {
+					districtsNew[i] = this.districts[i];
+				} else if (i >= this.districts.length) {
+					districtsNew[i] = districts[i];
+				}
+			}
+		}
+		this.districts = districtsNew;
+	}
+
 	@Override
 	public int hashCode() {
 		int result = 31;
