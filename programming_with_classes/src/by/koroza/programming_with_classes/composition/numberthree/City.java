@@ -8,33 +8,76 @@ public class City {
 
 	public City(String name) {
 		this.name = name;
+		this.stateCapital = false;
+	}
+
+	public City(String name, boolean stateCapital) {
+		this.name = name;
+		this.stateCapital = stateCapital;
 	}
 
 	public City(String name, String cityStatus) {
 		this.name = name;
 		this.cityStatus = cityStatus;
+		this.stateCapital = false;
+	}
+
+	public City(String name, String cityStatus, boolean stateCapital) {
+		this.name = name;
+		this.cityStatus = cityStatus;
+		this.stateCapital = stateCapital;
 	}
 
 	public City(String name, District[] districts) {
 		this.name = name;
 		this.districts = districts;
+		this.stateCapital = false;
+	}
+
+	public City(String name, District[] districts, boolean stateCapital) {
+		this.name = name;
+		this.districts = districts;
+		this.stateCapital = stateCapital;
 	}
 
 	public City(String name, District[] districts, String cityStatus) {
 		this.name = name;
 		this.districts = districts;
 		this.cityStatus = cityStatus;
+		this.stateCapital = false;
+	}
+
+	public City(String name, District[] districts, String cityStatus, boolean stateCapital) {
+		this.name = name;
+		this.districts = districts;
+		this.cityStatus = cityStatus;
+		this.stateCapital = stateCapital;
 	}
 
 	public City(String name, District district) {
 		this.name = name;
 		this.districts[0] = district;
+		this.stateCapital = false;
+	}
+
+	public City(String name, District district, boolean stateCapital) {
+		this.name = name;
+		this.districts[0] = district;
+		this.stateCapital = stateCapital;
 	}
 
 	public City(String name, District district, String cityStatus) {
 		this.name = name;
 		this.districts[0] = district;
 		this.cityStatus = cityStatus;
+		this.stateCapital = false;
+	}
+
+	public City(String name, District district, String cityStatus, boolean stateCapital) {
+		this.name = name;
+		this.districts[0] = district;
+		this.cityStatus = cityStatus;
+		this.stateCapital = stateCapital;
 	}
 
 	public String getName() {
@@ -59,6 +102,14 @@ public class City {
 
 	public void setCityStatus(String cityStatus) {
 		this.cityStatus = cityStatus;
+	}
+
+	public boolean getIsStateCapital() {
+		return stateCapital;
+	}
+
+	public void setStateCapital(boolean stateCapital) {
+		this.stateCapital = stateCapital;
 	}
 
 	public void addDistrict(District district) {
@@ -102,6 +153,7 @@ public class City {
 		result = result * prime + (cityStatus != null ? cityStatus.hashCode() : 1);
 		result = result * prime + (name != null ? name.hashCode() : 1);
 		result = result * prime + (districts != null ? districts.hashCode() : 1);
+		result = result * prime + Boolean.hashCode(stateCapital);
 		return result;
 	}
 
@@ -136,6 +188,9 @@ public class City {
 				return false;
 			}
 		} else if (!districts.equals(city.districts)) {
+			return false;
+		}
+		if (stateCapital != city.stateCapital) {
 			return false;
 		}
 		return true;

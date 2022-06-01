@@ -10,7 +10,7 @@ public class Main {
 		District[] minskDistrict = { new District("Frunzensky"), new District("Central"), new District("Sovietsky"),
 				new District("Pervomaisky"), new District("Partizansky"), new District("Zavodskoy"),
 				new District("Leninsky"), new District("Oktyabrsky"), new District("Moskovsky") };
-		City[] minsk = { new City("Minsk", minskDistrict, "center"), new City("Borisov"), new City("Zhodino"),
+		City[] minsk = { new City("Minsk", minskDistrict, "center", true), new City("Borisov"), new City("Zhodino"),
 				new City("Slutsk"), new City("Soligorsk") };
 		City[] brest = { new City("Brest", "center"), new City("Baranovichi"), new City("Pinsk") };
 		City[] grodno = { new City("Grodno", "center"), new City("Lida") };
