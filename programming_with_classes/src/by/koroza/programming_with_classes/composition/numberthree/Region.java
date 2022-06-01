@@ -2,20 +2,20 @@ package by.koroza.programming_with_classes.composition.numberthree;
 
 public class Region {
 	private String name;
-	private District[] districts;
+	private City[] cities;
 
 	public Region(String name) {
 		this.name = name;
 	}
 
-	public Region(String name, District[] districts) {
+	public Region(String name, City[] cities) {
 		this.name = name;
-		this.districts = districts;
+		this.cities = cities;
 	}
 
-	public Region(String name, District district) {
+	public Region(String name, City city) {
 		this.name = name;
-		this.districts[0] = district;
+		this.cities[0] = city;
 	}
 
 	public String getName() {
@@ -26,46 +26,38 @@ public class Region {
 		this.name = name;
 	}
 
-	public District[] getDistricts() {
-		return districts;
-	}
-
-	public void setDistricts(District[] districts) {
-		this.districts = districts;
-	}
-
-	public void addDistrict(District district) {
-		District[] districtsNew = null;
-		if (districts == null) {
-			this.districts[0] = district;
+	public void addCity(City city) {
+		City[] citiesNew = null;
+		if (this.cities == null) {
+			this.cities[0] = city;
 		} else {
-			districtsNew = new District[districts.length + 1];
-			for (int i = 0; i < districtsNew.length; i++) {
-				if (i < districts.length) {
-					districtsNew[i] = districts[i];
-				} else if (i == districts.length) {
-					districtsNew[i] = district;
+			citiesNew = new City[this.cities.length + 1];
+			for (int i = 0; i < citiesNew.length; i++) {
+				if (i < this.cities.length) {
+					citiesNew[i] = cities[i];
+				} else if (i == this.cities.length) {
+					citiesNew[i] = city;
 				}
 			}
 		}
-		this.districts = districtsNew;
+		this.cities = citiesNew;
 	}
 
-	public void addDistricts(District[] districts) {
-		District[] districtsNew = null;
-		if (districts == null) {
-			this.districts = districts;
+	public void addCities(City[] cities) {
+		City[] citiesNew = null;
+		if (this.cities == null) {
+			this.cities = cities;
 		} else {
-			districtsNew = new District[this.districts.length + districts.length];
-			for (int i = 0; i < districtsNew.length; i++) {
-				if (i < this.districts.length) {
-					districtsNew[i] = this.districts[i];
-				} else if (i >= this.districts.length) {
-					districtsNew[i] = districts[i];
+			citiesNew = new City[this.cities.length + cities.length];
+			for (int i = 0; i < citiesNew.length; i++) {
+				if (i < this.cities.length) {
+					citiesNew[i] = this.cities[i];
+				} else if (i >= this.cities.length) {
+					citiesNew[i] = cities[i];
 				}
 			}
 		}
-		this.districts = districtsNew;
+		this.cities = citiesNew;
 	}
 
 	@Override
@@ -73,7 +65,7 @@ public class Region {
 		int result = 31;
 		int prime = 1;
 		result = result * prime + (name != null ? name.hashCode() : 1);
-		result = result * prime + (districts != null ? districts.hashCode() : 1);
+		result = result * prime + (cities != null ? cities.hashCode() : 1);
 		return result;
 	}
 
@@ -96,11 +88,11 @@ public class Region {
 		} else if (!name.equals(region.name)) {
 			return false;
 		}
-		if (districts == null) {
-			if (region.districts != null) {
+		if (cities == null) {
+			if (region.cities != null) {
 				return false;
 			}
-		} else if (!districts.equals(region.districts)) {
+		} else if (!cities.equals(region.cities)) {
 			return false;
 		}
 		return true;
@@ -111,5 +103,4 @@ public class Region {
 		StringBuilder builder = new StringBuilder();
 		return builder.toString();
 	}
-
 }

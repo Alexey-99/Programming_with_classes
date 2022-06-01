@@ -2,20 +2,9 @@ package by.koroza.programming_with_classes.composition.numberthree;
 
 public class District {
 	private String name;
-	private City[] cities;
 
 	public District(String name) {
 		this.name = name;
-	}
-
-	public District(String name, City[] cities) {
-		this.name = name;
-		this.cities = cities;
-	}
-
-	public District(String name, City city) {
-		this.name = name;
-		this.cities[0] = city;
 	}
 
 	public String getName() {
@@ -26,20 +15,11 @@ public class District {
 		this.name = name;
 	}
 
-	public City[] getCities() {
-		return cities;
-	}
-
-	public void setCities(City[] cities) {
-		this.cities = cities;
-	}
-
 	@Override
 	public int hashCode() {
 		int result = 31;
 		int prime = 1;
 		result = result * prime + (name != null ? name.hashCode() : 1);
-		result = result * prime + (cities != null ? cities.hashCode() : 1);
 		return result;
 	}
 
@@ -60,13 +40,6 @@ public class District {
 				return false;
 			}
 		} else if (!name.equals(district.name)) {
-			return false;
-		}
-		if (cities == null) {
-			if (district.cities != null) {
-				return false;
-			}
-		} else if (!cities.equals(district.cities)) {
 			return false;
 		}
 		return true;
