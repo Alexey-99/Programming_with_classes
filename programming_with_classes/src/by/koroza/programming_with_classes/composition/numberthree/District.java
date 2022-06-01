@@ -1,32 +1,6 @@
 package by.koroza.programming_with_classes.composition.numberthree;
 
-public class Region {
-	private String name;
-	private District[] district;
-
-	public Region() {
-
-	}
-
-	public Region(String name) {
-
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public District[] getDistrict() {
-		return district;
-	}
-
-	public void setDistrict(District[] district) {
-		this.district = district;
-	}
+public class District {
 
 	@Override
 	public int hashCode() {
@@ -47,7 +21,7 @@ public class Region {
 		if (!getClass().equals(object.getClass())) {
 			return false;
 		}
-		Region region = (Region) object;
+		District district = (District) object;
 		return true;
 	}
 
@@ -56,5 +30,4 @@ public class Region {
 		StringBuilder builder = new StringBuilder();
 		return builder.toString();
 	}
-
 }
