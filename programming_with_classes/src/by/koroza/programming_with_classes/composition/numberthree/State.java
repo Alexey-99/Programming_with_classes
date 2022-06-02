@@ -116,6 +116,9 @@ public class State {
 		} else if (!regions.equals(state.regions)) {
 			return false;
 		}
+		if (area != state.area) {
+			return false;
+		}
 		return true;
 	}
 
