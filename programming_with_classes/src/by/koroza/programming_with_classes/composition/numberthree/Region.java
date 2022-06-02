@@ -109,6 +109,14 @@ public class Region {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
+		builder.append("City name: ").append(name).append("\n");
+		if (cities != null) {
+			for (int i = 0; i < cities.length; i++) {
+				builder.append(i).append(") ").append(cities[i].toString()).append("\n");
+			}
+		} else {
+			builder.append("This region doesn't have cities.").append("\n");
+		}
 		return builder.toString();
 	}
 }

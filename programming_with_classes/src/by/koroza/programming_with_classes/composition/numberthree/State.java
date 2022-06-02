@@ -3,19 +3,23 @@ package by.koroza.programming_with_classes.composition.numberthree;
 public class State {
 	private String name;
 	private Region[] regions;
+	private double area;
 
-	public State(String name) {
+	public State(String name, double area) {
 		this.name = name;
+		this.area = area;
 	}
 
-	public State(String name, Region[] regions) {
+	public State(String name, Region[] regions, double area) {
 		this.name = name;
 		this.regions = regions;
+		this.area = area;
 	}
 
-	public State(String name, Region region) {
+	public State(String name, Region region, double area) {
 		this.name = name;
 		this.regions[0] = region;
+		this.area = area;
 	}
 
 	public String getName() {
@@ -32,6 +36,14 @@ public class State {
 
 	public void setRegions(Region[] regions) {
 		this.regions = regions;
+	}
+
+	public double getArea() {
+		return area;
+	}
+
+	public void setArea(double area) {
+		this.area = area;
 	}
 
 	public void addRegion(Region region) {

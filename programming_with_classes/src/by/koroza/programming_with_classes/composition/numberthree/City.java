@@ -5,7 +5,6 @@ public class City {
 	private String cityStatus;
 	private boolean stateCapital;
 	private District[] districts;
-	private double area;
 
 	public City(String name) {
 		this.name = name;
@@ -113,14 +112,6 @@ public class City {
 		this.stateCapital = stateCapital;
 	}
 
-	public double getArea() {
-		return area;
-	}
-
-	public void setArea(double area) {
-		this.area = area;
-	}
-
 	public void addDistrict(District district) {
 		District[] districtsNew = null;
 		if (this.districts == null) {
@@ -163,7 +154,6 @@ public class City {
 		result = result * prime + (name != null ? name.hashCode() : 1);
 		result = result * prime + (districts != null ? districts.hashCode() : 1);
 		result = result * prime + Boolean.hashCode(stateCapital);
-		result = result * prime + Double.hashCode(area);
 		return result;
 	}
 
@@ -203,9 +193,6 @@ public class City {
 		if (stateCapital != city.stateCapital) {
 			return false;
 		}
-		if (area != city.area) {
-			return false;
-		}
 		return true;
 	}
 
@@ -213,10 +200,20 @@ public class City {
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("City name: ").append(name).append("\n");
-		if(cityStatus != null) {
+		if (cityStatus != null) {
 			builder.append("City status: ").append(cityStatus).append("\n");
 		}
-		
+		if (stateCapital != false) {
+			builder.append("This city is capital.").append("\n");
+		}
+		if (districts != null) {
+			builder.append("Districts:").append("\n");
+			for (int i = 0; i < districts.length; i++) {
+				builder.append(i).append(") ").append(districts[i].toString()).append("\n");
+			}
+		} else {
+			builder.append("This city doesn't have districts.").append("\n");
+		}
 		return builder.toString();
 	}
 }
