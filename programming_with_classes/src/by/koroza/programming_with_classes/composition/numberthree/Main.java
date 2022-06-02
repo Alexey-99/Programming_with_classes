@@ -74,7 +74,7 @@ public class Main {
 				new Region(REGION_GRODNO, grodno), new Region(REGION_VITEBSK, vitebsk),
 				new Region(REGION_MOGILEV, mogilev), new Region(REGION_GOMEL, gomel) };
 		State state = new State(STATE_BELARUS, regions, STATE_AREA);
-
+		
 		state.printCapitalState();
 		state.printNumberRegions();
 		state.printArea();
