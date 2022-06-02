@@ -4,6 +4,15 @@ public class State {
 	private String name;
 	private Region[] regions;
 	private double area;
+	private final static String STATE_NAME = "State name: ";
+	private final static String REGIONS_LIST = "Regions:";
+	private final static String STATE_DOES_NOT_HAVE_REGIONS = "This state doesn't have regions.";
+	private final static String CITY = "City ";
+	private final static String IS_CAPITAL_STATE = " is capital state.";
+	private final static String STATE_DOES_NOT_HAVE_REGIONS_AND_CITIES = "This state doesn't have regions and cities.";
+	private final static String STATE_AREA = "State area: ";
+	private final static String STATE_HAS = "State has ";
+	private final static String REGIONS = " regions.";
 
 	public State(String name, double area) {
 		this.name = name;
@@ -86,25 +95,25 @@ public class State {
 				City[] cities = region.getCities();
 				for (City city : cities) {
 					if (city.getIsStateCapital() == true) {
-						System.out.println("City " + city.getName() + " is capital state.");
+						System.out.println(CITY + city.getName() + IS_CAPITAL_STATE);
 					}
 				}
 			}
 		} else {
-			System.out.println("This state doesn't have regions and cities.");
+			System.out.println(STATE_DOES_NOT_HAVE_REGIONS_AND_CITIES);
 		}
 	}
 
 	public void printNumberRegions() {
 		if (regions != null) {
-			System.out.println("State has " + regions.length + " regions.");
+			System.out.println(STATE_HAS + regions.length + REGIONS);
 		} else {
-			System.out.println("This state doesn't have regions.");
+			System.out.println(STATE_DOES_NOT_HAVE_REGIONS);
 		}
 	}
 
 	public void printArea() {
-		System.out.println("State area: " + area);
+		System.out.println(STATE_AREA + area);
 	}
 
 	public void printRegionCenter() {
@@ -174,16 +183,16 @@ public class State {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("State name: ").append(name).append("\n");
+		builder.append(STATE_NAME).append(name).append("\n");
 		if (regions != null) {
-			builder.append("Regions:").append("\n");
+			builder.append(REGIONS_LIST).append("\n");
 			for (int i = 0; i < regions.length; i++) {
 				builder.append(i + 1).append(") ").append(regions[i].toString()).append("\n");
 			}
 		} else {
-			builder.append("This state doesn't have regions.").append("\n");
+			builder.append(STATE_DOES_NOT_HAVE_REGIONS).append("\n");
 		}
-		builder.append("Area state: ").append(area);
+		builder.append(STATE_AREA).append(area);
 		return builder.toString();
 	}
 }
