@@ -7,7 +7,7 @@
 
 package by.koroza.programming_with_classes.composition.numberfour;
 
-public class NumberFour {
+public class Main {
 
 	public static void main(String[] args) {
 		
