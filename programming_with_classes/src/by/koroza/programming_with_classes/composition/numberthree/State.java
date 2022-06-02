@@ -109,6 +109,7 @@ public class State {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
+		builder.append(false);
 		return builder.toString();
 	}
 }

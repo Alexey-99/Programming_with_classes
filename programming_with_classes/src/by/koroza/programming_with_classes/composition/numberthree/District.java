@@ -48,6 +48,7 @@ public class District {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
+		builder.append("District name: ").append(name);
 		return builder.toString();
 	}
 }

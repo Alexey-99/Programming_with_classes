@@ -212,6 +212,11 @@ public class City {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
+		builder.append("City name: ").append(name).append("\n");
+		if(cityStatus != null) {
+			builder.append("City status: ").append(cityStatus).append("\n");
+		}
+		
 		return builder.toString();
 	}
 }
