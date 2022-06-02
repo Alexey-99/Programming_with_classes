@@ -111,6 +111,7 @@ public class Region {
 		StringBuilder builder = new StringBuilder();
 		builder.append("City name: ").append(name).append("\n");
 		if (cities != null) {
+			builder.append("Cities:").append("\n");
 			for (int i = 0; i < cities.length; i++) {
 				builder.append(i).append(") ").append(cities[i].toString()).append("\n");
 			}
