@@ -131,7 +131,8 @@ public class State {
 						if (city.getCityStatus().equals(CENTER)) {
 							builder.append(++countRegionsCenter).append(")");
 							builder.append(SPACE_REGION_SPACE).append(region.getName());
-							builder.append(HAS_CITY_REGION_CENTER).append(city.getName()).append(";").append(LINE_BREAK);
+							builder.append(HAS_CITY_REGION_CENTER).append(city.getName()).append(";")
+									.append(LINE_BREAK);
 						}
 					}
 				}
@@ -149,6 +150,21 @@ public class State {
 		result = result * prime + (name != null ? name.hashCode() : 1);
 		result = result * prime + (regions != null ? regions.hashCode() : 1);
 		result = result * prime + Double.hashCode(area);
+		result = result * prime + (STATE_NAME != null ? STATE_NAME.hashCode() : 1);
+		result = result * prime + (REGIONS_LIST != null ? REGIONS_LIST.hashCode() : 1);
+		result = result * prime + (STATE_DOES_NOT_HAVE_REGIONS != null ? STATE_DOES_NOT_HAVE_REGIONS.hashCode() : 1);
+		result = result * prime + (CITY != null ? CITY.hashCode() : 1);
+		result = result * prime + (IS_CAPITAL_STATE != null ? IS_CAPITAL_STATE.hashCode() : 1);
+		result = result * prime
+				+ (STATE_DOES_NOT_HAVE_REGIONS_AND_CITIES != null ? STATE_DOES_NOT_HAVE_REGIONS_AND_CITIES.hashCode()
+						: 1);
+		result = result * prime + (STATE_AREA != null ? STATE_AREA.hashCode() : 1);
+		result = result * prime + (STATE_HAS != null ? STATE_HAS.hashCode() : 1);
+		result = result * prime + (REGIONS_PLUS_POINT != null ? REGIONS_PLUS_POINT.hashCode() : 1);
+		result = result * prime + (CENTER != null ? CENTER.hashCode() : 1);
+		result = result * prime + (LINE_BREAK != null ? LINE_BREAK.hashCode() : 1);
+		result = result * prime + (SPACE_REGION_SPACE != null ? SPACE_REGION_SPACE.hashCode() : 1);
+		result = result * prime + (HAS_CITY_REGION_CENTER != null ? HAS_CITY_REGION_CENTER.hashCode() : 1);
 		return result;
 	}
 
