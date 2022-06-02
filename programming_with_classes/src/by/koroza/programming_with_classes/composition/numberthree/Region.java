@@ -3,6 +3,9 @@ package by.koroza.programming_with_classes.composition.numberthree;
 public class Region {
 	private String name;
 	private City[] cities;
+	private final static String REGION_NAME = "Region name: ";
+	private final static String CITIES_LIST = "Cities:";
+	private final static String REGION_DOES_NOT_HAVE_CITIES = "This region doesn't have cities.";
 
 	public Region(String name) {
 		this.name = name;
@@ -74,6 +77,9 @@ public class Region {
 		int prime = 1;
 		result = result * prime + (name != null ? name.hashCode() : 1);
 		result = result * prime + (cities != null ? cities.hashCode() : 1);
+		result = result * prime + (REGION_NAME != null ? REGION_NAME.hashCode() : 1);
+		result = result * prime + (CITIES_LIST != null ? CITIES_LIST.hashCode() : 1);
+		result = result * prime + (REGION_DOES_NOT_HAVE_CITIES != null ? REGION_DOES_NOT_HAVE_CITIES.hashCode() : 1);
 		return result;
 	}
 
@@ -109,14 +115,14 @@ public class Region {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Region name: ").append(name).append("\n");
+		builder.append(REGION_NAME).append(name).append("\n");
 		if (cities != null) {
-			builder.append("Cities:").append("\n");
+			builder.append(CITIES_LIST).append("\n");
 			for (int i = 0; i < cities.length; i++) {
 				builder.append(i + 1).append(") ").append(cities[i].toString()).append("\n");
 			}
 		} else {
-			builder.append("This region doesn't have cities.").append("\n");
+			builder.append(REGION_DOES_NOT_HAVE_CITIES).append("\n");
 		}
 		return builder.toString();
 	}

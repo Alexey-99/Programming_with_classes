@@ -9,6 +9,7 @@ public class City {
 	private final static String CITY_STATUS = "City status: ";
 	private final static String CITY_CAPITAL_STATE = "This city is capital state.";
 	private final static String CITY_DOES_NOT_HAVE_DISTRICTS = "This city doesn't have districts.";
+	private final static String DISTRICTS_LIST = "Districts:";
 
 	public City(String name) {
 		this.name = name;
@@ -162,6 +163,7 @@ public class City {
 		result = result * prime + (CITY_STATUS != null ? CITY_STATUS.hashCode() : 1);
 		result = result * prime + (CITY_CAPITAL_STATE != null ? CITY_CAPITAL_STATE.hashCode() : 1);
 		result = result * prime + (CITY_DOES_NOT_HAVE_DISTRICTS != null ? CITY_DOES_NOT_HAVE_DISTRICTS.hashCode() : 1);
+		result = result * prime + (DISTRICTS_LIST != null ? DISTRICTS_LIST.hashCode() : 1);
 		return result;
 	}
 
@@ -215,7 +217,7 @@ public class City {
 			builder.append(CITY_CAPITAL_STATE).append("\n");
 		}
 		if (districts != null) {
-			builder.append("Districts:").append("\n");
+			builder.append(DISTRICTS_LIST).append("\n");
 			for (int i = 0; i < districts.length; i++) {
 				builder.append(i + 1).append(") ").append(districts[i].toString());
 				if (i < districts.length - 1) {
