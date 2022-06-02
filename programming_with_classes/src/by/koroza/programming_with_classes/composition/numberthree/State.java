@@ -102,9 +102,31 @@ public class State {
 			System.out.println("This state doesn't have regions.");
 		}
 	}
-	
+
 	public void printArea() {
 		System.out.println("State area: " + area);
+	}
+
+	public void printRegionCenter() {
+		StringBuilder builder = new StringBuilder();
+		int countRegionsCenter = 0;
+		if (regions != null) {
+			for (Region region : regions) {
+				City[] cities = region.getCities();
+				for (City city : cities) {
+					if (city.getCityStatus() != null) {
+						if (city.getCityStatus().equals("center")) {
+							builder.append(++countRegionsCenter).append(")");
+							builder.append(" Region ").append(region.getName()).append(" has ");
+							builder.append("city region center ").append(city.getName()).append(";").append("\n");
+						}
+					}
+				}
+			}
+		} else {
+			builder.append("This state doesn't have regions.");
+		}
+		System.out.println(builder.toString());
 	}
 
 	@Override

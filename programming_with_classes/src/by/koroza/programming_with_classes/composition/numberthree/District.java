@@ -2,6 +2,7 @@ package by.koroza.programming_with_classes.composition.numberthree;
 
 public class District {
 	private String name;
+	private final static String DISTRICT_NAME = "District name: ";
 
 	public District(String name) {
 		this.name = name;
@@ -20,6 +21,7 @@ public class District {
 		int result = 31;
 		int prime = 1;
 		result = result * prime + (name != null ? name.hashCode() : 1);
+		result = result * prime + (DISTRICT_NAME != null ? DISTRICT_NAME.hashCode() : 1);
 		return result;
 	}
 
@@ -48,7 +50,7 @@ public class District {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("District name: ").append(name);
+		builder.append(DISTRICT_NAME).append(name);
 		return builder.toString();
 	}
 }
