@@ -22,6 +22,8 @@ public class Main {
 		Region[] regions = { new Region("Minsk", minsk), new Region("Brest", brest), new Region("Grodno", grodno),
 				new Region("Vitebsk", vitebsk), new Region("Mogilev", mogilev), new Region("Gomel", gomel) };
 		State state = new State("Belarus", regions, 123456);
-		System.out.println(state.toString());
+		//System.out.println(state.toString());
+		//state.printCapitalState();
+		
 	}
 }

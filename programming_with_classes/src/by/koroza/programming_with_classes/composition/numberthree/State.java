@@ -80,6 +80,21 @@ public class State {
 		this.regions = regionsNew;
 	}
 
+	public void printCapitalState() {
+		if (regions != null) {
+			for (Region region : regions) {
+				City[] cities = region.getCities();
+				for (City city : cities) {
+					if (city.getIsStateCapital() == true) {
+						System.out.println("City " + city.getName() + " is capital state.");
+					}
+				}
+			}
+		} else {
+			System.out.println("This state doesn't have regions and cities");
+		}
+	}
+
 	@Override
 	public int hashCode() {
 		int result = 31;
