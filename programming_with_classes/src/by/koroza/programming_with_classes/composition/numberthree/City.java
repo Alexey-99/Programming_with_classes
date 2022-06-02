@@ -204,15 +204,18 @@ public class City {
 			builder.append("City status: ").append(cityStatus).append("\n");
 		}
 		if (stateCapital != false) {
-			builder.append("This city is capital.").append("\n");
+			builder.append("This city is capital state.").append("\n");
 		}
 		if (districts != null) {
 			builder.append("Districts:").append("\n");
 			for (int i = 0; i < districts.length; i++) {
-				builder.append(i).append(") ").append(districts[i].toString()).append("\n");
+				builder.append(i + 1).append(") ").append(districts[i].toString());
+				if(i < districts.length - 1) {
+					builder.append("\n");
+				}
 			}
 		} else {
-			builder.append("This city doesn't have districts.").append("\n");
+			builder.append("This city doesn't have districts.");
 		}
 		return builder.toString();
 	}

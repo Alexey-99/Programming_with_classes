@@ -86,6 +86,7 @@ public class State {
 		int prime = 1;
 		result = result * prime + (name != null ? name.hashCode() : 1);
 		result = result * prime + (regions != null ? regions.hashCode() : 1);
+		result = result * prime + Double.hashCode(area);
 		return result;
 	}
 
@@ -121,7 +122,16 @@ public class State {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append(false);
+		builder.append("State name: ").append(name).append("\n");
+		if (regions != null) {
+			builder.append("Regions:").append("\n");
+			for (int i = 0; i < regions.length; i++) {
+				builder.append(i + 1).append(") ").append(regions[i].toString()).append("\n");
+			}
+		} else {
+			builder.append("This state doesn't have regions.").append("\n");
+		}
+		builder.append("Area state: ").append(area);
 		return builder.toString();
 	}
 }
