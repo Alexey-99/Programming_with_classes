@@ -35,8 +35,24 @@ public class Main {
 
 	final static String CITY_MOGILEV = "Mogilev";
 	final static String CITY_BOBRUISK = "Bobruisk";
-	
-	
+
+	final static String CITY_GOMEL = "Gomel";
+	final static String CITY_ZHLOBIN = "Zhlobin";
+	final static String CITY_MOZYR = "Mozyr";
+	final static String CITY_RECHITSA = "Rechitsa";
+	final static String CITY_SVETLOGORSK = "Svetlogorsk";
+
+	final static String REGION_MINSK = "Minsk";
+	final static String REGION_BREST = "Brest";
+	final static String REGION_GRODNO = "Grodno";
+	final static String REGION_VITEBSK = "Vitebsk";
+	final static String REGION_MOGILEV = "Mogilev";
+	final static String REGION_GOMEL = "Gomel";
+
+	final static String STATE_BELARUS = "Belarus";
+
+	final static double STATE_AREA = 123456;
+
 	final static String CITY_STATUS = "center";
 	final static boolean STATE_CAPITAL = true;
 
@@ -47,17 +63,17 @@ public class Main {
 				new District(DISTRICT_OKTYABRSKY), new District(DISTRICT_MOSKOVSRY) };
 		City[] minsk = { new City(CITY_MINSK, minskDistrict, CITY_STATUS, STATE_CAPITAL), new City(CITY_BORISOV),
 				new City(CITY_ZHODINO), new City(CITY_SLUTSK), new City(CITY_SOLIGORSK) };
-
 		City[] brest = { new City(CITY_BREST, CITY_STATUS), new City(CITY_BARANOVICHI), new City(CITY_PINSK) };
 		City[] grodno = { new City(CITY_GRODNO, CITY_STATUS), new City(CITY_LIDA) };
 		City[] vitebsk = { new City(CITY_VITEBSK, CITY_STATUS), new City(CITY_NOVOPOLOTSK), new City(CITY_ORSHA),
 				new City(CITY_POLOTSK) };
 		City[] mogilev = { new City(CITY_MOGILEV, CITY_STATUS), new City(CITY_BOBRUISK) };
-		City[] gomel = { new City("Gomel", CITY_STATUS), new City("Zhlobin"), new City("Mozyr"), new City("Rechitsa"),
-				new City("Svetlogorsk") };
-		Region[] regions = { new Region("Minsk", minsk), new Region("Brest", brest), new Region("Grodno", grodno),
-				new Region("Vitebsk", vitebsk), new Region("Mogilev", mogilev), new Region("Gomel", gomel) };
-		State state = new State("Belarus", regions, 123456);
+		City[] gomel = { new City(CITY_GOMEL, CITY_STATUS), new City(CITY_ZHLOBIN), new City(CITY_MOZYR),
+				new City(CITY_RECHITSA), new City(CITY_SVETLOGORSK) };
+		Region[] regions = { new Region(REGION_MINSK, minsk), new Region(REGION_BREST, brest),
+				new Region(REGION_GRODNO, grodno), new Region(REGION_VITEBSK, vitebsk),
+				new Region(REGION_MOGILEV, mogilev), new Region(REGION_GOMEL, gomel) };
+		State state = new State(STATE_BELARUS, regions, STATE_AREA);
 
 		state.printCapitalState();
 		state.printNumberRegions();
