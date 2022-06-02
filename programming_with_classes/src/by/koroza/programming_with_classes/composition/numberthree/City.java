@@ -5,6 +5,10 @@ public class City {
 	private String cityStatus;
 	private boolean stateCapital;
 	private District[] districts;
+	private final static String CITY_NAME = "City name: ";
+	private final static String CITY_STATUS = "City status: ";
+	private final static String CITY_CAPITAL_STATE = "This city is capital state.";
+	private final static String CITY_DOES_NOT_HAVE_DISTRICTS = "This city doesn't have districts.";
 
 	public City(String name) {
 		this.name = name;
@@ -154,6 +158,10 @@ public class City {
 		result = result * prime + (name != null ? name.hashCode() : 1);
 		result = result * prime + (districts != null ? districts.hashCode() : 1);
 		result = result * prime + Boolean.hashCode(stateCapital);
+		result = result * prime + (CITY_NAME != null ? CITY_NAME.hashCode() : 1);
+		result = result * prime + (CITY_STATUS != null ? CITY_STATUS.hashCode() : 1);
+		result = result * prime + (CITY_CAPITAL_STATE != null ? CITY_CAPITAL_STATE.hashCode() : 1);
+		result = result * prime + (CITY_DOES_NOT_HAVE_DISTRICTS != null ? CITY_DOES_NOT_HAVE_DISTRICTS.hashCode() : 1);
 		return result;
 	}
 
@@ -199,23 +207,23 @@ public class City {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("City name: ").append(name).append("\n");
+		builder.append(CITY_NAME).append(name).append("\n");
 		if (cityStatus != null) {
-			builder.append("City status: ").append(cityStatus).append("\n");
+			builder.append(CITY_STATUS).append(cityStatus).append("\n");
 		}
 		if (stateCapital != false) {
-			builder.append("This city is capital state.").append("\n");
+			builder.append(CITY_CAPITAL_STATE).append("\n");
 		}
 		if (districts != null) {
 			builder.append("Districts:").append("\n");
 			for (int i = 0; i < districts.length; i++) {
 				builder.append(i + 1).append(") ").append(districts[i].toString());
-				if(i < districts.length - 1) {
+				if (i < districts.length - 1) {
 					builder.append("\n");
 				}
 			}
 		} else {
-			builder.append("This city doesn't have districts.");
+			builder.append(CITY_DOES_NOT_HAVE_DISTRICTS);
 		}
 		return builder.toString();
 	}
