@@ -12,7 +12,11 @@ public class State {
 	private final static String STATE_DOES_NOT_HAVE_REGIONS_AND_CITIES = "This state doesn't have regions and cities.";
 	private final static String STATE_AREA = "State area: ";
 	private final static String STATE_HAS = "State has ";
-	private final static String REGIONS = " regions.";
+	private final static String REGIONS_PLUS_POINT = " regions.";
+	private final static String CENTER = "center";
+	private final static String LINE_BREAK = "\n";
+	private final static String SPACE_REGION_SPACE = " Region ";
+	private final static String HAS_CITY_REGION_CENTER = " has city region center ";
 
 	public State(String name, double area) {
 		this.name = name;
@@ -106,7 +110,7 @@ public class State {
 
 	public void printNumberRegions() {
 		if (regions != null) {
-			System.out.println(STATE_HAS + regions.length + REGIONS);
+			System.out.println(STATE_HAS + regions.length + REGIONS_PLUS_POINT);
 		} else {
 			System.out.println(STATE_DOES_NOT_HAVE_REGIONS);
 		}
@@ -124,16 +128,16 @@ public class State {
 				City[] cities = region.getCities();
 				for (City city : cities) {
 					if (city.getCityStatus() != null) {
-						if (city.getCityStatus().equals("center")) {
+						if (city.getCityStatus().equals(CENTER)) {
 							builder.append(++countRegionsCenter).append(")");
-							builder.append(" Region ").append(region.getName()).append(" has ");
-							builder.append("city region center ").append(city.getName()).append(";").append("\n");
+							builder.append(SPACE_REGION_SPACE).append(region.getName());
+							builder.append(HAS_CITY_REGION_CENTER).append(city.getName()).append(";").append(LINE_BREAK);
 						}
 					}
 				}
 			}
 		} else {
-			builder.append("This state doesn't have regions.");
+			builder.append(STATE_DOES_NOT_HAVE_REGIONS);
 		}
 		System.out.println(builder.toString());
 	}
@@ -183,14 +187,14 @@ public class State {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append(STATE_NAME).append(name).append("\n");
+		builder.append(STATE_NAME).append(name).append(LINE_BREAK);
 		if (regions != null) {
-			builder.append(REGIONS_LIST).append("\n");
+			builder.append(REGIONS_LIST).append(LINE_BREAK);
 			for (int i = 0; i < regions.length; i++) {
-				builder.append(i + 1).append(") ").append(regions[i].toString()).append("\n");
+				builder.append(i + 1).append(") ").append(regions[i].toString()).append(LINE_BREAK);
 			}
 		} else {
-			builder.append(STATE_DOES_NOT_HAVE_REGIONS).append("\n");
+			builder.append(STATE_DOES_NOT_HAVE_REGIONS).append(LINE_BREAK);
 		}
 		builder.append(STATE_AREA).append(area);
 		return builder.toString();

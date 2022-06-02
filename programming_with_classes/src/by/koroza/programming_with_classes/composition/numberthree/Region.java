@@ -6,6 +6,7 @@ public class Region {
 	private final static String REGION_NAME = "Region name: ";
 	private final static String CITIES_LIST = "Cities:";
 	private final static String REGION_DOES_NOT_HAVE_CITIES = "This region doesn't have cities.";
+	private final static String LINE_BREAK = "\n";
 
 	public Region(String name) {
 		this.name = name;
@@ -80,6 +81,7 @@ public class Region {
 		result = result * prime + (REGION_NAME != null ? REGION_NAME.hashCode() : 1);
 		result = result * prime + (CITIES_LIST != null ? CITIES_LIST.hashCode() : 1);
 		result = result * prime + (REGION_DOES_NOT_HAVE_CITIES != null ? REGION_DOES_NOT_HAVE_CITIES.hashCode() : 1);
+		result = result * prime + (LINE_BREAK != null ? LINE_BREAK.hashCode() : 1);
 		return result;
 	}
 
@@ -115,14 +117,14 @@ public class Region {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append(REGION_NAME).append(name).append("\n");
+		builder.append(REGION_NAME).append(name).append(LINE_BREAK);
 		if (cities != null) {
-			builder.append(CITIES_LIST).append("\n");
+			builder.append(CITIES_LIST).append(LINE_BREAK);
 			for (int i = 0; i < cities.length; i++) {
-				builder.append(i + 1).append(") ").append(cities[i].toString()).append("\n");
+				builder.append(i + 1).append(") ").append(cities[i].toString()).append(LINE_BREAK);
 			}
 		} else {
-			builder.append(REGION_DOES_NOT_HAVE_CITIES).append("\n");
+			builder.append(REGION_DOES_NOT_HAVE_CITIES).append(LINE_BREAK);
 		}
 		return builder.toString();
 	}

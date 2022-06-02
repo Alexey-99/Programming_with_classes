@@ -10,6 +10,7 @@ public class City {
 	private final static String CITY_CAPITAL_STATE = "This city is capital state.";
 	private final static String CITY_DOES_NOT_HAVE_DISTRICTS = "This city doesn't have districts.";
 	private final static String DISTRICTS_LIST = "Districts:";
+	private final static String LINE_BREAK = "\n";
 
 	public City(String name) {
 		this.name = name;
@@ -164,6 +165,7 @@ public class City {
 		result = result * prime + (CITY_CAPITAL_STATE != null ? CITY_CAPITAL_STATE.hashCode() : 1);
 		result = result * prime + (CITY_DOES_NOT_HAVE_DISTRICTS != null ? CITY_DOES_NOT_HAVE_DISTRICTS.hashCode() : 1);
 		result = result * prime + (DISTRICTS_LIST != null ? DISTRICTS_LIST.hashCode() : 1);
+		result = result * prime + (LINE_BREAK != null ? LINE_BREAK.hashCode() : 1);
 		return result;
 	}
 
@@ -209,19 +211,19 @@ public class City {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append(CITY_NAME).append(name).append("\n");
+		builder.append(CITY_NAME).append(name).append(LINE_BREAK);
 		if (cityStatus != null) {
-			builder.append(CITY_STATUS).append(cityStatus).append("\n");
+			builder.append(CITY_STATUS).append(cityStatus).append(LINE_BREAK);
 		}
 		if (stateCapital != false) {
-			builder.append(CITY_CAPITAL_STATE).append("\n");
+			builder.append(CITY_CAPITAL_STATE).append(LINE_BREAK);
 		}
 		if (districts != null) {
-			builder.append(DISTRICTS_LIST).append("\n");
+			builder.append(DISTRICTS_LIST).append(LINE_BREAK);
 			for (int i = 0; i < districts.length; i++) {
 				builder.append(i + 1).append(") ").append(districts[i].toString());
 				if (i < districts.length - 1) {
-					builder.append("\n");
+					builder.append(LINE_BREAK);
 				}
 			}
 		} else {
