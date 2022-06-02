@@ -91,8 +91,20 @@ public class State {
 				}
 			}
 		} else {
-			System.out.println("This state doesn't have regions and cities");
+			System.out.println("This state doesn't have regions and cities.");
 		}
+	}
+
+	public void printNumberRegions() {
+		if (regions != null) {
+			System.out.println("State has " + regions.length + " regions.");
+		} else {
+			System.out.println("This state doesn't have regions.");
+		}
+	}
+	
+	public void printArea() {
+		System.out.println("State area: " + area);
 	}
 
 	@Override

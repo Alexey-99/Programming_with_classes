@@ -23,7 +23,8 @@ public class Main {
 				new Region("Vitebsk", vitebsk), new Region("Mogilev", mogilev), new Region("Gomel", gomel) };
 		State state = new State("Belarus", regions, 123456);
 		//System.out.println(state.toString());
-		//state.printCapitalState();
-		
+		state.printCapitalState();
+		state.printNumberRegions();
+		state.printArea();
 	}
 }
