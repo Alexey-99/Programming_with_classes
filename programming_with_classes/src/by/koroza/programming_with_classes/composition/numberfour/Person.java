@@ -75,8 +75,16 @@ public class Person {
 		}
 	}
 
-	public void searchBySum() {
+	public void searchBySum() { //TODO searchBySum()
 		// return [];
+	}
+	
+	public void searchByNumber() { //TODO searchByNumber()
+		// return [];
+	}
+	
+	public void sortingByCum() {//TODO sortingByCum()
+		
 	}
 
 	@Override
