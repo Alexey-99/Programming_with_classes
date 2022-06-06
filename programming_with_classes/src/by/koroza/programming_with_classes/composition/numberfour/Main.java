@@ -10,7 +10,6 @@ package by.koroza.programming_with_classes.composition.numberfour;
 public class Main {
 
 	public static void main(String[] args) {
-		
-		
+		Person person1 = new Person("Koroza", "Alexey", "M", new BankAccount());
 	}
 }
