@@ -50,6 +50,7 @@ public class BankAccount {
 	public void addOperation(Operation operation) {
 		if (this.operations[operations.length - 1] == null) {
 			this.operations[operations.length - 1] = operation;
+			sum += operation.getSum();
 		} else {
 			Operation[] operationsNew = new Operation[operations.length + 1];
 			for (int i = 0; i < operationsNew.length; i++) {
@@ -57,6 +58,7 @@ public class BankAccount {
 					operationsNew[i] = this.operations[i];
 				} else if (i == operations.length) {
 					operationsNew[i] = operation;
+					sum += operation.getSum();
 				}
 			}
 			this.operations = operationsNew;
@@ -66,6 +68,9 @@ public class BankAccount {
 	public void addOperations(Operation[] operations) {
 		if (this.operations[this.operations.length - 1] == null) {
 			this.operations = operations;
+			for(Operation operation: operations) {
+				sum += operation.getSum();
+			}
 		} else {
 			Operation[] operationsNew = new Operation[this.operations.length + operations.length];
 			for (int i = 0; i < operationsNew.length; i++) {
@@ -73,6 +78,7 @@ public class BankAccount {
 					operationsNew[i] = this.operations[i];
 				} else if (i >= this.operations.length) {
 					operationsNew[i] = operations[i];
+					sum += operations[i].getSum();
 				}
 			}
 			this.operations = operationsNew;
@@ -129,6 +135,22 @@ public class BankAccount {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
+		builder.append("Number bank account: ").append(number).append("\n");
+		builder.append("Sum money in the bank account: ").append(sum).append("\n");
+		builder.append("Operations by bank account: ").append("\n");
+		if (operations[0] != null) {
+			for (int i = 0; i < operations.length; i++) {
+				if (operations[i] != null) {
+					builder.append(operations[i].toString());
+				}
+				if(i < operations.length - 1) {
+				builder.append("\n");
+			}
+			}
+		} else {
+			builder.append("No operations found on the account").append("\n");
+		}
+		builder.append("Status: ").append(status).append("\n");
 		return builder.toString();
 	}
 

@@ -11,8 +11,17 @@ public class Main {
 
 	public static void main(String[] args) {
 		Person person = new Person("Koroza", "Alexey", "M", new BankAccount());
+
+		person.getBankAccounts()[0].addOperation(new Operation(-5.00, "operation"));
+		person.addBankAccount(new BankAccount());
+
+		BankAccount[] bankAccounts = { new BankAccount(), new BankAccount(), new BankAccount() };
+		person.addBankAccounts(bankAccounts);
 		
-		person.getBankAccounts()[0].addOperation(new Operation(5.00, "operation"));
-		System.out.println(person.getBankAccounts()[0].getOperations()[0].getDate());
+		//System.out.println(person.getBankAccounts()[0].getOperations()[0].getDate());
+		//System.out.println(person.getBankAccounts()[0].getOperations()[0].toString());
+		//System.out.println(person.getBankAccounts()[0].toString());
+		//System.out.println(person.toString());
+		
 	}
 }

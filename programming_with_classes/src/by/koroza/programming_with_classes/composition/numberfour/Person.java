@@ -67,25 +67,39 @@ public class Person {
 	}
 
 	public void addBankAccount(BankAccount bankAccount) {
-		this.bankAccounts[bankAccounts.length] = bankAccount;
-	}
-
-	public void addBankAccounts(BankAccount[] bankAccounts) {
-		for (int i = 0; i < bankAccounts.length; i++) {
-			this.bankAccounts[this.bankAccounts.length + i] = bankAccounts[i];
+		BankAccount[] bankAccountsNew = new BankAccount[this.bankAccounts.length + 1];
+		for (int i = 0; i < bankAccountsNew.length; i++) {
+			if (i < this.bankAccounts.length) {
+				bankAccountsNew[i] = this.bankAccounts[i];
+			} else if (i == this.bankAccounts.length) {
+				bankAccountsNew[i] = bankAccount;
+			}
 		}
+		this.bankAccounts = bankAccountsNew;
 	}
 
-	public void searchBySum() { //TODO searchBySum()
+	public void addBankAccounts(BankAccount[] bankAccounts) { 
+		BankAccount[] bankAccountsNew = new BankAccount[this.bankAccounts.length + bankAccounts.length];
+		for (int i = 0; i < bankAccountsNew.length; i++) {
+			if (i < this.bankAccounts.length) {
+				bankAccountsNew[i] = this.bankAccounts[i];
+			} else if (i >= this.bankAccounts.length) {
+				bankAccountsNew[i] = bankAccounts[i - this.bankAccounts.length];
+			}
+		}
+		this.bankAccounts = bankAccountsNew;
+	}
+
+	public void searchBySum() { // TODO searchBySum()
 		// return [];
 	}
-	
-	public void searchByNumber() { //TODO searchByNumber()
+
+	public void searchByNumber() { // TODO searchByNumber()
 		// return [];
 	}
-	
-	public void sortingByCum() {//TODO sortingByCum()
-		
+
+	public void sortingByCum() {// TODO sortingByCum()
+
 	}
 
 	@Override
@@ -150,6 +164,13 @@ public class Person {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
+		builder.append("ID: ").append(id).append("\n");
+		builder.append("Last name, first name, patronymic: ");
+		builder.append(lastName).append(" ").append(firstName).append(" ").append(patronymic).append("\n");
+		builder.append("Bank Accounts: ").append("\n");
+		for(BankAccount account : bankAccounts) {
+			builder.append(account.toString()).append("\n");
+		}
 		return builder.toString();
 	}
 }
