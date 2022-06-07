@@ -101,6 +101,18 @@ public class Person {
 	public void sortingByCum() {// TODO sortingByCum()
 
 	}
+	
+	public void sumByAllBankAccounts() {// TODO sumByBankAccounts()
+
+	}
+	
+	public void sumByBankAccountsWithPositiveBalance() {// TODO sumByBankAccountsWithPositiveBalance()
+
+	}
+	
+	public void sumByBankAccountsWithNegativeBalance() {// TODO sumByBankAccountsWithNegativeBalance()
+
+	}
 
 	@Override
 	public int hashCode() {

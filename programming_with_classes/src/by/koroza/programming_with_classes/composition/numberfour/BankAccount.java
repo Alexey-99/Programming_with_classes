@@ -4,13 +4,13 @@ public class BankAccount {
 	private static int count = 1;
 
 	private int number;
-	private double sum;
+	private double balance;
 	private Operation[] operations;
 	private String status;
 
 	public BankAccount() {
 		this.number = count++;
-		this.sum = 0;
+		this.balance = 0;
 		this.status = "Active";
 		this.operations = new Operation[1];
 	}
@@ -23,12 +23,12 @@ public class BankAccount {
 		this.number = number;
 	}
 
-	public double getSum() {
-		return sum;
+	public double getBalance() {
+		return balance;
 	}
 
-	public void setSum(double sum) {
-		this.sum = sum;
+	public void setBalance(double balance) {
+		this.balance = balance;
 	}
 
 	public Operation[] getOperations() {
@@ -50,7 +50,7 @@ public class BankAccount {
 	public void addOperation(Operation operation) {
 		if (this.operations[operations.length - 1] == null) {
 			this.operations[operations.length - 1] = operation;
-			sum += operation.getSum();
+			balance += operation.getSum();
 		} else {
 			Operation[] operationsNew = new Operation[operations.length + 1];
 			for (int i = 0; i < operationsNew.length; i++) {
@@ -58,7 +58,7 @@ public class BankAccount {
 					operationsNew[i] = this.operations[i];
 				} else if (i == operations.length) {
 					operationsNew[i] = operation;
-					sum += operation.getSum();
+					balance += operation.getSum();
 				}
 			}
 			this.operations = operationsNew;
@@ -69,7 +69,7 @@ public class BankAccount {
 		if (this.operations[this.operations.length - 1] == null) {
 			this.operations = operations;
 			for(Operation operation: operations) {
-				sum += operation.getSum();
+				balance += operation.getSum();
 			}
 		} else {
 			Operation[] operationsNew = new Operation[this.operations.length + operations.length];
@@ -78,7 +78,7 @@ public class BankAccount {
 					operationsNew[i] = this.operations[i];
 				} else if (i >= this.operations.length) {
 					operationsNew[i] = operations[i];
-					sum += operations[i].getSum();
+					balance += operations[i].getSum();
 				}
 			}
 			this.operations = operationsNew;
@@ -91,7 +91,7 @@ public class BankAccount {
 		int prime = 1;
 		result = result * prime + count;
 		result = result * prime + number;
-		result = result * prime + (Double.hashCode(sum));
+		result = result * prime + (Double.hashCode(balance));
 		result = result * prime + (operations != null ? operations.hashCode() : 1);
 		result = result * prime + (status != null ? status.hashCode() : 1);
 		return result;
@@ -112,7 +112,7 @@ public class BankAccount {
 		if (number != account.number) {
 			return false;
 		}
-		if (sum != account.sum) {
+		if (balance != account.balance) {
 			return false;
 		}
 		if (operations == null) {
@@ -136,7 +136,7 @@ public class BankAccount {
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Number bank account: ").append(number).append("\n");
-		builder.append("Sum money in the bank account: ").append(sum).append("\n");
+		builder.append("Sum money in the bank account: ").append(balance).append("\n");
 		builder.append("Operations by bank account: ").append("\n");
 		if (operations[0] != null) {
 			for (int i = 0; i < operations.length; i++) {
