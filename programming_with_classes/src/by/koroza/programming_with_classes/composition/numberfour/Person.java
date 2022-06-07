@@ -9,12 +9,13 @@ public class Person {
 	private String patronymic;
 	private BankAccount[] bankAccounts;
 
-	public Person(String lastName, String firstName, String patronymic, BankAccount bankAccounts) {
+	public Person(String lastName, String firstName, String patronymic, BankAccount bankAccount) {
 		this.id = count++;
 		this.lastName = lastName;
 		this.firstName = firstName;
 		this.patronymic = patronymic;
-		this.bankAccounts[0] = bankAccounts;
+		this.bankAccounts = new BankAccount[1];
+		this.bankAccounts[0] = bankAccount;
 	}
 
 	public Person(String lastName, String firstName, String patronymic, BankAccount[] bankAccounts) {

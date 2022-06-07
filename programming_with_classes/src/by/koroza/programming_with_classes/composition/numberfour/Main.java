@@ -10,6 +10,9 @@ package by.koroza.programming_with_classes.composition.numberfour;
 public class Main {
 
 	public static void main(String[] args) {
-		Person person1 = new Person("Koroza", "Alexey", "M", new BankAccount());
+		Person person = new Person("Koroza", "Alexey", "M", new BankAccount());
+		
+		person.getBankAccounts()[0].addOperation(new Operation(5.00, "operation"));
+		System.out.println(person.getBankAccounts()[0].getOperations()[0].getDate());
 	}
 }

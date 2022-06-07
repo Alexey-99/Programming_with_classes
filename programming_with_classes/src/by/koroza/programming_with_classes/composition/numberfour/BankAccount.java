@@ -12,6 +12,7 @@ public class BankAccount {
 		this.number = count++;
 		this.sum = 0;
 		this.status = "Active";
+		this.operations = new Operation[1];
 	}
 
 	public int getNumber() {
@@ -47,10 +48,18 @@ public class BankAccount {
 	}
 
 	public void addOperation(Operation operation) {
-		if (this.operations == null) {
-			this.operations[0] = operation;
+		if (this.operations[operations.length - 1] == null) {
+			this.operations[operations.length - 1] = operation;
 		} else {
-			this.operations[operations.length] = operation;
+			Operation[] operationsNew = new Operation[operations.length + 1];
+			for (int i = 0; i < operationsNew.length; i++) {
+				if (i < operations.length) {
+					operationsNew[i] = this.operations[i];
+				} else if (i == operations.length) {
+					operationsNew[i] = operation;
+				}
+			}
+
 		}
 	}
 
@@ -110,7 +119,7 @@ public class BankAccount {
 		}
 		return true;
 	}
-	
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
