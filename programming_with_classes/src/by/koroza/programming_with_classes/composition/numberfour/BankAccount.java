@@ -59,17 +59,23 @@ public class BankAccount {
 					operationsNew[i] = operation;
 				}
 			}
-
+			this.operations = operationsNew;
 		}
 	}
 
 	public void addOperations(Operation[] operations) {
-		if (this.operations == null) {
+		if (this.operations[this.operations.length - 1] == null) {
 			this.operations = operations;
 		} else {
-			for (int i = 0; i < operations.length; i++) {
-				this.operations[this.operations.length + i] = operations[i];
+			Operation[] operationsNew = new Operation[this.operations.length + operations.length];
+			for (int i = 0; i < operationsNew.length; i++) {
+				if (i < this.operations.length) {
+					operationsNew[i] = this.operations[i];
+				} else if (i >= this.operations.length) {
+					operationsNew[i] = operations[i];
+				}
 			}
+			this.operations = operationsNew;
 		}
 	}
 
