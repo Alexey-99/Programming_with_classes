@@ -21,6 +21,7 @@ public class Main {
 		//System.out.println(person.getBankAccounts()[0].getOperations()[0].getDate());
 		//System.out.println(person.getBankAccounts()[0].getOperations()[0].toString());
 		//System.out.println(person.getBankAccounts()[0].toString());
+		//person.getBankAccounts()[2].setStatus("block");
 		//System.out.println(person.toString());
 		
 	}
