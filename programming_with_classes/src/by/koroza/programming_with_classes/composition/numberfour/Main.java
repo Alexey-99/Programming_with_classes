@@ -22,5 +22,6 @@ public class Main {
 		//person.searchBySum(1, 10);
 		//person.searchByMinSum(0);
 		//person.searchByMaxSum(10);
+		//person.sortingByBalance();
 	}
 }

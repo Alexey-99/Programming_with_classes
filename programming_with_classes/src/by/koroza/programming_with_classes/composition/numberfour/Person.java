@@ -121,13 +121,14 @@ public class Person {
 	public void searchByNumber(int number) {
 		Search.searchByNumber(number, this.bankAccounts);
 	}
-	
+
 	public void searchByStatus(String status) {
 		Search.searchByStatus(status, this.bankAccounts);
 	}
 
-	public void sortingByCum() {// TODO sortingByCum()
-
+	public BankAccount[] sortingByBalance() {
+		BankAccount[] bankAccountsSorting = Sorting.sortingByBalance(this.bankAccounts);
+		return bankAccountsSorting;
 	}
 
 	public void sumByAllBankAccounts() {// TODO sumByBankAccounts()
