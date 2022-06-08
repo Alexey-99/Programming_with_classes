@@ -17,15 +17,55 @@ public class Main {
 
 		BankAccount[] bankAccounts = { new BankAccount(), new BankAccount(), new BankAccount() };
 		person.addBankAccounts(bankAccounts);
-		
+
 		person.getBankAccounts()[0].addOperation(new Operation(10, "Operation"));
 		person.getBankAccounts()[3].setStatus("block");
-		//person.searchBySum(1, 10);
-		//person.searchByMinSum(0);
-		//person.searchByMaxSum(10);
-		//person.sortingByBalance();
-		//person.sortingByNumber();
-		//person.sortingByNumberOperations();
-		//person.sortingByStatus();
+
+		search(person);
+		sorting(person);
+
+	}
+
+	private static void search(Person person) {
+		System.out.println("\n" + "Search for bank accounts with a balance in the range:");
+		person.searchByMinToMaxBalance(1, 10);
+
+		System.out.println("\n" + "Search for bank accounts with a balance in the range:");
+		person.searchByMinBalance(0);
+
+		System.out.println("\n" + "Search for bank accounts with a balance in the range:");
+		person.searchByMaxBalance(10);
+
+		System.out.println("\n" + "Search for bank accounts with sum balance:");
+		person.searchByBalance(0);
+
+		System.out.println("\n" + "Search for bank accounts with a number bank account in the range:");
+		person.searchByMinToMaxNumber(1, 3);
+
+		System.out.println("\n" + "Search for bank accounts with a number bank account in the range:");
+		person.searchByMinNumber(3);
+
+		System.out.println("\n" + "Search for bank accounts with a number bank account in the range:");
+		person.searchByMaxNumber(5);
+
+		System.out.println("\n" + "Search for bank accounts with number bank account:");
+		person.searchByNumber(1);
+
+		System.out.println("\n" + "Search for bank accounts with staus bank account:");
+		person.searchByStatus("active");
+	}
+
+	private static void sorting(Person person) {
+		System.out.println("\n" + "Sorting by balance bank accounts:");
+		person.printArrayBankAccount(person.sortingByBalance());
+
+		System.out.println("\n" + "Sorting by number bank accounts:");
+		person.printArrayBankAccount(person.sortingByNumber());
+
+		System.out.println("\n" + "Sorting by number operations bank accounts:");
+		person.printArrayBankAccount(person.sortingByNumberOperations());
+
+		System.out.println("\n" + "Sorting by status bank accounts:");
+		person.printArrayBankAccount(person.sortingByStatus());
 	}
 }

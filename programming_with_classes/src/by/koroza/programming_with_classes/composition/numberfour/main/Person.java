@@ -165,6 +165,12 @@ public class Person {
 		return sum;
 	}
 
+	public void printArrayBankAccount(BankAccount[] bankAccounts) {
+		for (BankAccount account : bankAccounts) {
+			System.out.println(account.toString());
+		}
+	}
+
 	@Override
 	public int hashCode() {
 		int result = 31;
