@@ -14,6 +14,15 @@ public class Main {
 	static final String SEARCH_BANK_ACCOUNTS_WITH_NUMBER_BANK_ACCOUNT = "Search for bank accounts with number bank account:";
 	static final String SEARCH_BANK_ACCOUNTS_WITH_STATUS_BANK_ACCOUNT = "Search for bank accounts with staus bank account:";
 
+	static final String SORTING_BANK_ACCOUNTS_BY_BALANCE = "Sorting by balance bank accounts";
+	static final String SORTING_BANK_ACCOUNTS_BY_NUMBER = "Sorting by number bank accounts:";
+	static final String SORTING_BANK_ACCOUNTS_BY_NUMBER_OPERATIONS = "Sorting by number operations bank accounts:";
+	static final String SORTING_BANK_ACCOUNTS_BY_STATUS = "Sorting by status bank accounts:";
+
+	static final String SUM_ALL_ACCOUNTS = "The sum of all accounts: ";
+	static final String SUM_ALL_ACCOUNTS_WITH_POSITIVE_BALANCE = "The sum of all accounts with a positive balance: ";
+	static final String SUM_ALL_ACCOUNTS_WITH_NEGATIVE_BALANCE = "The sum of all accounts with a negative balance: ";
+
 	public static void main(String[] args) {
 		Person person = new Person("Koroza", "Alexey", "M", new BankAccount());
 
@@ -62,24 +71,22 @@ public class Main {
 	}
 
 	private static void sorting(Person person) {
-		System.out.println("\n" + "Sorting by balance bank accounts:");
+		System.out.println("\n" + SORTING_BANK_ACCOUNTS_BY_BALANCE);
 		person.printArrayBankAccount(person.sortingByBalance());
 
-		System.out.println("\n" + "Sorting by number bank accounts:");
+		System.out.println("\n" + SORTING_BANK_ACCOUNTS_BY_NUMBER);
 		person.printArrayBankAccount(person.sortingByNumber());
 
-		System.out.println("\n" + "Sorting by number operations bank accounts:");
+		System.out.println("\n" + SORTING_BANK_ACCOUNTS_BY_NUMBER_OPERATIONS);
 		person.printArrayBankAccount(person.sortingByNumberOperations());
 
-		System.out.println("\n" + "Sorting by status bank accounts:");
+		System.out.println("\n" + SORTING_BANK_ACCOUNTS_BY_STATUS);
 		person.printArrayBankAccount(person.sortingByStatus());
 	}
 
 	private static void calculationSum(Person person) {
-		System.out.println("The sum of all accounts: " + person.sumByAllBankAccounts());
-		System.out.println(
-				"The sum of all accounts with a positive balance: " + person.sumByBankAccountsWithPositiveBalance());
-		System.out.println(
-				"The sum of all accounts with a negative balance: " + person.sumByBankAccountsWithNegativeBalance());
+		System.out.println(SUM_ALL_ACCOUNTS + person.sumByAllBankAccounts());
+		System.out.println(SUM_ALL_ACCOUNTS_WITH_POSITIVE_BALANCE + person.sumByBankAccountsWithPositiveBalance());
+		System.out.println(SUM_ALL_ACCOUNTS_WITH_NEGATIVE_BALANCE + person.sumByBankAccountsWithNegativeBalance());
 	}
 }
