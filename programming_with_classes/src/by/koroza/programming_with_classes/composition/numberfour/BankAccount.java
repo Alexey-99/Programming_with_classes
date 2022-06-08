@@ -50,7 +50,7 @@ public class BankAccount {
 	public void addOperation(Operation operation) {
 		if (this.operations[operations.length - 1] == null) {
 			this.operations[operations.length - 1] = operation;
-			balance += operation.getSum();
+			changeInBalance(operation.getSum());
 		} else {
 			Operation[] operationsNew = new Operation[operations.length + 1];
 			for (int i = 0; i < operationsNew.length; i++) {
@@ -58,7 +58,7 @@ public class BankAccount {
 					operationsNew[i] = this.operations[i];
 				} else if (i == operations.length) {
 					operationsNew[i] = operation;
-					balance += operation.getSum();
+					changeInBalance(operation.getSum());
 				}
 			}
 			this.operations = operationsNew;
@@ -68,8 +68,8 @@ public class BankAccount {
 	public void addOperations(Operation[] operations) {
 		if (this.operations[this.operations.length - 1] == null) {
 			this.operations = operations;
-			for(Operation operation: operations) {
-				balance += operation.getSum();
+			for (Operation operation : operations) {
+				changeInBalance(operation.getSum());
 			}
 		} else {
 			Operation[] operationsNew = new Operation[this.operations.length + operations.length];
@@ -78,11 +78,15 @@ public class BankAccount {
 					operationsNew[i] = this.operations[i];
 				} else if (i >= this.operations.length) {
 					operationsNew[i] = operations[i];
-					balance += operations[i].getSum();
+					changeInBalance(operations[i].getSum());
 				}
 			}
 			this.operations = operationsNew;
 		}
+	}
+
+	private void changeInBalance(double sum) {
+		balance += sum;
 	}
 
 	@Override
@@ -143,9 +147,9 @@ public class BankAccount {
 				if (operations[i] != null) {
 					builder.append(operations[i].toString());
 				}
-				if(i < operations.length - 1) {
-				builder.append("\n");
-			}
+				if (i < operations.length - 1) {
+					builder.append("\n");
+				}
 			}
 		} else {
 			builder.append("No operations found on the account").append("\n");

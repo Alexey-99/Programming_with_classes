@@ -18,11 +18,9 @@ public class Main {
 		BankAccount[] bankAccounts = { new BankAccount(), new BankAccount(), new BankAccount() };
 		person.addBankAccounts(bankAccounts);
 		
-		//System.out.println(person.getBankAccounts()[0].getOperations()[0].getDate());
-		//System.out.println(person.getBankAccounts()[0].getOperations()[0].toString());
-		//System.out.println(person.getBankAccounts()[0].toString());
-		//person.getBankAccounts()[2].setStatus("block");
-		//System.out.println(person.toString());
-		
+		person.getBankAccounts()[0].addOperation(new Operation(10, "Operation"));
+		//person.searchBySum(1, 10);
+		//person.searchByMinSum(0);
+		//person.searchByMaxSum(10);
 	}
 }

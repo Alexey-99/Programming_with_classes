@@ -90,8 +90,28 @@ public class Person {
 		this.bankAccounts = bankAccountsNew;
 	}
 
-	public void searchBySum() { // TODO searchBySum()
-		// return [];
+	public void searchBySum(double min, double max) { 
+		for(BankAccount account : bankAccounts) {
+			if(account.getBalance() >= min && account.getBalance() <= max) {
+				System.out.println(account.toString());
+			}
+		}
+	}
+	
+	public void searchByMinSum(double min) { 
+		for(BankAccount account : bankAccounts) {
+			if(account.getBalance() >= min) {
+				System.out.println(account.toString());
+			}
+		}
+	}
+	
+	public void searchByMaxSum(double max) {
+		for(BankAccount account : bankAccounts) {
+			if(account.getBalance() <= max) {
+				System.out.println(account.toString());
+			}
+		}
 	}
 
 	public void searchByNumber() { // TODO searchByNumber()
