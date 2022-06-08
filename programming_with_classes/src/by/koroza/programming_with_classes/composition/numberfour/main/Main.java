@@ -23,6 +23,7 @@ public class Main {
 
 		search(person);
 		sorting(person);
+		calculationSum(person);
 
 	}
 
@@ -67,5 +68,13 @@ public class Main {
 
 		System.out.println("\n" + "Sorting by status bank accounts:");
 		person.printArrayBankAccount(person.sortingByStatus());
+	}
+
+	private static void calculationSum(Person person) {
+		System.out.println("The sum of all accounts: " + person.sumByAllBankAccounts());
+		System.out.println(
+				"The sum of all accounts with a positive balance: " + person.sumByBankAccountsWithPositiveBalance());
+		System.out.println(
+				"The sum of all accounts with a negative balance: " + person.sumByBankAccountsWithNegativeBalance());
 	}
 }
