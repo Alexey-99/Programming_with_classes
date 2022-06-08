@@ -127,7 +127,22 @@ public class Person {
 	}
 
 	public BankAccount[] sortingByBalance() {
-		BankAccount[] bankAccountsSorting = Sorting.sortingByBalance(this.bankAccounts);
+		BankAccount[] bankAccountsSorting = Sorting.sortingByBalanceBankAccount(this.bankAccounts);
+		return bankAccountsSorting;
+	}
+	
+	public BankAccount[] sortingByNumber() {
+		BankAccount[] bankAccountsSorting = Sorting.sortingByNumberBankAccount(this.bankAccounts);
+		return bankAccountsSorting;
+	}
+	
+	public BankAccount[] sortingByNumberOperations() {
+		BankAccount[] bankAccountsSorting = Sorting.sortingByNumberOperations(this.bankAccounts);
+		return bankAccountsSorting;
+	}
+	
+	public BankAccount[] sortingByStatus() {
+		BankAccount[] bankAccountsSorting = Sorting.sortingByNumberOperations(this.bankAccounts);
 		return bankAccountsSorting;
 	}
 

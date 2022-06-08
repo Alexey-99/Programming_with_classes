@@ -2,7 +2,7 @@ package by.koroza.programming_with_classes.composition.numberfour;
 
 public class Sorting {
 
-	public static BankAccount[] sortingByBalance(BankAccount[] bankAccounts) {
+	public static BankAccount[] sortingByBalanceBankAccount(BankAccount[] bankAccounts) {
 		BankAccount[] bankAccountsClone = bankAccounts.clone();
 		for (int i = 0; i < bankAccountsClone.length; i++) {
 			for (int j = i; j < bankAccountsClone.length; j++) {
@@ -11,6 +11,24 @@ public class Sorting {
 				}
 			}
 		}
+		return bankAccountsClone;
+	}
+	
+	public static BankAccount[] sortingByNumberBankAccount(BankAccount[] bankAccounts) {
+		BankAccount[] bankAccountsClone = bankAccounts.clone();
+		
+		return bankAccountsClone;
+	}
+	
+	public static BankAccount[] sortingByNumberOperations(BankAccount[] bankAccounts) {
+		BankAccount[] bankAccountsClone = bankAccounts.clone();
+		
+		return bankAccountsClone;
+	}
+	
+	public static BankAccount[] sortingByStatus(BankAccount[] bankAccounts) {
+		BankAccount[] bankAccountsClone = bankAccounts.clone();
+		
 		return bankAccountsClone;
 	}
 
