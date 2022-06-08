@@ -90,21 +90,32 @@ public class Person {
 		this.bankAccounts = bankAccountsNew;
 	}
 
-	public void searchBySum(double min, double max) { 
-		Search.searchBySum(min, max, this.bankAccounts);
+	public void searchByMinToMaxSum(double minSum, double maxSum) { 
+		Search.searchByMinToMaxSum(minSum, maxSum, this.bankAccounts);
 	}
 	
-	public void searchByMinSum(double min) { 
-		Search.searchByMinSum(min, this.bankAccounts);
+	public void searchByMinSum(double minSum) { 
+		Search.searchByMinSum(minSum, this.bankAccounts);
 	}
 	
-	public void searchByMaxSum(double max) {
-		Search.searchByMaxSum(max, this.bankAccounts);
+	public void searchByMaxSum(double maxSum) {
+		Search.searchByMaxSum(maxSum, this.bankAccounts);
+	}
+	
+	public void searchBySum(double sum) {
+		Search.searchByMaxSum(maxSum, this.bankAccounts);
 	}
 
-	public void searchByNumber() { // TODO searchByNumber()
+	public void searchByNumber(int numberMin, int numberMax) {
+		Search.searchByNumber(numberMin, numberMax, this.bankAccounts);
+	}
+	
+	public void searchByMinNumber(int numberMin) {
 		
-		// return [];
+	}
+	
+	public void searchByMaxNumber(int numberMax) {
+		
 	}
 
 	public void sortingByCum() {// TODO sortingByCum()
