@@ -9,6 +9,7 @@ package by.koroza.programming_with_classes.composition.numberfour.main;
 
 public class Main {
 	static final String SEARCH_BANK_ACCOUNTS_WITH_BALANCE_RANGE = "Search for bank accounts with a balance in the range:";
+	static final String SEARCH_BANK_ACCOUNTS_WITH_BALANCE_RANGE_FROM_MIN_BALANSE = "Search for bank accounts with a balance in the range from min balance:";
 	static final String SEARCH_BANK_ACCOUNTS_WITH_SUM_BALANCE = "Search for bank accounts with sum balance:";
 	static final String SEARCH_BANK_ACCOUNTS_WITH_NUMBER_BANK_ACCOUNT_RANGE = "Search for bank accounts with a number bank account in the range:";
 	static final String SEARCH_BANK_ACCOUNTS_WITH_NUMBER_BANK_ACCOUNT = "Search for bank accounts with number bank account:";
@@ -38,14 +39,13 @@ public class Main {
 		search(person);
 		sorting(person);
 		calculationSum(person);
-
 	}
 
 	private static void search(Person person) {
-		System.out.println("\n" + SEARCH_BANK_ACCOUNTS_WITH_BALANCE_RANGE);
+		System.out.println(SEARCH_BANK_ACCOUNTS_WITH_BALANCE_RANGE);
 		person.searchByMinToMaxBalance(1, 10);
 
-		System.out.println("\n" + SEARCH_BANK_ACCOUNTS_WITH_BALANCE_RANGE);
+		System.out.println("\n" + SEARCH_BANK_ACCOUNTS_WITH_BALANCE_RANGE_FROM_MIN_BALANSE);
 		person.searchByMinBalance(0);
 
 		System.out.println("\n" + SEARCH_BANK_ACCOUNTS_WITH_BALANCE_RANGE);
