@@ -78,7 +78,7 @@ public class Person {
 		this.bankAccounts = bankAccountsNew;
 	}
 
-	public void addBankAccounts(BankAccount[] bankAccounts) { 
+	public void addBankAccounts(BankAccount[] bankAccounts) {
 		BankAccount[] bankAccountsNew = new BankAccount[this.bankAccounts.length + bankAccounts.length];
 		for (int i = 0; i < bankAccountsNew.length; i++) {
 			if (i < this.bankAccounts.length) {
@@ -90,48 +90,54 @@ public class Person {
 		this.bankAccounts = bankAccountsNew;
 	}
 
-	public void searchByMinToMaxBalance(double minBalance, double maxBalance) { 
+	public void searchByMinToMaxBalance(double minBalance, double maxBalance) {
 		Search.searchByMinToMaxBalance(minBalance, maxBalance, this.bankAccounts);
 	}
-	
-	public void searchByMinBalance(double minBalance) { 
+
+	public void searchByMinBalance(double minBalance) {
 		Search.searchByMinBalance(minBalance, this.bankAccounts);
 	}
-	
+
 	public void searchByMaxBalance(double maxBalance) {
 		Search.searchByMaxBalance(maxBalance, this.bankAccounts);
 	}
-	
+
 	public void searchByBalance(double balance) {
 		Search.searchByBalance(balance, this.bankAccounts);
 	}
-	
-	
 
 	public void searchByMinToMaxNumber(int numberMin, int numberMax) {
 		Search.searchByMinToMaxNumber(numberMin, numberMax, this.bankAccounts);
 	}
-	
+
 	public void searchByMinNumber(int numberMin) {
-		
+		Search.searchByMinNumber(numberMin, this.bankAccounts);
+	}
+
+	public void searchByMaxNumber(int numberMax) {
+		Search.searchByMaxNumber(numberMax, this.bankAccounts);
+	}
+
+	public void searchByNumber(int number) {
+		Search.searchByNumber(number, this.bankAccounts);
 	}
 	
-	public void searchByMaxNumber(int numberMax) {
-		
+	public void searchByStatus(String status) {
+		Search.searchByStatus(status, this.bankAccounts);
 	}
 
 	public void sortingByCum() {// TODO sortingByCum()
 
 	}
-	
+
 	public void sumByAllBankAccounts() {// TODO sumByBankAccounts()
 
 	}
-	
+
 	public void sumByBankAccountsWithPositiveBalance() {// TODO sumByBankAccountsWithPositiveBalance()
 
 	}
-	
+
 	public void sumByBankAccountsWithNegativeBalance() {// TODO sumByBankAccountsWithNegativeBalance()
 
 	}
@@ -202,7 +208,7 @@ public class Person {
 		builder.append("Last name, first name, patronymic: ");
 		builder.append(lastName).append(" ").append(firstName).append(" ").append(patronymic).append("\n");
 		builder.append("Bank Accounts: ").append("\n");
-		for(BankAccount account : bankAccounts) {
+		for (BankAccount account : bankAccounts) {
 			builder.append(account.toString()).append("\n");
 		}
 		return builder.toString();
