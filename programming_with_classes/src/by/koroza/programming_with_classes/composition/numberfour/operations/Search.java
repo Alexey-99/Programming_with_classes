@@ -1,4 +1,6 @@
-package by.koroza.programming_with_classes.composition.numberfour;
+package by.koroza.programming_with_classes.composition.numberfour.operations;
+
+import by.koroza.programming_with_classes.composition.numberfour.BankAccount;
 
 public class Search {
 	private final static String NOT_FOUND_ACCOUNTS_WITH_BALANCE = "Not found accouts with balance range.";

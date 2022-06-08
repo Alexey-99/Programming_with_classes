@@ -1,5 +1,9 @@
 package by.koroza.programming_with_classes.composition.numberfour;
 
+import by.koroza.programming_with_classes.composition.numberfour.operations.CalculateSum;
+import by.koroza.programming_with_classes.composition.numberfour.operations.Search;
+import by.koroza.programming_with_classes.composition.numberfour.operations.Sorting;
+
 public class Person {
 	private static int count = 1;
 
@@ -130,32 +134,35 @@ public class Person {
 		BankAccount[] bankAccountsSorting = Sorting.sortingByBalanceBankAccount(this.bankAccounts);
 		return bankAccountsSorting;
 	}
-	
+
 	public BankAccount[] sortingByNumber() {
 		BankAccount[] bankAccountsSorting = Sorting.sortingByNumberBankAccount(this.bankAccounts);
 		return bankAccountsSorting;
 	}
-	
+
 	public BankAccount[] sortingByNumberOperations() {
 		BankAccount[] bankAccountsSorting = Sorting.sortingByNumberOperations(this.bankAccounts);
 		return bankAccountsSorting;
 	}
-	
+
 	public BankAccount[] sortingByStatus() {
-		BankAccount[] bankAccountsSorting = Sorting.sortingByNumberOperations(this.bankAccounts);
+		BankAccount[] bankAccountsSorting = Sorting.sortingByStatus(this.bankAccounts);
 		return bankAccountsSorting;
 	}
 
-	public void sumByAllBankAccounts() {// TODO sumByBankAccounts()
-
+	public double sumByAllBankAccounts() {
+		double sum = CalculateSum.sumByAllBankAccounts(this.bankAccounts);
+		return sum;
 	}
 
-	public void sumByBankAccountsWithPositiveBalance() {// TODO sumByBankAccountsWithPositiveBalance()
-
+	public double sumByBankAccountsWithPositiveBalance() {
+		double sum = CalculateSum.sumByBankAccountsWithPositiveBalance(this.bankAccounts);
+		return sum;
 	}
 
-	public void sumByBankAccountsWithNegativeBalance() {// TODO sumByBankAccountsWithNegativeBalance()
-
+	public double sumByBankAccountsWithNegativeBalance() {
+		double sum = CalculateSum.sumByBankAccountsWithNegativeBalance(this.bankAccounts);
+		return sum;
 	}
 
 	@Override

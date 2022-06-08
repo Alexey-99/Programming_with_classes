@@ -5,7 +5,11 @@
  * Вычисление суммы по всем счетам, имеющим положительный и отрицательный балансы отдельно. 
  */
 
-package by.koroza.programming_with_classes.composition.numberfour;
+package by.koroza.programming_with_classes.composition.numberfour.main;
+
+import by.koroza.programming_with_classes.composition.numberfour.BankAccount;
+import by.koroza.programming_with_classes.composition.numberfour.Operation;
+import by.koroza.programming_with_classes.composition.numberfour.Person;
 
 public class Main {
 
@@ -19,9 +23,13 @@ public class Main {
 		person.addBankAccounts(bankAccounts);
 		
 		person.getBankAccounts()[0].addOperation(new Operation(10, "Operation"));
+		person.getBankAccounts()[3].setStatus("block");
 		//person.searchBySum(1, 10);
 		//person.searchByMinSum(0);
 		//person.searchByMaxSum(10);
 		//person.sortingByBalance();
+		//person.sortingByNumber();
+		//person.sortingByNumberOperations();
+		//person.sortingByStatus();
 	}
 }
