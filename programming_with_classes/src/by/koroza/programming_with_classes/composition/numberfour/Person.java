@@ -90,24 +90,26 @@ public class Person {
 		this.bankAccounts = bankAccountsNew;
 	}
 
-	public void searchByMinToMaxSum(double minSum, double maxSum) { 
-		Search.searchByMinToMaxSum(minSum, maxSum, this.bankAccounts);
+	public void searchByMinToMaxBalance(double minBalance, double maxBalance) { 
+		Search.searchByMinToMaxBalance(minBalance, maxBalance, this.bankAccounts);
 	}
 	
-	public void searchByMinSum(double minSum) { 
-		Search.searchByMinSum(minSum, this.bankAccounts);
+	public void searchByMinBalance(double minBalance) { 
+		Search.searchByMinBalance(minBalance, this.bankAccounts);
 	}
 	
-	public void searchByMaxSum(double maxSum) {
-		Search.searchByMaxSum(maxSum, this.bankAccounts);
+	public void searchByMaxBalance(double maxBalance) {
+		Search.searchByMaxBalance(maxBalance, this.bankAccounts);
 	}
 	
-	public void searchBySum(double sum) {
-		Search.searchByMaxSum(maxSum, this.bankAccounts);
+	public void searchByBalance(double balance) {
+		Search.searchByBalance(balance, this.bankAccounts);
 	}
+	
+	
 
-	public void searchByNumber(int numberMin, int numberMax) {
-		Search.searchByNumber(numberMin, numberMax, this.bankAccounts);
+	public void searchByMinToMaxNumber(int numberMin, int numberMax) {
+		Search.searchByMinToMaxNumber(numberMin, numberMax, this.bankAccounts);
 	}
 	
 	public void searchByMinNumber(int numberMin) {
