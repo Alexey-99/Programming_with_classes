@@ -91,30 +91,19 @@ public class Person {
 	}
 
 	public void searchBySum(double min, double max) { 
-		for(BankAccount account : bankAccounts) {
-			if(account.getBalance() >= min && account.getBalance() <= max) {
-				System.out.println(account.toString());
-			}
-		}
+		Search.searchBySum(min, max, this.bankAccounts);
 	}
 	
 	public void searchByMinSum(double min) { 
-		for(BankAccount account : bankAccounts) {
-			if(account.getBalance() >= min) {
-				System.out.println(account.toString());
-			}
-		}
+		Search.searchByMinSum(min, this.bankAccounts);
 	}
 	
 	public void searchByMaxSum(double max) {
-		for(BankAccount account : bankAccounts) {
-			if(account.getBalance() <= max) {
-				System.out.println(account.toString());
-			}
-		}
+		Search.searchByMaxSum(max, this.bankAccounts);
 	}
 
 	public void searchByNumber() { // TODO searchByNumber()
+		
 		// return [];
 	}
 
