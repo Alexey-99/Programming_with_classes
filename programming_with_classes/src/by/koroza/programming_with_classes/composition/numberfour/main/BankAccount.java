@@ -1,4 +1,4 @@
-package by.koroza.programming_with_classes.composition.numberfour;
+package by.koroza.programming_with_classes.composition.numberfour.main;
 
 public class BankAccount {
 	private static int count = 1;

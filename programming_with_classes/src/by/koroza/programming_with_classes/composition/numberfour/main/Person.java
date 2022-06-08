@@ -1,4 +1,4 @@
-package by.koroza.programming_with_classes.composition.numberfour;
+package by.koroza.programming_with_classes.composition.numberfour.main;
 
 import by.koroza.programming_with_classes.composition.numberfour.operations.CalculateSum;
 import by.koroza.programming_with_classes.composition.numberfour.operations.Search;

@@ -7,10 +7,6 @@
 
 package by.koroza.programming_with_classes.composition.numberfour.main;
 
-import by.koroza.programming_with_classes.composition.numberfour.BankAccount;
-import by.koroza.programming_with_classes.composition.numberfour.Operation;
-import by.koroza.programming_with_classes.composition.numberfour.Person;
-
 public class Main {
 
 	public static void main(String[] args) {

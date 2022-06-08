@@ -1,4 +1,4 @@
-package by.koroza.programming_with_classes.composition.numberfour;
+package by.koroza.programming_with_classes.composition.numberfour.main;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
