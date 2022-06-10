@@ -10,7 +10,7 @@ public class Person {
 		this.lastName = lastName;
 		this.firstName = firstName;
 		this.patronymic = patronymic;
-		this.travelVouchers = new TravelVoucher[1];
+		this.travelVouchers = new TravelVoucher[1]; // ELEMENT WITH INDEX 0 'null'
 	}
 
 	public String getLastName() {
