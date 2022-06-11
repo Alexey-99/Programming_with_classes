@@ -1,2 +1,4 @@
+TravelCampany (TravelVoucher[] travelVoucherss)
+
 Person -> 
  - if хотите добавить
