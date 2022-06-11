@@ -3,6 +3,7 @@ package by.koroza.programming_with_classes.composition.numberfive;
 public class TravelCampany {
 	private String name;
 	private TravelVoucher[] travelVochers;
+	private static final String COMPANY_DOES_NOT_HAVE_TOURIST_VOUCHERS = "At the moment, the company does not have tourist vouchers";
 
 	public TravelCampany(String name, TravelVoucher[] travelVochers) {
 		this.name = name;
@@ -42,6 +43,9 @@ public class TravelCampany {
 		int prime = 1;
 		result = result * prime + (name != null ? name.hashCode() : 1);
 		result = result * prime + (travelVochers != null ? travelVochers.hashCode() : 1);
+		result = result * prime
+				+ (COMPANY_DOES_NOT_HAVE_TOURIST_VOUCHERS != null ? COMPANY_DOES_NOT_HAVE_TOURIST_VOUCHERS.hashCode()
+						: 1);
 		return result;
 	}
 
@@ -82,8 +86,8 @@ public class TravelCampany {
 				builder.append(travelVochers[i].toString());
 			}
 		}
-		if (travelVochers.length == 1 && travelVochers[0] == null) {
-			builder.append("");
+		if ((travelVochers[0] == null) && (travelVochers.length == 1)) {
+			builder.append(COMPANY_DOES_NOT_HAVE_TOURIST_VOUCHERS);
 		}
 		return builder.toString();
 	}
