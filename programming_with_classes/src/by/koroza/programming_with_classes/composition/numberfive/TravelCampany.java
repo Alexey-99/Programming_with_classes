@@ -77,7 +77,14 @@ public class TravelCampany {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
+		for (int i = 0; i < travelVochers.length; i++) {
+			if (travelVochers[i] != null) {
+				builder.append(travelVochers[i].toString());
+			}
+		}
+		if (travelVochers.length == 1 && travelVochers[0] == null) {
+			builder.append("");
+		}
 		return builder.toString();
 	}
-
 }
