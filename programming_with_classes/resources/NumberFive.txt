@@ -1,4 +1,7 @@
 TravelCampany (TravelVoucher[] travelVoucherss)
 
+types tour {beach tour, excursion tour, beach tour + excursion tour, shop tours, children's rest, wedding rest, 
+ski tours, cruises, wellness, sport events, educational tours, on weekend, wine tours, The May holidays, New Year tours}
+
 Person -> 
  - if хотите добавить
