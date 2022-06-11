@@ -5,9 +5,9 @@ public class TravelCampany {
 	private TravelVoucher[] travelVochers;
 	private static final String COMPANY_DOES_NOT_HAVE_TOURIST_VOUCHERS = "At the moment, the company does not have tourist vouchers";
 
-	public TravelCampany(String name, TravelVoucher[] travelVochers) {
+	public TravelCampany(String name) {
 		this.name = name;
-		this.travelVochers = travelVochers;
+		this.travelVochers = new TravelVoucher[1];
 	}
 
 	public TravelCampany(String name, TravelVoucher travelVocher) {
@@ -16,9 +16,9 @@ public class TravelCampany {
 		this.travelVochers[0] = travelVocher;
 	}
 
-	public TravelCampany(String name) {
+	public TravelCampany(String name, TravelVoucher[] travelVochers) {
 		this.name = name;
-		this.travelVochers = new TravelVoucher[1];
+		this.travelVochers = travelVochers;
 	}
 
 	public String getName() {
