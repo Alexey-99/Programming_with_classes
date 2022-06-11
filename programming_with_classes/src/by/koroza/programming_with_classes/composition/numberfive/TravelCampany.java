@@ -4,6 +4,22 @@ public class TravelCampany {
 	private String name;
 	private TravelVoucher[] travelVochers;
 
+	public TravelCampany(String name, TravelVoucher[] travelVochers) {
+		this.name = name;
+		this.travelVochers = travelVochers;
+	}
+
+	public TravelCampany(String name, TravelVoucher travelVocher) {
+		this.name = name;
+		this.travelVochers = new TravelVoucher[1];
+		this.travelVochers[0] = travelVocher;
+	}
+
+	public TravelCampany(String name) {
+		this.name = name;
+		this.travelVochers = new TravelVoucher[1];
+	}
+
 	public String getName() {
 		return name;
 	}
