@@ -22,7 +22,7 @@ public class Main {
 						"To Georgia by sea - Kobuleti"),
 				new TravelVoucher("Hungary", "Slovakia", "excursion tour", 4, 179,
 						"Hungary is a thermal paradise! For tourists with a Visa!"),
-				new TravelVoucher("Россия", "St. Petersburg", "excursion tour", 4, 95,
+				new TravelVoucher("Russia", "St. Petersburg", "excursion tour", 4, 95,
 						"White Nights and Bright Weekends in St. Petersburg! All 4 excursions are already included in the tour price "),
 				new TravelVoucher("Turkey", "Istanbul", "excursion tour", 7, 610,
 						"Istanbul with departure from Minsk!"),

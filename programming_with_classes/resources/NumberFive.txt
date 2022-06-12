@@ -1,7 +1,6 @@
 TravelCampany (TravelVoucher[] travelVoucherss)
 
-types tour {beach tour, excursion tour, beach tour + excursion tour, shop tours, children's rest, wedding rest, 
-ski tours, cruises, wellness, sport events, educational tours, on weekend, wine tours, The May holidays, New Year tours}
+types tour {beach tour, excursion tour, sea + excursion tour, children's rest}
 
 
 1) посмотреть все туристические путёвки
@@ -10,3 +9,15 @@ ski tours, cruises, wellness, sport events, educational tours, on weekend, wine 
 4) посмотреть туристические путёвки по типу туристической путёвки
 5) посмотреть туристические путёвки по количеству ночей
 6) посмотреть туристические путёвки по стоимости
+
+
+посмотреть все туристические путёвки
+   for(int i = 0; i <= length; i++){
+     System.out.println("i - " + voucher.toString());
+     if(i == length){
+        System.out.println("i - " + "выбрать другую операцию");
+     }
+   System.out.println(length + 1);
+   }
+   
+   если вы хотите добавить в корзину покупок путёвку введите номер ...
