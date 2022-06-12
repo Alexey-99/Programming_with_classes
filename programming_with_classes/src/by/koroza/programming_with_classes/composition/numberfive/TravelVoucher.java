@@ -85,7 +85,12 @@ public class TravelVoucher {
 	public int hashCode() {
 		int result = 31;
 		int prime = 1;
-		result = result * prime;
+		result = result * prime + (country != null ? country.hashCode() : 1);
+		result = result * prime + (city != null ? city.hashCode() : 1);
+		result = result * prime + (tourType != null ? tourType.hashCode() : 1);
+		result = result * prime + numberNights;
+		result = result * prime + Double.hashCode(price);
+		result = result * prime + (comment != null ? comment.hashCode() : 1);
 		return result;
 	}
 
