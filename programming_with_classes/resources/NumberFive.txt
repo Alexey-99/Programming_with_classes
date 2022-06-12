@@ -3,5 +3,10 @@ TravelCampany (TravelVoucher[] travelVoucherss)
 types tour {beach tour, excursion tour, beach tour + excursion tour, shop tours, children's rest, wedding rest, 
 ski tours, cruises, wellness, sport events, educational tours, on weekend, wine tours, The May holidays, New Year tours}
 
-Person -> 
- - if хотите добавить
+
+1) посмотреть все туристические путёвки
+2) посмотреть туристические путёвки по стране
+3) посмотреть туристические путёвки по городу
+4) посмотреть туристические путёвки по типу туристической путёвки
+5) посмотреть туристические путёвки по количеству ночей
+6) посмотреть туристические путёвки по стоимости

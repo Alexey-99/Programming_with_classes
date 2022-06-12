@@ -23,7 +23,7 @@ public class TravelVoucher {
 		this.numberNights = numberNights;
 		this.price = price;
 	}
-	
+
 	public TravelVoucher(String country, String city, String tourType, int numberNights, double price, String comment) {
 		this.country = country;
 		this.city = city;
@@ -99,6 +99,40 @@ public class TravelVoucher {
 			return false;
 		}
 		TravelVoucher travelVoucher = (TravelVoucher) object;
+		if (country == null) {
+			if (travelVoucher.country != null) {
+				return false;
+			}
+		} else if (!country.equals(travelVoucher.country)) {
+			return false;
+		}
+		if (city == null) {
+			if (travelVoucher.city != null) {
+				return false;
+			}
+		} else if (!city.equals(travelVoucher.city)) {
+			return false;
+		}
+		if (tourType == null) {
+			if (travelVoucher.tourType != null) {
+				return false;
+			}
+		} else if (!tourType.equals(travelVoucher.tourType)) {
+			return false;
+		}
+		if (numberNights != travelVoucher.numberNights) {
+			return false;
+		}
+		if (price != travelVoucher.price) {
+			return false;
+		}
+		if (comment == null) {
+			if (travelVoucher.comment != null) {
+				return false;
+			}
+		} else if (!comment.equals(travelVoucher.comment)) {
+			return false;
+		}
 		return true;
 	}
 
