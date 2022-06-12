@@ -11,7 +11,7 @@ public class BankAccount {
 	public BankAccount() {
 		this.number = count++;
 		this.balance = 0;
-		this.status = "Active";
+		this.status = "active";
 		this.operations = new Operation[1];
 	}
 
@@ -48,41 +48,51 @@ public class BankAccount {
 	}
 
 	public void addOperation(Operation operation) {
-		if (this.operations[operations.length - 1] == null) {
-			this.operations[operations.length - 1] = operation;
-			changeInBalance(operation.getSum());
-		} else {
-			Operation[] operationsNew = new Operation[operations.length + 1];
-			for (int i = 0; i < operationsNew.length; i++) {
-				if (i < operations.length) {
-					operationsNew[i] = this.operations[i];
-				} else if (i == operations.length) {
-					operationsNew[i] = operation;
-					changeInBalance(operation.getSum());
+		if (this.status.equals("active")) {
+			if (this.operations[operations.length - 1] == null) {
+				this.operations[operations.length - 1] = operation;
+				changeInBalance(operation.getSum());
+			} else {
+				Operation[] operationsNew = new Operation[operations.length + 1];
+				for (int i = 0; i < operationsNew.length; i++) {
+					if (i < operations.length) {
+						operationsNew[i] = this.operations[i];
+					} else if (i == operations.length) {
+						operationsNew[i] = operation;
+						changeInBalance(operation.getSum());
+					}
 				}
+				this.operations = operationsNew;
 			}
-			this.operations = operationsNew;
+		} else {
+			System.out.println("Sorry, this bank account isn't active.");
 		}
+
 	}
 
 	public void addOperations(Operation[] operations) {
-		if (this.operations[this.operations.length - 1] == null) {
-			this.operations = operations;
-			for (Operation operation : operations) {
-				changeInBalance(operation.getSum());
+		if (this.status.equals("active")) {
+			if (this.operations[this.operations.length - 1] == null) {
+				this.operations = operations;
+				for (Operation operation : operations) {
+					changeInBalance(operation.getSum());
+				}
+			} else {
+				Operation[] operationsNew = new Operation[this.operations.length + operations.length];
+				for (int i = 0; i < operationsNew.length; i++) {
+					if (i < this.operations.length) {
+						operationsNew[i] = this.operations[i];
+					} else if (i >= this.operations.length) {
+						operationsNew[i] = operations[i];
+						changeInBalance(operations[i].getSum());
+					}
+				}
+				this.operations = operationsNew;
 			}
 		} else {
-			Operation[] operationsNew = new Operation[this.operations.length + operations.length];
-			for (int i = 0; i < operationsNew.length; i++) {
-				if (i < this.operations.length) {
-					operationsNew[i] = this.operations[i];
-				} else if (i >= this.operations.length) {
-					operationsNew[i] = operations[i];
-					changeInBalance(operations[i].getSum());
-				}
-			}
-			this.operations = operationsNew;
+			System.out.println("Sorry, this bank account isn't active.");
 		}
+
 	}
 
 	private void changeInBalance(double sum) {
