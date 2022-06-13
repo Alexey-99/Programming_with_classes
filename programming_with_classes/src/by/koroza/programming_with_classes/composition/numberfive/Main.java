@@ -7,6 +7,10 @@
 
 package by.koroza.programming_with_classes.composition.numberfive;
 
+import java.util.Arrays;
+
+import by.koroza.programming_with_classes.composition.numberfive.enums.CountryEnumeration;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -44,5 +48,6 @@ public class Main {
 				new TravelVoucher("Russia", "Moskow", "excursion tour", 4, 105, "Bus tour " + "'Moscow of many faces'"),
 				new TravelVoucher("Turkey", "Kemer", "beach tour", 11, 1035, "Tour to Larissa Sultan`s Beach Hotel") };
 		TravelCampany campany = new TravelCampany("AlexKor", travelVouchers);
+		System.out.println(Arrays.toString(CountryEnumeration.getCountries()) );
 	}
 }
