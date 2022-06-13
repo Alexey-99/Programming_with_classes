@@ -1,6 +1,8 @@
 package by.koroza.programming_with_classes.composition.numberfive;
 
+import by.koroza.programming_with_classes.composition.numberfive.enums.CityEnumeration;
 import by.koroza.programming_with_classes.composition.numberfive.enums.CountryEnumeration;
+import by.koroza.programming_with_classes.composition.numberfive.enums.TypeEnumeration;
 
 public class TravelVoucher {
 	private String country;
@@ -13,7 +15,10 @@ public class TravelVoucher {
 	public TravelVoucher(String country, String tourType, int numberNights, double price, String comment) {
 		this.country = country;
 		CountryEnumeration.addCountryInList(country);
+		this.city = "without city";
+		CityEnumeration.addCityInList(city);
 		this.tourType = tourType;
+		TypeEnumeration.addTypeInList(tourType);
 		this.numberNights = numberNights;
 		this.price = price;
 		this.comment = comment;
@@ -23,7 +28,9 @@ public class TravelVoucher {
 		this.country = country;
 		CountryEnumeration.addCountryInList(country);
 		this.city = city;
+		CityEnumeration.addCityInList(city);
 		this.tourType = tourType;
+		TypeEnumeration.addTypeInList(tourType);
 		this.numberNights = numberNights;
 		this.price = price;
 	}
@@ -32,7 +39,9 @@ public class TravelVoucher {
 		this.country = country;
 		CountryEnumeration.addCountryInList(country);
 		this.city = city;
+		CityEnumeration.addCityInList(city);
 		this.tourType = tourType;
+		TypeEnumeration.addTypeInList(tourType);
 		this.numberNights = numberNights;
 		this.price = price;
 		this.comment = comment;

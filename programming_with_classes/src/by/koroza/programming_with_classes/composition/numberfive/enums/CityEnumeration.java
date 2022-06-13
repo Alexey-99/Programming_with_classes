@@ -3,9 +3,6 @@ package by.koroza.programming_with_classes.composition.numberfive.enums;
 import by.koroza.programming_with_classes.composition.numberfive.validation.Validation;
 
 public class CityEnumeration {
-	// private static String[] cities = { "Alanya", "Sharm El Sheikh", "St.
-	// Petersburg", "San Marino", "Tbilisi",
-	// "Kobuleti", "Slovakia", "Istanbul", "Moskow", "Kemer" };
 	private static String[] cities = new String[0];
 
 	public static String[] getCities() {

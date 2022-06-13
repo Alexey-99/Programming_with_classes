@@ -2,6 +2,7 @@ package by.koroza.programming_with_classes.composition.numberfive.validation;
 
 import static by.koroza.programming_with_classes.composition.numberfive.enums.CountryEnumeration.getCountries;
 import static by.koroza.programming_with_classes.composition.numberfive.enums.CityEnumeration.getCities;
+import static by.koroza.programming_with_classes.composition.numberfive.enums.TypeEnumeration.getTypes;
 
 public class Validation {
 
@@ -23,5 +24,15 @@ public class Validation {
 			}
 		}
 		return isHavingCity;
+	}
+	
+	public static boolean checkingOnHavingTypeInList(String type) {
+		boolean isHavingType = false;
+		for (String typeElement : getTypes()) {
+			if (typeElement.equals(type)) {
+				isHavingType = true;
+			}
+		}
+		return isHavingType;
 	}
 }
