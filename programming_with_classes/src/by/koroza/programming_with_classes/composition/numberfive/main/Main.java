@@ -7,13 +7,9 @@
 
 package by.koroza.programming_with_classes.composition.numberfive.main;
 
-import java.util.Arrays;
-
 import by.koroza.programming_with_classes.composition.numberfive.entity.TravelCampany;
 import by.koroza.programming_with_classes.composition.numberfive.entity.TravelVoucher;
-import by.koroza.programming_with_classes.composition.numberfive.enums.CityEnumeration;
-import by.koroza.programming_with_classes.composition.numberfive.enums.CountryEnumeration;
-import by.koroza.programming_with_classes.composition.numberfive.enums.TypeEnumeration;
+import by.koroza.programming_with_classes.composition.numberfive.programprocess.ProgramProcess;
 
 public class Main {
 
@@ -52,8 +48,6 @@ public class Main {
 				new TravelVoucher("Russia", "Moskow", "excursion tour", 4, 105, "Bus tour " + "'Moscow of many faces'"),
 				new TravelVoucher("Turkey", "Kemer", "beach tour", 11, 1035, "Tour to Larissa Sultan`s Beach Hotel") };
 		TravelCampany campany = new TravelCampany("AlexKor", travelVouchers);
-		System.out.println(Arrays.toString(CountryEnumeration.getCountries()));
-		System.out.println(Arrays.toString(CityEnumeration.getCities()));
-		System.out.println(Arrays.toString(TypeEnumeration.getTypes()));
+		ProgramProcess.process(campany);
 	}
 }
