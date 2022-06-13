@@ -11,13 +11,11 @@ public class CreatePerson {
 	private static final String ENTER_PATRONYMIC = "Enter patronymic (Example: Mikhailovich)";
 
 	public static Person createPerson() {
-		String lastName = enterLastName();
-		String firstName = enterFirstName();
-		String patronymic = enterPatronymic();
-		Person person = new Person(lastName, firstName, patronymic);
+		Person person = new Person(enterLastName(), enterFirstName(), enterPatronymic());
 		return person;
 	}
 
+	@SuppressWarnings("resource")
 	private static String enterLastName() {
 		Scanner scan = new Scanner(System.in);
 		String lastName = "";
@@ -28,6 +26,7 @@ public class CreatePerson {
 		return lastName;
 	}
 
+	@SuppressWarnings("resource")
 	private static String enterFirstName() {
 		Scanner scan = new Scanner(System.in);
 		String firstName = "";
@@ -38,6 +37,7 @@ public class CreatePerson {
 		return firstName;
 	}
 
+	@SuppressWarnings("resource")
 	private static String enterPatronymic() {
 		Scanner scan = new Scanner(System.in);
 		String patronymic = "";
