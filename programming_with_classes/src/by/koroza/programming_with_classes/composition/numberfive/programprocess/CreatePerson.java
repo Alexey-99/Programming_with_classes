@@ -19,7 +19,7 @@ public class CreatePerson {
 	}
 
 	private static String enterLastName() {
-		@SuppressWarnings("resource")
+
 		Scanner scan = new Scanner(System.in);
 		String lastName = "";
 		do {
@@ -30,7 +30,7 @@ public class CreatePerson {
 	}
 
 	private static String enterFirstName() {
-		@SuppressWarnings("resource")
+
 		Scanner scan = new Scanner(System.in);
 		String firstName = "";
 		do {
@@ -41,7 +41,7 @@ public class CreatePerson {
 	}
 
 	private static String enterPatronymic() {
-		@SuppressWarnings("resource")
+
 		Scanner scan = new Scanner(System.in);
 		String patronymic = "";
 		do {
