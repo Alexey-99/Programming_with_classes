@@ -1,4 +1,4 @@
-package by.koroza.programming_with_classes.composition.numberfive;
+package by.koroza.programming_with_classes.composition.numberfive.main;
 
 import by.koroza.programming_with_classes.composition.numberfive.enums.CityEnumeration;
 import by.koroza.programming_with_classes.composition.numberfive.enums.CountryEnumeration;

@@ -5,7 +5,7 @@
  * Реализовать выбор и сортировку путевок. 
  */
 
-package by.koroza.programming_with_classes.composition.numberfive;
+package by.koroza.programming_with_classes.composition.numberfive.main;
 
 import java.util.Arrays;
 
