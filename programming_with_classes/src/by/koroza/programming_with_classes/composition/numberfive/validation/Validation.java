@@ -4,7 +4,10 @@ import static by.koroza.programming_with_classes.composition.numberfive.enums.Co
 import static by.koroza.programming_with_classes.composition.numberfive.enums.CityEnumeration.getCities;
 import static by.koroza.programming_with_classes.composition.numberfive.enums.TypeEnumeration.getTypes;
 
+import java.util.regex.Pattern;
+
 public class Validation {
+	private static final String REG_EXR_FOR_LASTNAME_FIRSTNAME_PATRONYMIC = "[A-Z]{1}[a-z]+";
 
 	public static boolean checkingOnHavingCountryInList(String country) {
 		boolean isHavingCountry = false;
@@ -25,7 +28,7 @@ public class Validation {
 		}
 		return isHavingCity;
 	}
-	
+
 	public static boolean checkingOnHavingTypeInList(String type) {
 		boolean isHavingType = false;
 		for (String typeElement : getTypes()) {
@@ -35,9 +38,12 @@ public class Validation {
 		}
 		return isHavingType;
 	}
-	
-	public static boolean validationLastName() {
-		boolean isCorrect = true;
+
+	public static boolean validationLastName(String lastName) {
+		boolean isCorrect = Pattern.matches(REG_EXR_FOR_LASTNAME_FIRSTNAME_PATRONYMIC, lastName);
+		if(isCorrect == false) {
+			
+		}
 		return isCorrect;
 	}
 }
