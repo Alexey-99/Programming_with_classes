@@ -19,7 +19,6 @@ public class CreatePerson {
 	}
 
 	private static String enterLastName() {
-
 		Scanner scan = new Scanner(System.in);
 		String lastName = "";
 		do {
@@ -30,7 +29,6 @@ public class CreatePerson {
 	}
 
 	private static String enterFirstName() {
-
 		Scanner scan = new Scanner(System.in);
 		String firstName = "";
 		do {
@@ -41,7 +39,6 @@ public class CreatePerson {
 	}
 
 	private static String enterPatronymic() {
-
 		Scanner scan = new Scanner(System.in);
 		String patronymic = "";
 		do {
