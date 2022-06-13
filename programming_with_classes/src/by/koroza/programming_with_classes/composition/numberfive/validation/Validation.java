@@ -13,4 +13,9 @@ public class Validation {
 		}
 		return isHavingCountry;
 	}
+	
+	public static boolean checkingOnHavingCityInList(String city) {
+		boolean isHavingCity = false;
+		return isHavingCity;
+	}
 }
