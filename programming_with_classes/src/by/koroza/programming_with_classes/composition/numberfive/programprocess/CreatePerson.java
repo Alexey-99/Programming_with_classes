@@ -6,6 +6,9 @@ import by.koroza.programming_with_classes.composition.numberfive.entity.Person;
 import by.koroza.programming_with_classes.composition.numberfive.validation.Validation;
 
 public class CreatePerson {
+	private static final String ENTER_LAST_NAME = "Enter last name (Example: Koroza)";
+	private static final String ENTER_FIRST_NAME = "Enter first name (Example: Alexey)";
+	private static final String ENTER_PATRONYMIC = "Enter patronymic (Example: Mikhailovich)";
 
 	public static Person createPerson() {
 		String lastName = enterLastName();
@@ -19,7 +22,7 @@ public class CreatePerson {
 		Scanner scan = new Scanner(System.in);
 		String lastName = "";
 		do {
-			System.out.println("Enter last name (Example: Koroza)");
+			System.out.println(ENTER_LAST_NAME);
 			lastName = scan.nextLine();
 		} while (Validation.validationPersonName(lastName));
 		scan.close();
@@ -30,7 +33,7 @@ public class CreatePerson {
 		Scanner scan = new Scanner(System.in);
 		String firstName = "";
 		do {
-			System.out.println("Enter first name (Example: Alexey)");
+			System.out.println(ENTER_FIRST_NAME);
 			firstName = scan.nextLine();
 		} while (Validation.validationPersonName(firstName));
 		scan.close();
@@ -41,7 +44,7 @@ public class CreatePerson {
 		Scanner scan = new Scanner(System.in);
 		String patronymic = "";
 		do {
-			System.out.println("Enter patronymic (Example: Alexey)");
+			System.out.println(ENTER_PATRONYMIC);
 			patronymic = scan.nextLine();
 		} while (Validation.validationPersonName(patronymic));
 		scan.close();
