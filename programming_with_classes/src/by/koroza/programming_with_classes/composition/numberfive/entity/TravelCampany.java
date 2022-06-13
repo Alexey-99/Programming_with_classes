@@ -1,4 +1,4 @@
-package by.koroza.programming_with_classes.composition.numberfive.main;
+package by.koroza.programming_with_classes.composition.numberfive.entity;
 
 public class TravelCampany {
 	private String name;

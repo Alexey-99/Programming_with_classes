@@ -9,6 +9,8 @@ package by.koroza.programming_with_classes.composition.numberfive.main;
 
 import java.util.Arrays;
 
+import by.koroza.programming_with_classes.composition.numberfive.entity.TravelCampany;
+import by.koroza.programming_with_classes.composition.numberfive.entity.TravelVoucher;
 import by.koroza.programming_with_classes.composition.numberfive.enums.CityEnumeration;
 import by.koroza.programming_with_classes.composition.numberfive.enums.CountryEnumeration;
 import by.koroza.programming_with_classes.composition.numberfive.enums.TypeEnumeration;
