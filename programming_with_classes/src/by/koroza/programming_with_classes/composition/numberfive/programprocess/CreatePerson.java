@@ -19,36 +19,35 @@ public class CreatePerson {
 	}
 
 	private static String enterLastName() {
+		@SuppressWarnings("resource")
 		Scanner scan = new Scanner(System.in);
 		String lastName = "";
 		do {
 			System.out.println(ENTER_LAST_NAME);
 			lastName = scan.nextLine();
-		} while (Validation.validationPersonName(lastName));
-		scan.close();
+		} while (Validation.validationPersonName(lastName) == false);
 		return lastName;
 	}
 
 	private static String enterFirstName() {
+		@SuppressWarnings("resource")
 		Scanner scan = new Scanner(System.in);
 		String firstName = "";
 		do {
 			System.out.println(ENTER_FIRST_NAME);
 			firstName = scan.nextLine();
-		} while (Validation.validationPersonName(firstName));
-		scan.close();
+		} while (Validation.validationPersonName(firstName) == false);
 		return firstName;
 	}
 
 	private static String enterPatronymic() {
+		@SuppressWarnings("resource")
 		Scanner scan = new Scanner(System.in);
 		String patronymic = "";
 		do {
 			System.out.println(ENTER_PATRONYMIC);
 			patronymic = scan.nextLine();
-		} while (Validation.validationPersonName(patronymic));
-		scan.close();
+		} while (Validation.validationPersonName(patronymic) == false);
 		return patronymic;
 	}
-
 }
