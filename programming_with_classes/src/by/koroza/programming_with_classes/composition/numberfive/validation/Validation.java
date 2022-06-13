@@ -39,10 +39,10 @@ public class Validation {
 		return isHavingType;
 	}
 
-	public static boolean validationLastName(String lastName) {
+	public static boolean validationPersonName(String lastName) {
 		boolean isCorrect = Pattern.matches(REG_EXR_FOR_LASTNAME_FIRSTNAME_PATRONYMIC, lastName);
 		if(isCorrect == false) {
-		 
+			System.out.println("You entered the last name incorrectly.");
 		}
 		return isCorrect;
 	}

@@ -7,7 +7,7 @@ public class TravelCampany {
 
 	public TravelCampany(String name) {
 		this.name = name;
-		this.travelVochers = new TravelVoucher[1];
+		this.travelVochers = new TravelVoucher[0];
 	}
 
 	public TravelCampany(String name, TravelVoucher travelVocher) {
@@ -38,35 +38,28 @@ public class TravelCampany {
 	}
 
 	public void addTravelVocher(TravelVoucher travelVocher) {
-		if ((travelVochers[0] == null) && (travelVochers.length == 1)) {
-			this.travelVochers[0] = travelVocher;
-		} else {
-			TravelVoucher[] travelVochersNew = new TravelVoucher[this.travelVochers.length + 1];
-			for (int i = 0; i < travelVochersNew.length; i++) {
-				if (i < this.travelVochers.length) {
-					travelVochersNew[i] = this.travelVochers[i];
-				} else if (i == this.travelVochers.length) {
-					travelVochersNew[i] = travelVocher;
-				}
+		TravelVoucher[] travelVochersNew = new TravelVoucher[this.travelVochers.length + 1];
+		for (int i = 0; i < travelVochersNew.length; i++) {
+			if (i < this.travelVochers.length) {
+				travelVochersNew[i] = this.travelVochers[i];
+			} else if (i == this.travelVochers.length) {
+				travelVochersNew[i] = travelVocher;
 			}
-			this.travelVochers = travelVochersNew;
 		}
+		this.travelVochers = travelVochersNew;
 	}
 
 	public void addTravelVochers(TravelVoucher[] travelVochers) {
-		if ((this.travelVochers[0] == null) && (this.travelVochers.length == 1)) {
-			this.travelVochers = travelVochers;
-		} else {
-			TravelVoucher[] travelVochersNew = new TravelVoucher[this.travelVochers.length + travelVochers.length];
-			for (int i = 0; i < travelVochersNew.length; i++) {
-				if (i < this.travelVochers.length) {
-					travelVochersNew[i] = this.travelVochers[i];
-				} else if (i >= this.travelVochers.length) {
-					travelVochersNew[i] = travelVochers[i - this.travelVochers.length];
-				}
+		TravelVoucher[] travelVochersNew = new TravelVoucher[this.travelVochers.length + travelVochers.length];
+		for (int i = 0; i < travelVochersNew.length; i++) {
+			if (i < this.travelVochers.length) {
+				travelVochersNew[i] = this.travelVochers[i];
+			} else if (i >= this.travelVochers.length) {
+				travelVochersNew[i] = travelVochers[i - this.travelVochers.length];
 			}
-			this.travelVochers = travelVochersNew;
 		}
+		this.travelVochers = travelVochersNew;
+
 	}
 
 	@Override
