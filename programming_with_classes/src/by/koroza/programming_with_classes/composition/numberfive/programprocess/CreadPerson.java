@@ -5,11 +5,7 @@ import java.util.Scanner;
 public class CreadPerson {
 
 	public static void creadePerson() {
-		//Scanner scan = new Scanner(System.in);
-		//System.out.println("Enter last name (Example: Alexey)");
 		String lastName = enterLastName();
-		//System.out.println("Enter first name (Example: Koroza)");
-		//String firstName = scan.nextLine();
 	}
 
 	private static String enterLastName() {

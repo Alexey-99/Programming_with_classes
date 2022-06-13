@@ -35,4 +35,9 @@ public class Validation {
 		}
 		return isHavingType;
 	}
+	
+	public static boolean validationLastName() {
+		boolean isCorrect = true;
+		return isCorrect;
+	}
 }
