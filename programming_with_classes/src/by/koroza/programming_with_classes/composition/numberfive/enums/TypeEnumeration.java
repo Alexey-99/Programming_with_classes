@@ -6,4 +6,6 @@ public class TypeEnumeration {
 	public static String[] getTYPES() {
 		return TYPES;
 	}
+	
+	
 }

@@ -7,8 +7,12 @@ public class CityEnumeration {
 	public static String[] getCITIES() {
 		return CITIES;
 	}
-	
-	public static void addCity() {
-		
+
+	public static void addCity(String city) {
+
+	}
+
+	public static void addCities(String[] cities) {
+
 	}
 }
