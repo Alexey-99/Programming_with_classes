@@ -18,7 +18,7 @@ public class CreatePerson {
 	@SuppressWarnings("resource")
 	private static String enterLastName() {
 		Scanner scan = new Scanner(System.in);
-		String lastName = ""; 
+		String lastName = "";
 		do {
 			System.out.println(ENTER_LAST_NAME);
 			lastName = scan.nextLine();
