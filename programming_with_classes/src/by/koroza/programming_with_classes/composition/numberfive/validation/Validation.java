@@ -6,8 +6,13 @@ import static by.koroza.programming_with_classes.composition.numberfive.enums.Ty
 
 import java.util.regex.Pattern;
 
+import by.koroza.programming_with_classes.composition.numberfive.enums.MainOperationEnumeration;
+
 public class Validation {
 	private static final String REG_EXR_FOR_LASTNAME_FIRSTNAME_PATRONYMIC = "[A-Z]{1}[a-z]+";
+	private static final String REG_EXR_HAVING_DIGITS = "\\d+";
+	private static final String YOU_ENTERED_INCORRECTLY = "You entered incorrectly.";
+	private static final String YOU_ENTERED_NUMBER_OPERATION_INCORRECTLY = "You entered number operation incorrectly.";
 
 	public static boolean checkingOnHavingCountryInList(String country) {
 		boolean isHavingCountry = false;
@@ -42,19 +47,38 @@ public class Validation {
 	public static boolean validationPersonName(String lastName) {
 		boolean isCorrect = Pattern.matches(REG_EXR_FOR_LASTNAME_FIRSTNAME_PATRONYMIC, lastName);
 		if (isCorrect == false) {
-			System.out.println("You entered the last name incorrectly.");
+			System.out.println(YOU_ENTERED_INCORRECTLY);
 		}
 		return isCorrect;
 	}
 
 	public static boolean validationNumberMainOperation(String numberOperation) {
-		boolean isCorrect = validationOnDigits(numberOperation);
+		boolean isCorrect = validationOnHavingDigits(numberOperation);
+		if (isCorrect == true) {
+			isCorrect = validationOnHavingThisNumberOperation(numberOperation);
+		}
+		if (isCorrect == false) {
+			System.out.println(YOU_ENTERED_NUMBER_OPERATION_INCORRECTLY);
+		}
 		return isCorrect;
 	}
 
-	private static boolean validationOnDigits(String numberOperation) {
-		boolean isCorrect = Pattern.matches("\\d+", numberOperation);
+	private static boolean validationOnHavingDigits(String numberOperation) {
+		boolean isCorrect = Pattern.matches(REG_EXR_HAVING_DIGITS, numberOperation);
 		return isCorrect;
 	}
 
+	private static boolean validationOnHavingThisNumberOperation(String numberOperation) { // TODO
+		boolean isCorrect = false;
+		int number = parseNumberOperation(numberOperation);
+		if(number < MainOperationEnumeration.getOperations().length) {
+			isCorrect = true;
+		}
+		return isCorrect;
+	}
+
+	private static int parseNumberOperation(String numberOperation) {
+		int number = Integer.parseInt(numberOperation);
+		return number;
+	}
 }
