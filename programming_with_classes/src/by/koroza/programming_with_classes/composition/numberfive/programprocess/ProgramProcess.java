@@ -8,14 +8,26 @@ public class ProgramProcess {
 
 	public static void process(TravelCampany campany) {
 		Person person = createPerson();
-		String numberOperation = choiceMainOperation(person);
-		switch (numberOperation) {
-		case "0":
-			ViewAllTravelPackages.viewAllTravelPackages(campany, person);
-		case "1":
-		case "2":
-		case "3":
-		case "4":
+		boolean isMainProcess = true;
+		while (isMainProcess == true) {
+			String numberOperation = choiceMainOperation(person);
+			switch (numberOperation) {
+			case "0":
+				isMainProcess = ViewAllTravelPackages.viewAllTravelPackages(campany, person, isMainProcess);
+				break;
+			case "1":
+				
+				break;
+			case "2":
+				
+				break;
+			case "3":
+				
+				break;
+			case "4":
+				
+				break;
+			}
 		}
 	}
 

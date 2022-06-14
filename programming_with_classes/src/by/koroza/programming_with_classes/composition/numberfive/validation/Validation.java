@@ -12,9 +12,11 @@ import by.koroza.programming_with_classes.composition.numberfive.enums.MainOpera
 public class Validation {
 	private static final String REG_EXR_FOR_LASTNAME_FIRSTNAME_PATRONYMIC = "[A-Z]{1}[a-z]+";
 	private static final String REG_EXR_HAVING_DIGITS = "\\d+";
+	private static final String REG_EXR_ANSWER_ON_EXIT = "[\\0-1]";
 	private static final String YOU_ENTERED_INCORRECTLY = "You entered incorrectly.";
 	private static final String YOU_ENTERED_NUMBER_OPERATION_INCORRECTLY = "You entered number operation incorrectly.";
 	private static final String ENTERED_NUMBER_TRAVEL_VOUCHER = "Entered number add travel voucher.";
+	private static final String YOU_ENTERED_ANSWER_INCORRECTLY = "You entered answer incorrectly.";
 
 	public static boolean checkingOnHavingCountryInList(String country) {
 		boolean isHavingCountry = false;
@@ -73,6 +75,14 @@ public class Validation {
 		if (isCorrect == false) {
 			System.out.println(YOU_ENTERED_INCORRECTLY);
 			System.out.println(ENTERED_NUMBER_TRAVEL_VOUCHER);
+		}
+		return isCorrect;
+	}
+
+	public static boolean validationAnswerOnExit(String answer) {
+		boolean isCorrect = Pattern.matches(REG_EXR_ANSWER_ON_EXIT, answer);
+		if (isCorrect == false) {
+			System.out.println(YOU_ENTERED_ANSWER_INCORRECTLY);
 		}
 		return isCorrect;
 	}
