@@ -46,4 +46,15 @@ public class Validation {
 		}
 		return isCorrect;
 	}
+
+	public static boolean validationNumberMainOperation(String numberOperation) {
+		boolean isCorrect = validationOnDigits(numberOperation);
+		return isCorrect;
+	}
+
+	private static boolean validationOnDigits(String numberOperation) {
+		boolean isCorrect = Pattern.matches("\\d+", numberOperation);
+		return isCorrect;
+	}
+
 }
