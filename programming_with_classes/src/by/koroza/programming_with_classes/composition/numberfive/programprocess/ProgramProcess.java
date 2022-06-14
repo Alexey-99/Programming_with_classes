@@ -7,7 +7,7 @@ public class ProgramProcess {
 
 	public static void process(TravelCampany campany) {
 		Person person = createPerson();
-		choiceMainAction(person);
+		choiceMainOperation(person);
 	}
 
 	private static Person createPerson() {
@@ -15,8 +15,8 @@ public class ProgramProcess {
 		return person;
 	}
 	
-	private static void choiceMainAction(Person person) {
-		ChoiceMainAction.choiceMainAction(person);
+	private static void choiceMainOperation(Person person) {
+		ChoiceMainOperation.choiceMainOperation(person);
 		
 		
 	}

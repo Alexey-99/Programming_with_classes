@@ -6,16 +6,16 @@ import by.koroza.programming_with_classes.composition.numberfive.entity.Person;
 import by.koroza.programming_with_classes.composition.numberfive.enums.MainOperationEnumeration;
 import by.koroza.programming_with_classes.composition.numberfive.validation.Validation;
 
-public class ChoiceMainAction {
+public class ChoiceMainOperation {
 
-	public static void choiceMainAction(Person person) {
+	public static String choiceMainOperation(Person person) {
 		MainOperationEnumeration.printOperations();
-		inputNumberOperation(person);
-
+		String numberOperation = inputNumberOperation(person);
+		return numberOperation;
 	}
 
 	@SuppressWarnings("resource")
-	private static void inputNumberOperation(Person person) {
+	private static String inputNumberOperation(Person person) {
 		Scanner scan = new Scanner(System.in);
 		StringBuilder builder = new StringBuilder();
 		builder.append(person.getLastName()).append(" ");
@@ -26,5 +26,6 @@ public class ChoiceMainAction {
 			System.out.println(builder);
 			numberOperation = scan.nextLine();
 		} while (Validation.validationNumberMainOperation(numberOperation) == false);
+		return numberOperation;
 	}
 }
