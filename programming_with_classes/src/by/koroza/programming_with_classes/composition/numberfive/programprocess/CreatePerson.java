@@ -20,7 +20,7 @@ public class CreatePerson {
 		Scanner scan = new Scanner(System.in);
 		String lastName = "";
 		do {
-			System.out.println(ENTER_LAST_NAME); 
+			System.out.println(ENTER_LAST_NAME);
 			lastName = scan.nextLine();
 		} while (Validation.validationPersonName(lastName) == false);
 		return lastName;
