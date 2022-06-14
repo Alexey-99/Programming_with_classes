@@ -9,7 +9,7 @@ import by.koroza.programming_with_classes.composition.numberfive.validation.Vali
 
 public class ViewAllTravelPackages {
 	private static final String IF_ADD_TRAVEL_VOUCHER = "Enter the number of the travel package if you want to add it to the desired package of travel packages, if not, enter the appropriate number";
-	private static final String EXIT = "Exit program";
+	private static final String EXIT = "Exit from program";
 	private static final String BACK = "Back";
 
 	public static void viewAllTravelPackages(TravelCampany campany, Person person) {
