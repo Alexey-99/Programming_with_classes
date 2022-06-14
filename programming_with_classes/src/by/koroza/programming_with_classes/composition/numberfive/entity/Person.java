@@ -98,7 +98,7 @@ public class Person {
 	}
 
 	@Override
-	public String toString() { // TODO toString()
+	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Last name: ").append(lastName).append("\n");
 		builder.append("First name: ").append(firstName).append("\n");

@@ -156,8 +156,18 @@ public class TravelVoucher {
 	}
 
 	@Override
-	public String toString() { // TODO toString()
+	public String toString() {
 		StringBuilder builder = new StringBuilder();
+		builder.append("Country: ").append(country).append("\n");
+		if (city != null) {
+			builder.append("City: ").append(city).append("\n");
+		}
+		builder.append("Tour type: ").append(tourType).append("\n");
+		builder.append("Number nights: ").append(numberNights).append("\n");
+		builder.append("Price: ").append(price).append("\n");
+		if (comment != null) {
+			builder.append("Comment: ").append(comment).append("\n");
+		}
 		return builder.toString();
 	}
 }
