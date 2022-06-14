@@ -100,6 +100,18 @@ public class Person {
 	@Override
 	public String toString() { // TODO toString()
 		StringBuilder builder = new StringBuilder();
+		builder.append("Last name: ").append(lastName).append("\n");
+		builder.append("First name: ").append(firstName).append("\n");
+		builder.append("Patronymic: ").append(patronymic).append("\n");
+		builder.append(lastName).append(" ");
+		builder.append(firstName).append(" ");
+		builder.append(patronymic).append(" has next travel vouchers: ").append("\n");
+		for (int i = 0; i < travelVouchers.length; i++) {
+			builder.append(travelVouchers[i].toString());
+			if (i < travelVouchers.length - 1) {
+				builder.append("\n");
+			}
+		}
 		return builder.toString();
 	}
 }
