@@ -1,26 +1,48 @@
 package by.koroza.programming_with_classes.composition.numberfive.programprocess.mainoperations;
 
+import java.util.Scanner;
+
+import by.koroza.programming_with_classes.composition.numberfive.entity.Person;
 import by.koroza.programming_with_classes.composition.numberfive.entity.TravelCampany;
 import by.koroza.programming_with_classes.composition.numberfive.entity.TravelVoucher;
+import by.koroza.programming_with_classes.composition.numberfive.validation.Validation;
 
 public class ViewAllTravelPackages {
-	private static final String ADD_TRAVEL_VOUCHER = "Enter the number of the travel package if you want to add it to the desired package of travel packages, if not, enter the appropriate number";
-	private static final String EXIT = "Exit";
+	private static final String IF_ADD_TRAVEL_VOUCHER = "Enter the number of the travel package if you want to add it to the desired package of travel packages, if not, enter the appropriate number";
+	private static final String EXIT = "Exit program";
+	private static final String BACK = "Back";
 
-	public static void viewAllTravelPackages(TravelCampany campany) {
+	public static void viewAllTravelPackages(TravelCampany campany, Person person) {
 		TravelVoucher[] travelVoucher = campany.getTravelVochers();
 		printTravelPackages(travelVoucher);
-		System.out.println(ADD_TRAVEL_VOUCHER);
+		enterNumberTravelVoucher(person, travelVoucher);
 	}
 
 	private static void printTravelPackages(TravelVoucher[] travelVoucher) {
-		for (int i = 0; i <= travelVoucher.length; i++) {
+		for (int i = 0; i < travelVoucher.length + 2; i++) {
 			if (i < travelVoucher.length) {
 				System.out.println(i + " - " + travelVoucher[i].toString());
-			}
-			if (i == travelVoucher.length) {
+			} else if (i == travelVoucher.length) {
+				System.out.println(i + " - " + BACK);
+			} else if (i == travelVoucher.length + 1) {
 				System.out.println(i + " - " + EXIT);
 			}
 		}
+	}
+
+	@SuppressWarnings("resource")
+	private static String enterNumberTravelVoucher(Person person, TravelVoucher[] travelVoucher) {
+		StringBuilder builder = new StringBuilder();
+		builder.append(person.getLastName()).append(" ");
+		builder.append(person.getFirstName()).append(" ");
+		builder.append(person.getPatronymic()).append(" ");
+		builder.append(IF_ADD_TRAVEL_VOUCHER);
+		System.out.println(builder);
+		Scanner scan = new Scanner(System.in);
+		String number = "";
+		do {
+			number = scan.nextLine();
+		} while (Validation.validationNumberTravelVoucher(number, travelVoucher) == false);
+		return number;
 	}
 }

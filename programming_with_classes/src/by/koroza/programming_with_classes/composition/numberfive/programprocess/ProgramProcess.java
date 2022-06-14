@@ -11,7 +11,7 @@ public class ProgramProcess {
 		String numberOperation = choiceMainOperation(person);
 		switch (numberOperation) {
 		case "0":
-			ViewAllTravelPackages.viewAllTravelPackages(campany);
+			ViewAllTravelPackages.viewAllTravelPackages(campany, person);
 		case "1":
 		case "2":
 		case "3":
