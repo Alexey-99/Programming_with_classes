@@ -7,6 +7,7 @@ public class ProgramProcess {
 
 	public static void process(TravelCampany campany) {
 		Person person = createPerson();
+		
 	}
 
 	private static Person createPerson() {

@@ -106,12 +106,16 @@ public class TravelCampany {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
+		builder.append("Name: ").append(name).append("\n");
 		for (int i = 0; i < travelVochers.length; i++) {
 			if (travelVochers[i] != null) {
 				builder.append(travelVochers[i].toString());
 			}
+			if (i < travelVochers.length - 1) {
+				builder.append("\n");
+			}
 		}
-		if ((travelVochers[0] == null) && (travelVochers.length == 1)) {
+		if (travelVochers.length == 0) {
 			builder.append(COMPANY_DOES_NOT_HAVE_TOURIST_VOUCHERS);
 		}
 		return builder.toString();
