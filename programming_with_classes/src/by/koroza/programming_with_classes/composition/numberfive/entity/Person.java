@@ -45,6 +45,18 @@ public class Person {
 		this.travelVouchers = travelVouchers;
 	}
 
+	public void addTravelVoucher(TravelVoucher travelVoucher) {
+		TravelVoucher[] travelVouchersNew = new TravelVoucher[travelVouchers.length + 1];
+		for (int i = 0; i < travelVouchersNew.length; i++) {
+			if (i < travelVouchers.length) {
+				travelVouchersNew[i] = travelVouchers[i];
+			} else if (i == travelVouchers.length) {
+				travelVouchersNew[i] = travelVoucher;
+			}
+		}
+		travelVouchers = travelVouchersNew;
+	}
+
 	@Override
 	public int hashCode() {
 		int result = 31;

@@ -15,7 +15,10 @@ public class ViewAllTravelPackages {
 	public static void viewAllTravelPackages(TravelCampany campany, Person person) {
 		TravelVoucher[] travelVoucher = campany.getTravelVochers();
 		printTravelPackages(travelVoucher);
-		enterNumberTravelVoucher(person, travelVoucher);
+		int number = enterNumberTravelVoucher(person, travelVoucher);
+		if (number < travelVoucher.length) {
+			person.addTravelVoucher(travelVoucher[number]);
+		}
 	}
 
 	private static void printTravelPackages(TravelVoucher[] travelVoucher) {
@@ -31,7 +34,7 @@ public class ViewAllTravelPackages {
 	}
 
 	@SuppressWarnings("resource")
-	private static String enterNumberTravelVoucher(Person person, TravelVoucher[] travelVoucher) {
+	private static int enterNumberTravelVoucher(Person person, TravelVoucher[] travelVoucher) {
 		StringBuilder builder = new StringBuilder();
 		builder.append(person.getLastName()).append(" ");
 		builder.append(person.getFirstName()).append(" ");
@@ -43,6 +46,11 @@ public class ViewAllTravelPackages {
 		do {
 			number = scan.nextLine();
 		} while (Validation.validationNumberTravelVoucher(number, travelVoucher) == false);
-		return number;
+		return parseNumber(number);
+	}
+
+	private static int parseNumber(String number) {
+		int numberParse = Integer.parseInt(number);
+		return numberParse;
 	}
 }
