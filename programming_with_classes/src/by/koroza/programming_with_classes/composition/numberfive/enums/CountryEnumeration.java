@@ -20,6 +20,12 @@ public class CountryEnumeration {
 		}
 	}
 
+	public static void printCountries() {
+		for (int i = 0; i < countries.length; i++) {
+			System.out.println(i + " - " + countries[i]);
+		}
+	}
+
 	private static void addCountry(String country) {
 		String[] countriesNew = new String[countries.length + 1];
 		for (int i = 0; i < countriesNew.length; i++) {
@@ -31,5 +37,4 @@ public class CountryEnumeration {
 		}
 		countries = countriesNew;
 	}
-
 }
