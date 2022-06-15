@@ -1,6 +1,6 @@
 package by.koroza.programming_with_classes.composition.numberfive.enums;
 
-import by.koroza.programming_with_classes.composition.numberfive.validation.Validation;
+import by.koroza.programming_with_classes.composition.numberfive.validation.ValidationOnHavingInList;
 
 public class CityEnumeration {
 	private static String[] cities = new String[0];
@@ -14,7 +14,7 @@ public class CityEnumeration {
 	}
 
 	public static void addCityInList(String city) {
-		boolean isHavingCity = Validation.checkingOnHavingCityInList(city);
+		boolean isHavingCity = ValidationOnHavingInList.checkingOnHavingCityInList(city);
 		if (isHavingCity == false) {
 			addCity(city);
 		}

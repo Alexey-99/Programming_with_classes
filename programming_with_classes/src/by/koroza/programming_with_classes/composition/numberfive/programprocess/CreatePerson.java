@@ -3,7 +3,7 @@ package by.koroza.programming_with_classes.composition.numberfive.programprocess
 import java.util.Scanner;
 
 import by.koroza.programming_with_classes.composition.numberfive.entity.Person;
-import by.koroza.programming_with_classes.composition.numberfive.validation.Validation;
+import by.koroza.programming_with_classes.composition.numberfive.validation.ValidationPerson;
 
 public class CreatePerson {
 	private static final String ENTER_LAST_NAME = "Enter last name (Example: Koroza)";
@@ -22,7 +22,7 @@ public class CreatePerson {
 		do {
 			System.out.println(ENTER_LAST_NAME);
 			lastName = scan.nextLine();
-		} while (Validation.validationPersonName(lastName) == false);
+		} while (ValidationPerson.validationPersonName(lastName) == false);
 		return lastName;
 	}
 
@@ -33,7 +33,7 @@ public class CreatePerson {
 		do {
 			System.out.println(ENTER_FIRST_NAME);
 			firstName = scan.nextLine();
-		} while (Validation.validationPersonName(firstName) == false);
+		} while (ValidationPerson.validationPersonName(firstName) == false);
 		return firstName;
 	}
 
@@ -44,7 +44,7 @@ public class CreatePerson {
 		do {
 			System.out.println(ENTER_PATRONYMIC);
 			patronymic = scan.nextLine();
-		} while (Validation.validationPersonName(patronymic) == false);
+		} while (ValidationPerson.validationPersonName(patronymic) == false);
 		return patronymic;
 	}
 }
