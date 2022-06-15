@@ -184,6 +184,9 @@ public class TravelVoucher {
 		if (comment != null) {
 			builder.append("Comment: ").append(comment).append("\n");
 		}
+		if (isStatusAdd == true) {
+			builder.append("Travel voucher added.").append("\n");
+		}
 		return builder.toString();
 	}
 }

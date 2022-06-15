@@ -12,11 +12,11 @@ import by.koroza.programming_with_classes.composition.numberfive.enums.MainOpera
 public class Validation {
 	private static final String REG_EXR_FOR_LASTNAME_FIRSTNAME_PATRONYMIC = "[A-Z]{1}[a-z]+";
 	private static final String REG_EXR_HAVING_DIGITS = "\\d+";
-	private static final String REG_EXR_ANSWER_ON_EXIT = "[\\0-1]";
 	private static final String YOU_ENTERED_INCORRECTLY = "You entered incorrectly.";
 	private static final String YOU_ENTERED_NUMBER_OPERATION_INCORRECTLY = "You entered number operation incorrectly.";
 	private static final String ENTERED_NUMBER_TRAVEL_VOUCHER = "Entered number add travel voucher.";
 	private static final String YOU_ENTERED_ANSWER_INCORRECTLY = "You entered answer incorrectly.";
+	private static final int TWO_ADDITIONAL_OPERATIONS = 2;
 
 	public static boolean checkingOnHavingCountryInList(String country) {
 		boolean isHavingCountry = false;
@@ -59,7 +59,7 @@ public class Validation {
 	public static boolean validationNumberMainOperation(String numberOperation) {
 		boolean isCorrect = validationOnHavingDigits(numberOperation);
 		if (isCorrect == true) {
-			isCorrect = validationOnHavingThisNumberOperation(numberOperation);
+			isCorrect = validationOnHavingThisNumberOperation(numberOperation); // TODO
 		}
 		if (isCorrect == false) {
 			System.out.println(YOU_ENTERED_NUMBER_OPERATION_INCORRECTLY);
@@ -80,7 +80,10 @@ public class Validation {
 	}
 
 	public static boolean validationAnswerOnExit(String answer) {
-		boolean isCorrect = Pattern.matches(REG_EXR_ANSWER_ON_EXIT, answer);
+		boolean isCorrect = validationOnHavingDigits(answer);
+		if (isCorrect == true) {
+			isCorrect = validationOnHavingZeroOrOne(answer);
+		}
 		if (isCorrect == false) {
 			System.out.println(YOU_ENTERED_ANSWER_INCORRECTLY);
 		}
@@ -92,7 +95,7 @@ public class Validation {
 		return isCorrect;
 	}
 
-	private static boolean validationOnHavingThisNumberOperation(String numberOperation) { // TODO
+	private static boolean validationOnHavingThisNumberOperation(String numberOperation) { // TODO NOW MAIN OPERATIONS + EXIT
 		boolean isCorrect = false;
 		int number = parseNumberOperation(numberOperation);
 		if (number < MainOperationEnumeration.getOperations().length) {
@@ -110,7 +113,15 @@ public class Validation {
 			TravelVoucher[] travelVoucher) {
 		boolean isCorrect = false;
 		int number = parseNumberOperation(numberOperation);
-		if (number < travelVoucher.length + 2) {
+		if (number < travelVoucher.length + TWO_ADDITIONAL_OPERATIONS) {
+			isCorrect = true;
+		}
+		return isCorrect;
+	}
+
+	private static boolean validationOnHavingZeroOrOne(String answer) {
+		boolean isCorrect = false;
+		if (answer.equals("0") || answer.equals("1")) {
 			isCorrect = true;
 		}
 		return isCorrect;
