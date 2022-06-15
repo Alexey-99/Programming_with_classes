@@ -52,7 +52,7 @@ public class Person {
 				travelVouchersNew[i] = travelVouchers[i];
 			} else if (i == travelVouchers.length) {
 				travelVouchersNew[i] = travelVoucher;
-				travelVouchersNew[i].setStatusAdd(true);
+				travelVouchersNew[i].setIsStatusAdd(true);
 			}
 		}
 		travelVouchers = travelVouchersNew;

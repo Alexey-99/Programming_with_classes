@@ -14,26 +14,27 @@ public class ViewAllTravelPackages {
 	private static final String SPACE = " ";
 	private static final String ARE_YOU_SURE_WANT_EXIT_OPERATION = "Are you sure you want to exit this operation? Yes - 0, No - 1";
 	private static final String ARE_YOU_SURE_WANT_EXIT_PROGRAM = "Are you sure you want to exit the program? Yes - 0, No - 1";
+	private static final String THIS_TRAVEL_VOUCHER_ADDED = "This travel voucher added.";
 
 	public static boolean viewAllTravelPackages(TravelCampany campany, Person person, boolean isMainProcess) {
-		TravelVoucher[] travelVoucher = campany.getTravelVochers();
+		TravelVoucher[] travelVouchers = campany.getTravelVochers();
 		boolean isOperation = true;
 		String answer = "";
 		while (isOperation == true) {
-			printTravelPackages(travelVoucher);
-			int number = enterNumberTravelVoucher(person, travelVoucher);
-			if (number < travelVoucher.length) {
-				if (travelVoucher[number].getIsStatusAdd() == false) {
-					person.addTravelVoucher(travelVoucher[number]);
+			printTravelPackages(travelVouchers);
+			int number = enterNumberTravelVoucher(person, travelVouchers);
+			if (number < travelVouchers.length) {
+				if (travelVouchers[number].getIsStatusAdd() == false) {
+					person.addTravelVoucher(travelVouchers[number]);
 				} else {
-					System.out.println("This travel voucher added.");
+					System.out.println(THIS_TRAVEL_VOUCHER_ADDED);
 				}
-			} else if (number == travelVoucher.length) {
+			} else if (number == travelVouchers.length) {
 				answer = confirmationExitFromOperation();
 				if (answer.equals("0")) {
 					isOperation = false;
 				}
-			} else if (number == travelVoucher.length + 1) {
+			} else if (number == travelVouchers.length + 1) {
 				answer = confirmationExitFromProgramProcess();
 				if (answer.equals("0")) {
 					isOperation = false;
@@ -44,20 +45,20 @@ public class ViewAllTravelPackages {
 		return isMainProcess;
 	}
 
-	private static void printTravelPackages(TravelVoucher[] travelVoucher) {
-		for (int i = 0; i < travelVoucher.length + 2; i++) {
-			if (i < travelVoucher.length) {
-				System.out.println(i + " - " + travelVoucher[i].toString());
-			} else if (i == travelVoucher.length) {
+	private static void printTravelPackages(TravelVoucher[] travelVouchers) {
+		for (int i = 0; i < travelVouchers.length + 2; i++) {
+			if (i < travelVouchers.length) {
+				System.out.println(i + " - " + travelVouchers[i].toString());
+			} else if (i == travelVouchers.length) {
 				System.out.println(i + " - " + BACK);
-			} else if (i == travelVoucher.length + 1) {
+			} else if (i == travelVouchers.length + 1) {
 				System.out.println(i + " - " + EXIT);
 			}
 		}
 	}
 
 	@SuppressWarnings("resource")
-	private static int enterNumberTravelVoucher(Person person, TravelVoucher[] travelVoucher) {
+	private static int enterNumberTravelVoucher(Person person, TravelVoucher[] travelVouchers) {
 		StringBuilder builder = new StringBuilder();
 		builder.append(person.getLastName()).append(SPACE);
 		builder.append(person.getFirstName()).append(SPACE);
@@ -68,7 +69,7 @@ public class ViewAllTravelPackages {
 		String number = "";
 		do {
 			number = scan.nextLine();
-		} while (Validation.validationNumberTravelVoucher(number, travelVoucher) == false);
+		} while (Validation.validationNumberTravelVoucher(number, travelVouchers) == false);
 		return parseNumber(number);
 	}
 
