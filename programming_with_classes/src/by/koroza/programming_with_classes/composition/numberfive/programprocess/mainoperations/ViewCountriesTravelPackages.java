@@ -2,6 +2,8 @@ package by.koroza.programming_with_classes.composition.numberfive.programprocess
 
 import by.koroza.programming_with_classes.composition.numberfive.entity.Person;
 import by.koroza.programming_with_classes.composition.numberfive.enums.CountryEnumeration;
+import by.koroza.programming_with_classes.composition.numberfive.validation.ValidationViewCountriesVouchers;
+
 import static by.koroza.programming_with_classes.composition.numberfive.enums.CountryEnumeration.getCountries;
 
 import java.util.Scanner;
@@ -10,6 +12,7 @@ public class ViewCountriesTravelPackages {
 	private static final String BACK = "Back";
 	private static final String EXIT = "Exit from program";
 	private static final String ENTER_NUMBER_COUNTRY = "enter country number or back or exit program.";
+	private static final int TWO_ADDITIONAL_OPERATIONS = 2;
 
 	public static boolean viewCountriesThatHaveTravelPackages(Person person, boolean isMainProcess) {
 		boolean isExitOperation = true;
@@ -38,7 +41,7 @@ public class ViewCountriesTravelPackages {
 		do {
 			System.out.println(builder);
 			number = scan.nextLine();
-		} while (false);
+		} while (ValidationViewCountriesVouchers.validationEnterNumberCountry(number) == false);
 		return number;
 	}
 }
