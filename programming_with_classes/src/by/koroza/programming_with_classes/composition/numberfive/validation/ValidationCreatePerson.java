@@ -2,7 +2,7 @@ package by.koroza.programming_with_classes.composition.numberfive.validation;
 
 import java.util.regex.Pattern;
 
-public class ValidationPerson {
+public class ValidationCreatePerson {
 	private static final String REG_EXR_FOR_LASTNAME_FIRSTNAME_PATRONYMIC = "[A-Z]{1}[a-z]+";
 	private static final String YOU_ENTERED_INCORRECTLY = "You entered incorrectly.";
 
