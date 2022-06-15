@@ -4,7 +4,7 @@ import java.util.regex.Pattern;
 
 import by.koroza.programming_with_classes.composition.numberfive.entity.TravelVoucher;
 
-public class Validation {
+public class ValidationViewAllVouchers {
 	private static final String REG_EXR_HAVING_DIGITS = "\\d+";
 	private static final String YOU_ENTERED_INCORRECTLY = "You entered incorrectly.";
 	private static final String ENTERED_NUMBER_TRAVEL_VOUCHER = "Entered number add travel voucher.";
