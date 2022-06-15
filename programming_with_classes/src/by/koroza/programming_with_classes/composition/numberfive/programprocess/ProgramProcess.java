@@ -17,7 +17,7 @@ public class ProgramProcess {
 				isMainProcess = ViewAllTravelPackages.viewAllTravelPackages(campany, person, isMainProcess);
 				break;
 			case "1":
-				isMainProcess = ViewCountriesTravelPackages.viewCountriesThatHaveTravelPackages(isMainProcess);
+				isMainProcess = ViewCountriesTravelPackages.viewCountriesThatHaveTravelPackages(person, isMainProcess);
 				break;
 			case "2":
 
