@@ -11,7 +11,7 @@ public class TravelVoucher {
 	private int numberNights;
 	private double price;
 	private String comment;
-	private boolean statusAdd;
+	private boolean isStatusAdd;
 
 	public TravelVoucher(String country, String tourType, int numberNights, double price, String comment) {
 		this.country = country;
@@ -23,7 +23,7 @@ public class TravelVoucher {
 		this.numberNights = numberNights;
 		this.price = price;
 		this.comment = comment;
-		this.statusAdd = false;
+		this.isStatusAdd = false;
 	}
 
 	public TravelVoucher(String country, String city, String tourType, int numberNights, double price) {
@@ -35,7 +35,7 @@ public class TravelVoucher {
 		TypeEnumeration.addTypeInList(tourType);
 		this.numberNights = numberNights;
 		this.price = price;
-		this.statusAdd = false;
+		this.isStatusAdd = false;
 	}
 
 	public TravelVoucher(String country, String city, String tourType, int numberNights, double price, String comment) {
@@ -48,7 +48,7 @@ public class TravelVoucher {
 		this.numberNights = numberNights;
 		this.price = price;
 		this.comment = comment;
-		this.statusAdd = false;
+		this.isStatusAdd = false;
 	}
 
 	public String getCountry() {
@@ -99,12 +99,12 @@ public class TravelVoucher {
 		this.comment = comment;
 	}
 
-	public boolean isStatusAdd() {
-		return statusAdd;
+	public boolean getIsStatusAdd() {
+		return isStatusAdd;
 	}
 
-	public void setStatusAdd(boolean statusAdd) {
-		this.statusAdd = statusAdd;
+	public void setIsStatusAdd(boolean isStatusAdd) {
+		this.isStatusAdd = isStatusAdd;
 	}
 
 	@Override
@@ -117,7 +117,7 @@ public class TravelVoucher {
 		result = result * prime + numberNights;
 		result = result * prime + Double.hashCode(price);
 		result = result * prime + (comment != null ? comment.hashCode() : 1);
-		result = result * prime + Boolean.hashCode(statusAdd);
+		result = result * prime + Boolean.hashCode(isStatusAdd);
 		return result;
 	}
 
@@ -165,7 +165,7 @@ public class TravelVoucher {
 		} else if (!comment.equals(travelVoucher.comment)) {
 			return false;
 		}
-		if (statusAdd != travelVoucher.statusAdd) {
+		if (isStatusAdd != travelVoucher.isStatusAdd) {
 			return false;
 		}
 		return true;

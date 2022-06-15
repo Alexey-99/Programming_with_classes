@@ -23,7 +23,11 @@ public class ViewAllTravelPackages {
 			printTravelPackages(travelVoucher);
 			int number = enterNumberTravelVoucher(person, travelVoucher);
 			if (number < travelVoucher.length) {
-				person.addTravelVoucher(travelVoucher[number]);
+				if (travelVoucher[number].getIsStatusAdd() == false) {
+					person.addTravelVoucher(travelVoucher[number]);
+				} else {
+					System.out.println("This travel voucher added.");
+				}
 			} else if (number == travelVoucher.length) {
 				answer = confirmationExitFromOperation();
 				if (answer.equals("0")) {
@@ -35,7 +39,6 @@ public class ViewAllTravelPackages {
 					isOperation = false;
 					isMainProcess = false;
 				}
-
 			}
 		}
 		return isMainProcess;
