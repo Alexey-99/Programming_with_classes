@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import by.koroza.programming_with_classes.composition.numberfive.entity.Person;
 import by.koroza.programming_with_classes.composition.numberfive.enums.MainOperationEnumeration;
-import by.koroza.programming_with_classes.composition.numberfive.validation.Validation;
+import by.koroza.programming_with_classes.composition.numberfive.validation.ValidationMainOperations;
 
 public class ChoiceMainOperation {
 
@@ -25,7 +25,7 @@ public class ChoiceMainOperation {
 		do {
 			System.out.println(builder);
 			numberOperation = scan.nextLine();
-		} while (Validation.validationNumberMainOperation(numberOperation) == false);
+		} while (ValidationMainOperations.validationNumberMainOperation(numberOperation) == false);
 		return numberOperation;
 	}
 }
