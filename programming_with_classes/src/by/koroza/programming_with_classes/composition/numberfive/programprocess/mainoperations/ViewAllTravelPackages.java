@@ -15,6 +15,8 @@ public class ViewAllTravelPackages {
 	private static final String ARE_YOU_SURE_WANT_EXIT_OPERATION = "Are you sure you want to exit this operation? Yes - 0, No - 1";
 	private static final String ARE_YOU_SURE_WANT_EXIT_PROGRAM = "Are you sure you want to exit the program? Yes - 0, No - 1";
 	private static final String THIS_TRAVEL_VOUCHER_ADDED = "This travel voucher added.";
+	private static final int TWO_ADDITIONAL_OPERATIONS = 2;
+	private static final String YES = "0";
 
 	public static boolean viewAllTravelPackages(TravelCampany campany, Person person, boolean isMainProcess) {
 		TravelVoucher[] travelVouchers = campany.getTravelVochers();
@@ -31,12 +33,12 @@ public class ViewAllTravelPackages {
 				}
 			} else if (number == travelVouchers.length) {
 				answer = confirmationExitFromOperation();
-				if (answer.equals("0")) {
+				if (answer.equals(YES)) {
 					isOperation = false;
 				}
 			} else if (number == travelVouchers.length + 1) {
 				answer = confirmationExitFromProgramProcess();
-				if (answer.equals("0")) {
+				if (answer.equals(YES)) {
 					isOperation = false;
 					isMainProcess = false;
 				}
@@ -46,7 +48,7 @@ public class ViewAllTravelPackages {
 	}
 
 	private static void printTravelPackages(TravelVoucher[] travelVouchers) {
-		for (int i = 0; i < travelVouchers.length + 2; i++) {
+		for (int i = 0; i < travelVouchers.length + TWO_ADDITIONAL_OPERATIONS; i++) {
 			if (i < travelVouchers.length) {
 				System.out.println(i + " - " + travelVouchers[i].toString());
 			} else if (i == travelVouchers.length) {

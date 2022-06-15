@@ -16,6 +16,8 @@ public class Validation {
 	private static final String YOU_ENTERED_NUMBER_OPERATION_INCORRECTLY = "You entered number operation incorrectly.";
 	private static final String ENTERED_NUMBER_TRAVEL_VOUCHER = "Entered number add travel voucher.";
 	private static final String YOU_ENTERED_ANSWER_INCORRECTLY = "You entered answer incorrectly.";
+	private static final String YES = "0";
+	private static final String NO = "1";
 	private static final int TWO_ADDITIONAL_OPERATIONS = 2;
 
 	public static boolean checkingOnHavingCountryInList(String country) {
@@ -48,6 +50,7 @@ public class Validation {
 		return isHavingType;
 	}
 
+	
 	public static boolean validationPersonName(String lastName) {
 		boolean isCorrect = Pattern.matches(REG_EXR_FOR_LASTNAME_FIRSTNAME_PATRONYMIC, lastName);
 		if (isCorrect == false) {
@@ -95,7 +98,8 @@ public class Validation {
 		return isCorrect;
 	}
 
-	private static boolean validationOnHavingThisNumberOperation(String numberOperation) { // TODO NOW MAIN OPERATIONS + EXIT
+	private static boolean validationOnHavingThisNumberOperation(String numberOperation) { // TODO NOW MAIN OPERATIONS +
+																							// EXIT
 		boolean isCorrect = false;
 		int number = parseNumberOperation(numberOperation);
 		if (number < MainOperationEnumeration.getOperations().length) {
@@ -121,7 +125,7 @@ public class Validation {
 
 	private static boolean validationOnHavingZeroOrOne(String answer) {
 		boolean isCorrect = false;
-		if (answer.equals("0") || answer.equals("1")) {
+		if (answer.equals(YES) || answer.equals(NO)) {
 			isCorrect = true;
 		}
 		return isCorrect;
