@@ -61,7 +61,12 @@ public class ViewCountriesTravelPackages {
 		return number;
 	}
 
-	private static void printTravelPackagesByCountry(TravelVoucher[] travelVouchers, String country) {
+	private static void printTravelPackagesByCountry(TravelVoucher[] travelVouchers, String country) { 
+		// 1 - new Array with Travel Vouchers with select Country
+		//     a) array.length  count travel vouchers with select country 
+		//     b) create array with array.lenth + 2
+		//     с) add travel vouchers with select country to array
+		// 2 - print
 		int count = 0;
 		for (int i = 0; i < travelVouchers.length + TWO_ADDITIONAL_OPERATIONS; i++) {
 			if (i < travelVouchers.length) {
