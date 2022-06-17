@@ -29,6 +29,10 @@ public class ViewCountriesTravelPackages {
 			if (numberInt < getCountries().length) {
 				country = getCountries()[numberInt];
 				printTravelPackagesByCountry(travelVouchers, country);
+
+				Scanner scan = new Scanner(System.in);
+				String str = scan.nextLine();
+
 			} else if (numberInt == getCountries().length) {
 				isExitOperation = false;
 			} else if (numberInt == getCountries().length + 1) {
@@ -62,32 +66,25 @@ public class ViewCountriesTravelPackages {
 	}
 
 	private static void printTravelPackagesByCountry(TravelVoucher[] travelVouchers, String country) {
-		// 1 - new Array with Travel Vouchers with select Country
-		// a) array.length count travel vouchers with select country
-		// b) create array with array.lenth + 2
-		// с) add travel vouchers with select country to array
-		// 2 - print
+		TravelVoucher[] travelVouchersCountry = createArrayTravelVochersSelectCountry(travelVouchers, country);
 		int count = 0;
-		for (int i = 0; i < travelVouchers.length + TWO_ADDITIONAL_OPERATIONS; i++) {
-			if (i < travelVouchers.length) {
-				if (travelVouchers[i].getCountry().equals(country)) {
-					System.out.println(count + " - " + travelVouchers[i].toString());
-					count++;
-				}
-			} else if (i == travelVouchers.length) {
-				System.out.println(count + " - " + BACK);
-				count++;
-			} else if (i == travelVouchers.length + 1) {
-				System.out.println(count + " - " + EXIT);
-				count++;
+		for (int i = 0; i < travelVouchersCountry.length + TWO_ADDITIONAL_OPERATIONS; i++) {
+			if (i < travelVouchersCountry.length) {
+				System.out.println(i + " - " + travelVouchersCountry[i].toString());
+			} else if (i == travelVouchersCountry.length) {
+				System.out.println(i + " - " + BACK);
+			} else if (i == travelVouchersCountry.length + 1) {
+				System.out.println(i + " - " + EXIT);
 			}
 		}
 	}
 
-	private static void createArrayTravelVochersSelectCountry(TravelVoucher[] travelVouchers, String country) {
+	private static TravelVoucher[] createArrayTravelVochersSelectCountry(TravelVoucher[] travelVouchers,
+			String country) {
 		int length = countTravelVouchersWithCountry(travelVouchers, country);
-		TravelVoucher[] travelVouchersCountry = new TravelVoucher[length + TWO_ADDITIONAL_OPERATIONS];
-		
+		TravelVoucher[] travelVouchersCountry = new TravelVoucher[length];
+		initializationArrayTravelVouchers(travelVouchers, travelVouchersCountry, country);
+		return travelVouchersCountry;
 	}
 
 	private static int countTravelVouchersWithCountry(TravelVoucher[] travelVouchers, String country) {
@@ -98,5 +95,16 @@ public class ViewCountriesTravelPackages {
 			}
 		}
 		return count;
+	}
+
+	private static void initializationArrayTravelVouchers(TravelVoucher[] travelVouchers,
+			TravelVoucher[] travelVouchersCountry, String country) {
+		int index = 0;
+		for (int i = 0; i < travelVouchers.length; i++) {
+			if (travelVouchers[i].getCountry().equals(country)) {
+				travelVouchersCountry[index] = travelVouchers[i];
+				index++;
+			}
+		}
 	}
 }
