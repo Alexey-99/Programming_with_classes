@@ -21,12 +21,14 @@ public class ViewCountriesTravelPackages {
 			boolean isMainProcess) {
 		TravelVoucher[] travelVouchers = campany.getTravelVochers();
 		boolean isExitOperation = true;
+		String country = "";
 		while (isExitOperation == true) {
 			printCountries();
 			String number = enterNumberCountry(person);
 			int numberInt = Integer.parseInt(number);
-			if (numberInt > getCountries().length) {
-				printTravelPackagesByCountry(travelVouchers);
+			if (numberInt < getCountries().length) {
+				country = getCountries()[numberInt];
+				printTravelPackagesByCountry(travelVouchers, country);
 			} else if (numberInt == getCountries().length) {
 				isExitOperation = false;
 			} else if (numberInt == getCountries().length + 1) {
@@ -59,17 +61,20 @@ public class ViewCountriesTravelPackages {
 		return number;
 	}
 
-	private static void printTravelPackagesByCountry(TravelVoucher[] travelVouchers) {
+	private static void printTravelPackagesByCountry(TravelVoucher[] travelVouchers, String country) {
+		int count = 0;
 		for (int i = 0; i < travelVouchers.length + TWO_ADDITIONAL_OPERATIONS; i++) {
 			if (i < travelVouchers.length) {
-				if() {
-					
+				if (travelVouchers[i].getCountry().equals(country)) {
+					System.out.println(count + " - " + travelVouchers[i].toString());
+					count++;
 				}
-				System.out.println(i + " - " + travelVouchers[i].toString());
 			} else if (i == travelVouchers.length) {
-				System.out.println(i + " - " + BACK);
+				System.out.println(count + " - " + BACK);
+				count++;
 			} else if (i == travelVouchers.length + 1) {
-				System.out.println(i + " - " + EXIT);
+				System.out.println(count + " - " + EXIT);
+				count++;
 			}
 		}
 	}
