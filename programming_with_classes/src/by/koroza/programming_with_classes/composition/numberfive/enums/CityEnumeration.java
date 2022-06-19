@@ -31,4 +31,10 @@ public class CityEnumeration {
 		}
 		cities = citiesNew;
 	}
+	
+	public static void printCities() {
+		for (int i = 0; i < cities.length; i++) {
+			System.out.println(i + " - " + cities[i]);
+		}
+	}
 }
