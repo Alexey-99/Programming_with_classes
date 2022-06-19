@@ -4,7 +4,8 @@ import java.util.Scanner;
 
 import by.koroza.programming_with_classes.composition.numberfive.entity.Person;
 import by.koroza.programming_with_classes.composition.numberfive.entity.TravelVoucher;
-import by.koroza.programming_with_classes.composition.numberfive.validation.ValidationViewAllVouchers;
+//import by.koroza.programming_with_classes.composition.numberfive.validation.ValidationViewAllVouchers;
+import by.koroza.programming_with_classes.composition.numberfive.validation.ValidationViewAndAddVoucher;
 
 public class ViewAndAddTravelPackages {
 	private static final String BACK = "Back";
@@ -70,7 +71,7 @@ public class ViewAndAddTravelPackages {
 		String number = "";
 		do {
 			number = scan.nextLine();
-		} while (ValidationViewAllVouchers.validationNumberTravelVoucher(number, travelVouchers) == false);
+		} while (ValidationViewAndAddVoucher.validationNumberTravelVoucher(number, travelVouchers) == false);
 		return parseNumber(number);
 	}
 
@@ -86,7 +87,7 @@ public class ViewAndAddTravelPackages {
 		do {
 			System.out.println(ARE_YOU_SURE_WANT_EXIT_OPERATION);
 			answer = scan.nextLine();
-		} while (ValidationViewAllVouchers.validationAnswerOnExit(answer) == false);
+		} while (ValidationViewAndAddVoucher.validationAnswerOnExit(answer) == false);
 		return answer;
 	}
 
@@ -97,7 +98,7 @@ public class ViewAndAddTravelPackages {
 		do {
 			System.out.println(ARE_YOU_SURE_WANT_EXIT_PROGRAM);
 			answer = scan.nextLine();
-		} while (ValidationViewAllVouchers.validationAnswerOnExit(answer) == false);
+		} while (ValidationViewAndAddVoucher.validationAnswerOnExit(answer) == false);
 		return answer;
 	}
 }
