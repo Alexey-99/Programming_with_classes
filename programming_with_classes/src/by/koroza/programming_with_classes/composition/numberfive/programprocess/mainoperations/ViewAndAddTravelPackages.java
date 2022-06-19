@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 import by.koroza.programming_with_classes.composition.numberfive.entity.Person;
 import by.koroza.programming_with_classes.composition.numberfive.entity.TravelVoucher;
-//import by.koroza.programming_with_classes.composition.numberfive.validation.ValidationViewAllVouchers;
 import by.koroza.programming_with_classes.composition.numberfive.validation.ValidationViewAndAddVoucher;
 
 public class ViewAndAddTravelPackages {
