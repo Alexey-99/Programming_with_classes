@@ -13,7 +13,7 @@ public class ValidationViewAllVouchers {
 	private static final String NO = "1";
 	private static final int TWO_ADDITIONAL_OPERATIONS = 2;
 
-	public static boolean validationNumberTravelVoucher(String numberOperation, TravelVoucher[] travelVoucher) {
+	/*public static boolean validationNumberTravelVoucher(String numberOperation, TravelVoucher[] travelVoucher) {
 		boolean isCorrect = validationOnHavingDigits(numberOperation);
 		if (isCorrect == true) {
 			isCorrect = validationOnHavingThisNumberTravelVoucher(numberOperation, travelVoucher);
@@ -23,9 +23,9 @@ public class ValidationViewAllVouchers {
 			System.out.println(ENTERED_NUMBER_TRAVEL_VOUCHER);
 		}
 		return isCorrect;
-	}
+	}*/
 
-	public static boolean validationAnswerOnExit(String answer) {
+	/*public static boolean validationAnswerOnExit(String answer) {
 		boolean isCorrect = validationOnHavingDigits(answer);
 		if (isCorrect == true) {
 			isCorrect = validationOnHavingZeroOrOne(answer);
@@ -34,7 +34,7 @@ public class ValidationViewAllVouchers {
 			System.out.println(YOU_ENTERED_ANSWER_INCORRECTLY);
 		}
 		return isCorrect;
-	}
+	}*/
 
 	private static boolean validationOnHavingDigits(String numberOperation) {
 		boolean isCorrect = Pattern.matches(REG_EXR_HAVING_DIGITS, numberOperation);

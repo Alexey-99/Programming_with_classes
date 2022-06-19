@@ -7,12 +7,26 @@ import java.util.regex.Pattern;
 public class ValidationViewCitiesVouchers {
 
 	private static final String REG_EXR_HAVING_DIGITS = "\\d+";
+	private static final String YES = "0";
+	private static final String NO = "1";
+	private static final String YOU_ENTERED_ANSWER_INCORRECTLY = "You entered answer incorrectly.";
 	private static final int TWO_ADDITIONAL_OPERATIONS = 2;
 
 	public static boolean validationEnterNumberCity(String number) {
 		boolean isCorrect = validationOnHavingDigits(number);
 		if (isCorrect == true) {
 			isCorrect = validationOnHavingThisNumberCountry(number);
+		}
+		return isCorrect;
+	}
+	
+	public static boolean validationAnswerOnExit(String answer) {
+		boolean isCorrect = validationOnHavingDigits(answer);
+		if (isCorrect == true) {
+			isCorrect = validationOnHavingZeroOrOne(answer);
+		}
+		if (isCorrect == false) {
+			System.out.println(YOU_ENTERED_ANSWER_INCORRECTLY);
 		}
 		return isCorrect;
 	}
@@ -35,5 +49,12 @@ public class ValidationViewCitiesVouchers {
 		int numberParse = Integer.parseInt(number);
 		return numberParse;
 	}
-	
+
+	private static boolean validationOnHavingZeroOrOne(String answer) {
+		boolean isCorrect = false;
+		if (answer.equals(YES) || answer.equals(NO)) {
+			isCorrect = true;
+		}
+		return isCorrect;
+	}
 }

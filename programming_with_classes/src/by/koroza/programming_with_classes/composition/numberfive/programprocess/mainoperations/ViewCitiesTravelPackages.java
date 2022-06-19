@@ -15,12 +15,16 @@ public class ViewCitiesTravelPackages {
 	private static final String EXIT = "Exit from program";
 	private static final String ENTER_NUMBER_CITY = "enter city number or back or exit program.";
 	private static final String SPACE = " ";
+	private static final String ARE_YOU_SURE_WANT_EXIT_OPERATION = "Are you sure you want to exit this operation? Yes - 0, No - 1";
+	private static final String YES = "0";
+	private static final String ARE_YOU_SURE_WANT_EXIT_PROGRAM = "Are you sure you want to exit the program? Yes - 0, No - 1";
 
 	public static boolean viewCitiesThatHaveTravelPackages(TravelCampany campany, Person person,
 			boolean isMainProcess) {
 		TravelVoucher[] travelVouchers = campany.getTravelVochers();
 		boolean isExitOperation = true;
 		String city = "";
+		String answer = "";
 		while (isExitOperation == true) {
 			printCities();
 			String number = enterNumberCity(person);
@@ -31,10 +35,16 @@ public class ViewCitiesTravelPackages {
 				isMainProcess = ViewAndAddTravelPackages.viewAndAddTravelPackages(person, isMainProcess,
 						travelVouchersByCity);
 			} else if (numberInt == getCities().length) {
-				isExitOperation = false;
+				answer = confirmationExitFromOperation();
+				if (answer.equals(YES)) {
+					isExitOperation = false;
+				}
 			} else if (numberInt == getCities().length + 1) {
-				isExitOperation = false;
-				isMainProcess = false;
+				answer = confirmationExitFromProgramProcess();
+				if (answer.equals(YES)) {
+					isExitOperation = false;
+					isMainProcess = false;
+				}
 			}
 		}
 		return isMainProcess;
@@ -88,5 +98,27 @@ public class ViewCitiesTravelPackages {
 				index++;
 			}
 		}
+	}
+
+	@SuppressWarnings("resource")
+	private static String confirmationExitFromOperation() {
+		Scanner scan = new Scanner(System.in);
+		String answer = "";
+		do {
+			System.out.println(ARE_YOU_SURE_WANT_EXIT_OPERATION);
+			answer = scan.nextLine();
+		} while (ValidationViewCitiesVouchers.validationAnswerOnExit(answer) == false);
+		return answer;
+	}
+	
+	@SuppressWarnings("resource")
+	private static String confirmationExitFromProgramProcess() {
+		Scanner scan = new Scanner(System.in);
+		String answer = "";
+		do {
+			System.out.println(ARE_YOU_SURE_WANT_EXIT_PROGRAM);
+			answer = scan.nextLine();
+		} while (ValidationViewCitiesVouchers.validationAnswerOnExit(answer) == false);
+		return answer;
 	}
 }

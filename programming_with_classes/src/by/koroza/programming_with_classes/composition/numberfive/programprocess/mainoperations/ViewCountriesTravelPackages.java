@@ -4,7 +4,6 @@ import by.koroza.programming_with_classes.composition.numberfive.entity.Person;
 import by.koroza.programming_with_classes.composition.numberfive.entity.TravelCampany;
 import by.koroza.programming_with_classes.composition.numberfive.entity.TravelVoucher;
 import by.koroza.programming_with_classes.composition.numberfive.enums.CountryEnumeration;
-//import by.koroza.programming_with_classes.composition.numberfive.validation.ValidationViewAllVouchers;
 import by.koroza.programming_with_classes.composition.numberfive.validation.ValidationViewCountriesVouchers;
 
 import static by.koroza.programming_with_classes.composition.numberfive.enums.CountryEnumeration.getCountries;
@@ -16,12 +15,16 @@ public class ViewCountriesTravelPackages {
 	private static final String EXIT = "Exit from program";
 	private static final String ENTER_NUMBER_COUNTRY = "enter country number or back or exit program.";
 	private static final String SPACE = " ";
+	private static final String ARE_YOU_SURE_WANT_EXIT_OPERATION = "Are you sure you want to exit this operation? Yes - 0, No - 1";
+	private static final String YES = "0";
+	private static final String ARE_YOU_SURE_WANT_EXIT_PROGRAM = "Are you sure you want to exit the program? Yes - 0, No - 1";
 
 	public static boolean viewCountriesThatHaveTravelPackages(TravelCampany campany, Person person,
 			boolean isMainProcess) {
 		TravelVoucher[] travelVouchers = campany.getTravelVochers();
 		boolean isExitOperation = true;
 		String country = "";
+		String answer = "";
 		while (isExitOperation == true) {
 			printCountries();
 			String number = enterNumberCountry(person);
@@ -33,10 +36,16 @@ public class ViewCountriesTravelPackages {
 				isMainProcess = ViewAndAddTravelPackages.viewAndAddTravelPackages(person, isMainProcess,
 						travelVouchersByCountry);
 			} else if (numberInt == getCountries().length) {
-				isExitOperation = false;
+				answer = confirmationExitFromOperation();
+				if (answer.equals(YES)) {
+					isExitOperation = false;
+				}
 			} else if (numberInt == getCountries().length + 1) {
-				isExitOperation = false;
-				isMainProcess = false;
+				answer = confirmationExitFromProgramProcess();
+				if (answer.equals(YES)) {
+					isExitOperation = false;
+					isMainProcess = false;
+				}
 			}
 		}
 		return isMainProcess;
@@ -91,5 +100,27 @@ public class ViewCountriesTravelPackages {
 				index++;
 			}
 		}
+	}
+
+	@SuppressWarnings("resource")
+	private static String confirmationExitFromOperation() {
+		Scanner scan = new Scanner(System.in);
+		String answer = "";
+		do {
+			System.out.println(ARE_YOU_SURE_WANT_EXIT_OPERATION);
+			answer = scan.nextLine();
+		} while (ValidationViewCountriesVouchers.validationAnswerOnExit(answer) == false);
+		return answer;
+	}
+
+	@SuppressWarnings("resource")
+	private static String confirmationExitFromProgramProcess() {
+		Scanner scan = new Scanner(System.in);
+		String answer = "";
+		do {
+			System.out.println(ARE_YOU_SURE_WANT_EXIT_PROGRAM);
+			answer = scan.nextLine();
+		} while (ValidationViewCountriesVouchers.validationAnswerOnExit(answer) == false);
+		return answer;
 	}
 }
