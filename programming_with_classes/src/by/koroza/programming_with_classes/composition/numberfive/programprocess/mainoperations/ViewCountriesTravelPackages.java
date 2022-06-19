@@ -4,7 +4,7 @@ import by.koroza.programming_with_classes.composition.numberfive.entity.Person;
 import by.koroza.programming_with_classes.composition.numberfive.entity.TravelCampany;
 import by.koroza.programming_with_classes.composition.numberfive.entity.TravelVoucher;
 import by.koroza.programming_with_classes.composition.numberfive.enums.CountryEnumeration;
-import by.koroza.programming_with_classes.composition.numberfive.validation.ValidationViewAllVouchers;
+//import by.koroza.programming_with_classes.composition.numberfive.validation.ValidationViewAllVouchers;
 import by.koroza.programming_with_classes.composition.numberfive.validation.ValidationViewCountriesVouchers;
 
 import static by.koroza.programming_with_classes.composition.numberfive.enums.CountryEnumeration.getCountries;
@@ -16,12 +16,12 @@ public class ViewCountriesTravelPackages {
 	private static final String EXIT = "Exit from program";
 	private static final String ENTER_NUMBER_COUNTRY = "enter country number or back or exit program.";
 	private static final String SPACE = " ";
-	private static final String IF_ADD_TRAVEL_VOUCHER = "enter the number of the travel package if you want to add it to the desired package of travel packages, if not, enter the appropriate number";
-	private static final String THIS_TRAVEL_VOUCHER_ADDED = "This travel voucher added.";
-	private static final String ARE_YOU_SURE_WANT_EXIT_OPERATION = "Are you sure you want to exit this operation? Yes - 0, No - 1";
-	private static final String YES = "0";
-	private static final String ARE_YOU_SURE_WANT_EXIT_PROGRAM = "Are you sure you want to exit the program? Yes - 0, No - 1";
-	private static final int TWO_ADDITIONAL_OPERATIONS = 2;
+	//private static final String IF_ADD_TRAVEL_VOUCHER = "enter the number of the travel package if you want to add it to the desired package of travel packages, if not, enter the appropriate number";
+	//private static final String THIS_TRAVEL_VOUCHER_ADDED = "This travel voucher added.";
+	//private static final String ARE_YOU_SURE_WANT_EXIT_OPERATION = "Are you sure you want to exit this operation? Yes - 0, No - 1";
+	//private static final String YES = "0";
+	//private static final String ARE_YOU_SURE_WANT_EXIT_PROGRAM = "Are you sure you want to exit the program? Yes - 0, No - 1";
+	//private static final int TWO_ADDITIONAL_OPERATIONS = 2;
 
 	public static boolean viewCountriesThatHaveTravelPackages(TravelCampany campany, Person person,
 			boolean isMainProcess) {
@@ -34,7 +34,10 @@ public class ViewCountriesTravelPackages {
 			int numberInt = Integer.parseInt(number);
 			if (numberInt < getCountries().length) {
 				country = getCountries()[numberInt];
-				isMainProcess = viewAndAddTravelPackagesByCountry(person, isMainProcess, country, travelVouchers);
+				TravelVoucher[] travelVouchersByCountry = createArrayTravelVochersSelectCountry(travelVouchers,
+						country);
+				isMainProcess = ViewAndAddTravelPackages.viewAndAddTravelPackages(person, isMainProcess,
+						travelVouchersByCountry);
 			} else if (numberInt == getCountries().length) {
 				isExitOperation = false;
 			} else if (numberInt == getCountries().length + 1) {
@@ -67,7 +70,7 @@ public class ViewCountriesTravelPackages {
 		return number;
 	}
 
-	private static void printTravelPackagesByCountry(TravelVoucher[] travelVouchersCountry, String country) {
+	/*private static void printTravelPackagesByCountry(TravelVoucher[] travelVouchersCountry, String country) {
 		for (int i = 0; i < travelVouchersCountry.length + TWO_ADDITIONAL_OPERATIONS; i++) {
 			if (i < travelVouchersCountry.length) {
 				System.out.println(i + " - " + travelVouchersCountry[i].toString());
@@ -77,7 +80,7 @@ public class ViewCountriesTravelPackages {
 				System.out.println(i + " - " + EXIT);
 			}
 		}
-	}
+	}*/
 
 	private static TravelVoucher[] createArrayTravelVochersSelectCountry(TravelVoucher[] travelVouchers,
 			String country) {
@@ -108,7 +111,7 @@ public class ViewCountriesTravelPackages {
 		}
 	}
 
-	private static boolean viewAndAddTravelPackagesByCountry(Person person, boolean isMainProcess, String country,
+	/*private static boolean viewAndAddTravelPackagesByCountry(Person person, boolean isMainProcess, String country,
 			TravelVoucher[] travelVouchers) {
 		TravelVoucher[] travelVouchersByCountry = createArrayTravelVochersSelectCountry(travelVouchers, country);
 		boolean isOperation = true;
@@ -136,9 +139,9 @@ public class ViewCountriesTravelPackages {
 			}
 		}
 		return isMainProcess;
-	}
+	}*/
 
-	@SuppressWarnings("resource")
+	/*@SuppressWarnings("resource")
 	private static int enterNumberTravelVoucher(Person person, TravelVoucher[] travelVouchers) {
 		StringBuilder builder = new StringBuilder();
 		builder.append(person.getLastName()).append(SPACE);
@@ -152,14 +155,14 @@ public class ViewCountriesTravelPackages {
 			number = scan.nextLine();
 		} while (ValidationViewAllVouchers.validationNumberTravelVoucher(number, travelVouchers) == false);
 		return parseNumber(number);
-	}
+	}*/
 
-	private static int parseNumber(String number) {
+	/*private static int parseNumber(String number) {
 		int numberParse = Integer.parseInt(number);
 		return numberParse;
-	}
+	}*/
 
-	@SuppressWarnings("resource")
+	/*@SuppressWarnings("resource")
 	private static String confirmationExitFromOperation() {
 		Scanner scan = new Scanner(System.in);
 		String answer = "";
@@ -168,9 +171,9 @@ public class ViewCountriesTravelPackages {
 			answer = scan.nextLine();
 		} while (ValidationViewAllVouchers.validationAnswerOnExit(answer) == false);
 		return answer;
-	}
+	}*/
 
-	@SuppressWarnings("resource")
+	/*@SuppressWarnings("resource")
 	private static String confirmationExitFromProgramProcess() {
 		Scanner scan = new Scanner(System.in);
 		String answer = "";
@@ -179,5 +182,5 @@ public class ViewCountriesTravelPackages {
 			answer = scan.nextLine();
 		} while (ValidationViewAllVouchers.validationAnswerOnExit(answer) == false);
 		return answer;
-	}
+	}*/
 }
