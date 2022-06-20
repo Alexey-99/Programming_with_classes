@@ -2,6 +2,7 @@ package by.koroza.programming_with_classes.composition.numberfive.programprocess
 
 import by.koroza.programming_with_classes.composition.numberfive.entity.Person;
 import by.koroza.programming_with_classes.composition.numberfive.entity.TravelCampany;
+import by.koroza.programming_with_classes.composition.numberfive.programprocess.mainoperations.ViewAddedPersonTravelVouchers;
 import by.koroza.programming_with_classes.composition.numberfive.programprocess.mainoperations.ViewAllTravelPackages;
 import by.koroza.programming_with_classes.composition.numberfive.programprocess.mainoperations.ViewCitiesTravelPackages;
 import by.koroza.programming_with_classes.composition.numberfive.programprocess.mainoperations.ViewCountriesTravelPackages;
@@ -30,7 +31,7 @@ public class ProgramProcess {
 				isMainProcess = ViewTypesTravelPackages.viewTypesThatHaveTravelPackages(campany, person, isMainProcess);
 				break;
 			case "4":
-				
+				isMainProcess = ViewAddedPersonTravelVouchers.viewAddedPersonTravelVouchers(isMainProcess, person);
 			case "5":
 				isMainProcess = false;
 				break;

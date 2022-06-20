@@ -62,16 +62,17 @@ public class Person {
 		travelVouchers = travelVouchersNew;
 	}
 
-	public void deleteTravelVoucher(TravelVoucher travelVoucher) {
+	public void deleteTravelVoucher(int indexElement) {
 		int index = 0;
 		TravelVoucher[] travelVoucherNew = new TravelVoucher[travelVouchers.length - 1];
 		for (int i = 0; i < travelVouchers.length; i++) {
-			if (!travelVouchers[i].equals(travelVoucher)) {
+			if (i != indexElement) {
 				travelVoucherNew[index] = travelVouchers[i];
 				index++;
 			}
 		}
 		travelVouchers = travelVoucherNew;
+		travelVouchers[indexElement].setIsStatusAdd(false);
 	}
 
 	public void printTravelVouchers() {
