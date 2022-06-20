@@ -7,6 +7,8 @@ public class Person {
 	private TravelVoucher[] travelVouchers;
 	private static final String SPACE = " ";
 	private static final String DOES_NOT_HAVE_TRAVEL_VOUCHERS = "doesn't have travel vouchers.";
+	private static final String HAS_TRAVEL_VOUCHERS = " has travel vouchers: ";
+	private static final String NEXT_LINE = "\n";
 
 	public Person(String lastName, String firstName, String patronymic) {
 		this.lastName = lastName;
@@ -98,6 +100,7 @@ public class Person {
 		result = result * prime + (SPACE != null ? SPACE.hashCode() : 1);
 		result = result * prime
 				+ (DOES_NOT_HAVE_TRAVEL_VOUCHERS != null ? DOES_NOT_HAVE_TRAVEL_VOUCHERS.hashCode() : 1);
+		result = result * prime + (NEXT_LINE != null ? NEXT_LINE.hashCode() : 1);
 		return result;
 	}
 
@@ -145,16 +148,16 @@ public class Person {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Last name: ").append(lastName).append("\n");
-		builder.append("First name: ").append(firstName).append("\n");
-		builder.append("Patronymic: ").append(patronymic).append("\n");
-		builder.append(lastName).append(" ");
-		builder.append(firstName).append(" ");
-		builder.append(patronymic).append(" has next travel vouchers: ").append("\n");
+		builder.append("Last name: ").append(lastName).append(NEXT_LINE);
+		builder.append("First name: ").append(firstName).append(NEXT_LINE);
+		builder.append("Patronymic: ").append(patronymic).append(NEXT_LINE);
+		builder.append(lastName).append(SPACE);
+		builder.append(firstName).append(SPACE);
+		builder.append(patronymic).append(HAS_TRAVEL_VOUCHERS).append(NEXT_LINE);
 		for (int i = 0; i < travelVouchers.length; i++) {
 			builder.append(travelVouchers[i].toString());
 			if (i < travelVouchers.length - 1) {
-				builder.append("\n");
+				builder.append(NEXT_LINE);
 			}
 		}
 		return builder.toString();
