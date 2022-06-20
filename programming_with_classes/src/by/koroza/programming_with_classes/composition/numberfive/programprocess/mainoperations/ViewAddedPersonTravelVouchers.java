@@ -10,20 +10,31 @@ public class ViewAddedPersonTravelVouchers {
 	private static final String EXIT = "Exit from program";
 	private static final String ENTER_NUMBER_TRAVEL_VOUCHER_DELETE = "enter the number of the travel voucher you want to delete or select another operation";
 	private static final String SPACE = " ";
+	private static final String ARE_YOU_SURE_WANT_EXIT_OPERATION = "Are you sure you want to exit this operation? Yes - 0, No - 1";
+	private static final String YES = "0";
+	private static final String ARE_YOU_SURE_WANT_EXIT_PROGRAM = "Are you sure you want to exit the program? Yes - 0, No - 1";
 
 	public static boolean viewAddedPersonTravelVouchers(boolean isMainProcess, Person person) {
 		boolean isExitOperation = true;
 		String number = "";
+		String answer = "";
 		while (isExitOperation == true) {
 			printPersonVouchersAndExit(person);
 			number = enterNumberTravelVoucher(person);
 			int numberInt = parseNumber(number);
 			if (numberInt < person.getTravelVouchers().length) {
-
+				deleteTravelVoucher(person, numberInt);
 			} else if (numberInt == person.getTravelVouchers().length) {
-
+				answer = confirmationExitFromOperation();
+				if (answer.equals(YES)) {
+					isExitOperation = false;
+				}
 			} else if (numberInt == person.getTravelVouchers().length + 1) {
-
+				answer = confirmationExitFromProgramProcess();
+				if (answer.equals(YES)) {
+					isExitOperation = false;
+					isMainProcess = false;
+				}
 			}
 		}
 		return isMainProcess;
@@ -58,5 +69,27 @@ public class ViewAddedPersonTravelVouchers {
 
 	private static void deleteTravelVoucher(Person person, int number) {
 		person.deleteTravelVoucher(number);
+	}
+
+	@SuppressWarnings("resource")
+	private static String confirmationExitFromOperation() {
+		Scanner scan = new Scanner(System.in);
+		String answer = "";
+		do {
+			System.out.println(ARE_YOU_SURE_WANT_EXIT_OPERATION);
+			answer = scan.nextLine();
+		} while (ValidationViewAndAddVoucher.validationAnswerOnExit(answer) == false);
+		return answer;
+	}
+
+	@SuppressWarnings("resource")
+	private static String confirmationExitFromProgramProcess() {
+		Scanner scan = new Scanner(System.in);
+		String answer = "";
+		do {
+			System.out.println(ARE_YOU_SURE_WANT_EXIT_PROGRAM);
+			answer = scan.nextLine();
+		} while (ValidationViewAndAddVoucher.validationAnswerOnExit(answer) == false);
+		return answer;
 	}
 }
