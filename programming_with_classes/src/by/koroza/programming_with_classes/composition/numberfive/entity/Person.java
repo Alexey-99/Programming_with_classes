@@ -57,6 +57,18 @@ public class Person {
 		}
 		travelVouchers = travelVouchersNew;
 	}
+	
+	public void deleteTravelVoucher() {
+		
+	}
+
+	public void printTravelVouchers() {
+		if (travelVouchers.length != 0) {
+			for (int i = 0; i < travelVouchers.length; i++) {
+				System.out.println(i + " - " + travelVouchers[i].toString());
+			}
+		}
+	}
 
 	@Override
 	public int hashCode() {

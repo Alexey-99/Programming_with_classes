@@ -30,6 +30,8 @@ public class ProgramProcess {
 				isMainProcess = ViewTypesTravelPackages.viewTypesThatHaveTravelPackages(campany, person, isMainProcess);
 				break;
 			case "4":
+				
+			case "5":
 				isMainProcess = false;
 				break;
 			}
