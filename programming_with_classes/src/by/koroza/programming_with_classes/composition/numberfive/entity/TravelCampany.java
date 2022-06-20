@@ -2,23 +2,23 @@ package by.koroza.programming_with_classes.composition.numberfive.entity;
 
 public class TravelCampany {
 	private String name;
-	private TravelVoucher[] travelVochers;
+	private TravelVoucher[] travelVouchers;
 	private static final String COMPANY_DOES_NOT_HAVE_TOURIST_VOUCHERS = "At the moment, the company does not have tourist vouchers";
 
 	public TravelCampany(String name) {
 		this.name = name;
-		this.travelVochers = new TravelVoucher[0];
+		this.travelVouchers = new TravelVoucher[0];
 	}
 
 	public TravelCampany(String name, TravelVoucher travelVocher) {
 		this.name = name;
-		this.travelVochers = new TravelVoucher[1];
-		this.travelVochers[0] = travelVocher;
+		this.travelVouchers = new TravelVoucher[1];
+		this.travelVouchers[0] = travelVocher;
 	}
 
 	public TravelCampany(String name, TravelVoucher[] travelVochers) {
 		this.name = name;
-		this.travelVochers = travelVochers;
+		this.travelVouchers = travelVochers;
 	}
 
 	public String getName() {
@@ -29,36 +29,44 @@ public class TravelCampany {
 		this.name = name;
 	}
 
-	public TravelVoucher[] getTravelVochers() {
-		return travelVochers;
+	public TravelVoucher[] getTravelVouchers() {
+		return travelVouchers;
 	}
 
-	public void setTravelVochers(TravelVoucher[] travelVochers) {
-		this.travelVochers = travelVochers;
+	public void setTravelVouchers(TravelVoucher[] travelVouchers) {
+		this.travelVouchers = travelVouchers;
 	}
 
-	public void addTravelVocher(TravelVoucher travelVocher) {
-		TravelVoucher[] travelVochersNew = new TravelVoucher[this.travelVochers.length + 1];
-		for (int i = 0; i < travelVochersNew.length; i++) {
-			if (i < this.travelVochers.length) {
-				travelVochersNew[i] = this.travelVochers[i];
-			} else if (i == this.travelVochers.length) {
-				travelVochersNew[i] = travelVocher;
+	public void addTravelVoucher(TravelVoucher travelVoucher) {
+		TravelVoucher[] travelVouchersNew = new TravelVoucher[this.travelVouchers.length + 1];
+		for (int i = 0; i < travelVouchersNew.length; i++) {
+			if (i < this.travelVouchers.length) {
+				travelVouchersNew[i] = this.travelVouchers[i];
+			} else if (i == this.travelVouchers.length) {
+				travelVouchersNew[i] = travelVoucher;
 			}
 		}
-		this.travelVochers = travelVochersNew;
+		this.travelVouchers = travelVouchersNew;
 	}
 
-	public void addTravelVochers(TravelVoucher[] travelVochers) {
-		TravelVoucher[] travelVochersNew = new TravelVoucher[this.travelVochers.length + travelVochers.length];
-		for (int i = 0; i < travelVochersNew.length; i++) {
-			if (i < this.travelVochers.length) {
-				travelVochersNew[i] = this.travelVochers[i];
-			} else if (i >= this.travelVochers.length) {
-				travelVochersNew[i] = travelVochers[i - this.travelVochers.length];
+	public void addTravelVouchers(TravelVoucher[] travelVochers) {
+		TravelVoucher[] travelVouchersNew = new TravelVoucher[this.travelVouchers.length + travelVouchers.length];
+		for (int i = 0; i < travelVouchersNew.length; i++) {
+			if (i < this.travelVouchers.length) {
+				travelVouchersNew[i] = this.travelVouchers[i];
+			} else if (i >= this.travelVouchers.length) {
+				travelVouchersNew[i] = travelVouchers[i - this.travelVouchers.length];
 			}
 		}
-		this.travelVochers = travelVochersNew;
+		this.travelVouchers = travelVouchersNew;
+	}
+
+	public void changeStatusTravelVoucherByID(int id) {
+		for (TravelVoucher voucher : travelVouchers) {
+			if (voucher.getID() == id) {
+				voucher.setIsStatusAdd(false);
+			}
+		}
 	}
 
 	@Override
@@ -66,7 +74,7 @@ public class TravelCampany {
 		int result = 31;
 		int prime = 1;
 		result = result * prime + (name != null ? name.hashCode() : 1);
-		result = result * prime + (travelVochers != null ? travelVochers.hashCode() : 1);
+		result = result * prime + (travelVouchers != null ? travelVouchers.hashCode() : 1);
 		result = result * prime
 				+ (COMPANY_DOES_NOT_HAVE_TOURIST_VOUCHERS != null ? COMPANY_DOES_NOT_HAVE_TOURIST_VOUCHERS.hashCode()
 						: 1);
@@ -92,11 +100,11 @@ public class TravelCampany {
 		} else if (!name.equals(campany.name)) {
 			return false;
 		}
-		if (travelVochers == null) {
-			if (campany.travelVochers != null) {
+		if (travelVouchers == null) {
+			if (campany.travelVouchers != null) {
 				return false;
 			}
-		} else if (!travelVochers.equals(campany.travelVochers)) {
+		} else if (!travelVouchers.equals(campany.travelVouchers)) {
 			return false;
 		}
 		return true;
@@ -106,15 +114,15 @@ public class TravelCampany {
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Name: ").append(name).append("\n");
-		for (int i = 0; i < travelVochers.length; i++) {
-			if (travelVochers[i] != null) {
-				builder.append(travelVochers[i].toString());
+		for (int i = 0; i < travelVouchers.length; i++) {
+			if (travelVouchers[i] != null) {
+				builder.append(travelVouchers[i].toString());
 			}
-			if (i < travelVochers.length - 1) {
+			if (i < travelVouchers.length - 1) {
 				builder.append("\n");
 			}
 		}
-		if (travelVochers.length == 0) {
+		if (travelVouchers.length == 0) {
 			builder.append(COMPANY_DOES_NOT_HAVE_TOURIST_VOUCHERS);
 		}
 		return builder.toString();

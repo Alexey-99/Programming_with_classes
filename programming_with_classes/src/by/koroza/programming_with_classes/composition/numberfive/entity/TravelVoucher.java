@@ -5,6 +5,9 @@ import by.koroza.programming_with_classes.composition.numberfive.enums.CountryEn
 import by.koroza.programming_with_classes.composition.numberfive.enums.TypeEnumeration;
 
 public class TravelVoucher {
+	private static int count = 0;
+
+	private int id;
 	private String country;
 	private String city;
 	private String tourType;
@@ -14,6 +17,7 @@ public class TravelVoucher {
 	private boolean isStatusAdd;
 
 	public TravelVoucher(String country, String tourType, int numberNights, double price, String comment) {
+		this.id = count++;
 		this.country = country;
 		CountryEnumeration.addCountryInList(country);
 		this.city = "without city";
@@ -27,6 +31,7 @@ public class TravelVoucher {
 	}
 
 	public TravelVoucher(String country, String city, String tourType, int numberNights, double price) {
+		this.id = count++;
 		this.country = country;
 		CountryEnumeration.addCountryInList(country);
 		this.city = city;
@@ -39,6 +44,7 @@ public class TravelVoucher {
 	}
 
 	public TravelVoucher(String country, String city, String tourType, int numberNights, double price, String comment) {
+		this.id = count++;
 		this.country = country;
 		CountryEnumeration.addCountryInList(country);
 		this.city = city;
@@ -107,10 +113,20 @@ public class TravelVoucher {
 		this.isStatusAdd = isStatusAdd;
 	}
 
+	public int getID() {
+		return id;
+	}
+
+	public void setID(int id) {
+		this.id = id;
+	}
+
 	@Override
 	public int hashCode() {
 		int result = 31;
 		int prime = 1;
+		result = result * prime + count;
+		result = result * prime + id;
 		result = result * prime + (country != null ? country.hashCode() : 1);
 		result = result * prime + (city != null ? city.hashCode() : 1);
 		result = result * prime + (tourType != null ? tourType.hashCode() : 1);
@@ -131,6 +147,9 @@ public class TravelVoucher {
 			return false;
 		}
 		TravelVoucher travelVoucher = (TravelVoucher) object;
+		if (id != travelVoucher.id) {
+			return false;
+		}
 		if (country == null) {
 			if (travelVoucher.country != null) {
 				return false;

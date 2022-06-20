@@ -59,7 +59,8 @@ public class ViewAddedPersonTravelVouchers {
 		do {
 			System.out.println(builder);
 			number = scan.nextLine();
-		} while (ValidationViewAndAddVoucher.validationNumberTravelVoucher(number, person.getTravelVouchers()) == false);
+		} while (ValidationViewAndAddVoucher.validationNumberTravelVoucher(number,
+				person.getTravelVouchers()) == false);
 		return number;
 	}
 
@@ -69,6 +70,8 @@ public class ViewAddedPersonTravelVouchers {
 	}
 
 	private static void deleteTravelVoucher(Person person, int number, TravelCampany campany) {
+		int id = person.getTravelVouchers()[number].getID();
+		campany.changeStatusTravelVoucherByID(id);
 		person.deleteTravelVoucher(number);
 	}
 
