@@ -27,10 +27,10 @@ public class ProgramProcess {
 						isMainProcess);
 				break;
 			case "3":
-				
+				isMainProcess = ViewTypesTravelPackages.viewTypesThatHaveTravelPackages(campany, person, isMainProcess);
 				break;
 			case "4":
-
+				isMainProcess = false;
 				break;
 			}
 		}
