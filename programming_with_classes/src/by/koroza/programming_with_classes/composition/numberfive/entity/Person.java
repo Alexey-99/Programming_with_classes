@@ -72,7 +72,6 @@ public class Person {
 			}
 		}
 		travelVouchers = travelVoucherNew;
-		travelVouchers[indexElement].setIsStatusAdd(false); //TODO
 	}
 
 	public void printTravelVouchers() {
