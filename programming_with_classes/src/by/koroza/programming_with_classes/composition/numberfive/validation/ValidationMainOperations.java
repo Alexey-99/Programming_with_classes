@@ -24,7 +24,7 @@ public class ValidationMainOperations {
 		return isCorrect;
 	}
 
-	private static boolean validationOnHavingThisNumberOperation(String numberOperation) { // TODO NOW MAIN OPERATIONS + EXIT
+	private static boolean validationOnHavingThisNumberOperation(String numberOperation) { // TODO NOW 4 MAIN OPERATIONS + EXIT
 		boolean isCorrect = false;
 		int number = parseNumberOperation(numberOperation);
 		if (number < MainOperationEnumeration.getOperations().length) {
