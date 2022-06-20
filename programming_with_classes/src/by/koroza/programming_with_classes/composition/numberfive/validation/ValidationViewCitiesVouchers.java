@@ -5,7 +5,6 @@ import static by.koroza.programming_with_classes.composition.numberfive.enums.Ci
 import java.util.regex.Pattern;
 
 public class ValidationViewCitiesVouchers {
-
 	private static final String REG_EXR_HAVING_DIGITS = "\\d+";
 	private static final String YES = "0";
 	private static final String NO = "1";

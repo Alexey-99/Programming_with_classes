@@ -20,6 +20,12 @@ public class TypeEnumeration {
 		}
 	}
 	
+	public static void printCities() {
+		for (int i = 0; i < types.length; i++) {
+			System.out.println(i + " - " + types[i]);
+		}
+	}
+	
 	private static void addType(String type) {
 		String[] typesNew = new String[types.length + 1];
 		for (int i = 0; i < typesNew.length; i++) {

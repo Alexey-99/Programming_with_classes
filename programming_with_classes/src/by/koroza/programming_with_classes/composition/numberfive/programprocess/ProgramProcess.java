@@ -3,7 +3,9 @@ package by.koroza.programming_with_classes.composition.numberfive.programprocess
 import by.koroza.programming_with_classes.composition.numberfive.entity.Person;
 import by.koroza.programming_with_classes.composition.numberfive.entity.TravelCampany;
 import by.koroza.programming_with_classes.composition.numberfive.programprocess.mainoperations.ViewAllTravelPackages;
+import by.koroza.programming_with_classes.composition.numberfive.programprocess.mainoperations.ViewCitiesTravelPackages;
 import by.koroza.programming_with_classes.composition.numberfive.programprocess.mainoperations.ViewCountriesTravelPackages;
+import by.koroza.programming_with_classes.composition.numberfive.programprocess.mainoperations.ViewTypesTravelPackages;
 
 public class ProgramProcess {
 
@@ -21,10 +23,11 @@ public class ProgramProcess {
 						isMainProcess);
 				break;
 			case "2":
-
+				isMainProcess = ViewCitiesTravelPackages.viewCitiesThatHaveTravelPackages(campany, person,
+						isMainProcess);
 				break;
 			case "3":
-
+				
 				break;
 			case "4":
 
