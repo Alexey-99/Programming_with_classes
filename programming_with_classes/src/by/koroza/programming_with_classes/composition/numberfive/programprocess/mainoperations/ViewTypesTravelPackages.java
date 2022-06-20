@@ -7,9 +7,7 @@ import java.util.Scanner;
 import by.koroza.programming_with_classes.composition.numberfive.entity.Person;
 import by.koroza.programming_with_classes.composition.numberfive.entity.TravelCampany;
 import by.koroza.programming_with_classes.composition.numberfive.entity.TravelVoucher;
-import by.koroza.programming_with_classes.composition.numberfive.enums.CityEnumeration;
 import by.koroza.programming_with_classes.composition.numberfive.enums.TypeEnumeration;
-import by.koroza.programming_with_classes.composition.numberfive.validation.ValidationViewCitiesVouchers;
 import by.koroza.programming_with_classes.composition.numberfive.validation.ValidationViewTypesVouchers;
 
 public class ViewTypesTravelPackages {
@@ -17,6 +15,9 @@ public class ViewTypesTravelPackages {
 	private static final String EXIT = "Exit from program";
 	private static final String ENTER_NUMBER_TYPE = "enter type number or back or exit program.";
 	private static final String SPACE = " ";
+	private static final String ARE_YOU_SURE_WANT_EXIT_OPERATION = "Are you sure you want to exit this operation? Yes - 0, No - 1";
+	private static final String YES = "0";
+	private static final String ARE_YOU_SURE_WANT_EXIT_PROGRAM = "Are you sure you want to exit the program? Yes - 0, No - 1";
 
 	public static boolean viewTypesThatHaveTravelPackages(TravelCampany campany, Person person, boolean isMainProcess) {
 		TravelVoucher[] travelVouchers = campany.getTravelVochers();
@@ -97,7 +98,7 @@ public class ViewTypesTravelPackages {
 			}
 		}
 	}
-	
+
 	@SuppressWarnings("resource")
 	private static String confirmationExitFromOperation() {
 		Scanner scan = new Scanner(System.in);
@@ -105,7 +106,18 @@ public class ViewTypesTravelPackages {
 		do {
 			System.out.println(ARE_YOU_SURE_WANT_EXIT_OPERATION);
 			answer = scan.nextLine();
-		} while (ValidationViewCitiesVouchers.validationAnswerOnExit(answer) == false);
+		} while (ValidationViewTypesVouchers.validationAnswerOnExit(answer) == false);
+		return answer;
+	}
+
+	@SuppressWarnings("resource")
+	private static String confirmationExitFromProgramProcess() {
+		Scanner scan = new Scanner(System.in);
+		String answer = "";
+		do {
+			System.out.println(ARE_YOU_SURE_WANT_EXIT_PROGRAM);
+			answer = scan.nextLine();
+		} while (ValidationViewTypesVouchers.validationAnswerOnExit(answer) == false);
 		return answer;
 	}
 }
