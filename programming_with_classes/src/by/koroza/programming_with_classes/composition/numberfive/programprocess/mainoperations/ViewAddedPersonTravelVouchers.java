@@ -15,7 +15,7 @@ public class ViewAddedPersonTravelVouchers {
 	private static final String YES = "0";
 	private static final String ARE_YOU_SURE_WANT_EXIT_PROGRAM = "Are you sure you want to exit the program? Yes - 0, No - 1";
 
-	public static boolean viewAddedPersonTravelVouchers(boolean isMainProcess, Person person) {
+	public static boolean viewAddedPersonTravelVouchers(boolean isMainProcess, Person person, TravelCampany campany) {
 		boolean isExitOperation = true;
 		String number = "";
 		String answer = "";
@@ -24,7 +24,7 @@ public class ViewAddedPersonTravelVouchers {
 			number = enterNumberTravelVoucher(person);
 			int numberInt = parseNumber(number);
 			if (numberInt < person.getTravelVouchers().length) {
-				deleteTravelVoucher(person, numberInt);
+				deleteTravelVoucher(person, numberInt, campany);
 			} else if (numberInt == person.getTravelVouchers().length) {
 				answer = confirmationExitFromOperation();
 				if (answer.equals(YES)) {
@@ -70,7 +70,6 @@ public class ViewAddedPersonTravelVouchers {
 
 	private static void deleteTravelVoucher(Person person, int number, TravelCampany campany) {
 		person.deleteTravelVoucher(number);
-		campany.getTravelVochers();
 	}
 
 	@SuppressWarnings("resource")

@@ -31,7 +31,7 @@ public class ProgramProcess {
 				isMainProcess = ViewTypesTravelPackages.viewTypesThatHaveTravelPackages(campany, person, isMainProcess);
 				break;
 			case "4":
-				isMainProcess = ViewAddedPersonTravelVouchers.viewAddedPersonTravelVouchers(isMainProcess, person);
+				isMainProcess = ViewAddedPersonTravelVouchers.viewAddedPersonTravelVouchers(isMainProcess, person, campany);
 				break;
 			case "5":
 				isMainProcess = false;

@@ -59,7 +59,6 @@ public class TravelCampany {
 			}
 		}
 		this.travelVochers = travelVochersNew;
-
 	}
 
 	@Override
