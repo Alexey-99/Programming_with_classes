@@ -11,7 +11,7 @@ public class ValidationMainOperations {
 	public static boolean validationNumberMainOperation(String numberOperation) {
 		boolean isCorrect = validationOnHavingDigits(numberOperation);
 		if (isCorrect == true) {
-			isCorrect = validationOnHavingThisNumberOperation(numberOperation); // TODO
+			isCorrect = validationOnHavingThisNumberOperation(numberOperation);
 		}
 		if (isCorrect == false) {
 			System.out.println(YOU_ENTERED_NUMBER_OPERATION_INCORRECTLY);
@@ -24,7 +24,7 @@ public class ValidationMainOperations {
 		return isCorrect;
 	}
 
-	private static boolean validationOnHavingThisNumberOperation(String numberOperation) { // TODO NOW 4 MAIN OPERATIONS + EXIT
+	private static boolean validationOnHavingThisNumberOperation(String numberOperation) {
 		boolean isCorrect = false;
 		int number = parseNumberOperation(numberOperation);
 		if (number < MainOperationEnumeration.getOperations().length) {

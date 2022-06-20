@@ -32,6 +32,7 @@ public class ProgramProcess {
 				break;
 			case "4":
 				isMainProcess = ViewAddedPersonTravelVouchers.viewAddedPersonTravelVouchers(isMainProcess, person);
+				break;
 			case "5":
 				isMainProcess = false;
 				break;

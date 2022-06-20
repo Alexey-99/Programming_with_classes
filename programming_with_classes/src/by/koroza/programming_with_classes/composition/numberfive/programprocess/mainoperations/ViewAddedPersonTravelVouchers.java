@@ -3,6 +3,7 @@ package by.koroza.programming_with_classes.composition.numberfive.programprocess
 import java.util.Scanner;
 
 import by.koroza.programming_with_classes.composition.numberfive.entity.Person;
+import by.koroza.programming_with_classes.composition.numberfive.entity.TravelCampany;
 import by.koroza.programming_with_classes.composition.numberfive.validation.ValidationViewAndAddVoucher;
 
 public class ViewAddedPersonTravelVouchers {
@@ -58,7 +59,7 @@ public class ViewAddedPersonTravelVouchers {
 		do {
 			System.out.println(builder);
 			number = scan.nextLine();
-		} while (ValidationViewAndAddVoucher.validationNumberTravelVoucher(number, person.getTravelVouchers()));
+		} while (ValidationViewAndAddVoucher.validationNumberTravelVoucher(number, person.getTravelVouchers()) == false);
 		return number;
 	}
 
@@ -67,8 +68,9 @@ public class ViewAddedPersonTravelVouchers {
 		return numberInt;
 	}
 
-	private static void deleteTravelVoucher(Person person, int number) {
+	private static void deleteTravelVoucher(Person person, int number, TravelCampany campany) {
 		person.deleteTravelVoucher(number);
+		campany.getTravelVochers();
 	}
 
 	@SuppressWarnings("resource")
