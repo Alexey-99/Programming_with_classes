@@ -5,6 +5,8 @@ public class Person {
 	private String firstName;
 	private String patronymic;
 	private TravelVoucher[] travelVouchers;
+	private static final String SPACE = " ";
+	private static final String DOES_NOT_HAVE_TRAVEL_VOUCHERS = "doesn't have travel vouchers.";
 
 	public Person(String lastName, String firstName, String patronymic) {
 		this.lastName = lastName;
@@ -57,9 +59,17 @@ public class Person {
 		}
 		travelVouchers = travelVouchersNew;
 	}
-	
-	public void deleteTravelVoucher() {
-		
+
+	public void deleteTravelVoucher(TravelVoucher travelVoucher) {
+		int index = 0;
+		TravelVoucher[] travelVoucherNew = new TravelVoucher[travelVouchers.length - 1];
+		for (int i = 0; i < travelVouchers.length; i++) {
+			if (!travelVouchers[i].equals(travelVoucher)) {
+				travelVoucherNew[index] = travelVouchers[i];
+				index++;
+			}
+		}
+		travelVouchers = travelVoucherNew;
 	}
 
 	public void printTravelVouchers() {
@@ -67,6 +77,13 @@ public class Person {
 			for (int i = 0; i < travelVouchers.length; i++) {
 				System.out.println(i + " - " + travelVouchers[i].toString());
 			}
+		} else {
+			StringBuilder builder = new StringBuilder();
+			builder.append(lastName).append(SPACE);
+			builder.append(firstName).append(SPACE);
+			builder.append(patronymic).append(SPACE);
+			builder.append(DOES_NOT_HAVE_TRAVEL_VOUCHERS);
+			System.out.println(builder);
 		}
 	}
 
@@ -74,10 +91,13 @@ public class Person {
 	public int hashCode() {
 		int result = 31;
 		int prime = 1;
-		result = prime * result + (lastName != null ? lastName.hashCode() : 1);
-		result = prime * result + (firstName != null ? firstName.hashCode() : 1);
-		result = prime * result + (patronymic != null ? patronymic.hashCode() : 1);
-		result = prime * result + (travelVouchers != null ? travelVouchers.hashCode() : 1);
+		result = result * prime + (lastName != null ? lastName.hashCode() : 1);
+		result = result * prime + (firstName != null ? firstName.hashCode() : 1);
+		result = result * prime + (patronymic != null ? patronymic.hashCode() : 1);
+		result = result * prime + (travelVouchers != null ? travelVouchers.hashCode() : 1);
+		result = result * prime + (SPACE != null ? SPACE.hashCode() : 1);
+		result = result * prime
+				+ (DOES_NOT_HAVE_TRAVEL_VOUCHERS != null ? DOES_NOT_HAVE_TRAVEL_VOUCHERS.hashCode() : 1);
 		return result;
 	}
 
