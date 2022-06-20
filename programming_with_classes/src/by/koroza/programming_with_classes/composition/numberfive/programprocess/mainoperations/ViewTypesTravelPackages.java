@@ -20,7 +20,7 @@ public class ViewTypesTravelPackages {
 	private static final String ARE_YOU_SURE_WANT_EXIT_PROGRAM = "Are you sure you want to exit the program? Yes - 0, No - 1";
 
 	public static boolean viewTypesThatHaveTravelPackages(TravelCampany campany, Person person, boolean isMainProcess) {
-		TravelVoucher[] travelVouchers = campany.getTravelVochers();
+		TravelVoucher[] travelVouchers = campany.getTravelVouchers();
 		boolean isExitOperation = true;
 		String type = "";
 		String answer = "";

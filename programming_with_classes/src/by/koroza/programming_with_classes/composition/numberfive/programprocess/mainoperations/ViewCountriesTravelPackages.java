@@ -21,7 +21,7 @@ public class ViewCountriesTravelPackages {
 
 	public static boolean viewCountriesThatHaveTravelPackages(TravelCampany campany, Person person,
 			boolean isMainProcess) {
-		TravelVoucher[] travelVouchers = campany.getTravelVochers();
+		TravelVoucher[] travelVouchers = campany.getTravelVouchers();
 		boolean isExitOperation = true;
 		String country = "";
 		String answer = "";

@@ -7,7 +7,7 @@ import by.koroza.programming_with_classes.composition.numberfive.entity.TravelVo
 public class ViewAllTravelPackages {
 
 	public static boolean viewAllTravelPackages(TravelCampany campany, Person person, boolean isMainProcess) {
-		TravelVoucher[] travelVouchers = campany.getTravelVochers();
+		TravelVoucher[] travelVouchers = campany.getTravelVouchers();
 		isMainProcess = ViewAndAddTravelPackages.viewAndAddTravelPackages(person, isMainProcess, travelVouchers);
 		return isMainProcess;
 	}
