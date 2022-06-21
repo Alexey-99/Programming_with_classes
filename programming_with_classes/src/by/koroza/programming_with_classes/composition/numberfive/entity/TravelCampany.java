@@ -4,6 +4,7 @@ public class TravelCampany {
 	private String name;
 	private TravelVoucher[] travelVouchers;
 	private static final String COMPANY_DOES_NOT_HAVE_TOURIST_VOUCHERS = "At the moment, the company does not have tourist vouchers";
+	private static final String NEXT_LINE = "\n";
 
 	public TravelCampany(String name) {
 		this.name = name;
@@ -78,6 +79,7 @@ public class TravelCampany {
 		result = result * prime
 				+ (COMPANY_DOES_NOT_HAVE_TOURIST_VOUCHERS != null ? COMPANY_DOES_NOT_HAVE_TOURIST_VOUCHERS.hashCode()
 						: 1);
+		result = result * prime + (NEXT_LINE != null ? NEXT_LINE.hashCode() : 1);
 		return result;
 	}
 
@@ -113,13 +115,13 @@ public class TravelCampany {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Name: ").append(name).append("\n");
+		builder.append("Name: ").append(name).append(NEXT_LINE);
 		for (int i = 0; i < travelVouchers.length; i++) {
 			if (travelVouchers[i] != null) {
 				builder.append(travelVouchers[i].toString());
 			}
 			if (i < travelVouchers.length - 1) {
-				builder.append("\n");
+				builder.append(NEXT_LINE);
 			}
 		}
 		if (travelVouchers.length == 0) {

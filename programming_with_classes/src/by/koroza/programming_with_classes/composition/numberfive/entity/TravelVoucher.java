@@ -5,6 +5,7 @@ import by.koroza.programming_with_classes.composition.numberfive.enums.CountryEn
 import by.koroza.programming_with_classes.composition.numberfive.enums.TypeEnumeration;
 
 public class TravelVoucher {
+	private static final String NEXT_LINE = "\n";
 	private static int count = 0;
 
 	private int id;
@@ -134,6 +135,7 @@ public class TravelVoucher {
 		result = result * prime + Double.hashCode(price);
 		result = result * prime + (comment != null ? comment.hashCode() : 1);
 		result = result * prime + Boolean.hashCode(isStatusAdd);
+		result = result * prime + (NEXT_LINE != null ? NEXT_LINE.hashCode() : 1);
 		return result;
 	}
 
@@ -193,18 +195,18 @@ public class TravelVoucher {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Country: ").append(country).append("\n");
+		builder.append("Country: ").append(country).append(NEXT_LINE);
 		if (city != null) {
-			builder.append("City: ").append(city).append("\n");
+			builder.append("City: ").append(city).append(NEXT_LINE);
 		}
-		builder.append("Tour type: ").append(tourType).append("\n");
-		builder.append("Number nights: ").append(numberNights).append("\n");
-		builder.append("Price: ").append(price).append("\n");
+		builder.append("Tour type: ").append(tourType).append(NEXT_LINE);
+		builder.append("Number nights: ").append(numberNights).append(NEXT_LINE);
+		builder.append("Price: ").append(price).append(NEXT_LINE);
 		if (comment != null) {
-			builder.append("Comment: ").append(comment).append("\n");
+			builder.append("Comment: ").append(comment).append(NEXT_LINE);
 		}
 		if (isStatusAdd == true) {
-			builder.append("Travel voucher added.").append("\n");
+			builder.append("Travel voucher added.").append(NEXT_LINE);
 		}
 		return builder.toString();
 	}
