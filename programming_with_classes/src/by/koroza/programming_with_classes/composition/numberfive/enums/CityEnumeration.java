@@ -4,6 +4,7 @@ import by.koroza.programming_with_classes.composition.numberfive.validation.Vali
 
 public class CityEnumeration {
 	private static String[] cities = new String[0];
+	private static final int ONE_ELEMENT = 1;
 
 	public static String[] getCities() {
 		return cities;
@@ -27,7 +28,7 @@ public class CityEnumeration {
 	}
 
 	private static void addCity(String city) {
-		String[] citiesNew = new String[cities.length + 1];
+		String[] citiesNew = new String[cities.length + ONE_ELEMENT];
 		for (int i = 0; i < citiesNew.length; i++) {
 			if (i < cities.length) {
 				citiesNew[i] = cities[i];

@@ -4,6 +4,7 @@ import by.koroza.programming_with_classes.composition.numberfive.validation.Vali
 
 public class TypeEnumeration {
 	private static String[] types = new String[0];
+	private static final int ONE_ELEMENT = 1;
 
 	public static String[] getTypes() {
 		return types;
@@ -27,7 +28,7 @@ public class TypeEnumeration {
 	}
 	
 	private static void addType(String type) {
-		String[] typesNew = new String[types.length + 1];
+		String[] typesNew = new String[types.length + ONE_ELEMENT];
 		for (int i = 0; i < typesNew.length; i++) {
 			if (i < types.length) {
 				typesNew[i] = types[i];
