@@ -25,7 +25,7 @@ public class Main {
 	static final String SUM_ALL_ACCOUNTS_WITH_NEGATIVE_BALANCE = "The sum of all accounts with a negative balance: ";
 
 	public static void main(String[] args) {
-		Person person = new Person("Koroza", "Alexey", "M", new BankAccount());
+		Person person = new Person("Koroza", "Alexey", "Mikhailovich", new BankAccount());
 
 		person.getBankAccounts()[0].addOperation(new Operation(-5.00, "operation"));
 		person.addBankAccount(new BankAccount());
