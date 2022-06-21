@@ -8,7 +8,7 @@ public class Person {
 	private static final String SPACE = " ";
 	private static final String DOES_NOT_HAVE_TRAVEL_VOUCHERS = "doesn't have travel vouchers.";
 	private static final String HAS_TRAVEL_VOUCHERS = " has travel vouchers: ";
-	private static final String NEXT_LINE = "\n";
+	private static final String NEXT_LINE = "\n	";
 
 	public Person(String lastName, String firstName, String patronymic) {
 		this.lastName = lastName;
