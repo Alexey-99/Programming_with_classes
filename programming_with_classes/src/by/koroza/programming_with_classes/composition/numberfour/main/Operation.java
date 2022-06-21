@@ -54,7 +54,6 @@ public class Operation {
 		result = result * prime + (date != null ? date.hashCode() : 1);
 		result = result * prime + (Double.hashCode(sum));
 		result = result * prime + (comment != null ? comment.hashCode() : 1);
-
 		result = result * prime + (NEXT_LINE != null ? NEXT_LINE.hashCode() : 1);
 		result = result * prime + (DATE != null ? DATE.hashCode() : 1);
 		result = result * prime + (DATE_FORMAT != null ? DATE_FORMAT.hashCode() : 1);
