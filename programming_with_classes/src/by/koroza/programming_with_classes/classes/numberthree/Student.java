@@ -6,6 +6,12 @@ public class Student {
 	private int numberGroup;
 	private int[] academicPerformance = new int[5];
 
+	private static final String NEXT_LINE = "\n";
+	private static final String LAST_NAME = "Last name - ";
+	private static final String INITIALS = "Initials - ";
+	private static final String NUMBER_GROUP = "Number group - ";
+	private static final String ACADEMIC_PERFOMANCE = "Academic performance - ";
+
 	public Student(String lastName, String initials, int numberGrou, int academicPerformanceOne,
 			int academicPerformanceTwo, int academicPerformanceThree, int academicPerformanceFour,
 			int academicPerformanceFive) {
@@ -59,6 +65,11 @@ public class Student {
 		result = result * prime + (initials != null ? initials.hashCode() : 1);
 		result = result * prime + numberGroup;
 		result = result * prime + academicPerformance.hashCode();
+		result = result * prime + (NEXT_LINE != null ? NEXT_LINE.hashCode() : 1);
+		result = result * prime + (LAST_NAME != null ? LAST_NAME.hashCode() : 1);
+		result = result * prime + (INITIALS != null ? INITIALS.hashCode() : 1);
+		result = result * prime + (NUMBER_GROUP != null ? NUMBER_GROUP.hashCode() : 1);
+		result = result * prime + (ACADEMIC_PERFOMANCE != null ? ACADEMIC_PERFOMANCE.hashCode() : 1);
 		return result;
 	}
 
@@ -100,17 +111,17 @@ public class Student {
 	@Override
 	public String toString() {
 		StringBuilder build = new StringBuilder();
-		build.append("Last name - ").append(lastName).append("\n");
-		build.append("Initials - ").append(initials).append("\n");
-		build.append("Number group - ").append(numberGroup).append("\n");
-		build.append("Academic performance - ");
+		build.append(LAST_NAME).append(lastName).append(NEXT_LINE);
+		build.append(INITIALS).append(initials).append(NEXT_LINE);
+		build.append(NUMBER_GROUP).append(numberGroup).append(NEXT_LINE);
+		build.append(ACADEMIC_PERFOMANCE);
 		for (int i = 0; i < academicPerformance.length; i++) {
 			build.append(academicPerformance[i]);
 			if (i < academicPerformance.length - 1) {
 				build.append(", ");
 			}
 		}
-		build.append("\n");
+		build.append(NEXT_LINE);
 		return build.toString();
 	}
 }
