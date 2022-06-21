@@ -7,6 +7,8 @@ import by.koroza.programming_with_classes.composition.numberfive.enums.MainOpera
 import by.koroza.programming_with_classes.composition.numberfive.validation.ValidationMainOperations;
 
 public class ChoiceMainOperation {
+	private static final String ENTER_NUMBER_OPERATION = "enter number operation";
+	private static final String SPACE = " ";
 
 	public static String choiceMainOperation(Person person) {
 		MainOperationEnumeration.printOperations();
@@ -18,9 +20,10 @@ public class ChoiceMainOperation {
 	private static String inputNumberOperation(Person person) {
 		Scanner scan = new Scanner(System.in);
 		StringBuilder builder = new StringBuilder();
-		builder.append(person.getLastName()).append(" ");
-		builder.append(person.getFirstName()).append(" ");
-		builder.append(person.getPatronymic()).append(" enter number operation");
+		builder.append(person.getLastName()).append(SPACE);
+		builder.append(person.getFirstName()).append(SPACE);
+		builder.append(person.getPatronymic()).append(SPACE);
+		builder.append(ENTER_NUMBER_OPERATION);
 		String numberOperation = "";
 		do {
 			System.out.println(builder);
