@@ -5,6 +5,13 @@ import java.util.Date;
 import java.util.Locale;
 
 public class Operation {
+	private static final String NEXT_LINE = "\n";
+	private static final String DATE = "Date: ";
+	private static final String DATE_FORMAT = "d MMMM yyyy";
+	private static final String TIME = "Time: ";
+	private static final String TIME_FORMAT = "HH mm";
+	private static final String SUM_OPERATION = "Sum operation: ";
+	private static final String COMMENT = "Comment: ";
 	private Date date;
 	private double sum;
 	private String comment;
@@ -46,6 +53,14 @@ public class Operation {
 		result = result * prime + (date != null ? date.hashCode() : 1);
 		result = result * prime + (Double.hashCode(sum));
 		result = result * prime + (comment != null ? comment.hashCode() : 1);
+
+		result = result * prime + (NEXT_LINE != null ? NEXT_LINE.hashCode() : 1);
+		result = result * prime + (DATE != null ? DATE.hashCode() : 1);
+		result = result * prime + (DATE_FORMAT != null ? DATE_FORMAT.hashCode() : 1);
+		result = result * prime + (TIME != null ? TIME.hashCode() : 1);
+		result = result * prime + (TIME_FORMAT != null ? TIME_FORMAT.hashCode() : 1);
+		result = result * prime + (SUM_OPERATION != null ? SUM_OPERATION.hashCode() : 1);
+		result = result * prime + (COMMENT != null ? COMMENT.hashCode() : 1);
 		return result;
 	}
 
@@ -84,12 +99,12 @@ public class Operation {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		SimpleDateFormat formater = new SimpleDateFormat("d MMMM yyyy", Locale.ENGLISH);
-		builder.append("Date: ").append(formater.format(date)).append("\n");
-		formater = new SimpleDateFormat("HH mm", Locale.ENGLISH);
-		builder.append("Time: ").append(formater.format(date)).append("\n");
-		builder.append("Sum operation: ").append(sum).append("\n");
-		builder.append("Comment: ").append(comment).append("\n");
+		SimpleDateFormat formater = new SimpleDateFormat(DATE_FORMAT, Locale.ENGLISH);
+		builder.append(DATE).append(formater.format(date)).append(NEXT_LINE);
+		formater = new SimpleDateFormat(TIME_FORMAT, Locale.ENGLISH);
+		builder.append(TIME).append(formater.format(date)).append(NEXT_LINE);
+		builder.append(SUM_OPERATION).append(sum).append(NEXT_LINE);
+		builder.append(COMMENT).append(comment).append(NEXT_LINE);
 		return builder.toString();
 	}
 }
