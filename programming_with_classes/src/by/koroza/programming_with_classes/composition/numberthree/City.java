@@ -5,6 +5,7 @@ public class City {
 	private String cityStatus;
 	private boolean stateCapital;
 	private District[] districts;
+
 	private final static String CITY_NAME = "City name: ";
 	private final static String CITY_STATUS = "City status: ";
 	private final static String CITY_CAPITAL_STATE = "This city is capital state.";
@@ -15,23 +16,27 @@ public class City {
 	public City(String name) {
 		this.name = name;
 		this.stateCapital = false;
+		this.districts = new District[0];
 	}
 
 	public City(String name, boolean stateCapital) {
 		this.name = name;
 		this.stateCapital = stateCapital;
+		this.districts = new District[0];
 	}
 
 	public City(String name, String cityStatus) {
 		this.name = name;
 		this.cityStatus = cityStatus;
 		this.stateCapital = false;
+		this.districts = new District[0];
 	}
 
 	public City(String name, String cityStatus, boolean stateCapital) {
 		this.name = name;
 		this.cityStatus = cityStatus;
 		this.stateCapital = stateCapital;
+		this.districts = new District[0];
 	}
 
 	public City(String name, District[] districts) {
@@ -62,18 +67,21 @@ public class City {
 
 	public City(String name, District district) {
 		this.name = name;
+		this.districts = new District[1];
 		this.districts[0] = district;
 		this.stateCapital = false;
 	}
 
 	public City(String name, District district, boolean stateCapital) {
 		this.name = name;
+		this.districts = new District[1];
 		this.districts[0] = district;
 		this.stateCapital = stateCapital;
 	}
 
 	public City(String name, District district, String cityStatus) {
 		this.name = name;
+		this.districts = new District[1];
 		this.districts[0] = district;
 		this.cityStatus = cityStatus;
 		this.stateCapital = false;
@@ -81,6 +89,7 @@ public class City {
 
 	public City(String name, District district, String cityStatus, boolean stateCapital) {
 		this.name = name;
+		this.districts = new District[1];
 		this.districts[0] = district;
 		this.cityStatus = cityStatus;
 		this.stateCapital = stateCapital;
@@ -119,34 +128,25 @@ public class City {
 	}
 
 	public void addDistrict(District district) {
-		District[] districtsNew = null;
-		if (this.districts == null) {
-			this.districts[0] = district;
-		} else {
-			districtsNew = new District[this.districts.length + 1];
-			for (int i = 0; i < districtsNew.length; i++) {
-				if (i < this.districts.length) {
-					districtsNew[i] = this.districts[i];
-				} else if (i == this.districts.length) {
-					districtsNew[i] = district;
-				}
+		District[] districtsNew = new District[this.districts.length + 1];
+		for (int i = 0; i < districtsNew.length; i++) {
+			if (i < this.districts.length) {
+				districtsNew[i] = this.districts[i];
+			} else if (i == this.districts.length) {
+				districtsNew[i] = district;
 			}
 		}
+
 		this.districts = districtsNew;
 	}
 
 	public void addDistricts(District[] districts) {
-		District[] districtsNew = null;
-		if (this.districts == null) {
-			this.districts = districts;
-		} else {
-			districtsNew = new District[this.districts.length + districts.length];
-			for (int i = 0; i < districtsNew.length; i++) {
-				if (i < this.districts.length) {
-					districtsNew[i] = this.districts[i];
-				} else if (i >= this.districts.length) {
-					districtsNew[i] = districts[i];
-				}
+		District[] districtsNew = new District[this.districts.length + districts.length];
+		for (int i = 0; i < districtsNew.length; i++) {
+			if (i < this.districts.length) {
+				districtsNew[i] = this.districts[i];
+			} else if (i >= this.districts.length) {
+				districtsNew[i] = districts[i];
 			}
 		}
 		this.districts = districtsNew;
