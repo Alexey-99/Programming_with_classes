@@ -8,10 +8,16 @@ public class Train {
 	private int numberTrain;
 	private LocalTime timeDeparture;
 
+	private static final String TIME_FORMAT = "HH:mm";
+	private static final String DESTINATION = "Destination - ";
+	private static final String NUMBER_TRAIN = "Number train - ";
+	private static final String TIME_DEPARTURE = "Time departure - ";
+	private static final String NEXT_LINE = "\n";
+
 	public Train(String destination, int numberTrain, String timeDeparture) {
 		this.destination = destination;
 		this.numberTrain = numberTrain;
-		this.timeDeparture = LocalTime.parse(timeDeparture, DateTimeFormatter.ofPattern("HH:mm"));
+		this.timeDeparture = LocalTime.parse(timeDeparture, DateTimeFormatter.ofPattern(TIME_FORMAT));
 	}
 
 	public String getDestination() {
@@ -35,7 +41,7 @@ public class Train {
 	}
 
 	public void setTimeDeparture(String timeDeparture) {
-		this.timeDeparture = LocalTime.parse(timeDeparture, DateTimeFormatter.ofPattern("HH:mm"));
+		this.timeDeparture = LocalTime.parse(timeDeparture, DateTimeFormatter.ofPattern(TIME_FORMAT));
 	}
 
 	public static void printOriginalTimetable(Train[] trains) {
@@ -111,6 +117,11 @@ public class Train {
 		result = result * prime + (destination != null ? destination.hashCode() : 1);
 		result = result * prime + numberTrain;
 		result = result * prime + (timeDeparture != null ? timeDeparture.hashCode() : 1);
+		result = result * prime + (TIME_FORMAT != null ? TIME_FORMAT.hashCode() : 1);
+		result = result * prime + (DESTINATION != null ? DESTINATION.hashCode() : 1);
+		result = result * prime + (NUMBER_TRAIN != null ? NUMBER_TRAIN.hashCode() : 1);
+		result = result * prime + (TIME_DEPARTURE != null ? TIME_DEPARTURE.hashCode() : 1);
+		result = result * prime + (NEXT_LINE != null ? NEXT_LINE.hashCode() : 1);
 		return result;
 	}
 
@@ -145,9 +156,9 @@ public class Train {
 	@Override
 	public String toString() {
 		StringBuilder build = new StringBuilder();
-		build.append("Destination - ").append(destination).append("\n");
-		build.append("Number train - ").append(numberTrain).append("\n");
-		build.append("Time departure - ").append(timeDeparture).append("\n");
+		build.append(DESTINATION).append(destination).append(NEXT_LINE);
+		build.append(NUMBER_TRAIN).append(numberTrain).append(NEXT_LINE);
+		build.append(TIME_DEPARTURE).append(timeDeparture).append(NEXT_LINE);
 		return build.toString();
 	}
 }
