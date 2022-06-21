@@ -24,6 +24,8 @@ public class Main {
 	static final String SUM_ALL_ACCOUNTS_WITH_POSITIVE_BALANCE = "The sum of all accounts with a positive balance: ";
 	static final String SUM_ALL_ACCOUNTS_WITH_NEGATIVE_BALANCE = "The sum of all accounts with a negative balance: ";
 
+	static final String NEXT_LINE = "\n";
+
 	public static void main(String[] args) {
 		Person person = new Person("Koroza", "Alexey", "Mikhailovich", new BankAccount());
 
@@ -45,42 +47,42 @@ public class Main {
 		System.out.println(SEARCH_BANK_ACCOUNTS_WITH_BALANCE_RANGE);
 		person.searchByMinToMaxBalance(1, 10);
 
-		System.out.println("\n" + SEARCH_BANK_ACCOUNTS_WITH_BALANCE_RANGE_FROM_MIN_BALANSE);
+		System.out.println(NEXT_LINE + SEARCH_BANK_ACCOUNTS_WITH_BALANCE_RANGE_FROM_MIN_BALANSE);
 		person.searchByMinBalance(0);
 
-		System.out.println("\n" + SEARCH_BANK_ACCOUNTS_WITH_BALANCE_RANGE);
+		System.out.println(NEXT_LINE + SEARCH_BANK_ACCOUNTS_WITH_BALANCE_RANGE);
 		person.searchByMaxBalance(10);
 
-		System.out.println("\n" + SEARCH_BANK_ACCOUNTS_WITH_SUM_BALANCE);
+		System.out.println(NEXT_LINE + SEARCH_BANK_ACCOUNTS_WITH_SUM_BALANCE);
 		person.searchByBalance(0);
 
-		System.out.println("\n" + SEARCH_BANK_ACCOUNTS_WITH_NUMBER_BANK_ACCOUNT_RANGE);
+		System.out.println(NEXT_LINE + SEARCH_BANK_ACCOUNTS_WITH_NUMBER_BANK_ACCOUNT_RANGE);
 		person.searchByMinToMaxNumber(1, 3);
 
-		System.out.println("\n" + SEARCH_BANK_ACCOUNTS_WITH_NUMBER_BANK_ACCOUNT_RANGE);
+		System.out.println(NEXT_LINE + SEARCH_BANK_ACCOUNTS_WITH_NUMBER_BANK_ACCOUNT_RANGE);
 		person.searchByMinNumber(3);
 
-		System.out.println("\n" + SEARCH_BANK_ACCOUNTS_WITH_NUMBER_BANK_ACCOUNT_RANGE);
+		System.out.println(NEXT_LINE + SEARCH_BANK_ACCOUNTS_WITH_NUMBER_BANK_ACCOUNT_RANGE);
 		person.searchByMaxNumber(5);
 
-		System.out.println("\n" + SEARCH_BANK_ACCOUNTS_WITH_NUMBER_BANK_ACCOUNT);
+		System.out.println(NEXT_LINE + SEARCH_BANK_ACCOUNTS_WITH_NUMBER_BANK_ACCOUNT);
 		person.searchByNumber(1);
 
-		System.out.println("\n" + SEARCH_BANK_ACCOUNTS_WITH_STATUS_BANK_ACCOUNT);
+		System.out.println(NEXT_LINE + SEARCH_BANK_ACCOUNTS_WITH_STATUS_BANK_ACCOUNT);
 		person.searchByStatus("active");
 	}
 
 	private static void sorting(Person person) {
-		System.out.println("\n" + SORTING_BANK_ACCOUNTS_BY_BALANCE);
+		System.out.println(NEXT_LINE + SORTING_BANK_ACCOUNTS_BY_BALANCE);
 		person.printArrayBankAccount(person.sortingByBalance());
 
-		System.out.println("\n" + SORTING_BANK_ACCOUNTS_BY_NUMBER);
+		System.out.println(NEXT_LINE + SORTING_BANK_ACCOUNTS_BY_NUMBER);
 		person.printArrayBankAccount(person.sortingByNumber());
 
-		System.out.println("\n" + SORTING_BANK_ACCOUNTS_BY_NUMBER_OPERATIONS);
+		System.out.println(NEXT_LINE + SORTING_BANK_ACCOUNTS_BY_NUMBER_OPERATIONS);
 		person.printArrayBankAccount(person.sortingByNumberOperations());
 
-		System.out.println("\n" + SORTING_BANK_ACCOUNTS_BY_STATUS);
+		System.out.println(NEXT_LINE + SORTING_BANK_ACCOUNTS_BY_STATUS);
 		person.printArrayBankAccount(person.sortingByStatus());
 	}
 
