@@ -5,6 +5,11 @@ import by.koroza.programming_with_classes.composition.numberfour.operations.Sear
 import by.koroza.programming_with_classes.composition.numberfour.operations.Sorting;
 
 public class Person {
+	private static final String NEXT_LINE = "\n";
+	private static final String SPACE = " ";
+	private static final String ID = "ID: ";
+	private static final String LASTNAME_FIRSTNAME_PATRONYMIC = "Last name, first name, patronymic: ";
+	private static final String BANK_ACCOUNTS = "Bank accounts: ";
 	private static int count = 1;
 
 	private int id;
@@ -181,6 +186,12 @@ public class Person {
 		result = result * prime + (firstName != null ? firstName.hashCode() : 1);
 		result = result * prime + (patronymic != null ? patronymic.hashCode() : 1);
 		result = result * prime + (bankAccounts != null ? bankAccounts.hashCode() : 1);
+		result = result * prime + (NEXT_LINE != null ? NEXT_LINE.hashCode() : 1);
+		result = result * prime + (SPACE != null ? SPACE.hashCode() : 1);
+		result = result * prime + (ID != null ? ID.hashCode() : 1);
+		result = result * prime
+				+ (LASTNAME_FIRSTNAME_PATRONYMIC != null ? LASTNAME_FIRSTNAME_PATRONYMIC.hashCode() : 1);
+		result = result * prime + (BANK_ACCOUNTS != null ? BANK_ACCOUNTS.hashCode() : 1);
 		return result;
 	}
 
@@ -233,12 +244,12 @@ public class Person {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("ID: ").append(id).append("\n");
-		builder.append("Last name, first name, patronymic: ");
-		builder.append(lastName).append(" ").append(firstName).append(" ").append(patronymic).append("\n");
-		builder.append("Bank Accounts: ").append("\n");
+		builder.append(ID).append(id).append(NEXT_LINE);
+		builder.append(LASTNAME_FIRSTNAME_PATRONYMIC);
+		builder.append(lastName).append(SPACE).append(firstName).append(SPACE).append(patronymic).append(NEXT_LINE);
+		builder.append(BANK_ACCOUNTS).append(NEXT_LINE);
 		for (BankAccount account : bankAccounts) {
-			builder.append(account.toString()).append("\n");
+			builder.append(account.toString()).append(NEXT_LINE);
 		}
 		return builder.toString();
 	}
