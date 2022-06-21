@@ -7,6 +7,8 @@ public class FuelTank {
 	private static double fuelBalanceMin = 0;
 	private static double fuelBalanceMax = 100;
 	private final static double FUEL_CONSUMPTION_IN_PERCENT = 0.2;
+	private final static String FORMAT = "#.#";
+	private final static String REMAINIG_FUEL_IN_CAR = "Remaining fuel in the car: ";
 
 	public FuelTank() {
 		this.fuelBalance = fuelBalanceMax;
@@ -48,6 +50,8 @@ public class FuelTank {
 		result = result * prime + Double.hashCode(fuelBalanceMin);
 		result = result * prime + Double.hashCode(fuelBalanceMax);
 		result = result * prime + Double.hashCode(FUEL_CONSUMPTION_IN_PERCENT);
+		result = result * prime + (FORMAT != null ? FORMAT.hashCode() : 1);
+		result = result * prime + (REMAINIG_FUEL_IN_CAR != null ? REMAINIG_FUEL_IN_CAR.hashCode() : 1);
 		return result;
 	}
 
@@ -71,9 +75,9 @@ public class FuelTank {
 
 	@Override
 	public String toString() {
-		DecimalFormat format = new DecimalFormat("#.#");
+		DecimalFormat format = new DecimalFormat(FORMAT);
 		StringBuilder builder = new StringBuilder();
-		builder.append("Remaining fuel in the car: ").append(format.format(fuelBalance)).append("%");
+		builder.append(REMAINIG_FUEL_IN_CAR).append(format.format(fuelBalance)).append("%");
 		return builder.toString();
 	}
 }

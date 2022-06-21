@@ -6,6 +6,8 @@ public class Engine {
 	private double wear;
 	private static double wearMax = 100;
 	private static double wearMin = 0;
+	private static final String ENGINE_WEAR = "Engine wear: ";
+	private static final String WEAR_FORMAT = "#.###";
 
 	public Engine() {
 		this.wear = wearMin;
@@ -50,6 +52,8 @@ public class Engine {
 		result = result * prime + Double.hashCode(wear);
 		result = result * prime + Double.hashCode(wearMax);
 		result = result * prime + Double.hashCode(wearMin);
+		result = result * prime + (ENGINE_WEAR != null ? ENGINE_WEAR.hashCode() : 1);
+		result = result * prime + (WEAR_FORMAT != null ? WEAR_FORMAT.hashCode() : 1);
 		return result;
 	}
 
@@ -73,9 +77,9 @@ public class Engine {
 
 	@Override
 	public String toString() {
-		DecimalFormat format = new DecimalFormat("#.###");
+		DecimalFormat format = new DecimalFormat(WEAR_FORMAT);
 		StringBuilder builder = new StringBuilder();
-		builder.append("Engine wear: ").append(format.format(wear)).append("%");
+		builder.append(ENGINE_WEAR).append(format.format(wear)).append("%");
 		return builder.toString();
 	}
 }

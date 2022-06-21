@@ -16,6 +16,9 @@ public class Car {
 	private final static String WORN_OUT_ENGINE = "Worn out engine.";
 	private final static String LEFT_TO_DRIVE = " kilometers left to drive";
 	private final static String CAR_FILLED = "The car is filled.";
+	private final static String NEXT_LINE = "\n";
+	private final static String ID = "ID: ";
+	private final static String MODEL = "Model: ";
 
 	public Car(String model, Wheel[] wheels, Engine engine, FuelTank fuelTank) {
 		this.id = count++;
@@ -193,6 +196,9 @@ public class Car {
 		result = result * prime + (WORN_OUT_ENGINE != null ? WORN_OUT_ENGINE.hashCode() : 1);
 		result = result * prime + (LEFT_TO_DRIVE != null ? LEFT_TO_DRIVE.hashCode() : 1);
 		result = result * prime + (CAR_FILLED != null ? CAR_FILLED.hashCode() : 1);
+		result = result * prime + (NEXT_LINE != null ? NEXT_LINE.hashCode() : 1);
+		result = result * prime + (ID != null ? ID.hashCode() : 1);
+		result = result * prime + (MODEL != null ? MODEL.hashCode() : 1);
 		return result;
 	}
 
@@ -245,13 +251,13 @@ public class Car {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("ID: ").append(id).append("\n");
-		builder.append("Model: ").append(model).append("\n");
+		builder.append(ID).append(id).append(NEXT_LINE);
+		builder.append(MODEL).append(model).append(NEXT_LINE);
 		for (Wheel wheel : wheels) {
-			builder.append(wheel.toString()).append("\n");
+			builder.append(wheel.toString()).append(NEXT_LINE);
 		}
-		builder.append(engine.toString()).append("\n");
-		builder.append(fuelTank.toString()).append("\n");
+		builder.append(engine.toString()).append(NEXT_LINE);
+		builder.append(fuelTank.toString()).append(NEXT_LINE);
 		return builder.toString();
 	}
 }

@@ -9,6 +9,9 @@ public class Wheel {
 	private double wear;
 	private static double wearMax = 100;
 	private static double wearMin = 0;
+	private static final String WEAR_FORMAT = "#.###";
+	private static final String WHEEL_ID = "Wheel id ";
+	private static final String SPACE_WEAR_SPACE = " wear: ";
 
 	public Wheel() {
 		this.id = count++;
@@ -65,6 +68,9 @@ public class Wheel {
 		result = result * prime + Double.hashCode(wearMin);
 		result = result * prime + count;
 		result = result * prime + id;
+		result = result * prime + (WEAR_FORMAT != null ? WEAR_FORMAT.hashCode() : 1);
+		result = result * prime + (WHEEL_ID != null ? WHEEL_ID.hashCode() : 1);
+		result = result * prime + (SPACE_WEAR_SPACE != null ? SPACE_WEAR_SPACE.hashCode() : 1);
 		return result;
 	}
 
@@ -91,9 +97,9 @@ public class Wheel {
 
 	@Override
 	public String toString() {
-		DecimalFormat format = new DecimalFormat("#.###");
+		DecimalFormat format = new DecimalFormat(WEAR_FORMAT);
 		StringBuilder builder = new StringBuilder();
-		builder.append("Wheel id ").append(id).append(" wear: ").append(format.format(wear)).append("%");
+		builder.append(WHEEL_ID).append(id).append(SPACE_WEAR_SPACE).append(format.format(wear)).append("%");
 		return builder.toString();
 	}
 }
