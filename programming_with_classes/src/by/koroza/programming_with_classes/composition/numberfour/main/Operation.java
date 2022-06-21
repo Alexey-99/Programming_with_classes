@@ -12,6 +12,7 @@ public class Operation {
 	private static final String TIME_FORMAT = "HH mm";
 	private static final String SUM_OPERATION = "Sum operation: ";
 	private static final String COMMENT = "Comment: ";
+
 	private Date date;
 	private double sum;
 	private String comment;
