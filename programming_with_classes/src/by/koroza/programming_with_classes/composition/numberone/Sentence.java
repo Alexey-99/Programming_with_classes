@@ -1,10 +1,11 @@
 package by.koroza.programming_with_classes.composition.numberone;
 
 public class Sentence {
+	private static final String SPACE = " ";
 	private Word[] words;
 
 	public Sentence() {
-
+		this.words = new Word[0];
 	}
 
 	public Sentence(Word[] words) {
@@ -20,37 +21,27 @@ public class Sentence {
 	}
 
 	public void addWord(Word word) {
-		Word[] wordsNew = null;
-		if (words == null) {
-			words[0] = word;
-		} else {
-			wordsNew = new Word[words.length + 1];
-			for (int i = 0; i < wordsNew.length; i++) {
-				if (i < words.length) {
-					wordsNew[i] = words[i];
-				} else if (i == words.length) {
-					wordsNew[i] = word;
-				}
+		Word[] wordsNew = new Word[words.length + 1];
+		for (int i = 0; i < wordsNew.length; i++) {
+			if (i < words.length) {
+				wordsNew[i] = words[i];
+			} else if (i == words.length) {
+				wordsNew[i] = word;
 			}
-			words = wordsNew;
 		}
+		words = wordsNew;
 	}
 
 	public void addWords(Word[] words) {
-		Word[] wordsNew = null;
-		if (this.words == null) {
-			this.words = words;
-		} else {
-			wordsNew = new Word[this.words.length + words.length];
-			for (int i = 0; i < wordsNew.length; i++) {
-				if (i < this.words.length) {
-					wordsNew[i] = this.words[i];
-				} else if (i >= this.words.length) {
-					wordsNew[i] = words[i - this.words.length];
-				}
+		Word[] wordsNew = new Word[this.words.length + words.length];
+		for (int i = 0; i < wordsNew.length; i++) {
+			if (i < this.words.length) {
+				wordsNew[i] = this.words[i];
+			} else if (i >= this.words.length) {
+				wordsNew[i] = words[i - this.words.length];
 			}
-			this.words = wordsNew;
 		}
+		this.words = wordsNew;
 	}
 
 	@Override
@@ -58,6 +49,7 @@ public class Sentence {
 		int result = 31;
 		int prime = 1;
 		result = result * prime + (words != null ? words.hashCode() : 1);
+		result = result * prime + (SPACE != null ? SPACE.hashCode() : 1);
 		return result;
 	}
 
@@ -89,7 +81,7 @@ public class Sentence {
 		for (int i = 0; i < words.length; i++) {
 			builder.append(words[i].toString());
 			if (i < words.length - 1) {
-				builder.append(" ");
+				builder.append(SPACE);
 			}
 		}
 		return builder.toString();
