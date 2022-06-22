@@ -1,6 +1,14 @@
 package by.koroza.programming_with_classes.classes.numbereight;
 
 public class Costomer {
+	private static final String ID = "ID: ";
+	private static final String LAST_NAME = "Last name: ";
+	private static final String FIRST_NAME = "First name: ";
+	private static final String PATRONYMIC = "Patronymic: ";
+	private static final String ADDRESS = "Address: ";
+	private static final String CREDIT_CARD_NUMBER = "Credit card number: ";
+	private static final String BANK_ACCOUNT_NUMBER = "Bank account number: ";
+	private static final String NEXT_LINE = "\n";
 	private static int count = 1;
 
 	private int id;
@@ -99,6 +107,14 @@ public class Costomer {
 		result = result * prime + (address != null ? address.hashCode() : 1);
 		result = result * prime + creditCardNumber;
 		result = result * prime + bankAccountNumber;
+		result = result * prime + (NEXT_LINE != null ? NEXT_LINE.hashCode() : 1);
+		result = result * prime + (ID != null ? ID.hashCode() : 1);
+		result = result * prime + (LAST_NAME != null ? LAST_NAME.hashCode() : 1);
+		result = result * prime + (FIRST_NAME != null ? FIRST_NAME.hashCode() : 1);
+		result = result * prime + (PATRONYMIC != null ? PATRONYMIC.hashCode() : 1);
+		result = result * prime + (ADDRESS != null ? ADDRESS.hashCode() : 1);
+		result = result * prime + (CREDIT_CARD_NUMBER != null ? CREDIT_CARD_NUMBER.hashCode() : 1);
+		result = result * prime + (BANK_ACCOUNT_NUMBER != null ? BANK_ACCOUNT_NUMBER.hashCode() : 1);
 		return result;
 	}
 
@@ -157,15 +173,15 @@ public class Costomer {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("ID: ").append(id).append("\n");
-		builder.append("LastName: ").append(lastName).append("\n");
-		builder.append("FirstName: ").append(firstName).append("\n");
+		builder.append(ID).append(id).append(NEXT_LINE);
+		builder.append(LAST_NAME).append(lastName).append(NEXT_LINE);
+		builder.append(FIRST_NAME).append(firstName).append(NEXT_LINE);
 		if (patronymic != null) {
-			builder.append("Patronymic: ").append(patronymic).append("\n");
+			builder.append(PATRONYMIC).append(patronymic).append(NEXT_LINE);
 		}
-		builder.append("Address: ").append(address.toString()).append("\n");
-		builder.append("Credit card number: ").append(creditCardNumber).append("\n");
-		builder.append("Bank account number: ").append(bankAccountNumber).append("\n");
+		builder.append(ADDRESS).append(address.toString()).append(NEXT_LINE);
+		builder.append(CREDIT_CARD_NUMBER).append(creditCardNumber).append(NEXT_LINE);
+		builder.append(BANK_ACCOUNT_NUMBER).append(bankAccountNumber).append(NEXT_LINE);
 		return builder.toString();
 	}
 }

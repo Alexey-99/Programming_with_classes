@@ -5,7 +5,6 @@ public class CostomerAggregating {
 	private static final String NO_MATCHES_FOUND_THIS_QUERY = "No matches were found for this query.";
 
 	public CostomerAggregating() {
-
 	}
 
 	public CostomerAggregating(Costomer[] costomers) {

@@ -7,6 +7,13 @@ public class Address {
 	private int house;
 	private int apartment;
 
+	private static final String NEXT_LINE = "\n";
+	private static final String COUNTRY = "Country: ";
+	private static final String CITY = "City: ";
+	private static final String STREET = "Street: ";
+	private static final String NUMBER_HOUSE = "Number house: ";
+	private static final String NUMBER_APARTMENT = "Number apartment: ";
+
 	public Address(String country, String city, String street, int house, int apartment) {
 		this.country = country;
 		this.city = city;
@@ -64,6 +71,12 @@ public class Address {
 		result = result * prime + (street != null ? street.hashCode() : 1);
 		result = result * prime + house;
 		result = result * prime + apartment;
+		result = result * prime + (NEXT_LINE != null ? NEXT_LINE.hashCode() : 1);
+		result = result * prime + (COUNTRY != null ? COUNTRY.hashCode() : 1);
+		result = result * prime + (CITY != null ? CITY.hashCode() : 1);
+		result = result * prime + (STREET != null ? STREET.hashCode() : 1);
+		result = result * prime + (NUMBER_HOUSE != null ? NUMBER_HOUSE.hashCode() : 1);
+		result = result * prime + (NUMBER_APARTMENT != null ? NUMBER_APARTMENT.hashCode() : 1);
 		return result;
 	}
 
@@ -112,11 +125,11 @@ public class Address {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Country: ").append(country).append(", ");
-		builder.append("City: ").append(city).append(", ");
-		builder.append("Street: ").append(street).append(", ");
-		builder.append("Number house: ").append(house).append(", ");
-		builder.append("Number apartment: ").append(apartment);
+		builder.append(COUNTRY).append(country).append(", ").append(NEXT_LINE);
+		builder.append(CITY).append(city).append(", ").append(NEXT_LINE);
+		builder.append(STREET).append(street).append(", ").append(NEXT_LINE);
+		builder.append(NUMBER_HOUSE).append(house).append(", ").append(NEXT_LINE);
+		builder.append(NUMBER_APARTMENT).append(apartment).append(NEXT_LINE);
 		return builder.toString();
 	}
 }
