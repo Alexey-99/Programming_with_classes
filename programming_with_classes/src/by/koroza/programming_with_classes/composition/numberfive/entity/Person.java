@@ -9,7 +9,6 @@ public class Person {
 	private static final String DOES_NOT_HAVE_TRAVEL_VOUCHERS = "doesn't have travel vouchers.";
 	private static final String HAS_TRAVEL_VOUCHERS = " has travel vouchers: ";
 	private static final String NEXT_LINE = "\n";
-
 	private static final String LAST_NAME = "Last name: ";
 	private static final String FIRST_NAME = "First name: ";
 	private static final String PATRONYMIC = "Patronymic: ";

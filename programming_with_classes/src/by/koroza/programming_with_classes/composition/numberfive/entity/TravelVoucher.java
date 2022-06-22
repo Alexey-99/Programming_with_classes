@@ -15,7 +15,6 @@ public class TravelVoucher {
 	private static final String COMMENT = "Comment: ";
 	private static final String TRAVEL_VOUCHER_ADDED = "Travel voucher added.";
 	private static int count = 0;
-
 	private int id;
 	private String country;
 	private String city;
