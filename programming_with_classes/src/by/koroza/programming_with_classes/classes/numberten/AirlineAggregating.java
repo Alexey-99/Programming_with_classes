@@ -6,9 +6,10 @@ import java.time.format.DateTimeFormatter;
 public class AirlineAggregating {
 	private Airline[] airlines;
 	private static final String NO_MATCHES_FOUND_THIS_QUERY = "No matches were found for this query.";
+	private static final String TIME_FORMAT = "HH:mm";
 
 	public AirlineAggregating() {
-
+		this.airlines = new Airline[0];
 	}
 
 	public AirlineAggregating(Airline[] airlines) {
@@ -24,38 +25,27 @@ public class AirlineAggregating {
 	}
 
 	public void addAirline(Airline airline) {
-		Airline[] airlineNew = null;
-		if (this.airlines == null) {
-			airlineNew = new Airline[1];
-			airlineNew[0] = airline;
-		} else {
-			airlineNew = new Airline[airlines.length + 1];
-			for (int i = 0; i < airlineNew.length; i++) {
-				if (i < airlines.length) {
-					airlineNew[i] = airlines[i];
-				} else if (i == airlines.length) {
-					airlineNew[i] = airline;
-				}
+		Airline[] airlineNew = new Airline[airlines.length + 1];
+		for (int i = 0; i < airlineNew.length; i++) {
+			if (i < airlines.length) {
+				airlineNew[i] = airlines[i];
+			} else if (i == airlines.length) {
+				airlineNew[i] = airline;
 			}
 		}
 		this.airlines = airlineNew;
 	}
 
 	public void addAirlines(Airline[] airlines) {
-		Airline[] airlinesNew = null;
-		if (this.airlines == null) {
-			this.airlines = airlines;
-		} else {
-			airlinesNew = new Airline[this.airlines.length + airlines.length];
-			for (int i = 0; i < airlinesNew.length; i++) {
-				if (i < this.airlines.length) {
-					airlinesNew[i] = this.airlines[i];
-				} else if (i >= this.airlines.length) {
-					airlinesNew[i] = airlines[i - this.airlines.length];
-				}
+		Airline[] airlinesNew = new Airline[this.airlines.length + airlines.length];
+		for (int i = 0; i < airlinesNew.length; i++) {
+			if (i < this.airlines.length) {
+				airlinesNew[i] = this.airlines[i];
+			} else if (i >= this.airlines.length) {
+				airlinesNew[i] = airlines[i - this.airlines.length];
 			}
-			this.airlines = airlinesNew;
 		}
+		this.airlines = airlinesNew;
 	}
 
 	public void printAirlinesByDestination(String destination) {
@@ -86,7 +76,7 @@ public class AirlineAggregating {
 
 	public void printAirlinesByDayWeekAndDepartureTime(String dayWeek, String departureTime) {
 		int countReapitions = 0;
-		LocalTime time = LocalTime.parse(departureTime, DateTimeFormatter.ofPattern("HH:mm"));
+		LocalTime time = LocalTime.parse(departureTime, DateTimeFormatter.ofPattern(TIME_FORMAT));
 		int compare;
 		for (Airline airline : airlines) {
 			if (airline.getDayWeek().equals(dayWeek)) {
@@ -108,6 +98,7 @@ public class AirlineAggregating {
 		int prime = 1;
 		result = result * prime + (airlines != null ? airlines.hashCode() : 1);
 		result = result * prime + (NO_MATCHES_FOUND_THIS_QUERY != null ? NO_MATCHES_FOUND_THIS_QUERY.hashCode() : 1);
+		result = result * prime + (TIME_FORMAT != null ? TIME_FORMAT.hashCode() : 1);
 		return result;
 	}
 

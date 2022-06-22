@@ -12,7 +12,6 @@ public class Airline {
 	private static final String AIRCRAFT_TYPE = "Aircraft type: ";
 	private static final String DEPARTURE_TIME = "Departure time: ";
 	private static final String DAY_WEEK = "Day week: ";
-
 	private String destination;
 	private int flightNumber;
 	private String aircraftType;
