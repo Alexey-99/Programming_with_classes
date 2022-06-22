@@ -4,12 +4,15 @@ public class Counter {
 	private int value;
 	private int minValue;
 	private int maxValue;
-	final static String EXCEPTION_MAXVALUE_LESS_MINVALUE = "The range is incorrect! The maximum limit is less than the minimum!";
-	final static String EXCEPTION_VALUE_LESS_MINVALUE = "The range is incorrect! The minimum limit is greater than the initial number!";
-	final static String EXCEPTION_VALUE_MORE_MAXVALUE = "The range is incorrect! The maximum limit is less than the initial number!";
-	final static String IF_VALUE_MORE_UPPER_LIMIT = "The given number is greater than the upper limit";
-	final static String IF_VALUE_LESS_LOWER_LIMIT = "The specified number is less than the lower limit";
-
+	private final static String EXCEPTION_MAXVALUE_LESS_MINVALUE = "The range is incorrect! The maximum limit is less than the minimum!";
+	private final static String EXCEPTION_VALUE_LESS_MINVALUE = "The range is incorrect! The minimum limit is greater than the initial number!";
+	private final static String EXCEPTION_VALUE_MORE_MAXVALUE = "The range is incorrect! The maximum limit is less than the initial number!";
+	private final static String IF_VALUE_MORE_UPPER_LIMIT = "The given number is greater than the upper limit";
+	private final static String IF_VALUE_LESS_LOWER_LIMIT = "The specified number is less than the lower limit";
+	private final static String START_VALUE = "Start value - ";
+	private final static String MINIMUM_VALUE = "Minimum value - ";
+	private final static String MAXIMUM_VALUE = "Maximum value - ";
+	
 	public Counter() {
 		this.value = 0;
 		this.minValue = -10;
@@ -85,6 +88,10 @@ public class Counter {
 				+ (EXCEPTION_VALUE_MORE_MAXVALUE != null ? EXCEPTION_VALUE_MORE_MAXVALUE.hashCode() : 1);
 		result = result * prime + (IF_VALUE_MORE_UPPER_LIMIT != null ? IF_VALUE_MORE_UPPER_LIMIT.hashCode() : 1);
 		result = result * prime + (IF_VALUE_LESS_LOWER_LIMIT != null ? IF_VALUE_LESS_LOWER_LIMIT.hashCode() : 1);
+		result = result * prime + (START_VALUE != null ? START_VALUE.hashCode() : 1);
+		result = result * prime + (MINIMUM_VALUE != null ? MINIMUM_VALUE.hashCode() : 1);
+		result = result * prime + (MAXIMUM_VALUE != null ? MAXIMUM_VALUE.hashCode() : 1);
+
 		return result;
 	}
 
@@ -115,9 +122,9 @@ public class Counter {
 	@Override
 	public String toString() {
 		StringBuilder build = new StringBuilder();
-		build.append("Start value - ").append(value);
-		build.append("Minimum value - ").append(minValue);
-		build.append("Maximum value - ").append(maxValue);
+		build.append(START_VALUE).append(value);
+		build.append(MINIMUM_VALUE).append(minValue);
+		build.append(MAXIMUM_VALUE).append(maxValue);
 		return build.toString();
 	}
 }
