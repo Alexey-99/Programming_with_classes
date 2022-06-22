@@ -19,6 +19,18 @@ public class Triangle {
 	private static final String INCORRECT_LENGTH_SIDES = "You entered the length of the sides of the triangle incorrectly";
 	private static final String INCORRECT_LENGTH_SIDE = "You entered the length of the side of the triangle incorrectly";
 	private static final String INCORRECT_COORDINATE_POINT = "You entered coordinate point of the triangle incorrectly";
+	private static final String NEXT_LINE = "\n";
+	private static final String SIDE_AB = "SideAB - ";
+	private static final String SIDE_BC = "SideBC - ";
+	private static final String SIDE_CA = "SideCA - ";
+	private static final String POINT_A = "Point A: ";
+	private static final String POINT_B = "Point B: ";
+	private static final String POINT_C = "Point C: ";
+
+	private static final String AREA_TRIANGLE = "Area triangle - ";
+	private static final String PERIMETER_TRIANGLE = "Perimeter triangle - ";
+	private static final String POINT_INTERSECTION_MEDIANS = "Point intersection medians: ";
+
 	private static final double THREE_FROM_FORMULA_CALCULATION_POINT_INTERSCTION__MEDIANS = 3;
 	private static final double TWO_FROM_FORMULA_CALCULATION_SEMI_PERIMETER = 2;
 	private static final double TWO_FROM_FORMULA_CALCULATION_COSINE_ANGLE_FOR_THRIRD_POINT = 2;
@@ -312,6 +324,18 @@ public class Triangle {
 		result = result * prime + Double.hashCode(ONE_FROM_FORMULA_CALCULATION_SINE_ANGLE_FOR_THRIRD_POINT);
 		result = result * prime + Double.hashCode(DEFAULT_SIDE_LENGTH_OF_TRIANGLE);
 		result = result * prime + Double.hashCode(DEFAULT_COORDINATE_POINT_OF_TRIANGLE);
+		result = result * prime + (NEXT_LINE != null ? NEXT_LINE.hashCode() : 1);
+		result = result * prime + (SIDE_AB != null ? SIDE_AB.hashCode() : 1);
+		result = result * prime + (SIDE_BC != null ? SIDE_BC.hashCode() : 1);
+		result = result * prime + (SIDE_CA != null ? SIDE_CA.hashCode() : 1);
+		result = result * prime + (POINT_A != null ? POINT_A.hashCode() : 1);
+		result = result * prime + (POINT_B != null ? POINT_B.hashCode() : 1);
+		result = result * prime + (POINT_C != null ? POINT_C.hashCode() : 1);
+
+		result = result * prime + (AREA_TRIANGLE != null ? AREA_TRIANGLE.hashCode() : 1);
+		result = result * prime + (PERIMETER_TRIANGLE != null ? PERIMETER_TRIANGLE.hashCode() : 1);
+		result = result * prime + (POINT_INTERSECTION_MEDIANS != null ? POINT_INTERSECTION_MEDIANS.hashCode() : 1);
+
 		return result;
 	}
 
@@ -363,18 +387,18 @@ public class Triangle {
 	@Override
 	public String toString() {
 		StringBuilder build = new StringBuilder();
-		build.append("SideAB - ").append(sideAB).append("\n");
-		build.append("SideBC - ").append(sideBC).append("\n");
-		build.append("SideCA - ").append(sideCA).append("\n");
+		build.append(SIDE_AB).append(sideAB).append(NEXT_LINE);
+		build.append(SIDE_BC).append(sideBC).append(NEXT_LINE);
+		build.append(SIDE_CA).append(sideCA).append(NEXT_LINE);
 
-		build.append("Point A: ").append(pointA.toString()).append("\n");
-		build.append("Point B: ").append(pointB.toString()).append("\n");
-		build.append("Point C: ").append(pointC.toString()).append("\n");
+		build.append(POINT_A).append(pointA.toString()).append(NEXT_LINE);
+		build.append(POINT_B).append(pointB.toString()).append(NEXT_LINE);
+		build.append(POINT_C).append(pointC.toString()).append(NEXT_LINE);
 
-		build.append("Area triangle - ").append(calculationArea()).append("\n");
-		build.append("Perimeter triangle - ").append(calculationPerimeter()).append("\n");
-		build.append("Point intersection medians: ").append(calculationPointIntersectionMedians().toString())
-				.append("\n");
+		build.append(AREA_TRIANGLE).append(calculationArea()).append(NEXT_LINE);
+		build.append(PERIMETER_TRIANGLE).append(calculationPerimeter()).append(NEXT_LINE);
+		build.append(POINT_INTERSECTION_MEDIANS).append(calculationPointIntersectionMedians().toString())
+				.append(NEXT_LINE);
 		return build.toString();
 	}
 }
