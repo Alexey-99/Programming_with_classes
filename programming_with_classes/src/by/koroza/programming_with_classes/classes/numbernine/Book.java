@@ -26,7 +26,7 @@ public class Book {
 			String bindingType) {
 		this.id = count++;
 		this.name = name;
-		this.authors = new Author[0];
+		this.authors = new Author[1];
 		this.authors[0] = author;
 		this.publishingHouse = publishingHouse;
 		this.yearPublishing = yearPublishing;
