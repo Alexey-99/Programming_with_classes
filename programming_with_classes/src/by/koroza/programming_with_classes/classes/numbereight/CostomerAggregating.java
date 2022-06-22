@@ -5,6 +5,7 @@ public class CostomerAggregating {
 	private static final String NO_MATCHES_FOUND_THIS_QUERY = "No matches were found for this query.";
 
 	public CostomerAggregating() {
+		this.costomers = new Costomer[0];
 	}
 
 	public CostomerAggregating(Costomer[] costomers) {
@@ -20,35 +21,24 @@ public class CostomerAggregating {
 	}
 
 	public void addCostomer(Costomer costomer) {
-		Costomer[] costomersNew = null;
-		if (this.costomers == null) {
-			costomersNew = new Costomer[1];
-			costomersNew[0] = costomer;
-		} else {
-			costomersNew = new Costomer[costomers.length + 1];
-			for (int i = 0; i < costomersNew.length; i++) {
-				if (i < costomers.length) {
-					costomersNew[i] = costomers[i];
-				} else if (i == costomers.length) {
-					costomersNew[i] = costomer;
-				}
+		Costomer[] costomersNew = new Costomer[costomers.length + 1];
+		for (int i = 0; i < costomersNew.length; i++) {
+			if (i < costomers.length) {
+				costomersNew[i] = costomers[i];
+			} else if (i == costomers.length) {
+				costomersNew[i] = costomer;
 			}
 		}
 		this.costomers = costomersNew;
 	}
 
 	public void addCostomers(Costomer[] costomers) {
-		Costomer[] costomersNew = null;
-		if (this.costomers == null) {
-			this.costomers = costomers;
-		} else {
-			costomersNew = new Costomer[this.costomers.length + costomers.length];
-			for (int i = 0; i < costomersNew.length; i++) {
-				if (i < this.costomers.length) {
-					costomersNew[i] = this.costomers[i];
-				} else if (i >= this.costomers.length) {
-					costomersNew[i] = costomers[i - this.costomers.length];
-				}
+		Costomer[] costomersNew = new Costomer[this.costomers.length + costomers.length];
+		for (int i = 0; i < costomersNew.length; i++) {
+			if (i < this.costomers.length) {
+				costomersNew[i] = this.costomers[i];
+			} else if (i >= this.costomers.length) {
+				costomersNew[i] = costomers[i - this.costomers.length];
 			}
 			this.costomers = costomersNew;
 		}
