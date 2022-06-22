@@ -3,6 +3,8 @@ package by.koroza.programming_with_classes.classes.numberseven;
 public class Point {
 	private double x;
 	private double y;
+	private static final String X = "x - ";
+	private static final String Y = ", y - ";
 
 	public Point(double x, double y) {
 		this.x = x;
@@ -31,6 +33,8 @@ public class Point {
 		int prime = 1;
 		result = result * prime + Double.hashCode(x);
 		result = result * prime + Double.hashCode(y);
+		result = result * prime + (X != null ? X.hashCode() : 1);
+		result = result * prime + (Y != null ? Y.hashCode() : 1);
 		return result;
 	}
 
@@ -58,7 +62,7 @@ public class Point {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("x - ").append(x).append(", y - ").append(y);
+		builder.append(X).append(x).append(Y).append(y);
 		return builder.toString();
 	}
 }

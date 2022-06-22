@@ -26,11 +26,9 @@ public class Triangle {
 	private static final String POINT_A = "Point A: ";
 	private static final String POINT_B = "Point B: ";
 	private static final String POINT_C = "Point C: ";
-
 	private static final String AREA_TRIANGLE = "Area triangle - ";
 	private static final String PERIMETER_TRIANGLE = "Perimeter triangle - ";
 	private static final String POINT_INTERSECTION_MEDIANS = "Point intersection medians: ";
-
 	private static final double THREE_FROM_FORMULA_CALCULATION_POINT_INTERSCTION__MEDIANS = 3;
 	private static final double TWO_FROM_FORMULA_CALCULATION_SEMI_PERIMETER = 2;
 	private static final double TWO_FROM_FORMULA_CALCULATION_COSINE_ANGLE_FOR_THRIRD_POINT = 2;
@@ -331,7 +329,6 @@ public class Triangle {
 		result = result * prime + (POINT_A != null ? POINT_A.hashCode() : 1);
 		result = result * prime + (POINT_B != null ? POINT_B.hashCode() : 1);
 		result = result * prime + (POINT_C != null ? POINT_C.hashCode() : 1);
-
 		result = result * prime + (AREA_TRIANGLE != null ? AREA_TRIANGLE.hashCode() : 1);
 		result = result * prime + (PERIMETER_TRIANGLE != null ? PERIMETER_TRIANGLE.hashCode() : 1);
 		result = result * prime + (POINT_INTERSECTION_MEDIANS != null ? POINT_INTERSECTION_MEDIANS.hashCode() : 1);
