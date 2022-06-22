@@ -2,9 +2,10 @@ package by.koroza.programming_with_classes.classes.numbernine;
 
 public class BookAggregating {
 	private Book[] books;
+	private static final String NEXT_LINE = "\n";
 
 	public BookAggregating() {
-
+		this.books = new Book[0];
 	}
 
 	public BookAggregating(Book[] books) {
@@ -20,35 +21,24 @@ public class BookAggregating {
 	}
 
 	public void addBook(Book book) {
-		Book[] booksNew = null;
-		if (this.books == null) {
-			booksNew = new Book[1];
-			booksNew[0] = book;
-		} else {
-			booksNew = new Book[this.books.length + 1];
-			for (int i = 0; i < booksNew.length; i++) {
-				if (i < this.books.length) {
-					booksNew[i] = this.books[i];
-				} else if (i == this.books.length) {
-					booksNew[i] = book;
-				}
+		Book[] booksNew = new Book[this.books.length + 1];
+		for (int i = 0; i < booksNew.length; i++) {
+			if (i < this.books.length) {
+				booksNew[i] = this.books[i];
+			} else if (i == this.books.length) {
+				booksNew[i] = book;
 			}
 		}
 		this.books = booksNew;
 	}
 
 	public void addBooks(Book[] books) {
-		Book[] booksNew = null;
-		if (this.books == null) {
-			this.books = books;
-		} else {
-			booksNew = new Book[this.books.length + books.length];
-			for (int i = 0; i < booksNew.length; i++) {
-				if (i < this.books.length) {
-					booksNew[i] = this.books[i];
-				} else if (i >= this.books.length) {
-					booksNew[i] = books[i - this.books.length];
-				}
+		Book[] booksNew = new Book[this.books.length + books.length];
+		for (int i = 0; i < booksNew.length; i++) {
+			if (i < this.books.length) {
+				booksNew[i] = this.books[i];
+			} else if (i >= this.books.length) {
+				booksNew[i] = books[i - this.books.length];
 			}
 			this.books = booksNew;
 		}
@@ -119,6 +109,7 @@ public class BookAggregating {
 		int result = 31;
 		int prime = 1;
 		result = result * prime + (books != null ? books.hashCode() : 1);
+		result = result * prime + (NEXT_LINE != null ? NEXT_LINE.hashCode() : 1);
 		return result;
 	}
 
@@ -148,7 +139,7 @@ public class BookAggregating {
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		for (Book book : books) {
-			builder.append(book.toString()).append("\n");
+			builder.append(book.toString()).append(NEXT_LINE);
 		}
 		return builder.toString();
 	}
