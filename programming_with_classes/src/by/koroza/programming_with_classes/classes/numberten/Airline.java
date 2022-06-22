@@ -5,6 +5,13 @@ import java.time.format.DateTimeFormatter;
 
 public class Airline {
 	private static int count = 1;
+	private static final String TIME_FORMAT = "HH:mm";
+	private static final String NEXT_LINE = "\n";
+	private static final String DESTINATION = "Destination: ";
+	private static final String FLIGHT_NUMBER = "Flight number: ";
+	private static final String AIRCRAFT_TYPE = "Aircraft type: ";
+	private static final String DEPARTURE_TIME = "Departure time: ";
+	private static final String DAY_WEEK = "Day week: ";
 
 	private String destination;
 	private int flightNumber;
@@ -16,7 +23,7 @@ public class Airline {
 		this.destination = destination;
 		this.flightNumber = count++;
 		this.aircraftType = aircraftType;
-		this.departureTime = LocalTime.parse(departureTime, DateTimeFormatter.ofPattern("HH:mm"));
+		this.departureTime = LocalTime.parse(departureTime, DateTimeFormatter.ofPattern(TIME_FORMAT));
 		this.dayWeek = dayWeek;
 	}
 
@@ -49,7 +56,7 @@ public class Airline {
 	}
 
 	public void setDepartureTime(String departureTime) {
-		this.departureTime = LocalTime.parse(departureTime, DateTimeFormatter.ofPattern("HH:mm"));
+		this.departureTime = LocalTime.parse(departureTime, DateTimeFormatter.ofPattern(TIME_FORMAT));
 	}
 
 	public String getDayWeek() {
@@ -70,6 +77,13 @@ public class Airline {
 		result = result * prime + (aircraftType != null ? aircraftType.hashCode() : 1);
 		result = result * prime + (departureTime != null ? departureTime.hashCode() : 1);
 		result = result * prime + (dayWeek != null ? dayWeek.hashCode() : 1);
+		result = result * prime + (TIME_FORMAT != null ? TIME_FORMAT.hashCode() : 1);
+		result = result * prime + (NEXT_LINE != null ? NEXT_LINE.hashCode() : 1);
+		result = result * prime + (DESTINATION != null ? DESTINATION.hashCode() : 1);
+		result = result * prime + (FLIGHT_NUMBER != null ? FLIGHT_NUMBER.hashCode() : 1);
+		result = result * prime + (AIRCRAFT_TYPE != null ? AIRCRAFT_TYPE.hashCode() : 1);
+		result = result * prime + (DEPARTURE_TIME != null ? DEPARTURE_TIME.hashCode() : 1);
+		result = result * prime + (DAY_WEEK != null ? DAY_WEEK.hashCode() : 1);
 		return result;
 	}
 
@@ -122,11 +136,11 @@ public class Airline {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Destination: ").append(destination).append("\n");
-		builder.append("Flight number: ").append(flightNumber).append("\n");
-		builder.append("Aircraft type: ").append(aircraftType).append("\n");
-		builder.append("Departure time: ").append(departureTime).append("\n");
-		builder.append("Day week: ").append(dayWeek).append("\n");
+		builder.append(DESTINATION).append(destination).append(NEXT_LINE);
+		builder.append(FLIGHT_NUMBER).append(flightNumber).append(NEXT_LINE);
+		builder.append(AIRCRAFT_TYPE).append(aircraftType).append(NEXT_LINE);
+		builder.append(DEPARTURE_TIME).append(departureTime).append(NEXT_LINE);
+		builder.append(DAY_WEEK).append(dayWeek).append(NEXT_LINE);
 		return builder.toString();
 	}
 }
