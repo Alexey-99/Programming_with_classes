@@ -4,6 +4,7 @@ import java.time.LocalTime;
 
 public class Time {
 	private LocalTime time;
+	private static final String TIME = "time: ";
 
 	public Time() {
 		this.time = LocalTime.of(00, 00, 00);
@@ -64,6 +65,7 @@ public class Time {
 		int result = 31;
 		int prime = 1;
 		result = result * prime + (time != null ? time.hashCode() : 1);
+		result = result * prime + (TIME != null ? TIME.hashCode() : 1);
 		return result;
 	}
 
@@ -92,7 +94,7 @@ public class Time {
 	@Override
 	public String toString() {
 		StringBuilder build = new StringBuilder();
-		build.append("time: ").append(time);
+		build.append(TIME).append(time);
 		return build.toString();
 	}
 }
