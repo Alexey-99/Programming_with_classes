@@ -3,15 +3,15 @@ package by.koroza.programming_with_classes.classes.numbernine;
 public class Book {
 	private static int count = 1;
 	private static final String NEXT_LINE = "\n";
-	
 	private static final String ID = "ID: ";
 	private static final String NAME = "Name: ";
 	private static final String AUTHORS = "Authors: ";
-	private static final String NEXT_LINE = "\n";
-	private static final String NEXT_LINE = "\n";
-	private static final String NEXT_LINE = "\n";
-	private static final String NEXT_LINE = "\n";
-	private static final String NEXT_LINE = "\n";
+	private static final String DO_NOT_HAVE_AUTHORS = "Don't have authors";
+	private static final String PUBLISHING_HOUSE = "Publishing house: ";
+	private static final String YEAR_PUBLISHING = "Year publishing: ";
+	private static final String PAGE_COUNT = "Page count: ";
+	private static final String COST = "Cost: ";
+	private static final String BUILDING_TYPE = "Binding type: ";
 
 	private int id;
 	private String name;
@@ -172,6 +172,15 @@ public class Book {
 		result = result * prime + Double.hashCode(cost);
 		result = result * prime + (bindingType != null ? bindingType.hashCode() : 1);
 		result = result * prime + (NEXT_LINE != null ? NEXT_LINE.hashCode() : 1);
+		result = result * prime + (ID != null ? ID.hashCode() : 1);
+		result = result * prime + (NAME != null ? NAME.hashCode() : 1);
+		result = result * prime + (AUTHORS != null ? AUTHORS.hashCode() : 1);
+		result = result * prime + (DO_NOT_HAVE_AUTHORS != null ? DO_NOT_HAVE_AUTHORS.hashCode() : 1);
+		result = result * prime + (PUBLISHING_HOUSE != null ? PUBLISHING_HOUSE.hashCode() : 1);
+		result = result * prime + (YEAR_PUBLISHING != null ? YEAR_PUBLISHING.hashCode() : 1);
+		result = result * prime + (PAGE_COUNT != null ? PAGE_COUNT.hashCode() : 1);
+		result = result * prime + (COST != null ? COST.hashCode() : 1);
+		result = result * prime + (BUILDING_TYPE != null ? BUILDING_TYPE.hashCode() : 1);
 		return result;
 	}
 
@@ -232,7 +241,7 @@ public class Book {
 
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder(); // TODO
+		StringBuilder builder = new StringBuilder();
 		builder.append(ID).append(id).append(NEXT_LINE);
 		builder.append(NAME).append(name).append(NEXT_LINE);
 		builder.append(AUTHORS);
@@ -240,13 +249,13 @@ public class Book {
 			printAuthors(builder);
 			builder.append(NEXT_LINE);
 		} else {
-			builder.append("Don't have authors");
+			builder.append(DO_NOT_HAVE_AUTHORS);
 		}
-		builder.append("Publishing house: ").append(publishingHouse).append(NEXT_LINE);
-		builder.append("Year publishing: ").append(yearPublishing).append(NEXT_LINE);
-		builder.append("Page count: ").append(pageCount).append(NEXT_LINE);
-		builder.append("Cost: ").append(cost).append(NEXT_LINE);
-		builder.append("Binding type: ").append(bindingType).append(NEXT_LINE);
+		builder.append(PUBLISHING_HOUSE).append(publishingHouse).append(NEXT_LINE);
+		builder.append(YEAR_PUBLISHING).append(yearPublishing).append(NEXT_LINE);
+		builder.append(PAGE_COUNT).append(pageCount).append(NEXT_LINE);
+		builder.append(COST).append(cost).append(NEXT_LINE);
+		builder.append(BUILDING_TYPE).append(bindingType).append(NEXT_LINE);
 		return builder.toString();
 	}
 }
