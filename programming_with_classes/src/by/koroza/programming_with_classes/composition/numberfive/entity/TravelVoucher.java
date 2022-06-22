@@ -6,6 +6,14 @@ import by.koroza.programming_with_classes.composition.numberfive.enums.TypeEnume
 
 public class TravelVoucher {
 	private static final String NEXT_LINE = "\n";
+	private static final String WITHOUT_CITY = "without city";
+	private static final String COUNTRY = "Country: ";
+	private static final String CITY = "City: ";
+	private static final String TOUR_TYPE = "Tour type: ";
+	private static final String NUMBER_NIGHTS = "Number nights: ";
+	private static final String PRICE = "Price: ";
+	private static final String COMMENT = "Comment: ";
+	private static final String TRAVEL_VOUCHER_ADDED = "Travel voucher added.";
 	private static int count = 0;
 
 	private int id;
@@ -21,7 +29,7 @@ public class TravelVoucher {
 		this.id = count++;
 		this.country = country;
 		CountryEnumeration.addCountryInList(country);
-		this.city = "without city";
+		this.city = WITHOUT_CITY;
 		CityEnumeration.addCityInList(city);
 		this.tourType = tourType;
 		TypeEnumeration.addTypeInList(tourType);
@@ -136,6 +144,14 @@ public class TravelVoucher {
 		result = result * prime + (comment != null ? comment.hashCode() : 1);
 		result = result * prime + Boolean.hashCode(isStatusAdd);
 		result = result * prime + (NEXT_LINE != null ? NEXT_LINE.hashCode() : 1);
+		result = result * prime + (WITHOUT_CITY != null ? WITHOUT_CITY.hashCode() : 1);
+		result = result * prime + (COUNTRY != null ? COUNTRY.hashCode() : 1);
+		result = result * prime + (CITY != null ? CITY.hashCode() : 1);
+		result = result * prime + (TOUR_TYPE != null ? TOUR_TYPE.hashCode() : 1);
+		result = result * prime + (NUMBER_NIGHTS != null ? NUMBER_NIGHTS.hashCode() : 1);
+		result = result * prime + (PRICE != null ? PRICE.hashCode() : 1);
+		result = result * prime + (COMMENT != null ? COMMENT.hashCode() : 1);
+		result = result * prime + (TRAVEL_VOUCHER_ADDED != null ? TRAVEL_VOUCHER_ADDED.hashCode() : 1);
 		return result;
 	}
 
@@ -195,18 +211,18 @@ public class TravelVoucher {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Country: ").append(country).append(NEXT_LINE);
+		builder.append(COUNTRY).append(country).append(NEXT_LINE);
 		if (city != null) {
-			builder.append("City: ").append(city).append(NEXT_LINE);
+			builder.append(CITY).append(city).append(NEXT_LINE);
 		}
-		builder.append("Tour type: ").append(tourType).append(NEXT_LINE);
-		builder.append("Number nights: ").append(numberNights).append(NEXT_LINE);
-		builder.append("Price: ").append(price).append(NEXT_LINE);
+		builder.append(TOUR_TYPE).append(tourType).append(NEXT_LINE);
+		builder.append(NUMBER_NIGHTS).append(numberNights).append(NEXT_LINE);
+		builder.append(PRICE).append(price).append(NEXT_LINE);
 		if (comment != null) {
-			builder.append("Comment: ").append(comment).append(NEXT_LINE);
+			builder.append(COMMENT).append(comment).append(NEXT_LINE);
 		}
 		if (isStatusAdd == true) {
-			builder.append("Travel voucher added.").append(NEXT_LINE);
+			builder.append(TRAVEL_VOUCHER_ADDED).append(NEXT_LINE);
 		}
 		return builder.toString();
 	}

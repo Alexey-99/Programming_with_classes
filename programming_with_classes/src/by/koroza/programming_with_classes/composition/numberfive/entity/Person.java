@@ -10,6 +10,10 @@ public class Person {
 	private static final String HAS_TRAVEL_VOUCHERS = " has travel vouchers: ";
 	private static final String NEXT_LINE = "\n";
 
+	private static final String LAST_NAME = "Last name: ";
+	private static final String FIRST_NAME = "First name: ";
+	private static final String PATRONYMIC = "Patronymic: ";
+
 	public Person(String lastName, String firstName, String patronymic) {
 		this.lastName = lastName;
 		this.firstName = firstName;
@@ -101,6 +105,9 @@ public class Person {
 		result = result * prime
 				+ (DOES_NOT_HAVE_TRAVEL_VOUCHERS != null ? DOES_NOT_HAVE_TRAVEL_VOUCHERS.hashCode() : 1);
 		result = result * prime + (NEXT_LINE != null ? NEXT_LINE.hashCode() : 1);
+		result = result * prime + (LAST_NAME != null ? LAST_NAME.hashCode() : 1);
+		result = result * prime + (FIRST_NAME != null ? FIRST_NAME.hashCode() : 1);
+		result = result * prime + (PATRONYMIC != null ? PATRONYMIC.hashCode() : 1);
 		return result;
 	}
 
@@ -148,9 +155,9 @@ public class Person {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Last name: ").append(lastName).append(NEXT_LINE);
-		builder.append("First name: ").append(firstName).append(NEXT_LINE);
-		builder.append("Patronymic: ").append(patronymic).append(NEXT_LINE);
+		builder.append(LAST_NAME).append(lastName).append(NEXT_LINE);
+		builder.append(FIRST_NAME).append(firstName).append(NEXT_LINE);
+		builder.append(PATRONYMIC).append(patronymic).append(NEXT_LINE);
 		builder.append(lastName).append(SPACE);
 		builder.append(firstName).append(SPACE);
 		builder.append(patronymic).append(HAS_TRAVEL_VOUCHERS).append(NEXT_LINE);
