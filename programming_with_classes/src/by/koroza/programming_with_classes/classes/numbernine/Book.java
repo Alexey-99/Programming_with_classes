@@ -2,6 +2,16 @@ package by.koroza.programming_with_classes.classes.numbernine;
 
 public class Book {
 	private static int count = 1;
+	private static final String NEXT_LINE = "\n";
+	
+	private static final String ID = "ID: ";
+	private static final String NAME = "Name: ";
+	private static final String AUTHORS = "Authors: ";
+	private static final String NEXT_LINE = "\n";
+	private static final String NEXT_LINE = "\n";
+	private static final String NEXT_LINE = "\n";
+	private static final String NEXT_LINE = "\n";
+	private static final String NEXT_LINE = "\n";
 
 	private int id;
 	private String name;
@@ -16,6 +26,7 @@ public class Book {
 			String bindingType) {
 		this.id = count++;
 		this.name = name;
+		this.authors = new Author[0];
 		this.authors[0] = author;
 		this.publishingHouse = publishingHouse;
 		this.yearPublishing = yearPublishing;
@@ -45,6 +56,7 @@ public class Book {
 		this.pageCount = pageCount;
 		this.cost = cost;
 		this.bindingType = bindingType;
+		this.authors = new Author[0];
 	}
 
 	public int getID() {
@@ -112,38 +124,27 @@ public class Book {
 	}
 
 	public void addAuthor(Author author) {
-		Author[] authorsNew = null;
-		if (this.authors == null) {
-			authorsNew = new Author[1];
-			authorsNew[0] = author;
-		} else {
-			authorsNew = new Author[this.authors.length + 1];
-			for (int i = 0; i < authorsNew.length; i++) {
-				if (i < this.authors.length) {
-					authorsNew[i] = this.authors[i];
-				} else if (i == this.authors.length) {
-					authorsNew[i] = author;
-				}
+		Author[] authorsNew = new Author[this.authors.length + 1];
+		for (int i = 0; i < authorsNew.length; i++) {
+			if (i < this.authors.length) {
+				authorsNew[i] = this.authors[i];
+			} else if (i == this.authors.length) {
+				authorsNew[i] = author;
 			}
 		}
 		this.authors = authorsNew;
 	}
 
 	public void addAuthors(Author[] authors) {
-		Author[] authorsNew = null;
-		if (this.authors == null) {
-			this.authors = authors;
-		} else {
-			authorsNew = new Author[this.authors.length + authors.length];
-			for (int i = 0; i < authorsNew.length; i++) {
-				if (i < this.authors.length) {
-					authorsNew[i] = this.authors[i];
-				} else if (i >= this.authors.length) {
-					authorsNew[i] = authors[i - this.authors.length];
-				}
+		Author[] authorsNew = new Author[this.authors.length + authors.length];
+		for (int i = 0; i < authorsNew.length; i++) {
+			if (i < this.authors.length) {
+				authorsNew[i] = this.authors[i];
+			} else if (i >= this.authors.length) {
+				authorsNew[i] = authors[i - this.authors.length];
 			}
-			this.authors = authorsNew;
 		}
+		this.authors = authorsNew;
 	}
 
 	private void printAuthors(StringBuilder builder) {
@@ -170,6 +171,7 @@ public class Book {
 		result = result * prime + pageCount;
 		result = result * prime + Double.hashCode(cost);
 		result = result * prime + (bindingType != null ? bindingType.hashCode() : 1);
+		result = result * prime + (NEXT_LINE != null ? NEXT_LINE.hashCode() : 1);
 		return result;
 	}
 
@@ -230,21 +232,21 @@ public class Book {
 
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("ID: ").append(id).append("\n");
-		builder.append("Name: ").append(name).append("\n");
-		builder.append("Authors: ");
-		if (authors != null) {
+		StringBuilder builder = new StringBuilder(); // TODO
+		builder.append(ID).append(id).append(NEXT_LINE);
+		builder.append(NAME).append(name).append(NEXT_LINE);
+		builder.append(AUTHORS);
+		if (authors.length > 0) {
 			printAuthors(builder);
-			builder.append("\n");
+			builder.append(NEXT_LINE);
 		} else {
 			builder.append("Don't have authors");
 		}
-		builder.append("Publishing house: ").append(publishingHouse).append("\n");
-		builder.append("Year publishing: ").append(yearPublishing).append("\n");
-		builder.append("Page count: ").append(pageCount).append("\n");
-		builder.append("Cost: ").append(cost).append("\n");
-		builder.append("Binding type: ").append(bindingType).append("\n");
+		builder.append("Publishing house: ").append(publishingHouse).append(NEXT_LINE);
+		builder.append("Year publishing: ").append(yearPublishing).append(NEXT_LINE);
+		builder.append("Page count: ").append(pageCount).append(NEXT_LINE);
+		builder.append("Cost: ").append(cost).append(NEXT_LINE);
+		builder.append("Binding type: ").append(bindingType).append(NEXT_LINE);
 		return builder.toString();
 	}
 }

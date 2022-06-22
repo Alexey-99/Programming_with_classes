@@ -19,10 +19,12 @@ public class Main {
 
 	public static void main(String[] args) {
 		Author[] authors1 = { new Author("A", "B", "C"), new Author("Niskov", "Max", "N") };
-		Author[] authors2 = { new Author("Z", "X", "C"), new Author("Niskov", "Max", "N") };
+		Author authors2 = new Author("Z", "X", "C");
 
 		Book[] books = { new Book("War", authors1, "H", 2020, 500, 5.20, "V"),
 				new Book("A", authors2, "Vena", 2022, 500, 5.20, "V") };
+
+		Book[] books1 = { new Book("War", authors2, "H", 2020, 500, 5.20, "V") };
 
 		BookAggregating aggregating = new BookAggregating(books);
 
