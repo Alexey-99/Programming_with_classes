@@ -4,6 +4,7 @@ public class Author {
 	private String lastName;
 	private String firstName;
 	private String patronymic;
+	private static final String SPACE = " ";
 
 	public Author(String lastName, String firstName, String patronymic) {
 		this.lastName = lastName;
@@ -51,6 +52,7 @@ public class Author {
 		result = result * prime + (lastName != null ? lastName.hashCode() : 1);
 		result = result * prime + (firstName != null ? firstName.hashCode() : 1);
 		result = result * prime + (patronymic != null ? patronymic.hashCode() : 1);
+		result = result * prime + (SPACE != null ? SPACE.hashCode() : 1);
 		return result;
 	}
 
@@ -93,7 +95,7 @@ public class Author {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append(lastName).append(" ").append(firstName).append(" ").append(patronymic);
+		builder.append(lastName).append(SPACE).append(firstName).append(SPACE).append(patronymic);
 		return builder.toString();
 	}
 }
