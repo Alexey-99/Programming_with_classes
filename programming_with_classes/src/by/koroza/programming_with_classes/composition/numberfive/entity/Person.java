@@ -112,10 +112,12 @@ public class Person {
 
 	@Override
 	public boolean equals(Object object) {
-		if (this == object)
+		if (this == object) {
 			return true;
-		if (object == null)
+		}
+		if (object == null) {
 			return false;
+		}
 		if (!getClass().equals(object.getClass())) {
 			return false;
 		}
